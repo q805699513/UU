@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/friends_dynamic_list_item_lin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="false" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp" >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dynamic_avatar_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            fresco:placeholderImage="@drawable/square_no_pricture"
+            fresco:placeholderImageScaleType="centerCrop"
+            fresco:failureImage="@drawable/no_default_head_img"
+            fresco:failureImageScaleType="centerCrop"
+            fresco:roundAsCircle="true" />
+
+        <TextView
+            android:id="@+id/dynamic_username_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="14dp"
+            android:layout_toRightOf="@+id/dynamic_avatar_img"
+            android:maxLines="15"
+            android:singleLine="true"
+            android:textColor="#1f263b"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/dynamic_title_V"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="-15dp"
+            android:layout_marginTop="36dp"
+            android:layout_toRightOf="@+id/dynamic_avatar_img"
+            android:src="@drawable/authentication"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/dynamic_createtimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="38dp"
+            android:layout_toRightOf="@+id/dynamic_avatar_img"
+            android:orientation="horizontal"
+            android:textColor="#969797"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/dynamic_right_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="15dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/dynamic_right_delete_image"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/right_report_pupuwindow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="15dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/my_invitation_report" />
+
+        <ImageView
+            android:id="@+id/dynamic_right_chat_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/right_report_pupuwindow"
+            android:scaleType="fitCenter"
+            android:src="@drawable/my_invitation_chat" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/dynamic_content_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginTop="5dp"
+        android:lineSpacingExtra="5dp"
+        android:textColor="#666666"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/dynamic_photo_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"
+        android:minHeight="110dp"
+        android:orientation="vertical" >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dynamic_img_gridview_oneimg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            fresco:failureImage="@drawable/uu_default_image_one"
+            fresco:failureImageScaleType="centerCrop"
+            fresco:placeholderImage="@drawable/square_no_pricture"
+            fresco:placeholderImageScaleType="centerCrop"
+            fresco:viewAspectRatio="1.0" />
+
+            <com.uugty.uu.common.myview.JoyGridView
+                android:id="@+id/dynamic_img_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:horizontalSpacing="1dp"
+                android:numColumns="3"
+                android:verticalSpacing="2dp" >
+            </com.uugty.uu.common.myview.JoyGridView>
+    </LinearLayout>
+	<LinearLayout 
+	    android:id="@+id/dynamic_postion_item_lin"
+	    android:layout_width="match_parent"
+	    android:layout_height="22dp"
+	    android:orientation="horizontal"
+	    android:layout_marginLeft="11dp" 
+	    >
+            <ImageView 
+                android:layout_gravity="center_vertical"                
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:src="@drawable/release_route_place_img"
+                />
+    <TextView
+        android:layout_marginLeft="2dp"
+        android:id="@+id/dynamic_position_item_text"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="22dp"          
+        android:gravity="left|center"
+        android:textColor="#969797"
+        android:textSize="12sp" />
+</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="12dp"
+        android:background="#f5f5f5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/dynamic_delete_rel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/my_invitation_delete"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="删除"
+                android:textColor="#98999a"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dynamic_browse_rel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/hide_psw"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="浏览"
+                android:textColor="#98999a"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/dynamic_browse_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#98999a"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="13dp"
+            android:layout_gravity="center"
+            android:background="#E5E5E5" />
+
+        <LinearLayout
+            android:id="@+id/dynamic_friend_comments_lin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/list_item_bg"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/dynamic_message_img"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="评论"
+                android:textColor="#98999a"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/dynamic_comments_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#98999a"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="13dp"
+            android:layout_gravity="center"
+            android:background="#E5E5E5" />
+
+        <LinearLayout
+            android:id="@+id/dynamic_zambia_rel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/list_item_bg" >
+
+            <TextView
+                android:id="@+id/dynamic_zambia_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/dynamic_praise_img"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="#00a1d9"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/dynamic_goodtimes_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#98999a"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#f5f5f5" />
+
+</LinearLayout>

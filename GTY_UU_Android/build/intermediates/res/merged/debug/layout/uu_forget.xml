@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <LinearLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/forget_pwd_back_lin" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/regist_back_image" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/regist_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/forget_pwd_back_lin"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="25dp"
+        android:text="设置密码"
+        android:textColor="@color/login_text_color"
+        android:textSize="17sp" />
+
+    <RelativeLayout
+        android:id="@+id/forget_pwd_data_rel"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@id/regist_text"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="41dp"
+        android:layout_marginTop="45dp" >
+
+        <LinearLayout
+            android:id="@+id/forget_pwd_lin_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/forget_pwd_one"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:maxLength="11"
+                android:textColor="@color/login_hint_color"
+                android:textColorHint="@color/login_hint_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/forget_pwd_one_clear_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/edittext_clear_icon"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/forget_pwd_lin_one"
+            android:layout_marginTop="7dp"
+            android:background="@color/login_line_color" />
+
+        <LinearLayout
+            android:id="@+id/forget_pwd_lin_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/forget_pwd_lin_one"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/forget_pwd_two"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="重复输入密码"
+                android:inputType="textPassword"
+                android:maxLength="11"
+                android:textColor="@color/login_hint_color"
+                android:textColorHint="@color/login_hint_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/forget_pwd_two_clear_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/edittext_clear_icon"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/forget_pwd_lin_two"
+            android:layout_marginTop="7dp"
+            android:background="@color/login_line_color" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/forget_pwd_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/forget_pwd_data_rel"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="41dp"
+        android:background="@drawable/login_button_selector"
+        android:text="下一步"
+        android:textColor="#fff"
+        android:textSize="15sp" />
+     
+    <TextView 
+        android:id="@+id/wx_login_remind_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="提示:请为您绑定的手机号设置独立的登录密码"
+        android:textSize="11sp"
+        android:textColor="@color/login_hint_color"
+        android:layout_below="@id/forget_pwd_btn"
+        android:layout_marginTop="45dp"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

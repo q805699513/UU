@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff" >
+
+  <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/boder"
+        android:gravity="center_vertical" >
+        <include layout="@layout/tabbar_text" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:text="已添加的银行卡"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+        <RelativeLayout
+            android:id="@+id/container_bill_add"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"            
+            android:onClick="emptyHistory" >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="9dp"
+                android:scaleType="centerInside"
+                android:background="@drawable/bill_title_img"
+                 />
+        </RelativeLayout>
+      
+    </RelativeLayout>
+
+    <com.uugty.uu.simplistview.SwipeMenuListView
+        android:id="@+id/bank_card_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#e5e5e5"
+        android:dividerHeight="1px"
+        android:scrollbars="none" >
+    </com.uugty.uu.simplistview.SwipeMenuListView>
+
+</LinearLayout>

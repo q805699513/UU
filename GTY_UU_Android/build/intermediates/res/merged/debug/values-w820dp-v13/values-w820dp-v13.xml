@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="activity_mude_gridview_margin">12dp</dimen>
+    <dimen name="activity_orderpay_textView_pay_order_date_num_margin_top">74dp</dimen>
+    <dimen name="activity_payprice_textView_uu_data_llll_margin_top">28dp</dimen>
+    <dimen name="activity_payprice_textView_uu_data_number_margin_lr">30dp</dimen>
+    <dimen name="activity_payprice_textView_uu_data_number_margin_top">14dp</dimen>
+    <dimen name="activity_payprice_textView_uu_data_xxx_margin_top">28dp</dimen>
+    <dimen name="activity_payprice_textView_uu_data_zongjia_margin_left">45dp</dimen>
+    <dimen name="activity_payprice_textView_uu_data_zongjia_margin_top">70dp</dimen>
+    <dimen name="activity_payprice_textView_uu_pay_price_margin_right">50dp</dimen>
+    <dimen name="activity_payprice_textView_uu_textxian_margin_top">8dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="find_detail_RelativeLayout_margin_top">141dp</dimen>
+    <dimen name="find_detail_circulheadImage_find_heart_img_height">54dp</dimen>
+    <dimen name="find_detail_circulheadImage_find_heart_img_width">54dp</dimen>
+    <dimen name="find_detail_circulheadImage_find_user_img_height">138dp</dimen>
+    <dimen name="find_detail_circulheadImage_find_user_img_widht">138dp</dimen>
+    <dimen name="find_detail_round_iamge_rel_height">175dp</dimen>
+    <dimen name="find_detail_round_iamge_rel_width">300dp</dimen>
+    <dimen name="find_image_lin_height">225dp</dimen>
+    <dimen name="find_image_view_margin_left">5dp</dimen>
+    <dimen name="main_image_hight">150dp</dimen>
+    <dimen name="person_photo_example_image_height">210dp</dimen>
+    <dimen name="person_photo_example_image_width">330dp</dimen>
+    <dimen name="pwd_dialog_price_layout_marginTop">22dp</dimen>
+    <dimen name="recmmend_address_text_size">21sp</dimen>
+    <dimen name="recmmend_title_text_size">14sp</dimen>
+    <dimen name="release_route_image_item_rel">230dp</dimen>
+    <dimen name="release_route_left_image">200dp</dimen>
+    <dimen name="toast_height">20dp</dimen>
+    <dimen name="toast_shape_radius">30dp</dimen>
+</resources>

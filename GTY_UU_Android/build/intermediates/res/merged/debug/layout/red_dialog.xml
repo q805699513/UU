@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/tip_random_back"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/red_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/tip_close" />
+    </RelativeLayout>
+
+    <com.uugty.uu.common.myview.CirculHeadImage
+        android:id="@+id/red_send_image"
+        android:layout_width="67dp"
+        android:layout_height="67dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp" />
+
+    <TextView
+        android:id="@+id/red_send_naem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:textColor="#565a5c"
+        android:textSize="18sp"
+        android:text="空间的法律框架三菱电机佛诶融危机让决定是否将"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp" />
+
+    <TextView
+        android:id="@+id/red_send_liuyan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dp"
+        android:textColor="#f25a4e"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/red_send_ok"
+        android:layout_width="162dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"
+        android:background="#fdd311"
+        android:text="领取红包"
+        android:textColor="#fff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:text="认领小费即可互为好友哦"
+        android:textColor="#fdd311"
+        android:textSize="15sp" />
+
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp" >
+
+        <ImageView
+            android:id="@+id/reg_image_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/bill_record_order" />
+
+        <TextView
+            android:id="@+id/regchager_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/reg_image_price"
+            android:text="充值"
+            android:textColor="#565a5c"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/regchager_monery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="10dp"
+            android:text="100.00"
+            android:textColor="#565a5c"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/regchager_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/regchager_name"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/reg_image_price"
+            android:text="昨天"
+            android:textColor="#98999a"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/regchager_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/regchager_name"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/regchager_day"
+            android:text="13:14"
+            android:textColor="#98999a"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/regchager_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/regchager_monery"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="10dp"
+            android:text="支付成功"
+            android:textColor="#98999a"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</LinearLayout>

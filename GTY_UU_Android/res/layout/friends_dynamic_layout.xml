@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/friend_dyanmic_title_rel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+		<include layout="@layout/tabbar_text" 		    
+		    />
+        <TextView
+            android:id="@+id/friend_dynamic_titleName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="uu圈"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/Dynamic_release_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical"
+            android:text="发布"
+            android:textColor="#00a1d9"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/dynamic_sendMessage_friend"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/dynamic_message_img"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#e5e5e5" />
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/dynamic_swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/dynamic_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#f5f5f5"
+            android:dividerHeight="10dp"
+            android:listSelector="#00000000"
+            android:scrollbars="none" >
+        </ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+     <RelativeLayout
+        android:id="@+id/service_collect_no_data_rel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/service_collect_no_data_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/wish_first_no_data_image" />
+
+        <TextView
+            android:id="@+id/service_collect_no_data_text_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/service_collect_no_data_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="你还没有自己的帖子"
+            android:textColor="@color/base_text_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/service_collect_no_data_text_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/service_collect_no_data_text_one"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:text="你还没有发布过任何帖子，快去发帖吧"
+            android:textColor="@color/login_hint_color"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/service_collect_no_data_btn"
+            android:layout_width="105dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/service_collect_no_data_text_two"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/text_view_board"
+            android:text="去发帖"
+            android:textColor="@color/base_text_color"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fatherLin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/title_relative"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff" >
+
+        <RelativeLayout
+            android:id="@+id/location_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp" >
+
+            <TextView
+                android:id="@+id/location_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="北京"
+                android:textColor="#9b9b9b"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="7dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="7dp"
+                android:layout_toRightOf="@+id/location_text"
+                android:background="@drawable/home_top_bottom" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/home_page_search_text"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="42dp"
+            android:layout_toRightOf="@+id/location_linear"
+            android:background="@drawable/order_drawbakc_text_bg_shape"
+            android:paddingLeft="8dp"
+            android:drawableLeft="@drawable/sousuo"
+            android:gravity="center"
+            android:text="搜索目的地、玩法、景区"
+            android:textColor="#98999A"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:id="@+id/home_page_release_lin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="left|center"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_top_right" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#e5e5e5" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ListView
+                android:id="@+id/home_page_listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#00000000"
+                android:dividerHeight="0dip"  
+                android:scrollbars="none"
+                android:visibility="invisible" >
+            </ListView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </FrameLayout>
+
+</LinearLayout>

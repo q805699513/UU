@@ -1,0 +1,101 @@
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+   
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/text_18_ffffff"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="提示信息"
+            android:textColor="#98999a"
+            android:textSize="17sp"
+            android:visibility="visible" />
+
+        <View 
+            android:layout_height="1dp"
+            android:background="#e5e5e5"
+            android:layout_width="fill_parent"
+            />
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" 
+            android:background="#fff"
+            >
+         <TextView
+                android:id="@+id/message"
+                style="@style/text_16_666666"
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:gravity="left|center"
+                android:lineSpacingMultiplier="1.5"
+                android:minHeight="120dp"
+                android:paddingBottom="15dp"
+                android:paddingLeft="65dp"
+                android:paddingRight="40dp"
+                android:paddingTop="20dp" 
+                android:text="确定要退出登录吗？"
+                android:textColor="#98999a"
+                android:textSize="17sp"
+           
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e5e5" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/positiveButton"
+                style="@style/text_15_666666_sdw"
+                android:layout_width="114dp"
+                android:layout_height="40dp"
+                android:background="#00000000"
+                android:gravity="center"
+                android:textColor="#98999a"
+                android:textSize="17sp"
+                android:text="确定" />
+            
+            <View
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:background="#e5e5e5" 
+            android:layout_marginLeft="16dp"
+            />
+
+            <Button
+                android:id="@+id/negativeButton"
+                style="@style/text_15_666666_sdw"
+                android:layout_width="114dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:background="#00000000"
+                android:textColor="#98999a"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:text="取消" />
+        </LinearLayout>
+    </LinearLayout>
+    
+</FrameLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/wish_mangertwo_linearla"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp" >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/wish_chat_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="12dp"
+            android:layout_centerVertical="true"
+            fresco:placeholderImage="@drawable/no_default_head_img"
+            fresco:roundAsCircle="true" />
+
+        <TextView
+            android:id="@+id/wish_chat_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/wish_chat_image"
+            android:textColor="#565a5c"
+            android:textSize="15sp"
+            android:text="123"
+            android:layout_centerVertical="true" />
+
+       <!--  <ImageView
+            android:id="@+id/city_mapimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wish_chat_name"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/wish_chat_image"
+            android:src="@drawable/wish_city" /> -->
+
+        <TextView
+            android:id="@+id/wish_city_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wish_chat_name"
+            android:layout_toRightOf="@+id/wish_chat_image"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#98999a"
+            android:textSize="13sp"
+            android:text="123"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

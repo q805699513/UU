@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="main_text_color">#56ABE4</color>
+    <color name="main_tabhost_bg">#F4E937</color>
+
+    <!-- 登录注册页颜色 -->
+    <color name="login_line_color">#7FD0EC</color>
+    <color name="login_hint_color">#98999a</color>
+    <color name="login_text_color">#00A1D9</color>
+    <color name="login_btn_press_color">#45b4db</color>
+    <color name="login_wechat_btn_press_color">#bbe1ee</color>
+    <color name="no_login_btn_press_color">#0691c2</color>
+    <color name="no_wechat_login_btn_color">#27d357</color>
+    <color name="no_wechat_login_btn_press_color">#0fb23d</color>
+    
+    <!-- 聊天页面颜色 -->
+    <color name="chat_press_speak_btn_bg">#767676</color>
+    <color name="chat_tv_ack">#7fd190</color>
+    <color name="chat_voice_no_select">#e2e2e2</color>
+    <color name="chat_bg_color">#f5f5f5</color>
+    
+    <color name="guide_animation_text_color">#F4F4F4</color>
+    <!-- 主页 -->
+    <color name="red">#FF0000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="tabbar_color">#fff</color>
+    <color name="line_color">#E0E0E0</color>
+    <color name="yuan_color">#D0A115</color>
+    <color name="gray">#808080</color>
+    <color name="blue">#5588FF</color>
+    <color name="black">#313340</color>
+    <color name="background_color">#EEEEEE</color>
+    <color name="textcheckbox_color">#C5C5C5</color>
+    <!-- <color name="gray">#D0D0D0</color> -->
+    <color name="numtxtcolor_gray">#676767</color>
+    <color name="albumback">#E1E0DE</color>
+    <color name="transparent">#0000</color>
+    <color name="tab_back_color">#0c8cb8</color>  
+    <color name="select_one">#00a1d9</color>
+    <color name="select_two">#0c8cb8</color>
+    <color name="static_replay">#00a1d9</color>
+    <color name="main_back">#fafafa</color>
+    <color name="not_enable">#c0eafa</color>
+ <!-- 透明 -->
+    <color name="select_color">#00a1d9</color>
+    <color name="button_select_color">#f15353</color>
+    <color name="button_no_select_color">#F9ABA4</color>
+    <!-- 半透明 -->
+    <color name="half_white">#e0000000</color>
+    <color name="grid_kuan">#e5e5e5</color>
+    <color name="base_text_color">#565a5c</color>
+    <color name="guide_warn_selector">#334048</color>
+    <!-- 标题栏背景 -->
+    <color name="top_bg">#00A1D8</color>
+    <color name="change_model">#00769f</color>
+    <!-- 导游侧拉栏 -->
+    <color name="guide_right">#38454e</color>
+    <!-- 红包支付按钮背景 -->
+    <color name="tip_parment2_color">#0000FF</color>
+    <color name="tip_parment1_color">#c0eaf9</color>
+    <color name="canlendar_text_color">#323232</color>
+
+    <color name="btn_gray_normal">#666666</color>
+    <!-- 路线展示页字体颜色 -->
+    <color name="route_selected_text_color">#666666</color>
+    <color name="loading_dialog_color">@android:color/holo_blue_dark</color>
+    
+    <!-- 红色 -->
+    <color name="order_status_text_color">#f15353</color>
+    <color name="discount_select_color">#00a1d9</color>
+    <!-- 城市 -->
+      <color name="listview_item_normal">#ffffff</color>
+    <color name="listview_item_pressed">#d4d4d4</color>
+</resources>

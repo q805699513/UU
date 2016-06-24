@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/more_listview_linerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp" >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/more_Listview_img"
+            android:layout_width="150dp"
+            android:layout_height="87.5dp"
+            fresco:failureImage="@drawable/default_image"
+            fresco:failureImageScaleType="fitCenter"
+            fresco:placeholderImage="@drawable/default_image"
+            fresco:placeholderImageScaleType="fitCenter" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/more_Listview_img" >
+
+            <TextView
+                android:id="@+id/more_Listview_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:ellipsize="end"
+                android:maxEms="10"
+                android:maxLines="2"
+                android:text="TextView"
+                android:textColor="#565a5c"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/more_Listview_title"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal" >
+
+                <RatingBar
+                    android:id="@+id/more_Listview_stars"
+                    style="@style/roomRatingBarThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="12dp"
+                    android:layout_centerVertical="true"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="5" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="12dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_toLeftOf="@+id/more_Listview_price"
+                        android:text="￥"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/more_Listview_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:maxLength="6"
+                        android:singleLine="true"
+                        android:text="TextView"
+                        android:textColor="#000000"
+                        android:textSize="19sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

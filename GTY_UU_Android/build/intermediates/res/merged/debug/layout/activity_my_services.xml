@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <com.uugty.uu.common.myview.TopBackView
+        android:id="@+id/my_services_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/my_services_swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/my_services_title" >
+
+        <ListView
+            android:id="@+id/my_services_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:scrollbars="none" >
+        </ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <!-- 无数据 -->
+
+    <com.uugty.uu.common.myview.WaveView
+        android:id="@+id/my_services_no_data_rel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/guide_main_no_data_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="你还没有相关的线路"
+            android:textColor="@color/base_text_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="你还没有发布任何线路，赶快发布吧"
+            android:textColor="@color/login_hint_color"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/my_services_no_data_release_btn"
+            android:layout_width="105dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/guide_main_no_data_text_two"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/text_view_board"
+            android:text="我要发布"
+            android:textColor="@color/base_text_color"
+            android:textSize="14sp" />
+    </com.uugty.uu.common.myview.WaveView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp" >
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/my_floatactionBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/route_add_image"
+                app:backgroundTint="@color/select_color"
+                app:rippleColor="@color/change_model" />
+        </FrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bound_bank_card_item_rel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:background="@color/white"
+    android:minHeight="68dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp" >
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/bound_bank_card_item_type_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        fresco:failureImage="@drawable/bank_abc"
+        fresco:placeholderImage="@drawable/bank_abc" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/bound_bank_card_item_type_image"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/bound_bank_card_item_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="农业银行"
+            android:textColor="#565a5c"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/bound_bank_card_item_cardno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bound_bank_card_item_type"
+            android:text="尾号3342"
+            android:textColor="#565a5c"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <!--  
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/bound_bank_card_item_default"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="14dp"
+        fresco:placeholderImage="@drawable/bank_card_select" />
+     -->
+
+</RelativeLayout>

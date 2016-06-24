@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="13dp" >
+
+    <TextView
+        android:id="@+id/timestamp"
+        style="@style/chat_text_date_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" >
+
+        <com.uugty.uu.common.myview.CirculHeadImage
+            android:id="@+id/iv_imgImg_left"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="12dp"
+            android:scaleType="fitXY" />
+
+       <TextView
+            android:id="@+id/tv_chatcontent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@id/iv_imgImg_left"
+            android:autoLink="web"
+            android:background="@drawable/uuchat_send_right"
+            android:gravity="left|center"
+            android:lineSpacingExtra="2dp"
+            android:textColor="#fff"
+            android:maxWidth="225dp"
+            android:textSize="15sp"
+            android:minHeight="40dp"/>
+       
+       <TextView
+            android:id="@+id/tv_ack"
+            style="@style/chat_text_name_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@id/tv_chatcontent"
+            android:text="@string/text_ack_msg"
+            android:textSize="12sp"
+            android:drawableLeft="@drawable/tv_ack_image"
+            android:textColor="@color/chat_tv_ack"
+            android:drawablePadding="5dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/msg_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/tv_chatcontent"
+            android:clickable="true"
+            android:src="@drawable/msg_state_fail_resend"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_delivered"
+            style="@style/chat_text_name_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@id/tv_chatcontent"
+            android:text="@string/text_delivered_msg"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            android:layout_marginRight="4dp"
+            android:drawableLeft="@drawable/tv_ack_image"
+            android:textColor="@color/chat_tv_ack"
+            android:drawablePadding="5dp" />
+
+        <ProgressBar
+            android:id="@+id/pb_sending"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/tv_chatcontent"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+</LinearLayout>

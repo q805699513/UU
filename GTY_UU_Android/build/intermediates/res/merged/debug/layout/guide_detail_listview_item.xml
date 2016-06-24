@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/guide_detail_item_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_image_hight"
+            fresco:failureImage="@drawable/uu_default_image_one"
+            fresco:failureImageScaleType="fitCenter"
+            fresco:placeholderImage="@drawable/default_image"
+            fresco:placeholderImageScaleType="fitCenter" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/guide_detail_new_route_image"
+            android:layout_width="57dp"
+            android:layout_height="20dp"
+            android:alpha="0.8"
+            fresco:placeholderImage="@drawable/recmmend_road_new_route_image"
+            fresco:placeholderImageScaleType="fitCenter" />
+        <ImageView
+            android:visibility="gone"
+            android:layout_gravity="right|top"
+            android:layout_marginTop="13dp"
+            android:layout_marginRight="13dp"
+            android:id="@+id/find_route_display_route_collect_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/home_page_default_collect_img" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/recmmend_road_rel"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/guide_detail_title_lin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/guide_detail_online_route_image"
+                android:layout_width="31dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="6dp"
+                fresco:placeholderImage="@drawable/recmmend_road_online_route_image" />
+
+            <TextView
+                android:id="@+id/guide_detail_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:maxEms="13"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/base_text_color"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/guide_detail_title_lin"
+            android:layout_marginBottom="13dp"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="出行"
+                android:textColor="@color/login_hint_color"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/guide_detail_item_num_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:textColor="@color/login_hint_color"
+                android:textSize="13sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="2dp"
+                android:layout_marginLeft="11dp"
+                android:background="@color/login_hint_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:text="浏览"
+                android:textColor="@color/login_hint_color"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/guide_detail_item_look_num_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:textColor="@color/login_hint_color"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥ "
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/guide_detail_item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="19sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="-90dp" >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/guide_detail_item_headImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            fresco:placeholderImage="@drawable/no_default_head_img"
+            fresco:roundAsCircle="true"
+            fresco:roundingBorderColor="@color/white"
+            fresco:roundingBorderWidth="1dp" />
+    </FrameLayout>
+
+</LinearLayout>

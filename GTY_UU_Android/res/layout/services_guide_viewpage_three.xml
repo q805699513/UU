@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="276dp"
+    android:layout_height="361dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/services_guide_three_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="23dp"
+            android:layout_marginRight="23dp"
+            android:layout_marginTop="25dp"
+            android:lineSpacingExtra="6dp"
+            android:text="请尽量详细描述您的服务或活动，应当包括：服务的内容，费用详情，活动的特点也可以是您的个人经历等等"
+            android:textColor="#98999a"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btn_close_guide"
+            android:layout_width="116dp"
+            android:layout_height="31dp"
+            android:background="@drawable/price_drawcash_btn_bg"
+            android:gravity="center"
+            android:text="我知道了"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" >
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>

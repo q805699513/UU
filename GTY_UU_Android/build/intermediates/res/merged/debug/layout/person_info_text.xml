@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <com.uugty.uu.common.myview.TopBackView
+        android:id="@+id/person_info_text_topback"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:layout_marginTop="73dp"
+        android:paddingTop="17dp" >
+
+        <com.uugty.uu.common.myview.EmojiEdite
+            android:id="@+id/person_info_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#98999a"
+            android:textSize="17sp"
+            android:background="@null"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e5e5"
+            android:layout_marginTop="17dp" />
+    </LinearLayout>
+
+</LinearLayout>

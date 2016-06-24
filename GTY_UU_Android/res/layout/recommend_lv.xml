@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/recommend_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_image_hight"
+            fresco:failureImage="@drawable/uu_default_image_one"
+            fresco:failureImageScaleType="fitXY"
+            fresco:placeholderImage="@drawable/default_image"
+            fresco:placeholderImageScaleType="fitXY" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/recmmend_road_new_route_image"
+            android:layout_width="57dp"
+            android:layout_height="20dp"
+            android:alpha="0.8"
+            fresco:placeholderImage="@drawable/recmmend_road_new_route_image"
+            fresco:placeholderImageScaleType="fitCenter" />
+		<com.facebook.drawee.view.SimpleDraweeView
+		    android:id="@+id/recommend_iscollect_img"
+		    android:visibility="gone"
+		    android:layout_width="25dp"
+		    android:layout_height="22dp"
+		    android:layout_gravity="right|top"
+		    android:layout_marginRight="12dp"
+		    android:layout_marginTop="12dp"
+		    fresco:placeholderImage="@drawable/home_page_default_collect_img"
+            fresco:placeholderImageScaleType="fitCenter"
+		    />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/recmmend_address_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/recmmend_address_text_size" />
+
+            <LinearLayout
+                android:id="@+id/recmmend_title_played_lin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp" >
+
+
+                <TextView
+                    android:id="@+id/recmmend_title_played"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="好几种玩法/"
+                    android:textColor="@color/white" />
+
+                <ImageView
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/page_indicator_focused" />
+
+                <TextView
+                    android:id="@+id/recmmend_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/recmmend_title_text_size" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <View 
+            android:id="@+id/recmmend_city_empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/white"
+            android:layout_gravity="bottom"/>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/recmmend_road_rel"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" >
+
+        <LinearLayout
+            android:id="@+id/recmmend_road_title_lin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/recmmend_road_online_route_image"
+                android:layout_width="31dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="6dp"
+                fresco:placeholderImage="@drawable/recmmend_road_online_route_image" />
+
+            <TextView
+                android:id="@+id/recmmend_road_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:maxEms="13"
+                android:singleLine="true"
+                android:textColor="@color/base_text_color"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recmmend_road_title_lin"
+            android:layout_marginBottom="13dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="出行"
+                android:textColor="@color/login_hint_color"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/recmmend_road_order_num_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:textColor="@color/login_hint_color"
+                android:textSize="13sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="2dp"
+                android:layout_marginLeft="11dp"
+                android:background="@color/login_hint_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:text="浏览"
+                android:textColor="@color/login_hint_color"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/recmmend_road_look_num_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:textColor="@color/login_hint_color"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥ "
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/recmmend_road_price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="19sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="-90dp" >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/recmmend_road_headImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            fresco:placeholderImage="@drawable/no_default_head_img"
+            fresco:roundAsCircle="true"
+            fresco:roundingBorderColor="@color/white"
+            fresco:roundingBorderWidth="1dp" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <com.uugty.uu.common.myview.TopBackView
+            android:id="@+id/left_photo_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp" >
+
+            <ImageView
+                android:id="@+id/left_photo_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/take_phone_title_img" />
+
+            <ImageView
+                android:id="@+id/left_photo_album"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/left_photo_camera"
+                android:background="@drawable/phone_pic_title_img" />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/left_photo_no_data_rel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/left_photo_background_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="你还没有添加任何照片快去看看吧" />
+
+        <TextView
+            android:id="@+id/left_photo_background_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:text="你还没有添加任何照片" />
+
+        <ImageView
+            android:id="@+id/left_photo_background_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_above="@+id/left_photo_background_text"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/person_single_show" />
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/left_photo_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" >
+
+        <GridView
+            android:id="@+id/left_photo_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

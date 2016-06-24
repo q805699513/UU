@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:id="@+id/user_comment_total_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/user_comment_service_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="#565a5c"
+            android:textSize="14sp" 
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="16dp"
+	            />
+
+        <TextView
+            android:id="@+id/user_comment_cost_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="#565a5c"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/user_comment_fresh_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#565a5c"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+             />
+   </RelativeLayout>
+
+    <com.uugty.uu.common.myview.ListViewForScrollView
+        android:id="@+id/user_comment_listview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="@color/base_text_color"
+        android:dividerHeight="1px"
+        android:scrollbars="none"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/user_comment_no_data_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center"
+        android:background="@drawable/corners_linear_bottom"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="20dp" >
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:src="@drawable/wish_second_no_data_image"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="你还没有评论"
+            android:textColor="@color/base_text_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="你还没有评论"
+            android:textColor="@color/login_hint_color"
+            android:layout_marginBottom="15dp"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

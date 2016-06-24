@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white" >
+
+    <com.uugty.uu.common.myview.TopBackView
+        android:id="@+id/user_comment_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#e5e5e5"
+        
+        />
+
+    <TextView
+        android:id="@+id/user_comment_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="评论总数"
+        android:textColor="#565a5c"
+        android:textSize="17sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/user_comment_service_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="服务指数 4.8"
+            android:textColor="#565a5c"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/user_comment_cost_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="性价比指数4.8"
+            android:textColor="#565a5c"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/user_comment_fresh_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新鲜指数4.8"
+            android:textColor="#565a5c"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/user_comment_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:divider="@color/base_text_color"
+        android:dividerHeight="1px"
+        android:scrollbars="none" >
+    </ListView>
+
+</LinearLayout>

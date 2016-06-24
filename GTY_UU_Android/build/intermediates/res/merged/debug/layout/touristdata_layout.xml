@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical" >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <com.uugty.uu.common.myview.TopBackView
+            android:id="@+id/touristback_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/tourist_confirm_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginRight="13dp"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@drawable/set_text_blue_color"
+            android:textSize="15sp" />
+    </FrameLayout>
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="50dp"
+	    android:layout_marginTop="10dp"
+	    android:background="#ffffff"
+	    >
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="15sp"
+	        android:textColor="#000000"
+	        android:text="姓名"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="12dp"
+	        />
+	    <com.uugty.uu.common.myview.EmojiEdite 
+	        android:gravity="right"
+	        android:id="@+id/tourist_realName_edt"
+	        android:background="@null"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="12sp"
+	        android:hint="请填写用户真实姓名"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="12dp"
+	        android:layout_centerVertical="true"
+	        />
+	</RelativeLayout>
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="50dp"
+	    android:layout_marginTop="10dp"
+	    android:background="#ffffff"
+	    >
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="15sp"
+	        android:textColor="#000000"
+	        android:text="身份证"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="12dp"
+	        />
+	    <com.uugty.uu.common.myview.EmojiEdite 
+	        android:gravity="right"
+	        android:id="@+id/tourist_realID_edt"
+	        android:background="@null"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="12sp"
+	        android:hint="请填写身份证号码"
+	        android:maxLength="20"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="12dp"
+	        android:layout_centerVertical="true"
+	        />
+	</RelativeLayout>
+</LinearLayout>

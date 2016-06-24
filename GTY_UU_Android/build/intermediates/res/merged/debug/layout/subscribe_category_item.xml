@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_subscribe"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minHeight="31dp"
+    android:minWidth="67dp" >
+
+    <TextView
+        android:id="@+id/text_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/route_tag_bg_shape"
+        android:gravity="center"
+        android:minHeight="31dp"
+        android:minWidth="67dp"
+        android:textColor="#00a1d9"
+        android:textSize="14sp" />
+    <!-- android:layout_margin="5dip" -->
+
+</RelativeLayout>

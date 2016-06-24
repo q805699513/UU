@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.uugty.uu.mhvp.core.magic.viewpager.InnerListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/persondate_myself_lines"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:listSelector="#00000000"
+    android:scrollbars="none" />

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingRight="10dp">
+
+    
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/home_page_gridview_image"
+        android:layout_width="130dp"
+        android:layout_height="92dp"
+        fresco:failureImage="@drawable/square_no_pricture"
+        fresco:failureImageScaleType="centerCrop"
+        fresco:placeholderImage="@drawable/square_no_pricture"
+        fresco:placeholderImageScaleType="centerCrop"
+        fresco:viewAspectRatio="1.0" />
+   
+    <TextView 
+        android:id="@+id/home_page_gridview_text"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="长城"
+        android:textColor="#98999a"
+        android:layout_marginTop="9dp"
+        android:textSize="9sp"
+        android:gravity="center"/>
+     
+</LinearLayout>

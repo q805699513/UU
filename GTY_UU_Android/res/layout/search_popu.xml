@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:background="#f5f5f5"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+             >
+
+            <RelativeLayout
+                android:id="@+id/rlSearchFrameDelete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical" >
+
+                <com.uugty.uu.common.myview.EmojiEdite
+                    android:id="@+id/etSearch"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="10dp"   
+                    android:drawableLeft="@drawable/sousuo"     
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="搜索目的地、玩法、景区"
+                    android:textColor="#98999a"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="12dp"
+                android:background="@null"
+                android:gravity="center"
+                android:text="取消"
+                android:textSize="15sp"
+                android:textColor="#00a1d9"
+               />
+        </LinearLayout>
+    </LinearLayout>
+        <View 
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#e5e5e5"
+            />
+
+    <ListView
+        android:id="@+id/auto_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="#e5e5e5"
+        android:dividerHeight="1px"
+        android:scrollbars="none"
+         >
+        
+    </ListView>
+
+</LinearLayout>

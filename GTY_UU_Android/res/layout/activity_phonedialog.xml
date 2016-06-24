@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
+    android:background="@drawable/phone_dialog_bg_shape"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/phone_message"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="选择照片"
+            android:textColor="#98999a"
+            android:textSize="17sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color" />
+
+        <TextView
+            android:id="@+id/phone_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:textColor="@drawable/phone_dialog_text"
+            android:gravity="center"
+            android:text="选择照片"
+            android:textSize="17sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color" />
+
+        <TextView
+            android:id="@+id/phone_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:textColor="@drawable/phone_dialog_text"
+            android:gravity="center"
+            android:text="选择照片"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+</LinearLayout>

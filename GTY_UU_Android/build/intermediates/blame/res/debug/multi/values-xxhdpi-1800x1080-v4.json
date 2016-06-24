@@ -1,0 +1,596 @@
+[
+    {
+        "outputFile": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/values-xxhdpi-1800x1080-v4/values-xxhdpi-1800x1080-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 57,
+                    "endOffset": 108
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 92,
+                        "endColumn": 57,
+                        "endOffset": 145
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 113,
+                    "endColumn": 60,
+                    "endOffset": 169
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 48,
+                        "startColumn": 1,
+                        "startOffset": 2497,
+                        "endColumn": 57,
+                        "endOffset": 2553
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 174,
+                    "endColumn": 87,
+                    "endOffset": 257
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 6,
+                        "startOffset": 1497,
+                        "endColumn": 89,
+                        "endOffset": 1580
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 262,
+                    "endColumn": 81,
+                    "endOffset": 339
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 5,
+                        "startOffset": 1209,
+                        "endColumn": 82,
+                        "endOffset": 1286
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 344,
+                    "endColumn": 82,
+                    "endOffset": 422
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 5,
+                        "startOffset": 863,
+                        "endColumn": 83,
+                        "endOffset": 941
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 427,
+                    "endColumn": 83,
+                    "endOffset": 506
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 5,
+                        "startOffset": 948,
+                        "endColumn": 84,
+                        "endOffset": 1027
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 511,
+                    "endColumn": 80,
+                    "endOffset": 587
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 6,
+                        "startOffset": 1620,
+                        "endColumn": 82,
+                        "endOffset": 1696
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 592,
+                    "endColumn": 85,
+                    "endOffset": 673
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 5,
+                        "startOffset": 1034,
+                        "endColumn": 86,
+                        "endOffset": 1115
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 678,
+                    "endColumn": 84,
+                    "endOffset": 758
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 5,
+                        "startOffset": 1122,
+                        "endColumn": 85,
+                        "endOffset": 1202
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 763,
+                    "endColumn": 83,
+                    "endOffset": 842
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 5,
+                        "startOffset": 1293,
+                        "endColumn": 84,
+                        "endOffset": 1372
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 847,
+                    "endColumn": 79,
+                    "endOffset": 922
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 5,
+                        "startOffset": 1379,
+                        "endColumn": 80,
+                        "endOffset": 1454
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 927,
+                    "endColumn": 55,
+                    "endOffset": 978
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 151,
+                        "endColumn": 55,
+                        "endOffset": 202
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 983,
+                    "endColumn": 69,
+                    "endOffset": 1048
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 5,
+                        "startOffset": 756,
+                        "endColumn": 70,
+                        "endOffset": 821
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1053,
+                    "endColumn": 80,
+                    "endOffset": 1129
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 5,
+                        "startOffset": 508,
+                        "endColumn": 81,
+                        "endOffset": 584
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1134,
+                    "endColumn": 79,
+                    "endOffset": 1209
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 5,
+                        "startOffset": 426,
+                        "endColumn": 80,
+                        "endOffset": 501
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1214,
+                    "endColumn": 80,
+                    "endOffset": 1290
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 5,
+                        "startOffset": 673,
+                        "endColumn": 81,
+                        "endOffset": 749
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1295,
+                    "endColumn": 79,
+                    "endOffset": 1370
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 5,
+                        "startOffset": 591,
+                        "endColumn": 80,
+                        "endOffset": 666
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1375,
+                    "endColumn": 66,
+                    "endOffset": 1437
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 6,
+                        "startOffset": 1863,
+                        "endColumn": 68,
+                        "endOffset": 1925
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1442,
+                    "endColumn": 65,
+                    "endOffset": 1503
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 6,
+                        "startOffset": 1794,
+                        "endColumn": 67,
+                        "endOffset": 1855
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1508,
+                    "endColumn": 53,
+                    "endOffset": 1557
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 6,
+                        "startOffset": 1933,
+                        "endColumn": 55,
+                        "endOffset": 1982
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1562,
+                    "endColumn": 57,
+                    "endOffset": 1615
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 6,
+                        "startOffset": 1733,
+                        "endColumn": 59,
+                        "endOffset": 1786
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1620,
+                    "endColumn": 48,
+                    "endOffset": 1664
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 232,
+                        "endColumn": 48,
+                        "endOffset": 276
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1669,
+                    "endColumn": 65,
+                    "endOffset": 1730
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 44,
+                        "startColumn": 6,
+                        "startOffset": 2321,
+                        "endColumn": 67,
+                        "endOffset": 2382
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1735,
+                    "endColumn": 64,
+                    "endOffset": 1795
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 43,
+                        "startColumn": 6,
+                        "startOffset": 2253,
+                        "endColumn": 66,
+                        "endOffset": 2313
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 1800,
+                    "endColumn": 64,
+                    "endOffset": 1860
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 46,
+                        "startColumn": 1,
+                        "startOffset": 2407,
+                        "endColumn": 61,
+                        "endOffset": 2467
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 1865,
+                    "endColumn": 57,
+                    "endOffset": 1918
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 282,
+                        "endColumn": 57,
+                        "endOffset": 335
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 1923,
+                    "endColumn": 55,
+                    "endOffset": 1974
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 341,
+                        "endColumn": 55,
+                        "endOffset": 392
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 1979,
+                    "endColumn": 60,
+                    "endOffset": 2035
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 35,
+                        "startColumn": 6,
+                        "startOffset": 2019,
+                        "endColumn": 62,
+                        "endOffset": 2075
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 30,
+                    "startColumn": 4,
+                    "startOffset": 2040,
+                    "endColumn": 56,
+                    "endOffset": 2092
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 36,
+                        "startColumn": 6,
+                        "startOffset": 2083,
+                        "endColumn": 58,
+                        "endOffset": 2135
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 31,
+                    "startColumn": 4,
+                    "startOffset": 2097,
+                    "endColumn": 43,
+                    "endOffset": 2136
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 39,
+                        "startColumn": 6,
+                        "startOffset": 2173,
+                        "endColumn": 45,
+                        "endOffset": 2212
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 32,
+                    "startColumn": 4,
+                    "startOffset": 2141,
+                    "endColumn": 49,
+                    "endOffset": 2186
+                },
+                "from": {
+                    "file": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/values-xxhdpi-1800x1080/dimens.xml",
+                    "position": {
+                        "startLine": 50,
+                        "startColumn": 1,
+                        "startOffset": 2586,
+                        "endColumn": 46,
+                        "endOffset": 2631
+                    }
+                }
+            }
+        ]
+    }
+]

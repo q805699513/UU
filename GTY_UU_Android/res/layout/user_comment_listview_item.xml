@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp" >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/user_comment_list_item_head"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="12dp"
+            fresco:roundAsCircle="true"
+            fresco:placeholderImage="@drawable/no_default_head_img"
+            fresco:roundingBorderWidth="1dp"
+            fresco:roundingBorderColor="@color/white" />
+
+        <TextView
+            android:id="@+id/user_comment_list_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_toRightOf="@+id/user_comment_list_item_head"
+            android:textColor="#565a5c"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/user_comment_list_item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="12dp"
+            android:textColor="#98999a"
+            android:textSize="12sp" />
+
+        <RatingBar
+            android:id="@+id/user_comment_list_item_ratingbar"
+            style="@style/roomRatingBarTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_comment_list_item_name"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@+id/user_comment_list_item_head"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="5" >
+        </RatingBar>
+
+        <TextView
+            android:id="@+id/user_comment_list_item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_comment_list_item_ratingbar"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/user_comment_list_item_head"
+            android:textColor="#98999a"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/user_comment_list_iamges_lin"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@+id/user_comment_list_item_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/user_comment_list_item_head"
+            android:gravity="center_horizontal|left"
+            android:orientation="horizontal" >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/user_comment_list_item_evaluae_one"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                fresco:failureImage="@drawable/uu_default_image_one"
+                fresco:failureImageScaleType="fitCenter"
+                fresco:placeholderImage="@drawable/evaluate_add"
+                fresco:placeholderImageScaleType="fitCenter" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/user_comment_list_item_evaluae_two"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                fresco:failureImage="@drawable/uu_default_image_one"
+                fresco:failureImageScaleType="fitCenter"
+                fresco:placeholderImage="@drawable/evaluate_add"
+                fresco:placeholderImageScaleType="fitCenter" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/user_comment_list_item_evaluae_three"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                fresco:failureImage="@drawable/uu_default_image_one"
+                fresco:failureImageScaleType="fitCenter"
+                fresco:placeholderImage="@drawable/evaluate_add"
+                fresco:placeholderImageScaleType="fitCenter"/>
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/user_comment_list_item_evaluae_four"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                fresco:failureImage="@drawable/uu_default_image_one"
+                fresco:failureImageScaleType="fitCenter"
+                fresco:placeholderImage="@drawable/evaluate_add"
+                fresco:placeholderImageScaleType="fitCenter" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/user_comment_list_item_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/user_comment_list_iamges_lin"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/user_comment_list_item_head"
+            android:background="@color/grid_kuan" />
+    </RelativeLayout>
+
+</LinearLayout>

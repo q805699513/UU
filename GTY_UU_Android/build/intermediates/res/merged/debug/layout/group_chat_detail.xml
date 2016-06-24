@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:scrollbars="none"
+    android:orientation="vertical" >
+
+    <com.uugty.uu.common.myview.TopBackView
+        android:id="@+id/group_chat_detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f5f5f5"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 群信息 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <com.uugty.uu.common.myview.CirculHeadImage
+                    android:id="@+id/group_chat_detail_avatar"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="15dp" />
+
+                <TextView
+                    android:id="@+id/group_chat_detail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#010101"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/group_chat_detail_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#98999A"
+                    android:textSize="13sp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="19dp"
+                    android:background="#e5e5e5" />
+                <!-- 群成员 -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="12dp"
+                        android:text="群成员"
+                        android:textColor="#98999A"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/group_chat_detail_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="31dp"
+                        android:textColor="#98999A"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="12dp"
+                        android:src="@drawable/person_compile_enter" />
+                </RelativeLayout>
+
+                <com.uugty.uu.common.myview.JoyGridView
+                    android:id="@+id/group_chat_detail_grideview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="5" >
+                </com.uugty.uu.common.myview.JoyGridView>
+            </LinearLayout>
+
+            <!-- 功能区 -->
+
+            <com.uugty.uu.common.myview.WaveView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" >
+
+                <com.uugty.uu.common.myview.UserLineTextAndImage
+                    android:id="@+id/group_chat_detail_report"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" >
+                </com.uugty.uu.common.myview.UserLineTextAndImage>
+
+                <com.uugty.uu.common.myview.UserLineTextAndImage
+                    android:id="@+id/group_chat_detail_clear"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" >
+                </com.uugty.uu.common.myview.UserLineTextAndImage>
+
+                <com.uugty.uu.common.myview.UserLineTextAndImage
+                    android:id="@+id/group_chat_detail_exit"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp" >
+                </com.uugty.uu.common.myview.UserLineTextAndImage>
+            </com.uugty.uu.common.myview.WaveView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

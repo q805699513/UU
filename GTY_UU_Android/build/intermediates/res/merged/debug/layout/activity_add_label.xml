@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff" >
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="12dp"
+            android:background="@drawable/back_title_img"
+            android:onClick="back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="个性标签"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:background="@null"
+            android:text="确认"
+            android:textColor="#00a1d9"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#e5e5e5" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp" >
+
+        <com.uugty.uu.common.myview.EmojiEdite
+            android:id="@+id/addlable_edit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="#f5f5f5"
+            android:hint="赶紧添加属于自己的标签吧~~"
+            android:maxLength="6"
+            android:paddingLeft="12dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="0dp"
+            android:paddingRight="0dp"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:textColorHint="#98999a"
+            android:textSize="12sp" >
+        </com.uugty.uu.common.myview.EmojiEdite>
+
+        <TextView
+            android:id="@+id/lable_num_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="#f5f5f5"
+            android:gravity="center_vertical"
+            android:paddingRight="12dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="12dp"
+            android:paddingLeft="0dp"
+            android:text="0/6"
+            android:textColor="#98999A"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/lable_add_btn"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center"
+            android:text="添加"
+            android:textColor="#00a1d9"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#e5e5e5" />
+
+    <com.uugty.uu.city.customview.SearchTipsGroupView
+        android:id="@+id/add_lable_lin"
+        android:minHeight="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="18dp"
+        >
+    </com.uugty.uu.city.customview.SearchTipsGroupView>
+	<View 
+	    android:layout_marginTop="20dp"
+	    android:layout_width="match_parent"
+	    android:layout_height="10dp"
+	    android:background="#f5f5f5"
+	    />
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="热门标签"
+	    android:textSize="15sp"
+	    android:textColor="#000000"
+	    android:layout_marginLeft="12dp"
+	    android:layout_marginTop="15dp"	    
+	    />
+	<com.uugty.uu.city.customview.SelectTipsGroupView
+        android:id="@+id/fixed_lable_lin"
+        android:minHeight="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="14dp"
+        >
+    </com.uugty.uu.city.customview.SelectTipsGroupView>
+</LinearLayout>

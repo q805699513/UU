@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    <ImageView
+        android:layout_marginLeft="12dp"
+        android:id="@+id/touristname_selected_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/route_tianxia" />
+
+    <TextView
+        android:id="@+id/touristname_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/touristname_selected_img"
+        android:text="周迅"
+        android:textColor="#000000"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tourist_id_card_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:layout_marginRight="12dp"
+        android:text="13213211516"
+        android:textColor="#666666"
+        android:textSize="15sp" />
+<View 
+    android:layout_marginLeft="45dp"
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="1px"
+    android:background="#e5e5e5"
+    />
+</RelativeLayout>

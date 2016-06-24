@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.uugty.uu.common.myview.TopBackView 
+        android:id="@+id/map_title_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+    <com.amap.api.maps2d.MapView
+        android:layout_below="@id/map_title_view"
+        android:id="@+id/location_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:layout_below="@id/map_title_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="12dp" >
+
+        <Button
+            android:id="@+id/map_person_location"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/map_location_selector" />
+
+        <Button
+            android:id="@+id/map_person_visibile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/map_visible" />
+
+        <Button
+            android:id="@+id/map_person_invisibile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/map_invisible"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</RelativeLayout>

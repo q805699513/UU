@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:gravity="center_vertical"
+        android:text="星座"
+        android:textColor="#565a5c"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e5e5e5" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <RadioGroup
+            android:id="@+id/person_constellation_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="白羊座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e5e5e5" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="金牛座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e5e5e5" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="双子座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e5e5e5" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="巨蟹座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e5e5e5" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="狮子座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e5e5e5" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="处女座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e5e5e5" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="天秤座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e5e5e5" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="天蝎座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e5e5e5" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="射手座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e5e5e5" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="摩羯座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e5e5e5" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="水瓶座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e5e5e5" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableRight="@drawable/person_info_sex_image"
+                android:text="双鱼座"
+                android:textColor="#565a5c"
+                android:textSize="17sp" />
+        </RadioGroup>
+    </ScrollView>
+
+</LinearLayout>

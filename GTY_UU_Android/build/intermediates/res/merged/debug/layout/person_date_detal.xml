@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <ScrollView
+        android:id="@+id/persondate_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="290dp" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="290dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/persondate_bg" />
+
+                <com.uugty.uu.common.myview.CirculHeadImage
+                    android:id="@+id/persondate_title"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="60dp" />
+
+                <ImageView
+                    android:id="@+id/authen_v"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="-30dp"
+                    android:layout_marginTop="120dp"
+                    android:layout_toRightOf="@+id/persondate_title"
+                    android:src="@drawable/authentication" />
+
+                <LinearLayout
+                    android:id="@+id/persondate_name_lin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/persondate_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/persondate_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/persondate_sex"
+                        android:layout_width="15dp"
+                        android:layout_height="14dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="7dp"
+                        android:src="@drawable/persondate_man" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/persondate_work_lin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/persondate_name_lin"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/persondate_work"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="/"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/persondate_dress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/person_compile_text"
+                    android:layout_width="93dp"
+                    android:layout_height="27dp"
+                    android:layout_below="@+id/persondate_work_lin"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/border_selector_person"
+                    android:gravity="center" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="7dp"
+                        android:layout_marginTop="1dp"
+                        android:src="@drawable/person_date_compile" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="编辑资料"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/personcomple_attention_lin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/persondate_work_lin"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:id="@+id/person_add_friends_lin"
+                        android:layout_width="93dp"
+                        android:layout_height="27dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/border_selector_person"
+                        android:gravity="center" >
+
+                        <ImageView
+                            android:id="@+id/person_add_friends_image"
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="7dp"
+                            android:src="@drawable/add_friend" />
+
+                        <TextView
+                            android:id="@+id/persondate_addfriend_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="关注"
+                            android:textColor="#ffffff"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/persondate_chat"
+                        android:layout_width="93dp"
+                        android:layout_height="27dp"
+                        android:background="@drawable/border_selector_person"
+                        android:gravity="center" >
+
+                        <ImageView
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="7dp"
+                            android:src="@drawable/persondate_compose" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="发私信"
+                            android:textColor="#ffffff"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/tv_lin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tv_routeline"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:gravity="center"
+                            android:text="路线"
+                            android:textColor="#666666"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tv_guid2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:gravity="center"
+                            android:text="关于我"
+                            android:textColor="#666666"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tv_guid3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:gravity="center"
+                            android:text="uu圈"
+                            android:textColor="#666666"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/cursor"
+                        android:layout_width="40dp"
+                        android:layout_height="2dp"
+                        android:layout_below="@id/tv_lin"
+                        android:layout_marginLeft="34dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="matrix"
+                        android:src="@drawable/fragment_chang_two" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#e5e5e5" />
+
+                <com.uugty.uu.common.myview.PersondateViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:flipInterval="30"
+                    android:persistentDrawingCache="animation" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:id="@+id/tabar_back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:clickable="true" >
+
+            <ImageView
+                android:id="@+id/back_image_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/back_title_img"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>

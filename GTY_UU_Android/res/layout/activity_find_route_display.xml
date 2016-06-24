@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_find_route_display_father"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.uugty.uu.common.myview.PagerScrollView
+        android:id="@+id/activity_find_route_display_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f5f5f5"
+        android:focusable="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- 背景图片 -->
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/find_route_display_background_image"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                fresco:failureImage="@drawable/uu_default_image_one"
+                fresco:failureImageScaleType="fitCenter"
+                fresco:placeholderImage="@drawable/default_image"
+                fresco:placeholderImageScaleType="fitCenter" />
+            <!-- 路线的参数数量 -->
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:background="@color/white"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp" >
+
+                        <TextView
+                            android:id="@+id/find_route_display_route_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_centerVertical="true"
+                            android:ellipsize="end"
+                            android:maxLength="30"
+                            android:textColor="@color/base_text_color"
+                            android:textSize="15sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:id="@+id/find_route_display_route_price_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="1dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="2dp"
+                            android:text="￥"
+                            android:textColor="#f15353"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/find_route_display_route_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_toRightOf="@+id/find_route_display_route_price_icon"
+                            android:textColor="#f15353"
+                            android:textSize="19sp" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="left|center"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="评论："
+                                android:textColor="@color/login_hint_color"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/find_route_display_route_comment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/login_hint_color"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="出行："
+                                android:textColor="@color/login_hint_color"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/find_route_display_route_travel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/login_hint_color"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="right|center"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="浏览："
+                                android:textColor="@color/login_hint_color"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/find_route_display_route_browse"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/login_hint_color"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="#e5e5e5" />
+                </LinearLayout>
+                <!-- 收藏 -->
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="17dp" >
+
+                    <ImageView
+                        android:id="@+id/find_route_display_route_collect_image"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/home_page_default_collect_img" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <!-- 导游信息 -->
+
+            <com.uugty.uu.common.myview.WaveView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/persondate_rel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="13dp" >
+
+                    <LinearLayout
+                        android:id="@+id/find_route_display_route_person_lin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="19dp"
+                        android:layout_marginTop="7dp"
+                        android:orientation="horizontal" >
+
+                        <!-- 用户头像 -->
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/find_route_display_route_person_avatar"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            fresco:placeholderImage="@drawable/no_default_head_img"
+                            fresco:roundAsCircle="true" />
+                        <!-- 用户名 -->
+						<ImageView
+				            android:id="@+id/find_route_display_route_id_verification"
+				            android:layout_width="14dp"
+				            android:layout_height="14dp"
+				            android:layout_gravity="center"
+				            android:layout_marginLeft="-15dp"
+				            android:layout_marginTop="12dp"
+				            android:src="@drawable/authentication" />
+						<LinearLayout 
+						    android:layout_width="wrap_content"
+						    android:layout_height="wrap_content"
+						    android:orientation="vertical">
+	                        <LinearLayout
+	                            android:layout_width="wrap_content"
+	                            android:layout_height="match_parent"
+	                            android:layout_gravity="center"
+	                            android:orientation="horizontal" >
+	
+	                            <TextView
+	                                android:id="@+id/find_route_display_route_person_name"
+	                                android:layout_width="wrap_content"
+	                                android:layout_height="wrap_content"
+	                                android:layout_marginLeft="5dp"
+	                                android:layout_gravity="center"
+	                                android:singleLine="true"
+	                                android:textColor="@color/base_text_color"
+	                                android:textSize="15sp" />
+	
+	                            <ImageView
+	                                android:id="@+id/find_rote_img_ver"
+	                                android:layout_width="48dp"
+	                                android:layout_height="14dp"
+	                                android:layout_gravity="center"
+	                                android:layout_marginLeft="10dp"
+	                                android:visibility="invisible"
+	                                android:src="@drawable/lzh_veru" />
+	                        </LinearLayout>
+	                        
+	                        <LinearLayout
+	                            android:layout_width="wrap_content"
+	                            android:layout_height="match_parent"
+	                            android:layout_marginTop="5dp"
+	                            android:layout_marginLeft="5dp"
+	                            android:orientation="horizontal" >
+	
+	                            <ImageView
+	                                android:id="@+id/find_rote_img_realname"
+	                                android:layout_width="31dp"
+	                                android:layout_height="13dp"
+	                                android:layout_gravity="center"
+	                                android:layout_marginLeft="5dp"
+	                                android:visibility="gone"
+	                                android:src="@drawable/lzh_realname" />
+	                            <ImageView
+	                                android:id="@+id/find_rote_img_academic"
+	                                android:layout_width="31dp"
+	                                android:layout_height="13dp"
+	                                android:layout_gravity="center"
+	                                android:layout_marginLeft="5dp"
+	                                android:visibility="gone"
+	                                android:src="@drawable/lzh_academic" />
+	                            <ImageView
+	                                android:id="@+id/find_rote_img_guide"
+	                                android:layout_width="31dp"
+	                                android:layout_height="13dp"
+	                                android:layout_gravity="center"
+	                                android:layout_marginLeft="5dp"
+	                                android:visibility="gone"
+	                                android:src="@drawable/lzh_guide" />
+	                            <ImageView
+	                                android:id="@+id/find_rote_img_drive"
+	                                android:layout_width="31dp"
+	                                android:layout_height="13dp"
+	                                android:layout_gravity="center"
+	                                android:layout_marginLeft="5dp"
+	                                android:visibility="gone"
+	                                android:src="@drawable/lzh_drive" />
+	                        </LinearLayout>
+	                   </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/find_route_display_route_guide_introduction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/find_route_display_route_person_lin"
+                        android:layout_marginBottom="13dp"
+                        android:layout_marginLeft="19dp"
+                        android:layout_marginRight="19dp"
+                        android:layout_marginTop="9dp"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textColor="#666666"
+                        android:textSize="14sp" />
+                    <!-- 标签 -->
+
+                    <com.uugty.uu.city.customview.LabelTipsGroupView
+                        android:id="@+id/find_route_display_route_tag_lin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/find_route_display_route_guide_introduction"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="left|center"
+                        android:orientation="horizontal" >
+                    </com.uugty.uu.city.customview.LabelTipsGroupView>
+                </RelativeLayout>
+            </com.uugty.uu.common.myview.WaveView>
+            <!-- fragment -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#e5e5e5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/tv_lin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tv_guid1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:gravity="center"
+                            android:text="玩法"
+                            android:textColor="#666666"
+                            android:textSize="15sp" />
+
+
+                        <TextView
+                            android:id="@+id/tv_guid3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:gravity="center"
+                            android:text="评价"
+                            android:textColor="#666666"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/cursor"
+                        android:layout_width="128dp"
+                        android:layout_height="2dp"
+                        android:layout_below="@id/tv_lin"
+                        android:layout_marginLeft="27dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="matrix"
+                        android:background="#00a1d9" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#e5e5e5" />
+
+                <com.uugty.uu.common.myview.CustomViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            
+	            <LinearLayout
+	                android:id="@+id/findview_fragment_linearlayout"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_below="@+id/find_list_view"
+	                android:orientation="vertical" >
+
+	                <TextView
+	                    android:id="@+id/findview_fragment_explain_view_content_text"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="1dp"
+	                    android:layout_marginLeft="1dp"
+	                    android:layout_marginRight="1dp"
+	                    android:background="#e5e5e5" />
+
+	                <LinearLayout
+	                    android:id="@+id/findview_fragment_explain_view_content_linear"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:background="@drawable/corners_linear_bottom"
+	                    android:baselineAligned="true"
+	                    android:orientation="vertical"
+	                    android:visibility="gone" >
+
+	                    <RelativeLayout
+	                        android:layout_width="match_parent"
+	                        android:layout_height="50dp" >
+
+	                        <TextView
+	                            android:layout_width="wrap_content"
+	                            android:layout_height="wrap_content"
+	                            android:layout_centerHorizontal="true"
+	                            android:layout_centerVertical="true"
+	                            android:gravity="center"
+	                            android:text="线路说明"
+	                            android:textColor="#000000" />
+	                    </RelativeLayout>
+
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="1dp"
+	                        android:layout_marginLeft="1dp"
+	                        android:layout_marginRight="1dp"
+	                        android:background="#e5e5e5" />
+
+	                    <TextView
+	                        android:id="@+id/find_detail_road_content"
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginBottom="21dp"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginRight="17dp"
+	                        android:layout_marginTop="21dp"
+	                        android:textColor="#666666" />
+	                </LinearLayout>
+
+	                <TextView
+	                    android:id="@+id/findview_fragment_explain_view_line_text"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="1dp"
+	                    android:layout_marginLeft="1dp"
+	                    android:layout_marginRight="1dp"
+	                    android:background="#e5e5e5" />
+
+	                <LinearLayout
+	                    android:id="@+id/findview_fragment_explain_view_line_linear"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:background="@drawable/corners_linear_bottom"
+	                    android:baselineAligned="true"
+	                    android:orientation="vertical" >
+
+	                    <RelativeLayout
+	                        android:layout_width="match_parent"
+	                        android:layout_height="50dp" >
+
+	                        <TextView
+	                            android:layout_width="wrap_content"
+	                            android:layout_height="wrap_content"
+	                            android:layout_centerHorizontal="true"
+	                            android:layout_centerVertical="true"
+	                            android:gravity="center"
+	                            android:text="线路说明"
+	                            android:textColor="#000000" />
+	                    </RelativeLayout>
+
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="1dp"
+	                        android:layout_marginLeft="1dp"
+	                        android:layout_marginRight="1dp"
+	                        android:background="#e5e5e5" />
+
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginTop="21dp"
+	                        android:text="旅行线路"
+	                        android:textColor="#000000"
+	                        android:textSize="14sp" />
+
+	                    <TextView
+	                        android:id="@+id/findview_fragment_explain_roadlineInfo"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginRight="17dp"
+	                        android:layout_marginTop="12dp"
+	                        android:text="旅行线路-阿斯顿法师-阿士大夫撒地方"
+	                        android:textColor="#666666"
+	                        android:textSize="14sp" />
+
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginTop="21dp"
+	                        android:text="出发地点"
+	                        android:textColor="#000000"
+	                        android:textSize="14sp" />
+
+	                    <TextView
+	                        android:id="@+id/findview_fragment_explain_roadlineStartArea"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginRight="17dp"
+	                        android:layout_marginTop="12dp"
+	                        android:text="旅行线路-阿斯顿法师-阿士大夫撒地方"
+	                        android:textColor="#666666"
+	                        android:textSize="14sp" />
+
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginTop="21dp"
+	                        android:text="特别说明"
+	                        android:textColor="#000000"
+	                        android:textSize="14sp" />
+
+	                    <TextView
+	                        android:id="@+id/findview_fragment_explain_roadlineSpecialMark"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginBottom="21dp"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginRight="17dp"
+	                        android:layout_marginTop="12dp"
+	                        android:text="旅行线路-阿斯顿法师-阿士大夫撒地方"
+	                        android:textColor="#666666"
+	                        android:textSize="14sp" />
+	                </LinearLayout>
+
+	                <TextView
+	                    android:id="@+id/findview_fragment_explain_view_price_text"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="1dp"
+	                    android:layout_marginLeft="1dp"
+	                    android:layout_marginRight="1dp"
+	                    android:background="#e5e5e5" />
+
+	                <LinearLayout
+	                    android:id="@+id/findview_fragment_explain_view_price_linear"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:background="@drawable/corners_linear_bottom"
+	                    android:baselineAligned="true"
+	                    android:orientation="vertical" >
+
+	                    <RelativeLayout
+	                        android:layout_width="match_parent"
+	                        android:layout_height="50dp" >
+
+	                        <TextView
+	                            android:layout_width="wrap_content"
+	                            android:layout_height="wrap_content"
+	                            android:layout_centerHorizontal="true"
+	                            android:layout_centerVertical="true"
+	                            android:gravity="center"
+	                            android:text="费用说明"
+	                            android:textColor="#000000" />
+	                    </RelativeLayout>
+
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="1dp"
+	                        android:layout_marginLeft="1dp"
+	                        android:layout_marginRight="1dp"
+	                        android:background="#e5e5e5" />
+
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginTop="21dp"
+	                        android:text="路线价格"
+	                        android:textColor="#000000"
+	                        android:textSize="14sp" />
+
+	                    <TextView
+	                        android:id="@+id/findview_fragment_explain_roadlinePrice"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginRight="17dp"
+	                        android:layout_marginTop="12dp"
+	                        android:text="旅行线路-阿斯顿法师-阿士大夫撒地方"
+	                        android:textColor="#000000"
+	                        android:textSize="14sp" />
+
+	                    <TextView
+	                        android:id="@+id/findview_fragment_explain_roadlineFeeContains_text"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginTop="21dp"
+	                        android:text="费用包含"
+	                        android:textColor="#000000"
+	                        android:textSize="14sp" />
+
+	                    <TextView
+	                        android:id="@+id/findview_fragment_explain_roadlineFeeContains"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginBottom="21dp"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginRight="17dp"
+	                        android:layout_marginTop="12dp"
+	                        android:text="旅行线路-阿斯顿法师-阿士大夫撒地方"
+	                        android:textColor="#666666"
+	                        android:textSize="14sp" />
+	                </LinearLayout>
+
+	                <TextView
+	                    android:layout_width="match_parent"
+	                    android:layout_height="1dp"
+	                    android:layout_marginLeft="1dp"
+	                    android:layout_marginRight="1dp"
+	                    android:layout_marginTop="17dp"
+	                    android:background="#e5e5e5" />
+
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:background="@drawable/corners_linear_bottom"
+	                    android:baselineAligned="true"
+	                    android:orientation="vertical" >
+
+	                    <RelativeLayout
+	                        android:layout_width="match_parent"
+	                        android:layout_height="50dp" >
+
+	                        <TextView
+	                            android:layout_width="wrap_content"
+	                            android:layout_height="wrap_content"
+	                            android:layout_centerHorizontal="true"
+	                            android:layout_centerVertical="true"
+	                            android:gravity="center"
+	                            android:text="退订政策"
+	                            android:textColor="#000000" />
+	                    </RelativeLayout>
+
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="1dp"
+	                        android:layout_marginLeft="1dp"
+	                        android:layout_marginRight="1dp"
+	                        android:background="#e5e5e5" />
+
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginRight="17dp"
+	                        android:layout_marginTop="17dp"
+	                        android:text="1、用户在支付订单而当地向导小u没有接受订单之前，退订订单全额退款给用户。"
+	                        android:textColor="#666666"
+	                        android:textSize="14sp" />
+
+	                    <TextView
+	                        android:layout_width="match_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginBottom="21dp"
+	                        android:layout_marginLeft="17dp"
+	                        android:layout_marginRight="17dp"
+	                        android:layout_marginTop="3dp"
+	                        android:text="2.当行程已经开始用户由于某些原因需要退订，需要与当地向导小u协商并未确定退款比例，如果用户单方面的违约，当地向导小u将会收到全部费用。"
+	                        android:textColor="#666666"
+	                        android:textSize="14sp" />
+	                </LinearLayout>
+	            </LinearLayout>
+	
+            <!-- 更多路线 -->
+
+            <LinearLayout
+                android:id="@+id/find_route_display_more_route_lin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#e5e5e5" />
+
+                <com.uugty.uu.common.myview.ListViewForScrollView
+                    android:id="@+id/find_route_display_more_route_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/white"
+                    android:dividerHeight="9dp"
+                    android:listSelector="#00000000"
+                    android:scrollbars="none" >
+                </com.uugty.uu.common.myview.ListViewForScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/find_route_display_more_route_btn_lin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="1px"
+                android:background="#ffffff"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/find_detail_about_more_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="更多路线"
+                    android:textColor="#98999a"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+        </LinearLayout>
+    </com.uugty.uu.common.myview.PagerScrollView>
+
+    <!-- 头部 -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:id="@+id/tabar_back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:clickable="true" >
+
+            <ImageView
+                android:id="@+id/back_image_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:alpha="0.8"
+                android:background="@drawable/back_title_img_gray"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/find_title_share_lin"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:background="@drawable/share_title_img" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/find_route_display_route_chat_lin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:alpha="0.9"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/chat_image"
+                android:layout_width="23dp"
+                android:layout_height="21dp"
+                android:src="@drawable/route_detail_chat_image_noclick" />
+
+            <TextView
+                android:id="@+id/chat_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="聊天"
+                android:textColor="@android:color/black"
+                android:textSize="10sp" />
+        </LinearLayout>
+        <View 
+            
+            android:layout_height="match_parent"
+            android:layout_width="0.1dp"
+            android:background="#666666"
+            android:alpha="0.9"/>
+        <LinearLayout
+            android:id="@+id/find_route_display_route_tel_lin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:alpha="0.9"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/tel_image"
+                android:layout_width="23dp"
+                android:layout_height="21dp"
+                android:src="@drawable/route_detail_tel_image" />
+
+            <TextView
+                android:id="@+id/tel_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="电话"
+                android:textColor="@android:color/black"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/find_route_display_route_reserve_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="19"
+            android:alpha="0.9"
+            android:background="#f15353"
+            android:text="预定"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>
