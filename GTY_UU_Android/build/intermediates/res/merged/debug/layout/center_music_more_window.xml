@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="320dp"
         android:clickable="true"
         android:drawableTop="@drawable/lzh_homecustome"
         android:gravity="center|bottom"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="320dp"
         android:layout_toRightOf="@+id/more_window_collect"
         android:clickable="true"
         android:drawableTop="@drawable/lzh_home_push"
@@ -37,7 +37,7 @@
         android:id="@+id/more_window_external"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="320dp"
         android:layout_toRightOf="@+id/more_window_auto"
         android:clickable="true"
         android:drawableTop="@drawable/lzh_uufriend"
@@ -45,12 +45,17 @@
         android:textColor="#666666"
         android:text="uu圈"/>
 
-    <ImageView
-        android:id="@+id/center_music_window_close"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/more_window_auto"
-        android:src="@drawable/lzh_home_bottom" />
+
+
+        <ImageView
+            android:id="@+id/center_music_window_close"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/lzh_home_bottom"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/more_window_auto"
+            android:layout_alignEnd="@+id/more_window_auto"
+            android:layout_marginBottom="30dp" />
 
 </RelativeLayout>

@@ -135,7 +135,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 			mMoreWindow.init();
 		}
 
-		mMoreWindow.showMoreWindow(view,28);
+		mMoreWindow.showMoreWindow(view,80);
 	}
 	
 	@Override

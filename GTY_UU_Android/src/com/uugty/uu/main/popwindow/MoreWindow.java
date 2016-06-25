@@ -21,6 +21,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -139,13 +140,13 @@ public class MoreWindow extends PopupWindow implements OnClickListener{
 		setContentView(layout);
 		
 		ImageView close= (ImageView)layout.findViewById(R.id.center_music_window_close);
-		android.widget.RelativeLayout.LayoutParams params =new android.widget.RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-		params.bottomMargin = bottomMargin;
-		params.addRule(RelativeLayout.BELOW, R.id.more_window_auto);
-		params.addRule(RelativeLayout.RIGHT_OF, R.id.more_window_collect);
-		params.topMargin = 200;
-		params.leftMargin = 18;
-		close.setLayoutParams(params);
+//		android.widget.RelativeLayout.LayoutParams params =new android.widget.RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+//		params.bottomMargin = bottomMargin;
+//		params.addRule(RelativeLayout.BELOW, R.id.more_window_auto);
+//		params.addRule(RelativeLayout.RIGHT_OF, R.id.more_window_collect);
+//		params.topMargin = 300;
+//		params.leftMargin = 18;
+//		close.setLayoutParams(params);
 		
 		close.setOnClickListener(new OnClickListener() {
 
@@ -163,6 +164,11 @@ public class MoreWindow extends PopupWindow implements OnClickListener{
 		setOutsideTouchable(true);
 		setFocusable(true);
 		showAtLocation(anchor, Gravity.BOTTOM, 0, statusBarHeight);
+	}
+
+	protected static int dpToPx(Context context, int dp)
+	{
+		return (int) (context.getResources().getDisplayMetrics().density * dp + 0.5f);
 	}
 
 	private void showAnimation(ViewGroup layout){

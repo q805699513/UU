@@ -1060,13 +1060,36 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 				}
 				// 点击新浪微博
 				if ("SinaWeibo".equals(platform.getName())) {
-					 paramsToShare.setText(roadDetailResult.getRoadlineTitle() + shareUrl);
-					 paramsToShare.setShareType(Platform.SHARE_WEBPAGE);// 一定要设置分享属性
-					 paramsToShare.setImagePath("");
-					 paramsToShare.setImageUrl(APPRestClient.SERVER_IP
-								+ "images/roadlineBackgroud/" + bgaddress);
+					new Thread(new Runnable() {
 
-					 // 限制微博分享的文字不能超过20
+						@Override
+						public void run() {
+							try {
+								URL urlStr = new URL(APPRestClient.SERVER_IP
+										+ "images/roadlineBackgroud/" + bgaddress);
+								HttpURLConnection connection = (HttpURLConnection) urlStr.openConnection();
+								int state = connection.getResponseCode();
+								paramsToShare.setText(roadDetailResult.getRoadlineTitle() + shareUrl);
+								paramsToShare.setShareType(Platform.SHARE_WEBPAGE);// 一定要设置分享属性
+
+								if (state == 200) {
+									paramsToShare.setImagePath("");
+									paramsToShare.setImageUrl(APPRestClient.SERVER_IP
+											+ "images/roadlineBackgroud/" + bgaddress);
+								} else {
+									// 取不到图片使用默认logo
+									BitmapDrawable d = new BitmapDrawable(getResources().openRawResource( + R.drawable.app_icon));
+									LogUtils.saveFile(d.getBitmap(),"default.png");
+									paramsToShare.setImagePath(LogUtils.WEIBO_PATH+"default.png");
+								}
+							} catch (Exception e) {
+								e.printStackTrace();;
+							}
+						}
+					}).start();
+
+
+					// 限制微博分享的文字不能超过20
 //					 if (paramsToShare.getComment().length() > 20) {
 //					  
 //					  Toast.makeText(FindTestViewPagerActivity.this,

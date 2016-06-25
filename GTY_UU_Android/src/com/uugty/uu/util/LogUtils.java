@@ -1,6 +1,8 @@
 package com.uugty.uu.util;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +11,7 @@ import java.util.Date;
 
 import com.uugty.uu.base.application.MyApplication;
 
+import android.graphics.Bitmap;
 import android.os.Environment;
 
 
@@ -23,9 +26,13 @@ public class LogUtils {
 	
 	/** 本地log日志文件存储路径 */
 	private static String mLocalLogDir = "uugtv/";
-	
+
+	/** 微博分享保存的图片 */
+	public final static String WEIBO_PATH
+			= Environment.getExternalStorageDirectory() + "/UUimage/";
+
 	/** 是否测试版本 */
-	private static boolean isTest = true;
+	private static boolean isTest = false;
 	/**
 	 * <p>
 	 * 打印日志。
@@ -135,6 +142,24 @@ public class LogUtils {
 		}
 	}
 
+	/**
+	 * 保存文件
+	 * @param bm
+	 * @param fileName
+	 * @throws IOException
+	 */
+	public static String saveFile(Bitmap bm, String fileName) throws IOException {
+		File dirFile = new File(WEIBO_PATH);
+		if(!dirFile.exists()){
+			dirFile.mkdir();
+		}
+		File myCaptureFile = new File(WEIBO_PATH + fileName);
+		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(myCaptureFile));
+		bm.compress(Bitmap.CompressFormat.PNG, 80, bos);
+		bos.flush();
+		bos.close();
+		return fileName;
+	}
 	/**
 	 * <p>
 	 * 打印异常信息。

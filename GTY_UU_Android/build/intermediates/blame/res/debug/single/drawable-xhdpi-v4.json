@@ -124,12 +124,12 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/actionsheet_bottom_pressed.9.png"
     },
     {
-        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/my_receive_login.png",
-        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/my_receive_login.png"
-    },
-    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_spinner_mtrl_am_alpha.9.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/drawable-xhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/my_receive_login.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/my_receive_login.png"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ee_17.png",

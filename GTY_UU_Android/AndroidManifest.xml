@@ -89,7 +89,7 @@
         <!-- 设置环信应用的appkey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
-            android:value="uugty999#uutest" />
+            android:value="uugty999#uu" />
         <!-- 声明sdk所需的service SDK核心功能 -->
         <service android:name="com.easemob.chat.EMChatService" />
 
@@ -288,12 +288,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/myDialogActivity" >
         </activity>
-        <activity
-            android:name=".main.loading.Frist"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/myDialogActivity" >
-        </activity>
+
         <!-- 个人信息行业 -->
         <activity
             android:name=".person.PersonProfessionActivity"
@@ -598,6 +593,7 @@
             android:name=".map.PublishServicesActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait" >
         </activity>
         <!-- 开小店 -->

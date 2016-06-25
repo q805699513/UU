@@ -74,11 +74,12 @@ public class PushReceiver extends BroadcastReceiver {
                         JPushReceverEntity.class, context) {
                     @Override
                     public void onSuccess(JPushReceverEntity result) {
+                        //打开自定义的Activity
+                        Intent i = new Intent();
                         if (result != null) {
                             String content = result.getOBJECT().getContent();
                             try {
-                                //打开自定义的Activity
-                                Intent i = new Intent();
+
                                 JSONObject json = new JSONObject(content);
                                 Iterator<String> it = json.keys();
                                 String className = null;
@@ -105,6 +106,10 @@ public class PushReceiver extends BroadcastReceiver {
                                 e.printStackTrace();
                             }
 
+                        }else{
+                            i.setClass(context, MainActivity.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            context.startActivity(i);
                         }
                     }
                     @Override

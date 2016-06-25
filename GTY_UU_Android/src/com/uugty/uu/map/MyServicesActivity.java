@@ -60,6 +60,7 @@ import com.uugty.uu.entity.GuideRouteEntity;
 import com.uugty.uu.entity.RoadLineEntity;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.entity.VipEntity;
+import com.uugty.uu.util.LogUtils;
 
 public class MyServicesActivity extends BaseActivity implements
 		SwipeRefreshLayout.OnRefreshListener, OnClickListener,PlatformActionListener, Callback {
@@ -828,11 +829,32 @@ public class MyServicesActivity extends BaseActivity implements
 					}
 					// 点击新浪微博
 					if ("SinaWeibo".equals(platform.getName())) {
-						paramsToShare.setText(entity.getRoadlineTitle() + shareUrl);
-						paramsToShare.setShareType(Platform.SHARE_WEBPAGE);// 一定要设置分享属性
-						paramsToShare.setImagePath("");
-						paramsToShare.setImageUrl(APPRestClient.SERVER_IP
-								+ "images/roadlineBackgroud/" + bgaddress);
+						new Thread(new Runnable() {
+
+							@Override
+							public void run() {
+								try {
+									URL urlStr = new URL(APPRestClient.SERVER_IP
+											+ "images/roadlineBackgroud/" + bgaddress);
+									HttpURLConnection connection = (HttpURLConnection) urlStr.openConnection();
+									int state = connection.getResponseCode();
+									paramsToShare.setText(entity.getRoadlineTitle() + shareUrl);
+									paramsToShare.setShareType(Platform.SHARE_WEBPAGE);// 一定要设置分享属性
+									paramsToShare.setImagePath("");
+									if (state == 200) {
+										paramsToShare.setImageUrl(APPRestClient.SERVER_IP
+												+ "images/roadlineBackgroud/" + bgaddress);
+									} else {
+										// 取不到图片使用默认logo
+										BitmapDrawable d = new BitmapDrawable(getResources().openRawResource( + R.drawable.app_icon));
+										LogUtils.saveFile(d.getBitmap(),"default.png");
+										paramsToShare.setImagePath(LogUtils.WEIBO_PATH+"default.png");
+									}
+								} catch (Exception e) {
+									e.printStackTrace();;
+								}
+							}
+						}).start();
 
 						 // 限制微博分享的文字不能超过20
 //						 if (paramsToShare.getComment().length() > 20) {

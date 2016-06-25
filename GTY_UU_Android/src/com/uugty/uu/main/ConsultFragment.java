@@ -159,7 +159,7 @@ public class ConsultFragment extends Fragment implements
 					startActivity(intent);
 				}else{
 					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-					intent.putExtra("topage", ConsultFragment.class.getName());
+//					intent.putExtra("topage", ConsultFragment.class.getName());
 					intent.setClass(context, LoginActivity.class);
 					startActivity(intent);
 				}
@@ -305,7 +305,7 @@ public class ConsultFragment extends Fragment implements
 		} else {
 			// 先登录
 			mintent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-			mintent.putExtra("topage", ConsultFragment.class.getName());
+//			mintent.putExtra("topage", ConsultFragment.class.getName());
 			mintent.setClass(context, LoginActivity.class);
 			startActivity(mintent);
 

@@ -57,7 +57,6 @@ import com.uugty.uu.entity.HomePageRecommendEntity;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.entity.VipEntity;
 import com.uugty.uu.login.LoginActivity;
-import com.uugty.uu.main.loading.Frist;
 import com.uugty.uu.map.OpenShopActivity;
 import com.uugty.uu.map.PublishServicesActivity;
 import com.uugty.uu.util.UUConfig;
@@ -204,7 +203,7 @@ public class Fragment1 extends Fragment implements
 					startActivity(intent);
 				}else{
 					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-					intent.putExtra("topage", ConsultFragment.class.getName());
+//					intent.putExtra("topage", ConsultFragment.class.getName());
 					intent.setClass(context, LoginActivity.class);
 					startActivity(intent);
 				}

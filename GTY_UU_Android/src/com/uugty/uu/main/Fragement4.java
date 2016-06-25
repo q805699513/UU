@@ -31,6 +31,7 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.UserLineTextAndImage;
 import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.discount.c.MyDiscountActivity;
+import com.uugty.uu.entity.AddJpushId;
 import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.entity.VipEntity;
@@ -49,6 +50,8 @@ import com.uugty.uu.setup.ContactUsActivity;
 import com.uugty.uu.setup.FeedbookActivity;
 import com.uugty.uu.setup.PersonSetupActivity;
 import com.uugty.uu.setup.UUHelpActivity;
+import com.uugty.uu.util.LogUtils;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -69,6 +72,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import cn.jpush.android.api.JPushInterface;
 
 public class Fragement4 extends Fragment implements OnClickListener {
 
@@ -521,6 +526,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 			req.state = "wechat_sdk_demo";
 			WXapi.sendReq(req);
 			wxchatFlag = true;
+			pushJpushId();
 		} else {
 			// 提示用户安装微信客户端
 			new AlertDialog.Builder(context)
@@ -538,8 +544,32 @@ public class Fragement4 extends Fragment implements OnClickListener {
 		}
 
 	}
-	
 
+
+	private void pushJpushId() {
+		RequestParams params = new RequestParams();
+		params.add("registrationID", JPushInterface.getRegistrationID(context));
+		params.add("clientVersion", MyApplication.getInstance()
+				.getApp_version()); // 版本号
+		params.add("type", "android");
+		APPRestClient.post(context, ServiceCode.PUSH_ID, params,
+				new APPResponseHandler<AddJpushId>(
+						AddJpushId.class, context) {
+					@Override
+					public void onSuccess(AddJpushId result) {
+						SharedPreferenceUtil.getInstance(context).setString("JPushLoginRegistId",JPushInterface.getRegistrationID(context));
+						LogUtils.printLog("JPushLoginRegistId",JPushInterface.getRegistrationID(context));
+					}
+
+					@Override
+					public void onFailure(int errorCode, String errorMsg) {
+					}
+
+					@Override
+					public void onFinish() {
+					}
+				});
+	}
 	/*
 	 * 发布路线
 	 */
