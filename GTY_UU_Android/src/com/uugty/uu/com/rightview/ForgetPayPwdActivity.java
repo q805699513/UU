@@ -14,10 +14,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
-import com.uugty.uu.com.find.FindTestViewPagerActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -188,6 +188,8 @@ public class ForgetPayPwdActivity extends BaseActivity implements
 			RequestParams params = new RequestParams();
 			params.put("userTel",MyApplication.getInstance().getUserInfo()
 					.getOBJECT().getUserTel() );
+			params.put("mobileCountryCode",MyApplication.getInstance().getUserInfo()
+					.getOBJECT().getMobileCountryCode());
 			params.put("type", "3");
 			params.put("uuid", MyApplication.getInstance().getUuid());
 			APPRestClient.post(this, ServiceCode.UUCODEY_INTERFACE, params,

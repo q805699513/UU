@@ -63,16 +63,16 @@
             android:textColor="#1f263b"
             android:textSize="15sp" />
 
-        <ImageView
-            android:id="@+id/dynamic_title_V"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="-15dp"
-            android:layout_marginTop="36dp"
-            android:layout_toRightOf="@+id/dynamic_avatar_img"
-            android:src="@drawable/authentication"
-            android:visibility="gone" />
+        <!--<ImageView-->
+            <!--android:id="@+id/dynamic_title_V"-->
+            <!--android:layout_width="14dp"-->
+            <!--android:layout_height="14dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_marginLeft="-15dp"-->
+            <!--android:layout_marginTop="36dp"-->
+            <!--android:layout_toRightOf="@+id/dynamic_avatar_img"-->
+            <!--android:src="@drawable/authentication"-->
+            <!--android:visibility="gone" />-->
         <TextView
             android:id="@+id/dynamic_createtimes"
             android:layout_width="wrap_content"

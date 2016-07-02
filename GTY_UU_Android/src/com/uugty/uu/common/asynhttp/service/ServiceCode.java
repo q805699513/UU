@@ -23,11 +23,15 @@ public class ServiceCode {
 	// 微信登录
 	public static final String USER_WECHAR_LOGIN = "userWeChartLogin.do";
 	// 注册接口
-	public static final String UUREGSTER_INTERFACE = "userRegister.do";
+//	public static final String UUREGSTER_INTERFACE = "userRegister.do";//国际短信修改
+	public static final String UUREGSTER_INTERFACE = "uukRegister.do";
 	// 忘记密码
 	public static final String USER_FORGET_PWD = "userForgetPassword.do";
 	// 发送验证码接口
-	public static final String UUCODEY_INTERFACE = "userVerificationCode.do";
+	//public static final String UUCODEY_INTERFACE = "userVerificationCode.do";//国际短信修改
+	public static final String UUCODEY_INTERFACE = "gVerificationCode.do";
+	//获取国家名称和电话区域代码
+	public static final String COUNTRY_CODE ="queryCountryCode.do";
 	// 图片上传
 	public static final String UPLOAD_FILE = "userFileupload.do";
 	//新图片上传

@@ -1,15 +1,7 @@
 package com.uugty.uu.com.find;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import android.app.AlertDialog;
-import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Matrix;
@@ -17,8 +9,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.os.Handler.Callback;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextPaint;
@@ -29,16 +21,14 @@ import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.PlatformActionListener;
-import cn.sharesdk.framework.ShareSDK;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mob.tools.utils.UIHandler;
 import com.uugty.uu.R;
@@ -60,14 +50,12 @@ import com.uugty.uu.common.share.onekeyshare.ShareContentCustomizeCallback;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.CollectRoadLineEntity;
-import com.uugty.uu.entity.MoreLvEntity;
-import com.uugty.uu.entity.RoadEntity;
-import com.uugty.uu.entity.RoadTag;
-import com.uugty.uu.entity.TagsEntity;
-import com.uugty.uu.entity.Util;
 import com.uugty.uu.entity.HomeTagEntity.Tags.PlayAndBuy;
+import com.uugty.uu.entity.MoreLvEntity;
 import com.uugty.uu.entity.MoreLvEntity.MoreListEntity;
+import com.uugty.uu.entity.RoadEntity;
 import com.uugty.uu.entity.RoadEntity.RoadDetail;
+import com.uugty.uu.entity.Util;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.order.UUPayActivity;
 import com.uugty.uu.person.PersonCenterActivity;
@@ -75,6 +63,16 @@ import com.uugty.uu.util.LogUtils;
 import com.uugty.uu.uuchat.ChatActivity;
 import com.uugty.uu.viewpage.adapter.MoreListAdapter;
 import com.uugty.uu.viewpage.adapter.TabFragmentPagerAdapter;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
 
 public class FindTestViewPagerActivity extends BaseActivity implements
 		OnClickListener, PlatformActionListener, Callback {
@@ -118,7 +116,7 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 	private String bgaddress = "";
 	private boolean isFirst = true;
 	private Fragment btFragment;
-//	private Fragment secondFragment;
+	private Fragment secondFragment;
 	private Fragment thirdFragment;
 	private String[] tagsItem;
 	private String userTel;//用户的电话号码
@@ -176,7 +174,7 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 		moreRouteTextView = (TextView) findViewById(R.id.find_detail_about_more_line);
 		persondate_rel = (RelativeLayout) findViewById(R.id.persondate_rel);
 		fatherRel = (RelativeLayout) findViewById(R.id.activity_find_route_display_father);
-		idverificationImage = (ImageView) findViewById(R.id.find_route_display_route_id_verification);
+//		idverificationImage = (ImageView) findViewById(R.id.find_route_display_route_id_verification);
 		fatherRel.setVisibility(View.INVISIBLE);
 		mPager = (CustomViewPager) findViewById(R.id.viewpager);
 
@@ -498,12 +496,13 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 
 		btFragment = FindViewFragment_play.newInstance(roadId);
 		//合并说明和玩法板块
-//		secondFragment = FindViewFragment_explain.newInstance(roadId);
+		secondFragment = FindViewFragment_explain.newInstance(roadId);
 		thirdFragment = FindViewFragment_comments.newInstance(detailUserId);
 
 		fragmentList.add(btFragment);
-//		fragmentList.add(secondFragment);
 		fragmentList.add(thirdFragment);
+		fragmentList.add(secondFragment);
+
 
 		// 给ViewPager设置适配器
 		mPager.setAdapter(new TabFragmentPagerAdapter(
@@ -815,11 +814,11 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 						user_name = roadDetailResult.getUserName();
 					}
 					routePersonNamTextView.setText(user_name);
-					if (roadDetailResult.getUserIdValidate().equals("2")) {
-						idverificationImage.setVisibility(View.VISIBLE);
-					} else {
-						idverificationImage.setVisibility(View.GONE);
-					}
+//					if (roadDetailResult.getUserIdValidate().equals("2")) {
+//						idverificationImage.setVisibility(View.VISIBLE);
+//					} else {
+//						idverificationImage.setVisibility(View.GONE);
+//					}
 					if (!TextUtils.isEmpty(roadDetailResult
 							.getUserDescription())) {
 						routePersonIntroductionTextView
@@ -1076,6 +1075,7 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 									paramsToShare.setImagePath("");
 									paramsToShare.setImageUrl(APPRestClient.SERVER_IP
 											+ "images/roadlineBackgroud/" + bgaddress);
+									paramsToShare.setUrl(shareUrl);
 								} else {
 									// 取不到图片使用默认logo
 									BitmapDrawable d = new BitmapDrawable(getResources().openRawResource( + R.drawable.app_icon));
@@ -1282,7 +1282,7 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 		msg.arg1 = 2;
 		msg.arg2 = action;
 		msg.obj = t;
-		UIHandler.sendMessage(msg, this);		
+		UIHandler.sendMessage(msg, this);
 	}
 
 	@Override
@@ -1296,15 +1296,18 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 		case MSG_ACTION_CCALLBACK: {
 			switch (msg.arg1) {
 				case 1: { // 成功, successful notification
-					showNotification(2000, "分享成功");
+					CustomToast.makeText(FindTestViewPagerActivity.this, 0, "分享成功", 300)
+							.show();
 				}
 				break;
 				case 2: { // 失败, fail notification
-					showNotification(2000, "分享完成");
+					CustomToast.makeText(FindTestViewPagerActivity.this, 0, "分享完成", 300)
+							.show();
 				}
 				break;
 				case 3: { // 取消, cancel notification
-					showNotification(2000, "取消分享");
+					CustomToast.makeText(FindTestViewPagerActivity.this, 0, "分享取消", 300)
+							.show();
 				}
 				break;
 			}
@@ -1321,31 +1324,5 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 	return false;
 	}
 
-	// 在状态栏提示分享操作,the notification on the status bar
-	private void showNotification(long cancelTime, String text) {
-		try {
-			Context app = getApplicationContext();
-			NotificationManager nm = (NotificationManager) app
-					.getSystemService(Context.NOTIFICATION_SERVICE);
-			final int id = Integer.MAX_VALUE / 13 + 1;
-			nm.cancel(id);
 
-			long when = System.currentTimeMillis();
-			Notification notification = new Notification(R.drawable.app_icon, text, when);
-			PendingIntent pi = PendingIntent.getActivity(app, 0, new Intent(), 0);
-			notification.setLatestEventInfo(app, "uu客", text, pi);
-			notification.flags = Notification.FLAG_AUTO_CANCEL;
-			nm.notify(id, notification);
-
-			if (cancelTime > 0) {
-				Message msg = new Message();
-				msg.what = MSG_CANCEL_NOTIFY;
-				msg.obj = nm;
-				msg.arg1 = id;
-				UIHandler.sendMessageDelayed(msg, cancelTime, this);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 }

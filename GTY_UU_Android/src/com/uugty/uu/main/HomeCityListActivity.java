@@ -1,21 +1,16 @@
 package com.uugty.uu.main;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.Location;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -23,10 +18,8 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.amap.api.location.AMapLocation;
-import com.amap.api.location.AMapLocationListener;
+
 import com.amap.api.location.LocationManagerProxy;
-import com.amap.api.location.LocationProviderProxy;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.city.customview.CityAdapter;
@@ -41,6 +34,9 @@ import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.entity.ThemeCityEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeCityListActivity extends BaseActivity implements OnClickListener,TextWatcher{
 	//城市列表
@@ -132,8 +128,10 @@ public class HomeCityListActivity extends BaseActivity implements OnClickListene
 				Intent intent = new Intent();
 				intent.putExtra("themeCity", searchList.get(position).getDisplayInfo());
 				if(isChina){
+					intent.putExtra("areaType","1");
 					SharedPreferenceUtil.getInstance(ctx).setString("city", searchList.get(position).getDisplayInfo());
 				}else{
+					intent.putExtra("areaType","2");
 					SharedPreferenceUtil.getInstance(ctx).setString("city1", searchList.get(position).getDisplayInfo());
 				}
 				setResult(RESULT_OK, intent);
@@ -620,8 +618,10 @@ public class HomeCityListActivity extends BaseActivity implements OnClickListene
 	 				text_content.setText(list.get(position).toString());
 	 				intent.putExtra("themeCity", list.get(position).toString());
 	 				if(isChina){
+						intent.putExtra("areaType","1");
 						SharedPreferenceUtil.getInstance(ctx).setString("city", list.get(position).toString());
 					}else{
+						intent.putExtra("areaType","2");
 						SharedPreferenceUtil.getInstance(ctx).setString("city1", list.get(position).toString());
 					}
 	 				setResult(RESULT_OK, intent);

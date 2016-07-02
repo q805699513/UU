@@ -38,9 +38,10 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import java.util.Locale;
 
 import com.uugty.uu.R;
+
+import java.util.Locale;
 
 
 public class PagerSlidingTabStrip extends HorizontalScrollView {
@@ -132,7 +133,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 		TypedArray a = context.obtainStyledAttributes(attrs, ATTRS);
 
 		tabTextSize = a.getDimensionPixelSize(0, tabTextSize);
-		tabTextColor = a.getColor(1, tabTextColor);
+		tabTextColor = a.getColor(+1, tabTextColor);
 
 		a.recycle();
 

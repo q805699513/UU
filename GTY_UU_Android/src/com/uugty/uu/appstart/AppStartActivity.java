@@ -1,5 +1,21 @@
 package com.uugty.uu.appstart;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.location.Location;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.LocationManagerProxy;
@@ -28,22 +44,6 @@ import com.uugty.uu.guide.ImageGuideActivity;
 import com.uugty.uu.main.MainActivity;
 import com.uugty.uu.modeal.UUlogin;
 import com.uugty.uu.util.LogUtils;
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.location.Location;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 import cn.jpush.android.api.JPushInterface;
 

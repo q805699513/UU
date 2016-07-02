@@ -18,35 +18,14 @@
 
 package com.uugty.uu.common.asynhttp;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.WeakHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.zip.GZIPInputStream;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
+import com.uugty.uu.base.application.MyApplication;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.util.StringTools;
+import com.uugty.uu.util.Md5Util;
 
 import org.apache.http.Header;
 import org.apache.http.HeaderElement;
@@ -79,7 +58,6 @@ import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.conn.scheme.PlainSocketFactory;
 import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.conn.scheme.SocketFactory;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.cookie.Cookie;
 import org.apache.http.entity.HttpEntityWrapper;
@@ -101,17 +79,38 @@ import org.apache.http.protocol.SyncBasicHttpContext;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.WeakHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.zip.GZIPInputStream;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+
 import internal.org.apache.http.entity.mime.MultipartEntity;
 import internal.org.apache.http.entity.mime.content.ContentBody;
 import internal.org.apache.http.entity.mime.content.FileBody;
-
-import com.uugty.uu.base.application.MyApplication;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.util.StringTools;
-import com.uugty.uu.util.Md5Util;
 
 /**
  * The AsyncHttpClient can be used to make asynchronous GET, POST, PUT and
@@ -1165,7 +1164,7 @@ public class AsyncHttpClient {
 				break;
 			}
 		}
-		params.add("token", Md5Util.MD5(builder.toString() + "uuk"));
+		params.add("token", Md5Util.getToken(builder.toString()));
 		
 		return post(context, url, paramsToEntity(params, responseHandler),
 				null, responseHandler);

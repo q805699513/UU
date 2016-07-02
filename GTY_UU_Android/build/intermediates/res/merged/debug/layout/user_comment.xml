@@ -59,7 +59,7 @@
             android:textSize="17sp" />
     </LinearLayout>
 
-    <ListView
+    <com.uugty.uu.common.myview.ListViewForScrollView
         android:id="@+id/user_comment_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -67,6 +67,6 @@
         android:divider="@color/base_text_color"
         android:dividerHeight="1px"
         android:scrollbars="none" >
-    </ListView>
+    </com.uugty.uu.common.myview.ListViewForScrollView>
 
 </LinearLayout>

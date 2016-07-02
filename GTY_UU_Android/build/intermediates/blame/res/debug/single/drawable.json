@@ -304,12 +304,12 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/circle_white_shape.xml"
     },
     {
-        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
-        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/drawable/abc_btn_check_material.xml"
-    },
-    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/ssdk_oks_skyblue_platform_list_item.xml",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/ssdk_oks_skyblue_platform_list_item.xml"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/drawable/abc_btn_check_material.xml"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/circle.xml",
@@ -532,12 +532,12 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/back_title_img_group.xml"
     },
     {
-        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
-        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/drawable/abc_cab_background_internal_bg.xml"
-    },
-    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/plugin_camera_title_btn_preview.xml",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/plugin_camera_title_btn_preview.xml"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/drawable/abc_cab_background_internal_bg.xml"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/text_view_find.xml",

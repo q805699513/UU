@@ -43,7 +43,7 @@ public class SlideShowView extends FrameLayout {
 			.bitmapConfig(Bitmap.Config.RGB_565).build();
 
 	// 轮播图图片数量
-	private final static int IMAGE_COUNT = 5;
+	private final static int IMAGE_COUNT = 3;
 	// 自动轮播的时间间隔
 	private final static int TIME_INTERVAL = 5;
 	// 自动轮播启用开关

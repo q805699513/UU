@@ -46,7 +46,7 @@ public class ForgetActivity extends BaseActivity implements OnClickListener {
 	private final String TAG = "ForgetActivity";
 	// 用户名 短信验证码 用户密码
 	private String user_phone, user_coedy, user_pwd1, user_pwd2, toPage,
-			jumpPage;
+			jumpPage,code;
 
 	// 注册按钮
 	private Button regsterbtn;
@@ -75,6 +75,7 @@ public class ForgetActivity extends BaseActivity implements OnClickListener {
 			user_coedy = getIntent().getStringExtra("usersms");
 			toPage = getIntent().getStringExtra("toPage");
 			jumpPage = getIntent().getStringExtra("jumpPage");
+			code = getIntent().getStringExtra("code");
 		}
 		closeLin = (LinearLayout) findViewById(R.id.forget_pwd_back_lin);
 		edit_pwd1 = (EditText) findViewById(R.id.forget_pwd_one);
@@ -301,6 +302,7 @@ public class ForgetActivity extends BaseActivity implements OnClickListener {
 		params.add("userTel", user_phone);
 		params.add("userPassword", Md5Util.MD5(user_pwd2));
 		params.add("veryCode", user_coedy);
+		params.add("mobileCountryCode",code);
 		if (null != geoLng && !geoLng.equals("")) {
 			params.add("userLastLoginLng", geoLng.toString());
 			params.add("userLastLoginLat", geoLat.toString());

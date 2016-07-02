@@ -110,6 +110,7 @@ public class UUlogin implements  Serializable{
 		private String userIsLogin;//地图在线
 		private String markContent;//标签
 		private String userIsPromoter;//是否为会员
+		private String mobileCountryCode;//电话号国家代码
 		
 		
 		public String getMarkContent() {
@@ -360,7 +361,14 @@ public class UUlogin implements  Serializable{
 			this.userIsPromoter = userIsPromoter;
 		}
 
-		
+
+		public String getMobileCountryCode() {
+			return mobileCountryCode;
+		}
+
+		public void setMobileCountryCode(String mobileCountryCode) {
+			this.mobileCountryCode = mobileCountryCode;
+		}
 	}
 
 	public String getMSG() {

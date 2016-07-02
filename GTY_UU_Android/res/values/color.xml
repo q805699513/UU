@@ -7,6 +7,7 @@
     <!-- 登录注册页颜色 -->
     <color name="login_line_color">#7FD0EC</color>
     <color name="login_hint_color">#98999a</color>
+
     <color name="login_text_color">#00A1D9</color>
     <color name="login_btn_press_color">#45b4db</color>
     <color name="login_wechat_btn_press_color">#bbe1ee</color>
@@ -72,4 +73,7 @@
     <!-- 城市 -->
       <color name="listview_item_normal">#ffffff</color>
     <color name="listview_item_pressed">#d4d4d4</color>
+    <!-- 注册按钮动态变化 -->
+    <color name="regist_txt"   >#00a1d9</color>
+    <color name="regist_notxt">#a5e3f8</color>
 </resources>

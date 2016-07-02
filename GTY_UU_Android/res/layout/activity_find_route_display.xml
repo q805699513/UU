@@ -214,14 +214,14 @@
                             fresco:placeholderImage="@drawable/no_default_head_img"
                             fresco:roundAsCircle="true" />
                         <!-- 用户名 -->
-						<ImageView
-				            android:id="@+id/find_route_display_route_id_verification"
-				            android:layout_width="14dp"
-				            android:layout_height="14dp"
-				            android:layout_gravity="center"
-				            android:layout_marginLeft="-15dp"
-				            android:layout_marginTop="12dp"
-				            android:src="@drawable/authentication" />
+						<!--<ImageView-->
+				            <!--android:id="@+id/find_route_display_route_id_verification"-->
+				            <!--android:layout_width="14dp"-->
+				            <!--android:layout_height="14dp"-->
+				            <!--android:layout_gravity="center"-->
+				            <!--android:layout_marginLeft="-15dp"-->
+				            <!--android:layout_marginTop="12dp"-->
+				            <!--android:src="@drawable/authentication" />-->
 						<LinearLayout 
 						    android:layout_width="wrap_content"
 						    android:layout_height="wrap_content"

@@ -32,7 +32,7 @@ public class LogUtils {
 			= Environment.getExternalStorageDirectory() + "/UUimage/";
 
 	/** 是否测试版本 */
-	private static boolean isTest = false;
+	private static boolean isTest = true;
 	/**
 	 * <p>
 	 * 打印日志。

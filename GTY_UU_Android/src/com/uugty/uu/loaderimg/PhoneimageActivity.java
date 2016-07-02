@@ -1,25 +1,9 @@
 package com.uugty.uu.loaderimg;
 
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-
-import com.uugty.uu.R;
-import com.uugty.uu.base.BaseActivity;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.loaderimg.ListImageDirPopupWindow.OnImageDirSelected;
-
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
@@ -27,14 +11,25 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.WindowManager;
 import android.widget.GridView;
+import android.widget.PopupWindow.OnDismissListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.PopupWindow.OnDismissListener;
+
+import com.uugty.uu.R;
+import com.uugty.uu.base.BaseActivity;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.loaderimg.ListImageDirPopupWindow.OnImageDirSelected;
+
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 public class PhoneimageActivity extends BaseActivity implements OnImageDirSelected
 {
@@ -192,9 +187,10 @@ public class PhoneimageActivity extends BaseActivity implements OnImageDirSelect
 
 				// 只查询jpeg和png的图片
 				Cursor mCursor = mContentResolver.query(mImageUri, null,
-						null,
-						null,
-						null);
+						MediaStore.Images.Media.MIME_TYPE + "=? or "
+								+ MediaStore.Images.Media.MIME_TYPE + "=?",
+						new String[] { "image/jpeg", "image/png" },
+						MediaStore.Images.Media.DATE_MODIFIED);
 
 				Log.e("TAG", mCursor.getCount() + "");
 				while (mCursor.moveToNext())
@@ -232,8 +228,7 @@ public class PhoneimageActivity extends BaseActivity implements OnImageDirSelect
 						{
 							if (filename.endsWith(".jpg")
 									|| filename.endsWith(".png")
-									|| filename.endsWith(".jpeg")
-									|| filename.endsWith(".bmp"))
+									|| filename.endsWith(".jpeg"))
 								return true;
 							return false;
 						}

@@ -82,6 +82,7 @@ public class Fragment1 extends Fragment implements
 	private List<PlayAndBuy> mBuyList;
 	private LinearLayout horizontalLin, release_lin, fatherLin,mHomePlayLin,mHomeBuyLin;
 	private String themeCity = "北京";
+	private String cityType = "1";//1是国内 2是国外
 	private HorizontalScrollView horizontalScrollView;
 	private HorizontalScrollView mHomePlayScrollView;
 	private HorizontalScrollView mHomeBuyScrollView;
@@ -318,6 +319,7 @@ public class Fragment1 extends Fragment implements
 		UUConfig.INSTANCE.setmCtity(themeCity);//设置城市
 		RequestParams params = new RequestParams();
 		params.add("roadlineGoalArea", themeCity);
+		params.add("areaType",cityType);
 		params.add("currentPage", String.valueOf(startId));
 		params.add("pageSize", "5");
 //		params.add("markSearchType", "goal_title");
@@ -703,6 +705,7 @@ public class Fragment1 extends Fragment implements
 			switch (requestCode) {
 			case 1000:
 				themeCity = data.getStringExtra("themeCity");
+				cityType = data.getStringExtra("areaType");
 				location_text.setText(themeCity);
 				startId=1;
 				loadData(1);

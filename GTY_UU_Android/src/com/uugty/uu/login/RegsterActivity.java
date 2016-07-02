@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.easemob.EMCallBack;
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMConversation;
@@ -59,6 +60,13 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 	private TimeCount time;
 	private RelativeLayout argmentRel;
 	private LinearLayout closeLin;
+	private TextView mPhoneCode;
+	private String phoneCode = "86";
+
+	//选择国家和地区
+	private LinearLayout mSelectCountry;
+	private TextView mCountryName;
+
 	// 获取用户输入信息
 	private EditText edit_phone, edit_codey;
 
@@ -68,6 +76,7 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 	private static final String ACTION = "android.provider.Telephony.SMS_RECEIVED";
 	private String toPage,jumpPage;
 	private SpotsDialog loadingDialog;
+	public final static int REQUEST_STARTING = 1;//地区返回
 
 	protected int getContentLayout() {
 		// TODO Auto-generated method stub
@@ -80,6 +89,9 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 			toPage = getIntent().getStringExtra("toPage");
 			jumpPage = getIntent().getStringExtra("jumpPage");
 		}
+		mPhoneCode = (TextView) findViewById(R.id.regist_phonecode);
+		mSelectCountry = (LinearLayout) findViewById(R.id.regist_country);
+		mCountryName = (TextView) findViewById(R.id.country_name);
 		edit_phone = (EditText) findViewById(R.id.regist_edit_phone);
 		usernameClear = (ImageView) findViewById(R.id.regist_username_clear_image);
 		sendMessagebtn = (TextView) findViewById(R.id.send_messagebtn);
@@ -88,6 +100,7 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 		registText = (TextView) findViewById(R.id.regist_text);
 
 		regsterbtn = (Button) findViewById(R.id.regster_btn);
+		regsterbtn.setClickable(false);
 		agreement = (TextView) findViewById(R.id.regist_agreement_text);
 		argmentRel = (RelativeLayout) findViewById(R.id.regsit_argment_rel);
 		if (!TextUtils.isEmpty(toPage) && toPage.equals("forgetPwd")) {
@@ -138,6 +151,15 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 		agreement.setOnClickListener(this);
 		usernameClear.setOnClickListener(this);
 
+		mSelectCountry.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent intent = new Intent();
+				intent.setClass(ctx, CountryActivity.class);
+				startActivityForResult(intent, REQUEST_STARTING);
+			}
+		});
+
 		edit_phone.addTextChangedListener(new TextWatcher() {
 
 			@Override
@@ -158,13 +180,33 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 			public void afterTextChanged(Editable s) {
 				if (!TextUtils.isEmpty(s.toString())) {
 					usernameClear.setVisibility(View.VISIBLE);
+					regsterbtn.setClickable(true);
+					regsterbtn.setBackgroundColor(getResources().getColor(R.color.regist_txt));
 				} else {
 					usernameClear.setVisibility(View.GONE);
+					regsterbtn.setClickable(false);
+					regsterbtn.setBackgroundColor(getResources().getColor(R.color.regist_notxt));
 				}
 			}
 		});
 	}
 
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode == RESULT_OK) {
+			switch (requestCode) {
+				case REQUEST_STARTING:
+					String chageCity = data.getStringExtra("chageCity");
+					phoneCode = data.getStringExtra("code");
+					mPhoneCode.setText("+"+phoneCode);
+					mCountryName.setText(chageCity);
+					break;
+
+			}
+		}
+	}
 	@Override
 	protected void initData() {
 		// TODO Auto-generated method stub
@@ -204,8 +246,8 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 		public void onFinish() {// 计时完毕时触发
 			sendMessagebtn.setText("获取验证码");
 			sendMessagebtn.setClickable(true);
-			sendMessagebtn.setTextColor(getResources().getColor(
-					R.color.login_text_color));
+//			sendMessagebtn.setTextColor(getResources().getColor(
+//					R.color.login_text_color));
 
 		}
 
@@ -243,6 +285,7 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 						intent.putExtra("usersms", user_coedy);
 						intent.putExtra("toPage", toPage);
 						intent.putExtra("jumpPage", jumpPage);
+						intent.putExtra("code",phoneCode);
 						intent.setClass(this, ForgetActivity.class);
 						startActivity(intent);
 					}
@@ -250,6 +293,7 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 					intent.putExtra("username", user_phone);
 					intent.putExtra("usersms", user_coedy);
 					intent.putExtra("toPage", toPage);
+					intent.putExtra("code",phoneCode);
 					if(null!=jumpPage)
 					intent.putExtra("jumpPage", jumpPage);
 					intent.setClass(this, ForgetActivity.class);
@@ -281,6 +325,7 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 		//
 		RequestParams params = new RequestParams();
 		params.put("userTel", user_phone);
+		params.put("mobileCountryCode",phoneCode);
 		params.put("uuid", MyApplication.getInstance().getUuid());
 		if (!TextUtils.isEmpty(toPage)) {
 			if (toPage.equals("regist")) {

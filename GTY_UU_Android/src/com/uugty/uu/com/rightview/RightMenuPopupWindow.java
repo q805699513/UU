@@ -1,7 +1,5 @@
 package com.uugty.uu.com.rightview;
 
-import com.uugty.uu.R;
-import com.uugty.uu.base.application.MyApplication;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +10,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import com.uugty.uu.R;
+import com.uugty.uu.base.application.MyApplication;
 
 public class RightMenuPopupWindow extends PopupWindow {
     private Activity context;

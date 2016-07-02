@@ -493,8 +493,8 @@ public class PersonDateFragment_Myuu extends AbsBaseFragment implements
 						.findViewById(R.id.dynamic_photo_show);
 				holder.dynamic_img_grid = (JoyGridView) view
 						.findViewById(R.id.dynamic_img_grid);
-				holder.dynamic_title_V = (ImageView) view
-						.findViewById(R.id.dynamic_title_V);
+//				holder.dynamic_title_V = (ImageView) view
+//						.findViewById(R.id.dynamic_title_V);
 				holder.dynamic_praise_state_img = (ImageView) view
 						.findViewById(R.id.dynamic_praise_state_img);
 				holder.dynamic_delete_rel = (LinearLayout) view
@@ -559,7 +559,7 @@ public class PersonDateFragment_Myuu extends AbsBaseFragment implements
 				holder.dynamic_position_item_text.setText("");
 				holder.dynamic_postion_item_lin.setVisibility(View.GONE);
 			}
-			holder.dynamic_title_V.setVisibility(View.VISIBLE);
+//			holder.dynamic_title_V.setVisibility(View.VISIBLE);
 			holder.username.setText(ls.get(position).getUserName()); // 用户名
 			holder.dynamic_browse_text.setText(ls.get(position)
 					.getSaidBrowseTimes()); // 浏览量

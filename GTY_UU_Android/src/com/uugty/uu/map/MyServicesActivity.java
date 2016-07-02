@@ -1,16 +1,7 @@
 package com.uugty.uu.map;
 
-import java.io.Serializable;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import android.text.TextUtils;
 import android.app.AlertDialog;
-import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -22,6 +13,7 @@ import android.os.Handler.Callback;
 import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,9 +26,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.PlatformActionListener;
-import cn.sharesdk.framework.ShareSDK;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mob.tools.utils.UIHandler;
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
@@ -61,6 +51,17 @@ import com.uugty.uu.entity.RoadLineEntity;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.entity.VipEntity;
 import com.uugty.uu.util.LogUtils;
+
+import java.io.Serializable;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
 
 public class MyServicesActivity extends BaseActivity implements
 		SwipeRefreshLayout.OnRefreshListener, OnClickListener,PlatformActionListener, Callback {
@@ -844,6 +845,7 @@ public class MyServicesActivity extends BaseActivity implements
 									if (state == 200) {
 										paramsToShare.setImageUrl(APPRestClient.SERVER_IP
 												+ "images/roadlineBackgroud/" + bgaddress);
+										paramsToShare.setUrl(shareUrl);
 									} else {
 										// 取不到图片使用默认logo
 										BitmapDrawable d = new BitmapDrawable(getResources().openRawResource( + R.drawable.app_icon));
@@ -925,7 +927,7 @@ public class MyServicesActivity extends BaseActivity implements
 		msg.arg1 = 2;
 		msg.arg2 = action;
 		msg.obj = t;
-		UIHandler.sendMessage(msg, this);		
+		UIHandler.sendMessage(msg, this);
 	}
 
 	@Override
@@ -939,15 +941,18 @@ public class MyServicesActivity extends BaseActivity implements
 		case MSG_ACTION_CCALLBACK: {
 			switch (msg.arg1) {
 				case 1: { // 成功, successful notification
-					showNotification(2000, "分享成功");
+					CustomToast.makeText(ctx, 0, "分享成功", 300)
+							.show();
 				}
 				break;
 				case 2: { // 失败, fail notification
-					showNotification(2000, "分享完成");
+					CustomToast.makeText(ctx, 0, "分享完成", 300)
+							.show();
 				}
 				break;
 				case 3: { // 取消, cancel notification
-					showNotification(2000, "取消分享");
+					CustomToast.makeText(ctx, 0, "分享取消", 300)
+							.show();
 				}
 				break;
 			}
@@ -964,32 +969,6 @@ public class MyServicesActivity extends BaseActivity implements
 	return false;
 	}
 
-	// 在状态栏提示分享操作,the notification on the status bar
-	private void showNotification(long cancelTime, String text) {
-		try {
-			Context app = getApplicationContext();
-			NotificationManager nm = (NotificationManager) app
-					.getSystemService(Context.NOTIFICATION_SERVICE);
-			final int id = Integer.MAX_VALUE / 13 + 1;
-			nm.cancel(id);
 
-			long when = System.currentTimeMillis();
-			Notification notification = new Notification(R.drawable.app_icon, text, when);
-			PendingIntent pi = PendingIntent.getActivity(app, 0, new Intent(), 0);
-			notification.setLatestEventInfo(app, "uu客", text, pi);
-			notification.flags = Notification.FLAG_AUTO_CANCEL;
-			nm.notify(id, notification);
-
-			if (cancelTime > 0) {
-				Message msg = new Message();
-				msg.what = MSG_CANCEL_NOTIFY;
-				msg.obj = nm;
-				msg.arg1 = id;
-				UIHandler.sendMessageDelayed(msg, cancelTime, this);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 }

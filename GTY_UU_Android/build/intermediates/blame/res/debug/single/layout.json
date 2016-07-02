@@ -168,12 +168,12 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/layout/abc_dialog_title_material.xml"
     },
     {
-        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/uu_forget.xml",
-        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/layout/uu_forget.xml"
-    },
-    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/person_info_text.xml",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/layout/person_info_text.xml"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/uu_forget.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/layout/uu_forget.xml"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/group_chat_grideview_item.xml",
@@ -984,12 +984,12 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/layout/jpush_popwin_layout.xml"
     },
     {
-        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/friends_dynamic_layout.xml",
-        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/layout/friends_dynamic_layout.xml"
-    },
-    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/contact_us.xml",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/layout/contact_us.xml"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/friends_dynamic_layout.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/layout/friends_dynamic_layout.xml"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/map_circul_head_iamge.xml",

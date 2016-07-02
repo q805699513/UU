@@ -359,6 +359,9 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 				new APPResponseHandler<TestEntity>(TestEntity.class, ctx) {
 					@Override
 					public void onSuccess(TestEntity result) {
+						SharedPreferenceUtil.getInstance(ctx).setString("JPushRegistId", "null");
+						SharedPreferenceUtil.getInstance(ctx).setString("JPushLoginRegistId", "null");
+
 					}
 
 					@Override

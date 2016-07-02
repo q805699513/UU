@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.uugty.uu"
-    android:versionCode="18"
-    android:versionName="1.8" >
+    android:versionCode="19"
+    android:versionName="1.8.1" >
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="23" />
 
     <!-- 屏幕分辨率 -->
     <supports-screens
@@ -89,7 +89,7 @@
         <!-- 设置环信应用的appkey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
-            android:value="uugty999#uu" />
+            android:value="uugty999#uutest" />
         <!-- 声明sdk所需的service SDK核心功能 -->
         <service android:name="com.easemob.chat.EMChatService" />
 
@@ -729,6 +729,13 @@
         <!-- 城市列表 -->
         <activity
             android:name=".city.customview.CityListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 国家列表 -->
+        <activity
+            android:name=".login.CountryActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >

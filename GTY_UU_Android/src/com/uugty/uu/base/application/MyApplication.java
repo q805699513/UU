@@ -1,11 +1,19 @@
 package com.uugty.uu.base.application;
 
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.util.UUID;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
+import android.support.multidex.MultiDex;
+import android.telephony.TelephonyManager;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
+
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -18,23 +26,10 @@ import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.CacheFileUtil;
 import com.uugty.uu.common.util.img.ImageLoaderConfig;
 import com.uugty.uu.modeal.UUlogin;
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.res.Resources;
-import android.os.Build;
-import android.support.multidex.MultiDex;
-import android.telephony.TelephonyManager;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Display;
-import android.view.WindowManager;
+
+import java.util.UUID;
 
 import cn.jpush.android.api.JPushInterface;
-import dalvik.system.DexClassLoader;
 
 public class MyApplication extends BaseApplication {
 

@@ -33,14 +33,14 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="60dp" />
 
-                <ImageView
-                    android:id="@+id/authen_v"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="-30dp"
-                    android:layout_marginTop="120dp"
-                    android:layout_toRightOf="@+id/persondate_title"
-                    android:src="@drawable/authentication" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/authen_v"-->
+                    <!--android:layout_width="20dp"-->
+                    <!--android:layout_height="20dp"-->
+                    <!--android:layout_marginLeft="-30dp"-->
+                    <!--android:layout_marginTop="120dp"-->
+                    <!--android:layout_toRightOf="@+id/persondate_title"-->
+                    <!--android:src="@drawable/authentication" />-->
 
                 <LinearLayout
                     android:id="@+id/persondate_name_lin"

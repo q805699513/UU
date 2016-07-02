@@ -3,6 +3,9 @@ package com.uugty.uu.util;
 import java.security.MessageDigest;
 
 public class Md5Util {
+	static {
+		System.loadLibrary("token");//之前在build.gradle里面设置的so名字，必须一致
+	}
 	public final static String MD5(String source) {
 		String resultHash = null;
 		MessageDigest md5;
@@ -34,5 +37,9 @@ public class Md5Util {
 		}
 
 	}
+	/*
+		native 方法返回token
+	 */
+	public static native String getToken(String source);
 
 }

@@ -371,8 +371,8 @@ class DynamicAdapter extends BaseAdapter {
 					.findViewById(R.id.dynamic_right_chat_img);
 			holder.dynamic_right_delete = (ImageView) view
 					.findViewById(R.id.dynamic_right_delete);
-			holder.dynamic_right_idVeri = (ImageView) view
-					.findViewById(R.id.dynamic_title_V);
+//			holder.dynamic_right_idVeri = (ImageView) view
+//					.findViewById(R.id.dynamic_title_V);
 			holder.dynamic_praise_rel = (LinearLayout) view
 					.findViewById(R.id.dynamic_zambia_rel);
 			holder.dynamic_browse_rel = (LinearLayout) view
@@ -396,11 +396,11 @@ class DynamicAdapter extends BaseAdapter {
 			holder.userheand.setImageURI(Uri.parse("res:///"
 					+ R.drawable.no_default_head_img));
 		}
-		if (ls.get(position).getUserIdValidate().equals("2")) {
-			holder.dynamic_right_idVeri.setVisibility(View.VISIBLE);
-		} else {
-			holder.dynamic_right_idVeri.setVisibility(View.GONE);
-		}
+//		if (ls.get(position).getUserIdValidate().equals("2")) {
+//			holder.dynamic_right_idVeri.setVisibility(View.VISIBLE);
+//		} else {
+//			holder.dynamic_right_idVeri.setVisibility(View.GONE);
+//		}
 		holder.username.setText(ls.get(position).getUserName()); // 用户名
 		holder.dynamic_createtimes
 				.setText(ls

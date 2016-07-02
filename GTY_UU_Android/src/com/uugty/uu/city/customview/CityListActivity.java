@@ -1,7 +1,5 @@
 package com.uugty.uu.city.customview;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
@@ -15,18 +13,17 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.LocationManagerProxy;
 import com.amap.api.location.LocationProviderProxy;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
-import com.uugty.uu.city.customview.CityAdapter;
-import com.uugty.uu.city.customview.CityData;
-import com.uugty.uu.city.customview.CityItem;
-import com.uugty.uu.city.customview.ContactItemInterface;
-import com.uugty.uu.city.customview.ContactListViewImpl;
 import com.uugty.uu.util.UUConfig;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CityListActivity extends BaseActivity implements OnClickListener,
 		AMapLocationListener,TextWatcher {
