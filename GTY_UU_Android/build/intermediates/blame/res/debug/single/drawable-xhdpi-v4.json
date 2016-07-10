@@ -48,6 +48,10 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/chat_group_image_hit.png"
     },
     {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_half_black_16dp.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xhdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/release_route_img.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/release_route_img.png"
     },
@@ -120,6 +124,10 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/map_info_window_bg.png"
     },
     {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/lzh_upgrade.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/lzh_upgrade.png"
+    },
+    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/actionsheet_bottom_pressed.9.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/actionsheet_bottom_pressed.9.png"
     },
@@ -186,6 +194,14 @@
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/drawable-xhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/lzh_upgradeclose.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/lzh_upgradeclose.png"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/lzh_fenxian.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/lzh_fenxian.png"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/show_psw.png",
@@ -278,6 +294,10 @@
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/custom_avatar_image.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/custom_avatar_image.png"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ssdk_oks_light_blue_point.png",
@@ -390,6 +410,10 @@
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_launcher.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/page_indicator.png",
@@ -580,6 +604,10 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/person_single_show.png"
     },
     {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/person_compile_enter.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/person_compile_enter.png"
     },
@@ -760,6 +788,10 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/home_more_img.png"
     },
     {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_half_black_36dp.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xhdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/message_two.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/message_two.png"
     },
@@ -838,6 +870,10 @@
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/shadow_left.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/shadow_left.png"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/person_compile_viewpager_left.png",
@@ -1156,6 +1192,10 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/lzh_drive.png"
     },
     {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ee_24.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/ee_24.png"
     },
@@ -1348,6 +1388,14 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/collcte_login.png"
     },
     {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/lzh_popwindowonclick.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/lzh_popwindowonclick.png"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_black_36dp.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xhdpi-v4/abc_ic_star_black_36dp.png"
+    },
+    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/home_guide_contact_image.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/home_guide_contact_image.png"
     },
@@ -1496,6 +1544,10 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/bill_record_payment.png"
     },
     {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/lzh_popwindowclick.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/lzh_popwindowclick.png"
+    },
+    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ee_18.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/ee_18.png"
     },
@@ -1616,6 +1668,10 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/tip_close.png"
     },
     {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_ic_star_black_16dp.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable-xhdpi-v4/abc_ic_star_black_16dp.png"
+    },
+    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/chatfrom_voice_playing_f2.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/chatfrom_voice_playing_f2.png"
     },
@@ -1638,6 +1694,10 @@
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/recmmend_road_online_route_image.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/recmmend_road_online_route_image.png"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/lzh_fuwuguanli.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/lzh_fuwuguanli.png"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/pictures_no.png",
@@ -1894,6 +1954,10 @@
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/fragment_no_message_image.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/fragment_no_message_image.png"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/lzh_woshixiaou.png",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable-xhdpi/lzh_woshixiaou.png"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable-xhdpi-v4/chat_select_picture_image.png",

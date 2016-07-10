@@ -72,6 +72,10 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/drawable/abc_btn_borderless_material.xml"
     },
     {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/text_view_list.xml",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/text_view_list.xml"
     },
@@ -140,8 +144,16 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/ssdk_oks_classic_platform_corners_bg.xml"
     },
     {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_seekbar_track_material.xml"
+    },
+    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/share_title_img.xml",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/share_title_img.xml"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_ratingbar_indicator_material.xml"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/rating_bar_small.xml",
@@ -162,6 +174,14 @@
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/phone_dialog_text.xml",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/phone_dialog_text.xml"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_btn_colored_material.xml"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
@@ -276,6 +296,10 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/drawable/abc_btn_radio_material.xml"
     },
     {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/drawable/design_fab_background.xml"
+    },
+    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/brand_tag_point_white_bg.png",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/brand_tag_point_white_bg.png"
     },
@@ -304,12 +328,12 @@
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/circle_white_shape.xml"
     },
     {
-        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/ssdk_oks_skyblue_platform_list_item.xml",
-        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/ssdk_oks_skyblue_platform_list_item.xml"
-    },
-    {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/ssdk_oks_skyblue_platform_list_item.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/ssdk_oks_skyblue_platform_list_item.xml"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/circle.xml",
@@ -350,6 +374,10 @@
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/plugin_camera_del_state.xml",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/plugin_camera_del_state.xml"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/route_tag_bg_shape.xml",
@@ -502,6 +530,10 @@
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/my_login_insert_btn_bg.xml",
         "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/drawable/my_login_insert_btn_bg.xml"
+    },
+    {
+        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/design_snackbar_background.xml",
+        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/drawable/design_snackbar_background.xml"
     },
     {
         "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/discount_radius.xml",

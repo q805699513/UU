@@ -1,8 +1,5 @@
 package com.uugty.uu.common.myview.calendar;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -11,6 +8,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 自定义日历卡

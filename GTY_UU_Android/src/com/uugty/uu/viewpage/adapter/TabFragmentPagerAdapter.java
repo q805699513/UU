@@ -3,8 +3,6 @@ package com.uugty.uu.viewpage.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
-import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
@@ -26,11 +24,11 @@ public class TabFragmentPagerAdapter extends FragmentPagerAdapter {
 
 	@Override  
     public int getCount() {  
-        return list.size();  
+        return list.size();
     }  
       
     @Override  
     public Fragment getItem(int arg0) {  
-        return list.get(arg0);  
+        return list.get(arg0);
     }
 }

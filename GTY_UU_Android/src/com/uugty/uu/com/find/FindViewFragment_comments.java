@@ -1,19 +1,5 @@
 package com.uugty.uu.com.find;
 
-import java.util.ArrayList;
-import java.util.List;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.uugty.uu.R;
-import com.uugty.uu.com.find.FindViewFragment_play.FindListAdapter;
-import com.uugty.uu.common.asynhttp.RequestParams;
-import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.entity.RoadEntity;
-import com.uugty.uu.entity.UserCommentEntity;
-import com.uugty.uu.entity.RoadEntity.RoadDetail;
-import com.uugty.uu.entity.UserCommentEntity.UserCommentList;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,6 +18,19 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.uugty.uu.R;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.entity.UserCommentEntity;
+import com.uugty.uu.entity.UserCommentEntity.UserCommentList;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FindViewFragment_comments extends Fragment {
 	private TextView serviceTitle, freshTitle, costTitle;

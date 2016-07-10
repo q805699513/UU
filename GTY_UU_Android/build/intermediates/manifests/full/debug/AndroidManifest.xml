@@ -86,7 +86,7 @@
         <!-- 设置环信应用的appkey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
-            android:value="uugty999#uutest" />
+            android:value="uugty999#uu" />
         <!-- 声明sdk所需的service SDK核心功能 -->
         <service android:name="com.easemob.chat.EMChatService" />
 
@@ -634,6 +634,12 @@
         <!-- 咨询引导页 -->
         <activity
             android:name="com.uugty.uu.guide.LeadPageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/PhoneDialog" >
+        </activity>
+        <activity
+            android:name="com.uugty.uu.appstart.UpgradeDialogActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/PhoneDialog" >

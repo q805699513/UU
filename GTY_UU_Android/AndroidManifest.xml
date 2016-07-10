@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.uugty.uu"
-    android:versionCode="19"
-    android:versionName="1.8.1" >
+    android:versionCode="20"
+    android:versionName="1.8.2" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -89,7 +89,7 @@
         <!-- 设置环信应用的appkey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
-            android:value="uugty999#uutest" />
+            android:value="uugty999#uu" />
         <!-- 声明sdk所需的service SDK核心功能 -->
         <service android:name="com.easemob.chat.EMChatService" />
 
@@ -636,6 +636,13 @@
         <!-- 咨询引导页 -->
         <activity
             android:name=".guide.LeadPageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/PhoneDialog" >
+        </activity>
+
+        <activity
+            android:name=".appstart.UpgradeDialogActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/PhoneDialog" >

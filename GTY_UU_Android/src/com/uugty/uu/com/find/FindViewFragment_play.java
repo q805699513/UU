@@ -1,17 +1,5 @@
 package com.uugty.uu.com.find;
 
-import java.util.List;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.uugty.uu.R;
-import com.uugty.uu.common.asynhttp.RequestParams;
-import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.common.myview.ListViewForScrollView;
-import com.uugty.uu.entity.RoadEntity;
-import com.uugty.uu.entity.RoadEntity.RoadDetail;
-import com.uugty.uu.entity.RoadLine;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -28,6 +16,19 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.uugty.uu.R;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.entity.RoadEntity;
+import com.uugty.uu.entity.RoadEntity.RoadDetail;
+import com.uugty.uu.entity.RoadLine;
+
+import java.util.List;
 
 public class FindViewFragment_play extends Fragment {
 	private ListView find_listview;

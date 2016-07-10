@@ -11,6 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true" />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignRight="@+id/my_services_title"-->
+        <!--android:layout_marginTop="18dp"-->
+        <!--android:layout_marginRight="9dp"-->
+        <!--android:textSize="15sp"-->
+        <!--android:textColor="#f15353"-->
+        <!--android:text="发布服务"/>-->
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/my_services_swipe_container"

@@ -1,13 +1,9 @@
 package com.uugty.uu.main;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,23 +11,21 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView.OnItemClickListener;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.uugty.uu.R;
-import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
@@ -47,9 +41,11 @@ import com.uugty.uu.friendstask.FriendsDynamicActivity;
 import com.uugty.uu.guide.LeadPageActivity;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.person.PersonCenterActivity;
-import com.uugty.uu.util.LogUtils;
 import com.uugty.uu.util.UUConfig;
 import com.uugty.uu.uuchat.ChatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConsultFragment extends Fragment implements
 		SwipeRefreshLayout.OnRefreshListener, OnClickListener,

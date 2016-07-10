@@ -1,7 +1,5 @@
 package com.uugty.uu.main;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,27 +15,27 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-import android.view.animation.Animation.AnimationListener;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.TranslateAnimation;
 import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView.OnItemClickListener;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.nhaarman.listviewanimations.ArrayAdapter;
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.uugty.uu.R;
 import com.uugty.uu.base.application.MyApplication;
-import com.uugty.uu.city.customview.CityListActivity;
 import com.uugty.uu.com.find.FindTestViewPagerActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
@@ -50,16 +48,15 @@ import com.uugty.uu.common.myview.SlideShowView;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.entity.GuideEntity;
 import com.uugty.uu.entity.GuideEntity.GuideDetail;
+import com.uugty.uu.entity.HomePageRecommendEntity;
 import com.uugty.uu.entity.HomePageRecommendEntity.HomePageRecommend;
 import com.uugty.uu.entity.HomeTagEntity;
 import com.uugty.uu.entity.HomeTagEntity.Tags.PlayAndBuy;
-import com.uugty.uu.entity.HomePageRecommendEntity;
-import com.uugty.uu.entity.Util;
-import com.uugty.uu.entity.VipEntity;
 import com.uugty.uu.login.LoginActivity;
-import com.uugty.uu.map.OpenShopActivity;
-import com.uugty.uu.map.PublishServicesActivity;
 import com.uugty.uu.util.UUConfig;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Fragment1 extends Fragment implements
 		SwipeRefreshLayout.OnRefreshListener, OnItemClickListener,

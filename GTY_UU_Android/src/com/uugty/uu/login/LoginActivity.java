@@ -679,8 +679,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
 			CustomToast.makeText(ctx, 0, "密码不能大于16位", 200).show();
 			return false;
 		}
-		if (!user_naem.equals("") && user_naem.length() != 11) {
-			CustomToast.makeText(ctx, 0, "手机号输入错误", 200).show();
+		if (user_naem.equals("") ) {
+			CustomToast.makeText(ctx, 0, "手机号不能为空", 200).show();
 			return false;
 		} else {
 			return true;

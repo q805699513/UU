@@ -1,17 +1,17 @@
 package com.uugty.uu.db.service;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.uugty.uu.dbhelp.DBOpenHelper;
-import com.uugty.uu.entity.RoadEntity;
-import com.uugty.uu.entity.RoadLine;
-import com.uugty.uu.entity.RoadLineEntity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.uugty.uu.dbhelp.DBOpenHelper;
+import com.uugty.uu.entity.RoadLine;
+import com.uugty.uu.entity.RoadLineEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoadLineService {
 	private Context context;

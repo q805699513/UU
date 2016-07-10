@@ -1,6 +1,5 @@
 package com.uugty.uu.main;
 
-import java.util.ArrayList;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -15,6 +14,8 @@ import android.widget.LinearLayout;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.common.myview.FlyTxtView;
+
+import java.util.ArrayList;
 
 public class GuideActivity extends BaseActivity {
 	private ViewPager viewPager;

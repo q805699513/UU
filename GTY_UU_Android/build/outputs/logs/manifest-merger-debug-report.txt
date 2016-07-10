@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:2:1-952:12
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:2:1-959:12
 	package
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:3:5-27
 		INJECTED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml
@@ -184,7 +184,7 @@ ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:77:5-
 	android:name
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:77:22-77
 application
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:80:5-950:19
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:80:5-957:19
 MERGED from [:design-release:] /Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/design-release/AndroidManifest.xml:22:5-20
 MERGED from [:appcompat_v7-release:] /Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/AndroidManifest.xml:22:5-20
 	android:label
@@ -202,9 +202,9 @@ MERGED from [:appcompat_v7-release:] /Users/libertyair/Desktop/UU/GTY_UU_Android
 	android:name
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:81:9-55
 meta-data#EASEMOB_APPKEY
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:90:9-92:47
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:90:9-92:43
 	android:value
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:92:13-44
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:92:13-40
 	android:name
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:91:13-42
 service#com.easemob.chat.EMChatService
@@ -985,7 +985,7 @@ ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:637:9
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:641:13-47
 	android:name
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:638:13-51
-activity#com.uugty.uu.guide.ServicesGuideActivity
+activity#com.uugty.uu.appstart.UpgradeDialogActivity
 ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:644:9-649:20
 	android:screenOrientation
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:647:13-49
@@ -994,132 +994,132 @@ ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:644:9
 	android:theme
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:648:13-47
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:645:13-56
-activity#com.uugty.uu.com.find.MoreLineActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:650:9-654:20
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:645:13-59
+activity#com.uugty.uu.guide.ServicesGuideActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:651:9-656:20
 	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:653:13-49
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:654:13-49
 	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:652:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:651:13-54
-activity#com.uugty.uu.main.HomeCityListActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:656:9-661:20
-	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:659:13-49
-	android:windowSoftInputMode
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:660:13-52
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:658:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:657:13-54
-activity#com.uugty.uu.friendstask.PublishTalkActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:664:9-669:20
-	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:668:13-49
-	android:launchMode
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:667:13-44
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:666:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:665:13-60
-activity#com.uugty.uu.friendstask.FriendsDynamicActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:670:9-675:20
-	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:674:13-49
-	android:launchMode
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:673:13-44
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:672:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:671:13-63
-activity#com.uugty.uu.friendstask.CurrentPosActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:676:9-680:20
-	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:679:13-49
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:678:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:677:13-59
-activity#com.uugty.uu.friendstask.DynamicCommentActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:681:9-686:20
-	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:684:13-49
-	android:windowSoftInputMode
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:685:13-73
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:683:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:682:13-63
-activity#com.uugty.uu.friendstask.DynamicDetailActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:687:9-691:20
-	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:690:13-49
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:689:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:688:13-62
-activity#com.uugty.uu.uuchat.ChatFriendsActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:693:9-697:20
-	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:696:13-49
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:695:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:694:13-55
-activity#com.uugty.uu.uuchat.GroupChatListActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:699:9-703:20
-	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:702:13-49
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:701:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:700:13-57
-activity#com.uugty.uu.uuchat.GroupChatSearchActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:705:9-710:20
-	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:708:13-49
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:707:13-74
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:653:13-74
 	android:theme
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:709:13-61
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:655:13-47
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:706:13-59
-activity#com.uugty.uu.uuchat.GroupDetailActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:712:9-716:20
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:652:13-56
+activity#com.uugty.uu.com.find.MoreLineActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:657:9-661:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:660:13-49
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:659:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:658:13-54
+activity#com.uugty.uu.main.HomeCityListActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:663:9-668:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:666:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:667:13-52
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:665:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:664:13-54
+activity#com.uugty.uu.friendstask.PublishTalkActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:671:9-676:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:675:13-49
+	android:launchMode
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:674:13-44
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:673:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:672:13-60
+activity#com.uugty.uu.friendstask.FriendsDynamicActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:677:9-682:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:681:13-49
+	android:launchMode
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:680:13-44
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:679:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:678:13-63
+activity#com.uugty.uu.friendstask.CurrentPosActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:683:9-687:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:686:13-49
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:685:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:684:13-59
+activity#com.uugty.uu.friendstask.DynamicCommentActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:688:9-693:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:691:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:692:13-73
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:690:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:689:13-63
+activity#com.uugty.uu.friendstask.DynamicDetailActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:694:9-698:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:697:13-49
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:696:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:695:13-62
+activity#com.uugty.uu.uuchat.ChatFriendsActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:700:9-704:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:703:13-49
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:702:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:701:13-55
+activity#com.uugty.uu.uuchat.GroupChatListActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:706:9-710:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:709:13-49
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:708:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:707:13-57
+activity#com.uugty.uu.uuchat.GroupChatSearchActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:712:9-717:20
 	android:screenOrientation
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:715:13-49
 	android:configChanges
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:714:13-74
+	android:theme
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:716:13-61
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:713:13-55
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:713:13-59
+activity#com.uugty.uu.uuchat.GroupDetailActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:719:9-723:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:722:13-49
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:721:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:720:13-55
 activity#com.uugty.uu.uuchat.GroupEntryActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:718:9-722:20
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:725:9-729:20
 	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:721:13-49
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:728:13-49
 	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:720:13-74
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:727:13-74
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:719:13-54
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:726:13-54
 activity#com.uugty.uu.uuchat.GroupChatCreateActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:724:9-728:20
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:731:9-735:20
 	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:727:13-49
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:734:13-49
 	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:726:13-74
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:733:13-74
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:725:13-59
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:732:13-59
 activity#com.uugty.uu.city.customview.CityListActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:730:9-735:20
-	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:733:13-49
-	android:windowSoftInputMode
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:734:13-52
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:732:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:731:13-61
-activity#com.uugty.uu.login.CountryActivity
 ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:737:9-742:20
 	android:screenOrientation
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:740:13-49
@@ -1128,70 +1128,70 @@ ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:737:9
 	android:configChanges
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:739:13-74
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:738:13-50
-activity#com.uugty.uu.map.LocationActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:744:9-748:20
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:738:13-61
+activity#com.uugty.uu.login.CountryActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:744:9-749:20
 	android:screenOrientation
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:747:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:748:13-52
 	android:configChanges
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:746:13-74
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:745:13-49
-activity#com.uugty.uu.common.myview.SearchPopuWindow
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:749:9-754:20
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:745:13-50
+activity#com.uugty.uu.map.LocationActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:751:9-755:20
 	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:752:13-49
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:754:13-49
 	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:751:13-74
-	android:theme
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:753:13-61
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:753:13-74
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:750:13-59
-activity#com.uugty.uu.common.myview.SelectPictureActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:756:9-760:20
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:752:13-49
+activity#com.uugty.uu.common.myview.SearchPopuWindow
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:756:9-761:20
 	android:screenOrientation
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:759:13-49
 	android:configChanges
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:758:13-74
+	android:theme
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:760:13-61
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:757:13-64
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:757:13-59
+activity#com.uugty.uu.common.myview.SelectPictureActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:763:9-767:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:766:13-49
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:765:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:764:13-64
 activity#com.uugty.uu.common.myview.SearchCityWindow
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:761:9-766:20
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:768:9-773:20
 	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:765:13-49
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:772:13-49
 	android:launchMode
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:764:13-44
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:771:13-44
 	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:763:13-74
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:770:13-74
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:762:13-59
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:769:13-59
 activity#com.uugty.uu.main.RecomendWebActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:767:9-771:20
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:774:9-778:20
 	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:770:13-49
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:777:13-49
 	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:769:13-74
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:776:13-74
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:768:13-53
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:775:13-53
 activity#com.uugty.uu.main.MapActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:773:9-777:20
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:780:9-784:20
 	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:776:13-49
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:783:13-49
 	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:775:13-74
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:782:13-74
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:774:13-45
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:781:13-45
 activity#com.uugty.uu.discount.c.MyDiscountActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:779:9-784:20
-	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:782:13-49
-	android:windowSoftInputMode
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:783:13-52
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:781:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:780:13-58
-activity#com.uugty.uu.discount.c.OrderUseActivity
 ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:786:9-791:20
 	android:screenOrientation
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:789:13-49
@@ -1200,204 +1200,214 @@ ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:786:9
 	android:configChanges
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:788:13-74
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:787:13-56
-activity#com.uugty.uu.discount.c.DiscountSelectActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:793:9-799:20
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:787:13-58
+activity#com.uugty.uu.discount.c.OrderUseActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:793:9-798:20
 	android:screenOrientation
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:796:13-49
 	android:windowSoftInputMode
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:798:13-52
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:797:13-52
 	android:configChanges
 		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:795:13-74
-	android:theme
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:797:13-54
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:794:13-62
-meta-data#UMENG_APPKEY
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:801:9-804:21
-	android:value
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:803:13-53
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:802:13-40
-meta-data#UMENG_CHANNEL
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:825:9-828:21
-	android:value
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:827:13-32
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:826:13-41
-activity#com.alipay.sdk.app.H5PayActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:846:9-852:20
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:794:13-56
+activity#com.uugty.uu.discount.c.DiscountSelectActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:800:9-806:20
 	android:screenOrientation
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:850:13-47
-	android:exported
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:849:13-37
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:803:13-49
 	android:windowSoftInputMode
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:851:13-67
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:805:13-52
 	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:848:13-74
-	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:847:13-60
-activity#cn.jpush.android.ui.PushActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:857:9-867:20
-	android:exported
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:861:13-37
-	android:configChanges
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:859:13-63
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:802:13-74
 	android:theme
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:860:13-60
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:804:13-54
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:858:13-60
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:801:13-62
+meta-data#UMENG_APPKEY
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:808:9-811:21
+	android:value
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:810:13-53
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:809:13-40
+meta-data#UMENG_CHANNEL
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:832:9-835:21
+	android:value
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:834:13-32
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:833:13-41
+activity#com.alipay.sdk.app.H5PayActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:853:9-859:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:857:13-47
+	android:exported
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:856:13-37
+	android:windowSoftInputMode
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:858:13-67
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:855:13-74
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:854:13-60
+activity#cn.jpush.android.ui.PushActivity
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:864:9-874:20
+	android:exported
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:868:13-37
+	android:configChanges
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:866:13-63
+	android:theme
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:867:13-60
+	android:name
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:865:13-60
 intent-filter#${applicationId}+android.intent.category.DEFAULT+cn.jpush.android.ui.PushActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:862:13-866:29
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:869:13-873:29
 action#cn.jpush.android.ui.PushActivity
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:863:17-75
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:870:17-75
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:863:25-72
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:870:25-72
 category#${applicationId}
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:865:17-61
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:872:17-61
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:865:27-58
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:872:27-58
 		INJECTED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml
 		INJECTED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml
 		INJECTED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml
 		INJECTED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml
 service#cn.jpush.android.service.DownloadService
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:869:9-873:19
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:876:9-880:19
 	android:enabled
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:871:13-35
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:878:13-35
 	android:exported
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:872:13-37
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:879:13-37
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:870:13-68
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:877:13-68
 service#cn.jpush.android.service.PushService
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:878:9-888:19
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:885:9-895:19
 	android:enabled
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:880:13-35
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:887:13-35
 	android:exported
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:881:13-37
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:888:13-37
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:879:13-64
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:886:13-64
 intent-filter#cn.jpush.android.intent.PUSH_TIME+cn.jpush.android.intent.PushService+cn.jpush.android.intent.REGISTER+cn.jpush.android.intent.REPORT
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:882:13-887:29
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:889:13-894:29
 action#cn.jpush.android.intent.REGISTER
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:883:17-75
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:890:17-75
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:883:25-72
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:890:25-72
 action#cn.jpush.android.intent.REPORT
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:884:17-73
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:891:17-73
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:884:25-70
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:891:25-70
 action#cn.jpush.android.intent.PushService
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:885:17-78
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:892:17-78
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:885:25-75
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:892:25-75
 action#cn.jpush.android.intent.PUSH_TIME
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:886:17-76
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:893:17-76
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:886:25-73
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:893:25-73
 service#cn.jpush.android.service.DaemonService
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:892:9-901:19
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:899:9-908:19
 	android:enabled
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:894:13-35
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:901:13-35
 	android:exported
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:895:13-36
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:902:13-36
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:893:13-66
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:900:13-66
 intent-filter#${applicationId}+cn.jpush.android.intent.DaemonService
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:896:13-899:29
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:903:13-906:29
 action#cn.jpush.android.intent.DaemonService
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:897:17-80
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:904:17-80
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:897:25-77
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:904:25-77
 receiver#cn.jpush.android.service.PushReceiver
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:904:9-923:20
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:911:9-930:20
 	android:enabled
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:906:13-35
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:913:13-35
 	android:exported
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:907:13-37
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:914:13-37
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:905:13-65
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:912:13-65
 intent-filter#${applicationId}+cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:908:13-911:29
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:915:13-918:29
 	android:priority
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:908:28-51
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:915:28-51
 action#cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:909:17-94
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:916:17-94
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:909:25-91
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:916:25-91
 intent-filter#android.intent.action.USER_PRESENT+android.net.conn.CONNECTIVITY_CHANGE
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:912:13-915:29
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:919:13-922:29
 action#android.intent.action.USER_PRESENT
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:913:17-77
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:920:17-77
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:913:25-74
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:920:25-74
 action#android.net.conn.CONNECTIVITY_CHANGE
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:914:17-79
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:921:17-79
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:914:25-76
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:921:25-76
 intent-filter#android.intent.action.PACKAGE_ADDED+android.intent.action.PACKAGE_REMOVED
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:917:13-921:29
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:924:13-928:29
 action#android.intent.action.PACKAGE_ADDED
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:918:17-78
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:925:17-78
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:918:25-75
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:925:25-75
 action#android.intent.action.PACKAGE_REMOVED
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:919:17-80
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:926:17-80
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:919:25-77
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:926:25-77
 receiver#cn.jpush.android.service.AlarmReceiver
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:926:9-99
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:933:9-99
 	android:exported
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:926:73-97
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:933:73-97
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:926:19-72
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:933:19-72
 receiver#com.uugty.uu.push.PushReceiver
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:929:9-943:20
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:936:9-950:20
 	android:enabled
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:932:13-35
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:939:13-35
 	android:exported
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:931:13-37
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:938:13-37
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:930:13-58
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:937:13-58
 intent-filter#${applicationId}+cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK+cn.jpush.android.intent.CONNECTION+cn.jpush.android.intent.MESSAGE_RECEIVED+cn.jpush.android.intent.NOTIFICATION_OPENED+cn.jpush.android.intent.NOTIFICATION_RECEIVED+cn.jpush.android.intent.REGISTRATION+cn.jpush.android.intent.UNREGISTRATION
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:933:13-942:29
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:940:13-949:29
 action#cn.jpush.android.intent.REGISTRATION
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:934:17-79
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:941:17-79
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:934:25-76
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:941:25-76
 action#cn.jpush.android.intent.UNREGISTRATION
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:935:17-81
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:942:17-81
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:935:25-78
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:942:25-78
 action#cn.jpush.android.intent.MESSAGE_RECEIVED
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:936:17-83
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:943:17-83
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:936:25-80
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:943:25-80
 action#cn.jpush.android.intent.NOTIFICATION_RECEIVED
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:937:17-88
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:944:17-88
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:937:25-85
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:944:25-85
 action#cn.jpush.android.intent.NOTIFICATION_OPENED
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:938:17-86
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:945:17-86
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:938:25-83
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:945:25-83
 action#cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:939:17-91
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:946:17-91
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:939:25-88
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:946:25-88
 action#cn.jpush.android.intent.CONNECTION
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:940:17-77
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:947:17-77
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:940:25-74
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:947:25-74
 meta-data#JPUSH_CHANNEL
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:947:9-84
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:954:9-84
 	android:value
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:947:49-82
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:954:49-82
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:947:20-48
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:954:20-48
 meta-data#JPUSH_APPKEY
-ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:948:9-91
+ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:955:9-91
 	android:value
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:948:48-88
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:955:48-88
 	android:name
-		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:948:20-47
+		ADDED from /Users/libertyair/Desktop/UU/GTY_UU_Android/AndroidManifest.xml:955:20-47

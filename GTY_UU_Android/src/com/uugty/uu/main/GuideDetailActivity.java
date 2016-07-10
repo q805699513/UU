@@ -1,7 +1,5 @@
 package com.uugty.uu.main;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,11 +15,12 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -29,10 +28,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.RadioGroup.OnCheckedChangeListener;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 import com.uugty.uu.R;
@@ -52,6 +51,9 @@ import com.uugty.uu.entity.CollectRoadLineEntity;
 import com.uugty.uu.entity.GuideEntity;
 import com.uugty.uu.entity.GuideEntity.GuideDetail;
 import com.uugty.uu.guide.LeadPageActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class GuideDetailActivity extends BaseActivity implements

@@ -1,32 +1,5 @@
 package com.uugty.uu.friendstask;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.uugty.uu.R;
-import com.uugty.uu.base.BaseActivity;
-import com.uugty.uu.base.application.MyApplication;
-import com.uugty.uu.common.asynhttp.RequestParams;
-import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.dialog.CustomDialog;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.common.myview.JoyGridView;
-import com.uugty.uu.common.myview.JoyGridView.OnTouchBlankPositionListener;
-import com.uugty.uu.common.photoview.ImagePagerActivity;
-import com.uugty.uu.entity.BaseEntity;
-import com.uugty.uu.entity.DynamicEntity;
-import com.uugty.uu.entity.UpVoteEntity;
-import com.uugty.uu.entity.DynamicEntity.Dynamic;
-import com.uugty.uu.login.LoginActivity;
-import com.uugty.uu.main.MainActivity;
-import com.uugty.uu.person.PersonCenterActivity;
-import com.uugty.uu.uuchat.ChatActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -45,18 +18,45 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.LinearLayout.LayoutParams;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.uugty.uu.R;
+import com.uugty.uu.base.BaseActivity;
+import com.uugty.uu.base.application.MyApplication;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.dialog.CustomDialog;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.common.myview.JoyGridView;
+import com.uugty.uu.common.myview.JoyGridView.OnTouchBlankPositionListener;
+import com.uugty.uu.common.photoview.ImagePagerActivity;
+import com.uugty.uu.entity.BaseEntity;
+import com.uugty.uu.entity.DynamicEntity;
+import com.uugty.uu.entity.DynamicEntity.Dynamic;
+import com.uugty.uu.entity.UpVoteEntity;
+import com.uugty.uu.login.LoginActivity;
+import com.uugty.uu.main.MainActivity;
+import com.uugty.uu.person.PersonCenterActivity;
+import com.uugty.uu.uuchat.ChatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class FriendsDynamicActivity extends BaseActivity implements

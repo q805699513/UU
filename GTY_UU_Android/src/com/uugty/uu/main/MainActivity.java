@@ -1,8 +1,5 @@
 package com.uugty.uu.main;
 
-import java.util.List;
-
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.easemob.EMEventListener;
 import com.easemob.EMNotifierEvent;
 import com.easemob.chat.EMChat;
@@ -24,8 +22,8 @@ import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMContactListener;
 import com.easemob.chat.EMContactManager;
 import com.easemob.chat.EMConversation;
-import com.easemob.chat.EMMessage;
 import com.easemob.chat.EMConversation.EMConversationType;
+import com.easemob.chat.EMMessage;
 import com.umeng.analytics.MobclickAgent;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
@@ -36,16 +34,16 @@ import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.dialog.CustomDialog;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.AutoLogin;
 import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.entity.TestEntity;
-import com.uugty.uu.friendstask.FriendsDynamicFragment;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.main.popwindow.MoreWindow;
 import com.uugty.uu.util.UUConfig;
+
+import java.util.List;
 
 
 public class MainActivity extends BaseActivity implements OnClickListener,
@@ -135,7 +133,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 			mMoreWindow.init();
 		}
 
-		mMoreWindow.showMoreWindow(view,80);
+		mMoreWindow.showMoreWindow(view,100);
 	}
 	
 	@Override

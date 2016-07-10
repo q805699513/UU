@@ -1,6 +1,23 @@
 package com.uugty.uu.base;
 
-import java.util.Calendar;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
 import com.uugty.uu.R;
@@ -14,24 +31,8 @@ import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.entity.TestEntity;
 import com.uugty.uu.modeal.UUlogin;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.os.Build.VERSION;
-import android.os.Build.VERSION_CODES;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+
+import java.util.Calendar;
 
 //此去存在问题，应该继承FragmentActivity,这样activity、和使用FragmentActivity可以继承同一个基类
 @SuppressLint("NewApi")
@@ -65,8 +66,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 			 * View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 			 */
 			window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-			window.setStatusBarColor(Color.GRAY);
-			window.setNavigationBarColor(Color.TRANSPARENT);
+//			window.setStatusBarColor(Color.GRAY);
+//			window.setNavigationBarColor(Color.TRANSPARENT);
 		}
 		if (null != savedInstanceState)
 
@@ -90,8 +91,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 		}
 
 		// 设置可以滑动的区域，推荐用屏幕像素的一半来指定
-		// MobclickAgent.setAutoLocation(true);
-		// MobclickAgent.setSessionContinueMillis(1000);
+//		 MobclickAgent.setAutoLocation(true);
+		 MobclickAgent.setSessionContinueMillis(1000);
 
 		/*
 		 * int screenWidth =

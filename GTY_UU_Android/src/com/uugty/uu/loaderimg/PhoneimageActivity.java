@@ -188,8 +188,10 @@ public class PhoneimageActivity extends BaseActivity implements OnImageDirSelect
 				// 只查询jpeg和png的图片
 				Cursor mCursor = mContentResolver.query(mImageUri, null,
 						MediaStore.Images.Media.MIME_TYPE + "=? or "
-								+ MediaStore.Images.Media.MIME_TYPE + "=?",
-						new String[] { "image/jpeg", "image/png" },
+								+ MediaStore.Images.Media.MIME_TYPE + "=? or "
+								+ MediaStore.Images.Media.MIME_TYPE + "=? or "
+								+ MediaStore.Images.Media.MIME_TYPE + "=? ",
+						new String[] { "image/jpeg", "image/png","image/bmp","image/jpg" },
 						MediaStore.Images.Media.DATE_MODIFIED);
 
 				Log.e("TAG", mCursor.getCount() + "");
@@ -228,7 +230,8 @@ public class PhoneimageActivity extends BaseActivity implements OnImageDirSelect
 						{
 							if (filename.endsWith(".jpg")
 									|| filename.endsWith(".png")
-									|| filename.endsWith(".jpeg"))
+									|| filename.endsWith(".jpeg")
+									|| filename.endsWith(".bmp"))
 								return true;
 							return false;
 						}
@@ -315,7 +318,7 @@ public class PhoneimageActivity extends BaseActivity implements OnImageDirSelect
 			public boolean accept(File dir, String filename)
 			{
 				if (filename.endsWith(".jpg") || filename.endsWith(".png")
-						|| filename.endsWith(".jpeg"))
+						|| filename.endsWith(".jpeg")||filename.endsWith("bmp"))
 					return true;
 				return false;
 			}

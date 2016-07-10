@@ -24,7 +24,6 @@ import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMGroupManager;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.umeng.analytics.MobclickAgent;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
@@ -158,13 +157,26 @@ public class AppStartActivity extends BaseActivity implements
 
 	@Override
 	protected void initAction() {
-		MobclickAgent.updateOnlineConfig(this);
+//		MobclickAgent.updateOnlineConfig(this);
 		String id = SharedPreferenceUtil.getInstance(ctx).getString("JPushRegistId","");
 		if(!id.equals(JPushInterface.getRegistrationID(ctx))) {
 			pushJpushId();
 		}
 		getBackgroudImageRequest();
 		sendRequest();
+	}
+
+	@Override
+	public void onActivityResult(int requestCode,int resultCode, Intent data) {
+		super.onActivityResult(requestCode,resultCode, data);
+		if (resultCode == RESULT_OK) {
+			switch (requestCode) {
+				case 1:
+					getCheck();
+					break;
+				default:
+			}
+		}
 	}
 
 	private void pushJpushId() {
@@ -342,6 +354,11 @@ public class AppStartActivity extends BaseActivity implements
 				getCheck();
 			} else if ("1".equals(versionCheckVo.getOBJECT().getSTRATERY())) {// 可更新
 				LogUtils.printLog(TAG, "---------有可更新版本........");
+//				Intent i = new Intent();
+//				i.putExtra("url",versionCheckVo.getOBJECT().getREDIRECTLOCATION());
+//				i.setClass(AppStartActivity
+//				.this,UpgradeDialogActivity.class);
+//				startActivityForResult(i,1);
 				new AlertDialog.Builder(ctx)
 						.setTitle("提示")
 						.setMessage(

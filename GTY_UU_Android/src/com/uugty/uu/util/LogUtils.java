@@ -1,5 +1,8 @@
 package com.uugty.uu.util;
 
+import android.graphics.Bitmap;
+import android.os.Environment;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -8,11 +11,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import com.uugty.uu.base.application.MyApplication;
-
-import android.graphics.Bitmap;
-import android.os.Environment;
 
 
 
@@ -32,7 +30,7 @@ public class LogUtils {
 			= Environment.getExternalStorageDirectory() + "/UUimage/";
 
 	/** 是否测试版本 */
-	private static boolean isTest = true;
+	private static boolean isTest = false;
 	/**
 	 * <p>
 	 * 打印日志。

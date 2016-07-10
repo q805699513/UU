@@ -1,10 +1,5 @@
 package com.uugty.uu.guide;
 
-import java.util.ArrayList;
-import com.uugty.uu.R;
-import com.uugty.uu.base.BaseActivity;
-import com.uugty.uu.common.util.ActivityCollector;
-import com.uugty.uu.main.MainActivity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -19,6 +14,13 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.uugty.uu.R;
+import com.uugty.uu.base.BaseActivity;
+import com.uugty.uu.common.util.ActivityCollector;
+import com.uugty.uu.main.MainActivity;
+
+import java.util.ArrayList;
 
 
 public class ImageGuideActivity extends BaseActivity {

@@ -1,7 +1,5 @@
 package com.uugty.uu.common.dialog;
 
-import com.uugty.uu.R;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
+
+import com.uugty.uu.R;
 
 
 public class CustomDialog extends Dialog {
@@ -28,6 +28,7 @@ public class CustomDialog extends Dialog {
 		private String message;
 		private String positiveButtonText;
 		private String negativeButtonText;
+		private boolean isPeeringRelationship;//两个按钮是否为同级关系
 		private View contentView;
 		private boolean isOutSideCancle=true;
 		private DialogInterface.OnClickListener positiveButtonClickListener;
@@ -43,10 +44,13 @@ public class CustomDialog extends Dialog {
 			return this;
 		}
 
+		public Builder setRelationShip(boolean isPeer){
+			this.isPeeringRelationship = isPeer;
+			return this;
+		}
 		/**
 		 * Set the Dialog message from resource
 		 * 
-		 * @param title
 		 * @return
 		 */
 		public Builder setMessage(int message) {
@@ -124,6 +128,7 @@ public class CustomDialog extends Dialog {
 		
 
 		public CustomDialog create() {
+
 			LayoutInflater inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			// instantiate the dialog with the custom Theme
@@ -138,6 +143,10 @@ public class CustomDialog extends Dialog {
 			if (positiveButtonText != null) {
 				((TextView) layout.findViewById(R.id.bnConfirm))
 						.setText(positiveButtonText);
+				if(isPeeringRelationship){
+					((TextView) layout.findViewById(R.id.bnConfirm))
+							.setTextColor(layout.getResources().getColor(R.color.login_text_color));
+				}
 				if (positiveButtonClickListener != null) {
 					((TextView) layout.findViewById(R.id.bnConfirm))
 							.setOnClickListener(new View.OnClickListener() {
@@ -155,6 +164,10 @@ public class CustomDialog extends Dialog {
 			if (negativeButtonText != null) {
 				((TextView) layout.findViewById(R.id.bnCancel))
 						.setText(negativeButtonText);
+				if(isPeeringRelationship){
+					((TextView) layout.findViewById(R.id.bnCancel))
+							.setTextColor(layout.getResources().getColor(R.color.login_text_color));
+				}
 				if (negativeButtonClickListener != null) {
 					((TextView) layout.findViewById(R.id.bnCancel))
 							.setOnClickListener(new View.OnClickListener() {

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -14,11 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import java.io.Serializable;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -34,13 +28,17 @@ import com.uugty.uu.common.dialog.loading.SpotsDialog;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.EmojiEdite;
 import com.uugty.uu.common.myview.TopBackView;
-import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.discount.c.DiscountSelectActivity;
 import com.uugty.uu.discount.c.MyDiscountActivity;
 import com.uugty.uu.discount.m.DiscountListItem;
 import com.uugty.uu.discount.m.DiscountListItem.DiscountEntity;
 import com.uugty.uu.main.OrderDateActivty;
 import com.uugty.uu.person.TouristListActivity;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UUPayActivity extends BaseActivity implements OnClickListener {
 	private TopBackView topBack;

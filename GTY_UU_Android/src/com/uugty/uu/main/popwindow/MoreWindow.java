@@ -1,20 +1,5 @@
 package com.uugty.uu.main.popwindow;
 
-import com.uugty.uu.R;
-import com.uugty.uu.base.application.MyApplication;
-import com.uugty.uu.common.asynhttp.RequestParams;
-import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.entity.Util;
-import com.uugty.uu.entity.VipEntity;
-import com.uugty.uu.friendstask.FriendsDynamicActivity;
-import com.uugty.uu.login.LoginActivity;
-import com.uugty.uu.map.OpenShopActivity;
-import com.uugty.uu.map.PublishServicesActivity;
-import com.uugty.uu.uuchat.ChatCustomActivity;
-
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
 import android.animation.ObjectAnimator;
@@ -44,7 +29,21 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
+
+import com.uugty.uu.R;
+import com.uugty.uu.base.application.MyApplication;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.entity.Util;
+import com.uugty.uu.entity.VipEntity;
+import com.uugty.uu.friendstask.FriendsDynamicActivity;
+import com.uugty.uu.login.LoginActivity;
+import com.uugty.uu.map.OpenShopActivity;
+import com.uugty.uu.map.PublishServicesActivity;
+import com.uugty.uu.uuchat.ChatCustomActivity;
 
 public class MoreWindow extends PopupWindow implements OnClickListener{
 
@@ -140,12 +139,13 @@ public class MoreWindow extends PopupWindow implements OnClickListener{
 		setContentView(layout);
 		
 		ImageView close= (ImageView)layout.findViewById(R.id.center_music_window_close);
-//		android.widget.RelativeLayout.LayoutParams params =new android.widget.RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
-//		params.bottomMargin = bottomMargin;
+//		android.widget.RelativeLayout.LayoutParams params =new android.widget.RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+
 //		params.addRule(RelativeLayout.BELOW, R.id.more_window_auto);
 //		params.addRule(RelativeLayout.RIGHT_OF, R.id.more_window_collect);
 //		params.topMargin = 300;
 //		params.leftMargin = 18;
+//		params.bottomMargin = bottomMargin;
 //		close.setLayoutParams(params);
 		
 		close.setOnClickListener(new OnClickListener() {

@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextPaint;
 import android.text.TextUtils;
@@ -42,7 +43,6 @@ import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.dialog.CustomDialog;
 import com.uugty.uu.common.dialog.loading.SpotsDialog;
 import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.common.myview.CustomViewPager;
 import com.uugty.uu.common.myview.ListViewForScrollView;
 import com.uugty.uu.common.myview.PagerScrollView;
 import com.uugty.uu.common.share.onekeyshare.OnekeyShare;
@@ -77,7 +77,7 @@ import cn.sharesdk.framework.ShareSDK;
 public class FindTestViewPagerActivity extends BaseActivity implements
 		OnClickListener, PlatformActionListener, Callback {
 
-	private CustomViewPager mPager;
+	private ViewPager mPager;
 	private ArrayList<Fragment> fragmentList = new ArrayList<Fragment>();
 	private ImageView image, collectImage, idverificationImage,phone,chat;
 	private TextView view1, view3;
@@ -176,7 +176,7 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 		fatherRel = (RelativeLayout) findViewById(R.id.activity_find_route_display_father);
 //		idverificationImage = (ImageView) findViewById(R.id.find_route_display_route_id_verification);
 		fatherRel.setVisibility(View.INVISIBLE);
-		mPager = (CustomViewPager) findViewById(R.id.viewpager);
+		mPager = (ViewPager) findViewById(R.id.viewpager);
 
 		//导游认证信息
 		mVerU = (ImageView) findViewById(R.id.find_rote_img_ver);
@@ -496,12 +496,12 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 
 		btFragment = FindViewFragment_play.newInstance(roadId);
 		//合并说明和玩法板块
-		secondFragment = FindViewFragment_explain.newInstance(roadId);
+//		secondFragment = FindViewFragment_explain.newInstance(roadId);
 		thirdFragment = FindViewFragment_comments.newInstance(detailUserId);
 
 		fragmentList.add(btFragment);
 		fragmentList.add(thirdFragment);
-		fragmentList.add(secondFragment);
+//		fragmentList.add(secondFragment);
 
 
 		// 给ViewPager设置适配器
@@ -519,7 +519,7 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 			if (loadingDialog != null) {
 				loadingDialog.show();
 			} else {
-				loadingDialog = new SpotsDialog(this);
+				loadingDialog = new SpotsDialog(ctx);
 				loadingDialog.show();
 			}
 		}
@@ -535,7 +535,14 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 						b.putSerializable("roadLine", result);
 						msg.setData(b);
 						handler.sendMessage(msg);
+						new Handler().postDelayed(new Runnable() {
+							public void run() {
+								// 显示dialog
 
+								if (null != loadingDialog)
+									loadingDialog.dismiss();
+							}
+						}, 800);
 					}
 
 					@Override
@@ -743,9 +750,7 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 					guide = roadEntityResult.getOBJECT().getUserTourValidate();//导游证是否验证
 					driver = roadEntityResult.getOBJECT().getUserCarValidate();//驾驶证是否验证
 					
-					if(isVisibleDetail){
-						rodeDetail(roadEntityResult);//路线说明内容添加
-					}
+
 					if(null != verU && verU.equals("1")){
 						mVerU.setVisibility(View.VISIBLE);
 					}else{
@@ -847,14 +852,10 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 
 					fatherRel.setVisibility(View.VISIBLE);
 					mScrollView.smoothScrollTo(0, 20);
-					new Handler().postDelayed(new Runnable() {
-						public void run() {
-							// 显示dialog
+					if(isVisibleDetail){
+						rodeDetail(roadEntityResult);//路线说明内容添加
+					}
 
-							if (null != loadingDialog)
-								loadingDialog.dismiss();
-						}
-					}, 800);
 					isFirst = false;
 
 				}

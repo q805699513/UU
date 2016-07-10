@@ -31,6 +31,7 @@ dependencies {
     compile('com.facebook.fresco:imagepipeline:0.11.0') {
         exclude module: 'support-v4'
     }
+    compile 'com.umeng.analytics:analytics:latest.integration'
     //compile 'com.android.support:support-v4:23.3.0'
 }
 

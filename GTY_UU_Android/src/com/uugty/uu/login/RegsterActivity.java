@@ -137,9 +137,7 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 				if (user_phone.equals("")) {
 
 					CustomToast.makeText(ctx, 0, "手机号为空", 200).show();
-				} else if (user_phone.length() != 11) {
-					CustomToast.makeText(ctx, 0, "手机号不完整", 200).show();
-				} else {
+				}else {
 					time = new TimeCount(60000, 1000);// 构造CountDownTimer对象
 					time.start();
 					sendSMS();
@@ -402,10 +400,6 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 			return false;
 		}
 
-		if (!user_phone.equals("") && user_phone.length() != 11) {
-			CustomToast.makeText(this, 0, "手机号输入错误", 200).show();
-			return false;
-		}
 		if (user_coedy.equals("")) {
 			CustomToast.makeText(this, 0, "验证码不能为空", 200).show();
 			return false;

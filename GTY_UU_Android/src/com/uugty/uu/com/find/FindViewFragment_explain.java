@@ -1,15 +1,5 @@
 package com.uugty.uu.com.find;
 
-import com.uugty.uu.R;
-import com.uugty.uu.common.asynhttp.RequestParams;
-import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.myview.CollapsibleTextView;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.entity.RoadEntity;
-import com.uugty.uu.entity.RoadEntity.RoadDetail;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -17,14 +7,20 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.TextView.BufferType;
+
+import com.uugty.uu.R;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.entity.RoadEntity;
+import com.uugty.uu.entity.RoadEntity.RoadDetail;
 
 public class FindViewFragment_explain extends Fragment {
 	private View view;

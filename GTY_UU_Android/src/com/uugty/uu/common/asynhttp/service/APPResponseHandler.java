@@ -1,22 +1,17 @@
 package com.uugty.uu.common.asynhttp.service;
 
-import org.apache.http.Header;
-
 import android.content.Context;
-import android.content.Intent;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
-import com.uugty.uu.appstart.AppStartActivity;
-import com.uugty.uu.com.find.FindTestViewPagerActivity;
 import com.uugty.uu.common.asynhttp.TextHttpResponseHandler;
-import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.util.AutoLogin;
 import com.uugty.uu.common.util.StringTools;
-import com.uugty.uu.login.LoginActivity;
+
+import org.apache.http.Header;
 
 /**
  * 处理网络请求回调，可根据指定的对象泛型，进行反射填充对象

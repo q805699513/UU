@@ -4,7 +4,14 @@
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
+
+
+
+
+
+
+
         -->
     </style>
 
@@ -35,7 +42,7 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/AppStart.Activity_animation_style</item>
     </style>
-    
+
     <style name="login.Activity_style" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/activityAnimation</item>
@@ -46,7 +53,7 @@
     </style>
 
     <style name="AppStart.Activity_animation_style" parent="@android:style/Animation.Translucent">
-        <item name="android:windowEnterAnimation">@anim/appstart_anim</item> 
+        <item name="android:windowEnterAnimation">@anim/appstart_anim</item>
         <item name="android:windowExitAnimation">@anim/appstart_exit_anim</item>
     </style>
     <style name="Main.Activity_animation_style" parent="@android:style/Animation.Translucent">
@@ -80,7 +87,7 @@
         <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
         <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
     </style>
-    
+
     <style name="Group_chat_Animation" parent="@android:style/Animation">
         <item name="android:activityCloseExitAnimation">@anim/group_chat_search_out_two</item>
     </style>
@@ -101,10 +108,19 @@
     <style name="PhoneDialog" parent="Theme.AppCompat.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:background">#00ffffff</item>
+        <item name="android:background">#ffffffff</item>
          <item name="android:windowBackground">@drawable/phone_dialog_bg_shape</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 半透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 是否允许背景模糊 -->
+        <!-- 模糊 -->
+        <item name="android:backgroundDimAmount">0.7</item>
     </style>
 
     <style name="clipDialog_Style">
@@ -133,7 +149,7 @@
         <item name="android:windowEnterAnimation">@anim/slide_in</item>
         <item name="android:windowExitAnimation">@anim/slide_out</item>
     </style>
-    
+
     <!-- 代金券弹出显示 -->
     <style name="anim_pop_discount" parent ="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/pop_bottom_in</item>

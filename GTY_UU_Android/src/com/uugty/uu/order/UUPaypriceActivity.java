@@ -1,14 +1,5 @@
 package com.uugty.uu.order;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.alipay.sdk.app.PayTask;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tencent.mm.sdk.modelpay.PayReq;
@@ -37,7 +29,6 @@ import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.com.rightview.PriceDetailActivity;
 import com.uugty.uu.com.rightview.RightForgetActivity;
 import com.uugty.uu.com.rightview.SetPayPwdActivity;
-import com.uugty.uu.com.rightview.UPdataActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -59,9 +50,19 @@ import com.uugty.uu.entity.WXPayEntity;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.password.view.GridPasswordView;
 import com.uugty.uu.password.view.GridPasswordView.OnPasswordChangedListener;
-import com.uugty.uu.util.LogUtils;
 import com.uugty.uu.util.Md5Util;
 import com.uugty.uu.uuchat.ChatActivity;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 
 public class UUPaypriceActivity extends BaseActivity implements
 		OnClickListener,OnPasswordChangedListener {

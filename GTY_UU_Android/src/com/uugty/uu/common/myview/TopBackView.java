@@ -1,9 +1,5 @@
 package com.uugty.uu.common.myview;
 
-import com.uugty.uu.R;
-import com.uugty.uu.common.mylistener.NoDoubleClickListener;
-import com.uugty.uu.common.util.ActivityCollector;
-
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -13,6 +9,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.uugty.uu.R;
+import com.uugty.uu.common.mylistener.NoDoubleClickListener;
+import com.uugty.uu.common.util.ActivityCollector;
 
 public class TopBackView extends RelativeLayout {
 

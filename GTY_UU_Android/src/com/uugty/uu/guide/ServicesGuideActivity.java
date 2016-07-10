@@ -1,6 +1,5 @@
 package com.uugty.uu.guide;
 
-import java.util.ArrayList;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
@@ -13,9 +12,12 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.common.util.ActivityCollector;
+
+import java.util.ArrayList;
 
 
 public class ServicesGuideActivity extends BaseActivity {

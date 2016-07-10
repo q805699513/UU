@@ -42,7 +42,7 @@
       <dimen name="find_detail_round_iamge_rel_width">300dp</dimen>
       <dimen name="find_detail_round_iamge_rel_height">175dp</dimen>
       <dimen name="find_image_lin_height">225dp</dimen>
-      
+
       <!-- 发布路线 -->
       <dimen name="release_route_image_item_rel">230dp</dimen>
       <dimen name="release_route_left_image">200dp</dimen>
@@ -51,5 +51,5 @@
       <dimen name="person_photo_example_image_width">330dp</dimen>
       <dimen name="person_photo_example_image_height">210dp</dimen>
 
-	
+
 </resources>

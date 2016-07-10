@@ -1,10 +1,5 @@
 package com.uugty.uu.guide;
 
-import com.uugty.uu.R;
-import com.uugty.uu.base.BaseActivity;
-import com.uugty.uu.common.util.CacheFileUtil;
-import com.uugty.uu.login.LoginActivity;
-import com.uugty.uu.main.MainActivity;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -17,6 +12,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import com.uugty.uu.R;
+import com.uugty.uu.base.BaseActivity;
+import com.uugty.uu.common.util.CacheFileUtil;
+import com.uugty.uu.login.LoginActivity;
+import com.uugty.uu.main.MainActivity;
 
 public class GuideActivity extends BaseActivity implements
 		SurfaceHolder.Callback, OnCompletionListener {
