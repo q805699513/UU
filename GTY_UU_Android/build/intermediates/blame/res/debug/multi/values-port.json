@@ -1,5 +1,29 @@
 [
     {
+        "outputFile": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/values-port/values-port.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 55,
+                    "endOffset": 106
+                },
+                "from": {
+                    "file": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/values-port/values-port.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 55,
+                        "endOffset": 106
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/values-port/values-port.xml",
         "map": [
             {

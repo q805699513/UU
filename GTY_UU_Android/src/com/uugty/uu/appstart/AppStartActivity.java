@@ -49,7 +49,7 @@ import cn.jpush.android.api.JPushInterface;
 
 public class AppStartActivity extends BaseActivity implements
 		AMapLocationListener {
-	private final String TAG = "AppStartActivity";
+	private final String TAG = "AppStartActivity";//
 	private AppVersionCheckVo versionCheckVo;
 	// 定位
 	private LocationManagerProxy mLocationManagerProxy;
