@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="29dp"
 	        android:layout_marginTop="25dp"
+			android:layout_marginRight="12dp"
 	        android:orientation="horizontal">
 	        <TextView
 	            android:id="@+id/discount_mid_tv"
@@ -64,7 +65,7 @@
 	        
 	        <TextView
 	            android:id="@+id/discount_mid_price"
-	            android:layout_width="55dp"
+	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:layout_gravity="left|bottom"
 	            android:text="100"
@@ -75,7 +76,7 @@
 	            android:id="@+id/discount_mid_name"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:layout_marginLeft="48dp"
+	            android:layout_marginLeft="58dp"
 	            android:layout_gravity="center"
 	            android:text="海南旅游专项券"
 	            android:textColor="#000000"
@@ -87,11 +88,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="34dp"
+			android:layout_marginRight="12dp"
 	        android:layout_marginTop="75dp"
 	        android:orientation="horizontal">
 	        <TextView
 	            android:id="@+id/discount_mid_order"
-	            android:layout_width="58dp"
+	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:layout_gravity="center"
 	            android:text="满200元使用"
@@ -102,7 +104,7 @@
 	            android:id="@+id/discount_mid_time"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:layout_marginLeft="58dp"
+	            android:layout_marginLeft="68dp"
 	            android:layout_gravity="center"
 	            android:text="2016.01.20 23:59到期"
 	            android:textColor="#98999a"

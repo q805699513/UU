@@ -294,7 +294,6 @@ public class Fragement2 extends Fragment {
 	/**
 	 * 获取所有会话
 	 * 
-	 * @param context
 	 * @return +
 	 */
 	private List<EMConversation> loadConversationsWithRecentChat() {

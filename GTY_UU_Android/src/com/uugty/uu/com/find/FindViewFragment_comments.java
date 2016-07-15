@@ -254,8 +254,8 @@ public class FindViewFragment_comments extends Fragment {
 			ViewManger viewmanger;
 			if (convertView == null) {
 				viewmanger = new ViewManger();
-				convertView = LayoutInflater.from(context).inflate(
-						R.layout.user_comment_listview_item, null);
+				convertView = LayoutInflater.from(getActivity()).inflate(
+						R.layout.user_comment_listview_item,null);
 				viewmanger.headImage = (SimpleDraweeView) convertView
 						.findViewById(R.id.user_comment_list_item_head);
 				viewmanger.nameText = (TextView) convertView

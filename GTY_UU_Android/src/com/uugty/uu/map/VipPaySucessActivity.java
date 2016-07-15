@@ -12,6 +12,7 @@ import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.main.MainActivity;
+import com.uugty.uu.shop.ShopControlActivity;
 
 public class VipPaySucessActivity extends BaseActivity implements
 		OnClickListener {
@@ -60,7 +61,7 @@ public class VipPaySucessActivity extends BaseActivity implements
 			} else {
 				intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 				intent.setClass(VipPaySucessActivity.this,
-						MyServicesActivity.class);
+						ShopControlActivity.class);
 			}
 			startActivity(intent);
 			finish();
@@ -72,7 +73,7 @@ public class VipPaySucessActivity extends BaseActivity implements
 			} else {
 				intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 				intent.setClass(VipPaySucessActivity.this,
-						MyServicesActivity.class);
+						ShopControlActivity.class);
 			}
 			startActivity(intent);
 			finish();
@@ -96,7 +97,7 @@ public class VipPaySucessActivity extends BaseActivity implements
 			} else {
 				intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 				intent.setClass(VipPaySucessActivity.this,
-						MyServicesActivity.class);
+						ShopControlActivity.class);
 			}
 			startActivity(intent);
 			finish();

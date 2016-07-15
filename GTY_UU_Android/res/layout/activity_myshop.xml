@@ -46,6 +46,7 @@
                 android:textSize="17dp"/>
 
             <TextView
+                android:id="@+id/my_shop_id"
                 android:layout_marginTop="11dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -89,7 +90,7 @@
                     android:id="@+id/my_shop_retail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="11dp"
                     android:text="0"
                     android:textSize="23sp"
                     android:textColor="#000000"/>
@@ -123,7 +124,7 @@
                     android:id="@+id/my_shop_retailSell"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="11dp"
                     android:text="0"
                     android:textSize="23sp"
                     android:textColor="#000000"/>
@@ -140,22 +141,22 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="19dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginLeft="30dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="服务简历"
+                    android:text="服务奖励"
                     android:textColor="#98999a"
                     android:textSize="14sp"/>
 
                 <TextView
-
+                    android:id="@+id/my_shop_service_reward"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="11dp"
                     android:text="0"
                     android:textSize="23sp"
                     android:textColor="#000000"/>
@@ -174,7 +175,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="19dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginLeft="30dp"
                 android:orientation="vertical">
 
@@ -186,9 +187,10 @@
                     android:textSize="14sp"/>
 
                 <TextView
+                    android:id="@+id/my_shop_service_sell"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="11dp"
                     android:text="0"
                     android:textSize="23sp"
                     android:textColor="#000000"/>
@@ -199,6 +201,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/my_shop_publish"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginTop="11dp"
@@ -217,6 +220,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/my_shop_service_control"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -239,6 +243,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/my_shop_share"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -261,6 +266,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/my_shop_isu"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"

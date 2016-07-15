@@ -50,7 +50,6 @@ import com.uugty.uu.friendstask.DynamicDetailActivity;
 import com.uugty.uu.login.ForgetActivity;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.login.RegsterActivity;
-import com.uugty.uu.map.MyServicesActivity;
 import com.uugty.uu.map.OpenShopActivity;
 import com.uugty.uu.map.PublishServicesActivity;
 import com.uugty.uu.modeal.UUlogin;
@@ -60,6 +59,8 @@ import com.uugty.uu.setup.ContactUsActivity;
 import com.uugty.uu.setup.FeedbookActivity;
 import com.uugty.uu.setup.PersonSetupActivity;
 import com.uugty.uu.setup.UUHelpActivity;
+import com.uugty.uu.shop.MyShopActivity;
+import com.uugty.uu.shop.NotVipShopActivity;
 import com.uugty.uu.util.LogUtils;
 
 import org.apache.http.HttpResponse;
@@ -734,23 +735,30 @@ public class Fragement4 extends Fragment implements OnClickListener {
 							} else if (action.equals("shop")) {
 								if (!result.getOBJECT().getRoadlineId()
 										.equals("0")) {
-									intent.setClass(context,
-											MyServicesActivity.class);
-									context.startActivity(intent);
-
-								} else {
-									// 是否为vip
-									if (result.getOBJECT().getUserIsPromoter()
-											.equals("1")) {
+									if(result.getOBJECT().getUserIsPromoter()
+											.equals("1") ){
 										intent.setClass(context,
-												MyServicesActivity.class);
+												MyShopActivity.class);
 										context.startActivity(intent);
-									} else {
+									}else {
+										intent.setClass(context,
+												NotVipShopActivity.class);
+										context.startActivity(intent);
+									}
+								} else {
+
+									if(result.getOBJECT().getUserIsPromoter()
+											.equals("1") ){
+										intent.setClass(context,
+												MyShopActivity.class);
+										context.startActivity(intent);
+									}else {
 										intent.setClass(context,
 												OpenShopActivity.class);
 										Util.vipBack="main";
 										context.startActivity(intent);
 									}
+
 								}
 							}
 						}

@@ -111,6 +111,7 @@ public class UUlogin implements  Serializable{
 		private String markContent;//标签
 		private String userIsPromoter;//是否为会员
 		private String mobileCountryCode;//电话号国家代码
+		private String userVipId;//会员ID
 		
 		
 		public String getMarkContent() {
@@ -368,6 +369,14 @@ public class UUlogin implements  Serializable{
 
 		public void setMobileCountryCode(String mobileCountryCode) {
 			this.mobileCountryCode = mobileCountryCode;
+		}
+
+		public String getUserVipId() {
+			return userVipId;
+		}
+
+		public void setUserVipId(String userVipId) {
+			this.userVipId = userVipId;
 		}
 	}
 

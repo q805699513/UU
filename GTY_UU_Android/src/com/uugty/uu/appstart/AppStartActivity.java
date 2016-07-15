@@ -348,51 +348,51 @@ public class AppStartActivity extends BaseActivity implements
 
 		if (versionCheckVo != null) {
 			// apk更新逻辑
-			if ("0".equals(versionCheckVo.getOBJECT().getSTRATERY())) {
+			if ("1".equals(versionCheckVo.getOBJECT().getSTRATERY())) {
 				LogUtils.printLog(TAG, "---------已是最新版本........");
 				// 没有更新, 获取数据字典和区域数据
 				getCheck();
-			} else if ("1".equals(versionCheckVo.getOBJECT().getSTRATERY())) {// 可更新
+			} else if ("0".equals(versionCheckVo.getOBJECT().getSTRATERY())) {// 可更新
 				LogUtils.printLog(TAG, "---------有可更新版本........");
-//				Intent i = new Intent();
-//				i.putExtra("url",versionCheckVo.getOBJECT().getREDIRECTLOCATION());
-//				i.setClass(AppStartActivity
-//				.this,UpgradeDialogActivity.class);
-//				startActivityForResult(i,1);
-				new AlertDialog.Builder(ctx)
-						.setTitle("提示")
-						.setMessage(
-								"当前版本为:"
-										+ MyApplication.getInstance()
-												.getApp_version()
-										+ ",最新版本为:"
-										+ versionCheckVo.getOBJECT()
-												.getCURRVERSION() + ",是否需要更新?")
-						.setCancelable(false)
-						.setPositiveButton("确定", new OnClickListener() {
-
-							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
-								// 打开浏览器下载
-								Intent intent = new Intent();
-								intent.setAction("android.intent.action.VIEW");
-								Uri content_url = Uri.parse(versionCheckVo
-										.getOBJECT().getREDIRECTLOCATION());
-								intent.setData(content_url);
-								startActivity(intent);
-								exit();
-
-							}
-						}).setNegativeButton("取消", new OnClickListener() {
-
-							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
-								dialog.dismiss();
-								getCheck();
-							}
-						}).show();
+				Intent i = new Intent();
+				i.putExtra("url",versionCheckVo.getOBJECT().getREDIRECTLOCATION());
+				i.setClass(AppStartActivity
+				.this,UpgradeDialogActivity.class);
+				startActivityForResult(i,1);
+//				new AlertDialog.Builder(ctx)
+//						.setTitle("提示")
+//						.setMessage(
+//								"当前版本为:"
+//										+ MyApplication.getInstance()
+//												.getApp_version()
+//										+ ",最新版本为:"
+//										+ versionCheckVo.getOBJECT()
+//												.getCURRVERSION() + ",是否需要更新?")
+//						.setCancelable(false)
+//						.setPositiveButton("确定", new OnClickListener() {
+//
+//							@Override
+//							public void onClick(DialogInterface dialog,
+//									int which) {
+//								// 打开浏览器下载
+//								Intent intent = new Intent();
+//								intent.setAction("android.intent.action.VIEW");
+//								Uri content_url = Uri.parse(versionCheckVo
+//										.getOBJECT().getREDIRECTLOCATION());
+//								intent.setData(content_url);
+//								startActivity(intent);
+//								exit();
+//
+//							}
+//						}).setNegativeButton("取消", new OnClickListener() {
+//
+//							@Override
+//							public void onClick(DialogInterface dialog,
+//									int which) {
+//								dialog.dismiss();
+//								getCheck();
+//							}
+//						}).show();
 			} else if ("2".equals(versionCheckVo.getOBJECT().getSTRATERY())) {// 强制升级
 				LogUtils.printLog(TAG, "---------客户端版本太老，强制升级........");
 				new AlertDialog.Builder(ctx).setTitle("提示")

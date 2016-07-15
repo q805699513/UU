@@ -30,7 +30,7 @@ public class APPRestClient {
 	//123环境
 //	public static String SERVER_IP = "http://www.uugty.com:100/";
 //	public static String BASE_URL ="http://192.168.1.123:8090/uuapplication/";
-//	public static String HTTPS_BASE_URL ="http://192.168.1.123:8090/uuapplication/security/";	 
+//	public static String HTTPS_BASE_URL ="http://192.168.1.123:8090/uuapplication/security/";
 	//https
 	//上线环境
 	public static String HTTPS_BASE_URL = "https://www.uugty.com:8443/uuapplication/security/";

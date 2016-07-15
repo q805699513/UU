@@ -89,7 +89,7 @@ public class MyApplication extends BaseApplication {
 		// 崩溃异常监听
 
 		CrashHandler crashHandler = CrashHandler.getInstance();
-		crashHandler.init(getApplicationContext());
+		crashHandler.init(getContext());
 
 		// 启动网络监听广播
 		/*

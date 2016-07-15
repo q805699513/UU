@@ -208,7 +208,7 @@ OnScrollListener, SwipeRefreshLayout.OnRefreshListener{
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

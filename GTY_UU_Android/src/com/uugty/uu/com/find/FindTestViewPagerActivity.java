@@ -494,6 +494,7 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 	 */
 	public void InitViewPager() {
 
+		mPager.setOffscreenPageLimit(1);
 		btFragment = FindViewFragment_play.newInstance(roadId);
 		//合并说明和玩法板块
 //		secondFragment = FindViewFragment_explain.newInstance(roadId);
@@ -504,10 +505,13 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 //		fragmentList.add(secondFragment);
 
 
+
+
 		// 给ViewPager设置适配器
 		mPager.setAdapter(new TabFragmentPagerAdapter(
 				getSupportFragmentManager(), fragmentList));
 		mPager.setCurrentItem(0, true);// 设置当前显示标签页为第一页
+
 		view1.setTextColor(getResources().getColor(android.R.color.black));
 		mLinearLayout.setVisibility(View.VISIBLE);
 		mPager.setOnPageChangeListener(new MyOnPageChangeListener());// 页面变化时的监听器
@@ -542,7 +546,7 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 								if (null != loadingDialog)
 									loadingDialog.dismiss();
 							}
-						}, 800);
+						}, 300);
 					}
 
 					@Override

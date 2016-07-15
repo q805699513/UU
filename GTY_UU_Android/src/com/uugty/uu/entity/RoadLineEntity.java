@@ -26,6 +26,7 @@ public class RoadLineEntity implements Serializable{
 	private List<RoadLine> roadlineDescribes;
 	private String userId;//insert数据库增加
 	private List<TagsEntity> tags;//路线标签
+	private String orderNum;//路线销量
 
 	
 	public String getUserId() {
@@ -168,6 +169,13 @@ public class RoadLineEntity implements Serializable{
 	public void setRoadlineTags(List<TagsEntity> roadlineTags) {
 		this.tags = roadlineTags;
 	}
-	
-	
+
+
+	public String getOrderNum() {
+		return orderNum;
+	}
+
+	public void setOrderNum(String orderNum) {
+		this.orderNum = orderNum;
+	}
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_item_bg"
+    android:orientation="horizontal" >
+
+    <!-- 用户头像 -->
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/threeuu_person_avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="left|center"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="17dp"
+        fresco:failureImage="@drawable/no_default_head_img"
+        fresco:failureImageScaleType="fitCenter"
+        fresco:placeholderImage="@drawable/no_default_head_img"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:roundAsCircle="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginBottom="10dp"
+            android:background="#e5e5e5"/>
+
+        <TextView
+            android:id="@+id/threeuu_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hahahhaha"
+            android:textSize="15sp"
+            android:textColor="#010101"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="会员ID:"
+                android:textSize="13dp"
+                android:textColor="#98999a"/>
+            <TextView
+                android:id="@+id/threeuu_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="134490"
+                android:textSize="13dp"
+                android:textColor="#98999a"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

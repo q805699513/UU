@@ -191,8 +191,8 @@ public class FindViewFragment_play extends Fragment {
 			ViewHolder holder;
 			if (view == null) {
 				holder = new ViewHolder();
-				view = LayoutInflater.from(context).inflate(
-						R.layout.find_route_display_paly,parent, false);
+				view = LayoutInflater.from(getActivity()).inflate(
+						R.layout.find_route_display_paly,null);
 				holder.imageView = (SimpleDraweeView) view
 						.findViewById(R.id.find_route_display_paly_image);
 				holder.dayText = (TextView) view

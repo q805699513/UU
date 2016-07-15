@@ -22,7 +22,7 @@ public class BaseApplication extends Application{
 	}
 
 	public void setContext(Context context) {
-		this.context = context.getApplicationContext();
+		this.context = context;
 	}
 
 	public static  BaseApplication getInstance() {

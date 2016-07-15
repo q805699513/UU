@@ -2,32 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/phone_dialog_bg_shape" >
+    android:orientation="vertical" >
 
-    <FrameLayout
+    <LinearLayout
+        android:background="@drawable/lzh_upgrade"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:alpha="0.3"
-            android:layout_width="match_parent"
-            android:layout_height="45dp" />
-        <ImageView
-            android:id="@+id/leadPages_img"
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_gravity="center"
-            android:src="@drawable/lzh_upgrade" />
+        android:layout_height="170dp"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/upgrade_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="42dp"
             android:layout_gravity="right"
             android:src="@drawable/lzh_upgradeclose"/>
 
-    </FrameLayout>
+    </LinearLayout>
 
     <TextView
         android:layout_marginTop="18dp"

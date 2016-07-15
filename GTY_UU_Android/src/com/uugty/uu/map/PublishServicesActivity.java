@@ -68,6 +68,7 @@ import com.uugty.uu.loaderimg.PhoneimageActivity;
 import com.uugty.uu.login.AgreementWebActivity;
 import com.uugty.uu.map.PublishServicesActivity.PublishAdapter.ViewHolder;
 import com.uugty.uu.person.CutPicturceActivity;
+import com.uugty.uu.shop.ShopControlActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -860,7 +861,7 @@ public class PublishServicesActivity extends BaseActivity implements
 						intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 						intent.setClass(
 								PublishServicesActivity.this,
-								MyServicesActivity.class);
+								ShopControlActivity.class);
 						startActivity(intent);
 						finish();
 					}
@@ -1023,7 +1024,7 @@ public class PublishServicesActivity extends BaseActivity implements
 			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 			intent.setClass(
 					PublishServicesActivity.this,
-					MyServicesActivity.class);
+					ShopControlActivity.class);
 			startActivity(intent);
 		}
 	}
@@ -1110,7 +1111,7 @@ public class PublishServicesActivity extends BaseActivity implements
 						intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 						intent.setClass(
 								PublishServicesActivity.this,
-								MyServicesActivity.class);
+								ShopControlActivity.class);
 						startActivity(intent);
 						finish();
 					}

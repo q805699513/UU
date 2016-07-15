@@ -254,4 +254,16 @@ public class ServiceCode {
 	public static final String JPUSH_REQUEST = "queryCommentByMsgId.do";
 	//极光推送上传registId
 	public static final String PUSH_ID = "addNoLoginJPush.do";
+	//我的小店三级分销奖励
+	public static final String USER_SELL = "queryUserSales.do";
+	//路线置顶接口
+	public static final String ROAD_TOP = "updateRoadlineTop.do";
+	//路线下架接口
+	public static final String ROAD_DROP = "updateRoadlineDrop.do";
+	//我的下架路线列表接口
+	public static final String ROAD_DROP_LIST = "queryRoadlineDrop.do";
+	//三级分销获取个数
+	public static final String THREE_COUNT = "queryUserCount.do";
+	//各级人数
+	public static final String PEER_USER = "queryPromotionUser.do";
 }

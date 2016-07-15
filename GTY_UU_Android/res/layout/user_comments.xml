@@ -59,14 +59,15 @@
     <LinearLayout
         android:id="@+id/user_comment_no_data_lin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center|center"
         android:background="@drawable/corners_linear_bottom"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"
-        android:layout_marginTop="20dp" >
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp" >
 
         <ImageView
             android:layout_width="70dp"

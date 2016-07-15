@@ -104,6 +104,16 @@
         <item name="android:windowAnimationStyle">@style/ActionSheetAnimation2</item>
     </style>
 
+    <style name="MyStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
     <!-- 相册弹出对话�? -->
     <style name="PhoneDialog" parent="Theme.AppCompat.Dialog">
         <item name="android:windowFrame">@null</item>
@@ -175,9 +185,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/transparent</item>
         <!-- 是否浮现在activity之上 -->
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
         <!-- 半透明 -->
         <item name="android:backgroundDimEnabled">true</item>
         <!-- 是否允许背景模糊 -->

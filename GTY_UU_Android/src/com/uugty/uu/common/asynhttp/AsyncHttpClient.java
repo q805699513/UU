@@ -1164,8 +1164,9 @@ public class AsyncHttpClient {
 				break;
 			}
 		}
-		params.add("token", Md5Util.getToken(builder.toString()));
-		
+//		params.add("token", Md5Util.getToken(builder.toString()));
+		params.add("token", Md5Util.MD5(builder.toString() + "uuk"));
+
 		return post(context, url, paramsToEntity(params, responseHandler),
 				null, responseHandler);
 	}

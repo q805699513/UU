@@ -35,6 +35,8 @@ char* Jstring2CStr(JNIEnv* env, jstring jstr) {
 		memcpy(rtn, ba, alen);
 		rtn[alen] = 0;
 	}
+
+	(*env)->DeleteLocalRef(env, strencode);
 	(*env)->ReleaseByteArrayElements(env, barr, ba, 0);
 	return rtn;
 }

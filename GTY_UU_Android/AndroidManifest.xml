@@ -627,12 +627,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name=".map.MyServicesActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
-        </activity>
+
         <!-- 咨询引导页 -->
         <activity
             android:name=".guide.LeadPageActivity"
@@ -645,7 +640,7 @@
             android:name=".appstart.UpgradeDialogActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/PhoneDialog" >
+            android:theme="@style/MyStyle" >
         </activity>
         <!-- 发布路线引导页 -->
         <activity
@@ -785,6 +780,41 @@
         <!-- 代金券 -->
         <activity
             android:name=".discount.c.MyDiscountActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!--我是小u-->
+        <activity
+            android:name=".shop.MyIsUuActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!--各级小u-->
+        <activity
+            android:name=".shop.ThreeUuActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!--vip我的小店-->
+        <activity
+            android:name=".shop.MyShopActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!--notvip我的小店-->
+        <activity
+            android:name=".shop.NotVipShopActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!--服务管理-->
+        <activity
+            android:name=".shop.ShopControlActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
