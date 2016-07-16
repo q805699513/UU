@@ -48,7 +48,6 @@ import com.uugty.uu.common.myview.EmojiEdite;
 import com.uugty.uu.common.myview.ReleaseRouteImageView;
 import com.uugty.uu.common.myview.ReleaseRouteImageView.OnChangeTimeListener;
 import com.uugty.uu.common.myview.ReleaseRouteImageView.OnTakePhotoListener;
-import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.CacheFileUtil;
 import com.uugty.uu.common.util.DateUtil;
@@ -86,7 +85,7 @@ import java.util.List;
 public class PublishServicesActivity extends BaseActivity implements
 		OnClickListener, OnTakePhotoListener, OnChangeTimeListener {
 
-	private TopBackView titleView;
+	private ImageView back;
 	private LinearLayout bgdefaultLin, bgLin, addressLin, imageLin;
 	private String picPath = CacheFileUtil.carmePaht;// 图片文件夹
 	private String pturePath = null;// 图片最终路径
@@ -105,7 +104,7 @@ public class PublishServicesActivity extends BaseActivity implements
 	// 存储图片选项--图片路径、描述
 	public static List<RoadLine> routeMarkLs = new ArrayList<RoadLine>();
 	// 存储标签选项
-	public static List<TagsEntity> mTagsEntity = new ArrayList<TagsEntity>(1);
+	public static List<TagsEntity> mTagsEntity = new ArrayList<TagsEntity>();
 	
 	private String flag = "1";// 1:背景图片，2：路线图片
 	private ScrollView mScrollView;
@@ -144,8 +143,7 @@ public class PublishServicesActivity extends BaseActivity implements
 			from = getIntent().getStringExtra("from");
 		}
 		
-		titleView = (TopBackView) findViewById(R.id.publish_services_title);
-		titleView.setTitle("发布服务");
+		back = (ImageView) findViewById(R.id.right_publish_back);
 		bgdefaultLin = (LinearLayout) findViewById(R.id.publish_services_default_bg_image_lin);
 		bgLin = (LinearLayout) findViewById(R.id.publish_services_bg_image_lin);
 		backgroudCrameImage = (ImageView) findViewById(R.id.publish_services_bg_image);
@@ -175,6 +173,33 @@ public class PublishServicesActivity extends BaseActivity implements
 	@Override
 	protected void initAction() {
 		// TODO Auto-generated method stub
+		back.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				CustomDialog.Builder builder1 = new CustomDialog.Builder(ctx);
+				builder1.setMessage("真的要放弃发布服务吗");
+				builder1.setRelationShip(true);
+				builder1.setPositiveButton("忍痛放弃",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+												int which) {
+								finish();
+								dialog.dismiss();
+							}
+						});
+
+				builder1.setNegativeButton(
+						"不放弃",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+												int which) {
+								dialog.dismiss();
+							}
+						});
+
+				builder1.create().show();
+			}
+		});
 		bgdefaultLin.setOnClickListener(this);
 		bgLin.setOnClickListener(this);
 		titleEdit.addTextChangedListener(new TextWatcher() {
@@ -223,24 +248,7 @@ public class PublishServicesActivity extends BaseActivity implements
 		}
 		//请求标签接口
 		getPlayAndBuyTag();
-		if (!TextUtils.isEmpty(roadLineId)
-				&& !TextUtils.isEmpty(roadLineStuatus)) {
-			// 查询数据库
-			RoadLineService roadLineService = new RoadLineService(this);
-			RoadLineEntity dbRoadLineEntity = roadLineService
-					.selectRoutLine(roadLineId);
-			bgPicPaht = dbRoadLineEntity.getRoadlineBackground();
-			servicesTitle = dbRoadLineEntity.getRoadlineTitle();
-			servicesPrice = dbRoadLineEntity.getRoadlinePrice();
-			servicesAddress = dbRoadLineEntity.getRoadlineGoalArea();
-			imageLin.removeAllViews();
-			routeMarkLs.clear();
-			routeMarkLs = dbRoadLineEntity.getRoadlineDescribes();
-			mTagsEntity.clear();
-			mTagsEntity = dbRoadLineEntity.getRoadlineTags();
-			// 更新UI
-			handler.sendMessage(handler.obtainMessage(6));
-		}
+
 		
 		//引导页
 		int myservices = SharedPreferenceUtil.getInstance(ctx)
@@ -617,21 +625,22 @@ public class PublishServicesActivity extends BaseActivity implements
 				titleEdit.setText(servicesTitle);
 				priceEdit.setText(servicesPrice);
 				addressTextView.setText(servicesAddress);
-				mAdapter.notifyDataSetChanged();
-				for (int i = 0; i < routeMarkLs.size(); i++) {
-					RoadLine roadLine = routeMarkLs.get(i);
-					ReleaseRouteImageView view = new ReleaseRouteImageView(
-							PublishServicesActivity.this);
-					imageLin.addView(view);
-					view.setOnTakePhotoListener(PublishServicesActivity.this);
-					view.setOnChangeTimeListener(PublishServicesActivity.this);
-					view.setImageView(roadLine.getDescribeImage(),
-							roadLine.getDescribeTime());
-					view.setEditext(roadLine.getDescribeArea());
-					if (!TextUtils.isEmpty(roadLine.getDescribeImage())) {
-						view.setDisTakeImage();
-					}
+				if(routeMarkLs.size() != 0) {
+					for (int i = 0; i < routeMarkLs.size(); i++) {
+						RoadLine roadLine = routeMarkLs.get(i);
+						ReleaseRouteImageView view = new ReleaseRouteImageView(
+								PublishServicesActivity.this);
+						imageLin.addView(view);
+						view.setOnTakePhotoListener(PublishServicesActivity.this);
+						view.setOnChangeTimeListener(PublishServicesActivity.this);
+						view.setImageView(roadLine.getDescribeImage(),
+								roadLine.getDescribeTime());
+						view.setEditext(roadLine.getDescribeArea());
+						if (!TextUtils.isEmpty(roadLine.getDescribeImage())) {
+							view.setDisTakeImage();
+						}
 
+					}
 				}
 
 				break;
@@ -1019,14 +1028,14 @@ public class PublishServicesActivity extends BaseActivity implements
 		}
 
 		routeMarkLs.clear();
-		if(TextUtils.isEmpty(from)){
-			Intent intent = new Intent();
-			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-			intent.setClass(
-					PublishServicesActivity.this,
-					ShopControlActivity.class);
-			startActivity(intent);
-		}
+//		if(TextUtils.isEmpty(from)){
+//			Intent intent = new Intent();
+//			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//			intent.setClass(
+//					PublishServicesActivity.this,
+//					ShopControlActivity.class);
+//			startActivity(intent);
+//		}
 	}
 
 	private void sendRouteRequest() {
@@ -1227,7 +1236,7 @@ public class PublishServicesActivity extends BaseActivity implements
 								if(mTagsEntity.size() > 0){
 									mTagsEntity.clear();
 								}
-								
+
 								if(isPlay){
 									tag.setTagId(mPlayList.get(position).getTagId());
 									tag.setTagName(mPlayList.get(position).getTagName());
@@ -1283,6 +1292,28 @@ public class PublishServicesActivity extends BaseActivity implements
 
 					@Override
 					public void onFinish() {
+						if (!TextUtils.isEmpty(roadLineId)
+								&& !TextUtils.isEmpty(roadLineStuatus)) {
+							// 查询数据库
+							RoadLineService roadLineService = new RoadLineService(ctx);
+							RoadLineEntity dbRoadLineEntity = roadLineService
+									.selectRoutLine(roadLineId);
+							bgPicPaht = dbRoadLineEntity.getRoadlineBackground();
+							servicesTitle = dbRoadLineEntity.getRoadlineTitle();
+							servicesPrice = dbRoadLineEntity.getRoadlinePrice();
+							servicesAddress = dbRoadLineEntity.getRoadlineGoalArea();
+							imageLin.removeAllViews();
+							if(dbRoadLineEntity.getRoadlineDescribes() != null) {
+								routeMarkLs.clear();
+								routeMarkLs = dbRoadLineEntity.getRoadlineDescribes();
+							}
+							if(dbRoadLineEntity.getRoadlineTags() != null) {
+								mTagsEntity.clear();
+								mTagsEntity = dbRoadLineEntity.getRoadlineTags();
+							}
+							// 更新UI
+							handler.sendMessage(handler.obtainMessage(6));
+						}
 					}
 				});
 	}

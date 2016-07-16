@@ -6,7 +6,8 @@
 
     <LinearLayout
         android:background="@drawable/lzh_upgrade"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="285dp"
         android:layout_height="170dp"
         android:orientation="vertical">
 
@@ -22,7 +23,8 @@
 
     <TextView
         android:layout_marginTop="18dp"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="285dp"
         android:layout_height="wrap_content"
         android:text="uu客升级啦"
         android:textSize="15sp"
@@ -30,7 +32,8 @@
         android:gravity="center"/>
 
     <View
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="285dp"
         android:layout_height="1px"
         android:background="#98999a"
         android:layout_marginTop="14dp"
@@ -38,7 +41,8 @@
         android:layout_marginRight="34dp"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="285dp"
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:layout_marginTop="12dp"
@@ -48,7 +52,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="285dp"
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:layout_marginTop="12dp"
@@ -58,7 +63,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="285dp"
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:layout_marginTop="12dp"
@@ -69,7 +75,7 @@
 
     <Button
         android:id="@+id/leadPages_button"
-        android:layout_width="match_parent"
+        android:layout_width="285dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"

@@ -662,10 +662,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
 	// 输入提示
 	private boolean checkLoginData() {
 
-		if (user_naem.equals("")) {
-			CustomToast.makeText(ctx, 0, "请输入手机号", 200).show();
-			return false;
-		}
 		if (user_pwd.equals("")) {
 			CustomToast.makeText(ctx, 0, "密码为空", 200).show();
 			return false;

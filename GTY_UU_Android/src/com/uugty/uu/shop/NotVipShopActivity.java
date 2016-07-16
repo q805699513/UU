@@ -68,6 +68,8 @@ public class NotVipShopActivity extends BaseActivity implements OnClickListener{
 				startActivity(intent);
 				break;
 			case R.id.notvip_shop_service_control:
+				intent.setClass(this,ShopControlActivity.class);
+				startActivity(intent);
 				break;
 			case R.id.notvip_shop_share:
 				break;

@@ -2,6 +2,7 @@ package com.uugty.uu.appstart;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -60,6 +61,18 @@ public class UpgradeDialogActivity extends BaseActivity {
 	@Override
 	protected void initData() {
 
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			Intent intent = new Intent();
+			intent.setClass(UpgradeDialogActivity.this,AppStartActivity.class);
+			setResult(RESULT_OK,intent);
+			finish();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 
 }

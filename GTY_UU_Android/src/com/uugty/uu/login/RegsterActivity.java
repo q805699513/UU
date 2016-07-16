@@ -419,9 +419,6 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 			return false;
 		}
 
-		if (!user_phone.equals("") && user_phone.length() != 11) {
-			return false;
-		}
 		if (user_coedy.equals("")) {
 			return false;
 		} else {

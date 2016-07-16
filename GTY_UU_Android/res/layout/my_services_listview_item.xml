@@ -7,7 +7,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/orderDetail_Top"
+
         android:layout_width="match_parent"
         android:layout_height="83dp"
         android:background="#ffffff"
@@ -29,7 +29,9 @@
             android:scaleType="fitXY" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/orderDetail_Top"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
@@ -91,18 +93,27 @@
                     android:text="10"
                     android:textColor="#98999a"
                     android:textSize="12sp" />
-                <TextView
-                    android:id="@+id/service_popwindow"
-                    android:background="@drawable/lzh_popwindowclick"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+
 
             </RelativeLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/service_popwindow_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/service_popwindow"
+                android:layout_gravity="bottom"
+                android:background="@drawable/lzh_popwindowclick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="12dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
         </LinearLayout>
     </LinearLayout>
 

@@ -84,8 +84,8 @@ public class MyApplication extends BaseApplication {
 		}
 
 		JPushInterface.setDebugMode(true);
-		JPushInterface.init(this);
-		JPushInterface.getRegistrationID(this);
+		JPushInterface.init(this.getApplicationContext());
+		JPushInterface.getRegistrationID(this.getApplicationContext());
 		// 崩溃异常监听
 
 		CrashHandler crashHandler = CrashHandler.getInstance();
@@ -99,7 +99,7 @@ public class MyApplication extends BaseApplication {
 		 * registerReceiver(mNetworkStateReceiver, filter); }
 		 */
 
-		hxSDKHelper.onInit(this);
+		hxSDKHelper.onInit(this.getApplicationContext());
 		// 默认session超时为1小时
 		MobclickAgent.setSessionContinueMillis(3600000);
 

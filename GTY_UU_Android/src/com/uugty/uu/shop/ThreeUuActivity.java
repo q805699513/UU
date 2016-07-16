@@ -4,6 +4,8 @@ package com.uugty.uu.shop;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -109,6 +111,7 @@ public class ThreeUuActivity extends BaseActivity implements OnClickListener,Tex
                 LinearLayout.LayoutParams.MATCH_PARENT, dp2px(50));
         footView.setLayoutParams(params);
         listview.addFooterView(footView, null, false);
+        listview.setSelector(new ColorDrawable(Color.TRANSPARENT));
         adapter = new ThreeUuAdapter(ctx, mThreeList);
         listview.setAdapter(adapter);
 
