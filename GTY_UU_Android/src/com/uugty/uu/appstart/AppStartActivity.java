@@ -348,11 +348,11 @@ public class AppStartActivity extends BaseActivity implements
 
 		if (versionCheckVo != null) {
 			// apk更新逻辑
-			if ("1".equals(versionCheckVo.getOBJECT().getSTRATERY())) {
+			if ("0".equals(versionCheckVo.getOBJECT().getSTRATERY())) {
 				LogUtils.printLog(TAG, "---------已是最新版本........");
 				// 没有更新, 获取数据字典和区域数据
 				getCheck();
-			} else if ("0".equals(versionCheckVo.getOBJECT().getSTRATERY())) {// 可更新
+			} else if ("1".equals(versionCheckVo.getOBJECT().getSTRATERY())) {// 可更新
 				LogUtils.printLog(TAG, "---------有可更新版本........");
 				Intent i = new Intent();
 				i.putExtra("url",versionCheckVo.getOBJECT().getREDIRECTLOCATION());

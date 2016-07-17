@@ -177,6 +177,8 @@ public class StopFragment extends Fragment implements
 											intent.setClass(getActivity(),
 													PublishServicesActivity.class);
 											startActivity(intent);
+											adapter.routeList1.remove(position);
+											adapter.notifyDataSetChanged();
 											dialog.dismiss();
 										}
 									});
