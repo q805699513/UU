@@ -142,8 +142,8 @@ OnScrollListener, SwipeRefreshLayout.OnRefreshListener{
 					intent.setClass(FriendsDynamicActivity.this, PublishTalkActivity.class);
 					startActivity(intent);
 				} else {
-					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-					intent.putExtra("topage", MainActivity.class.getName());
+//					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+					intent.putExtra("topage", FriendsDynamicActivity.class.getName());
 					intent.setClass(FriendsDynamicActivity.this, LoginActivity.class);
 					startActivity(intent);
 				}
@@ -646,12 +646,20 @@ class FriendsAdapter extends BaseAdapter {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						Intent intent = new Intent();
-						intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-						Bundle b = new Bundle();
-						b.putSerializable("dynamic", ls.get(position));
-						intent.putExtras(b);
-						intent.setClass(context, DynamicCommentActivity.class);
-						context.startActivity(intent);
+						if (MyApplication.getInstance().isLogin()) {
+							intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+							Bundle b = new Bundle();
+							b.putSerializable("dynamic", ls.get(position));
+							intent.putExtras(b);
+							intent.setClass(context, DynamicCommentActivity.class);
+							context.startActivity(intent);
+						} else {
+		//					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+							intent.putExtra("topage", FriendsDynamicActivity.class.getName());
+							intent.setClass(context, LoginActivity.class);
+							context.startActivity(intent);
+						}
+
 					}
 				});
 

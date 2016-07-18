@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.mob.tools.utils.UIHandler;
 import com.uugty.uu.R;
+import com.uugty.uu.appstart.MaskBackActivity;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -23,7 +24,7 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.common.share.onekeyshare.OnekeyShare;
 import com.uugty.uu.common.share.onekeyshare.ShareContentCustomizeCallback;
-import com.uugty.uu.entity.RoadLineEntity;
+import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.map.OpenShopActivity;
 import com.uugty.uu.map.PublishServicesActivity;
@@ -47,6 +48,8 @@ public class NotVipShopActivity extends BaseActivity implements OnClickListener
 	private Button mPublishService;//发布服务
 	private TextView mOpenShop;//立即成为小u
 
+	private int count = 0;//第几次进入
+
 	private static final int MSG_TOAST = 1;
 	private static final int MSG_ACTION_CCALLBACK = 2;
 	private static final int MSG_CANCEL_NOTIFY = 3;
@@ -58,13 +61,14 @@ public class NotVipShopActivity extends BaseActivity implements OnClickListener
 
 	@Override
 	protected void initGui() {
-		// TODO Auto-generated method stub
+
 		titleView = (TopBackView) findViewById(R.id.open_shop_title);
 		titleView.setTitle("我的小店");
 		mServiceControl = (LinearLayout) findViewById(R.id.notvip_shop_service_control);
 		mShare = (LinearLayout) findViewById(R.id.notvip_shop_share);
 		mPublishService = (Button) findViewById(R.id.notvip_shop_publish);
 		mOpenShop = (TextView) findViewById(R.id.notvip_shop_button);
+		count = SharedPreferenceUtil.getInstance(ctx).getInt("NotVip", 0);
 	}
 
 	@Override
@@ -77,6 +81,13 @@ public class NotVipShopActivity extends BaseActivity implements OnClickListener
 
 	@Override
 	protected void initData() {
+		if(count == 0) {
+			SharedPreferenceUtil.getInstance(ctx).setInt("NotVip", 1);
+			Intent i = new Intent();
+			i.putExtra("type", "1");
+			i.setClass(NotVipShopActivity.this, MaskBackActivity.class);
+			startActivity(i);
+		}
 	}
 
 	
@@ -100,8 +111,8 @@ public class NotVipShopActivity extends BaseActivity implements OnClickListener
 				startActivity(intent);
 				break;
 			case R.id.notvip_shop_share:
-				RoadLineEntity mRoadEntity = new RoadLineEntity();
-				showShare(mRoadEntity);
+//				RoadLineEntity mRoadEntity = new RoadLineEntity();
+				showShare();
 				break;
 			default:
 				break;
@@ -113,25 +124,25 @@ public class NotVipShopActivity extends BaseActivity implements OnClickListener
 	String wxShareUrl = "";
 
 	// 分享
-	private void showShare(final RoadLineEntity entity) {
+	private void showShare() {
 		Util.sharWXType = "share";
-		shareUrl = "http://www.uugty.com/uuapplication/wxprojectbendi/html/fx.html?roadlineId="
-				+ entity.getRoadlineId();
+		shareUrl = "http://www.uugty.com/uuapplication/wxprojectbendi/html/fx.html?";
+//				+ entity.getRoadlineId();
 		if (null != MyApplication.getInstance().getUserInfo())
-			wxShareUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf6c597932d583ce0&redirect_uri=http://www.uugty.com/uuapplication/wxRedictUrl.do?url=http://www.uugty.com/uuapplication/wxprojectbendi/html/join_uu_roaddetail_load.html?promoteUserId="
+			wxShareUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf6c597932d583ce0&redirect_uri=http://www.uugty.com/uuapplication/wxRedictUrl.do?url=http://www.uugty.com/uuapplication/wxprojectbendi/html/join_to_uu_mine.html?promoteUserId="
 					+ MyApplication.getInstance().getUserInfo().getOBJECT()
 					.getUserId()
-					+ "??roadlineId="
-					+ entity.getRoadlineId()
+//					+ "??roadlineId="
+//					+ entity.getRoadlineId()
 					+ "&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
 
-		if (entity.getRoadlineBackground().contains(".")) {
-			bgaddress = (entity.getRoadlineBackground()).substring(0,
-					(entity.getRoadlineBackground()).lastIndexOf("."))
-					+ "_ya.png";
-		} else {
-			bgaddress = entity.getRoadlineBackground() + "_ya.png";
-		}
+//		if (entity.getRoadlineBackground().contains(".")) {
+//			bgaddress = (entity.getRoadlineBackground()).substring(0,
+//					(entity.getRoadlineBackground()).lastIndexOf("."))
+//					+ "_ya.png";
+//		} else {
+//			bgaddress = entity.getRoadlineBackground() + "_ya.png";
+//		}
 		ShareSDK.initSDK(ctx);
 		OnekeyShare oks = new OnekeyShare();
 		// 关闭sso授权
@@ -147,7 +158,7 @@ public class NotVipShopActivity extends BaseActivity implements OnClickListener
 		oks.setTitleUrl(shareUrl);
 		// text是分享文本，所有平台都需要这个字段
 		// oks.setText("我是分享文本http://www.baidu.com"); //新浪微博链接
-		oks.setText(entity.getRoadlineTitle());
+//		oks.setText(entity.getRoadlineTitle());
 		oks.setImageUrl(APPRestClient.SERVER_IP
 				+ "images/roadlineBackgroud/" + bgaddress);
 
@@ -178,7 +189,7 @@ public class NotVipShopActivity extends BaseActivity implements OnClickListener
 					// 比如下面设置了setTitle,可以覆盖oks.setTitle里面的title值
 					paramsToShare.setTitle(MyApplication.getInstance()
 							.getUserInfo().getOBJECT().getUserName());
-					paramsToShare.setText(entity.getRoadlineTitle());
+//					paramsToShare.setText(entity.getRoadlineTitle());
 
 //						paramsToShare.setImageUrl(APPRestClient.SERVER_IP
 //								+ "images/roadlineBackgroud/" + bgaddress);
@@ -222,8 +233,8 @@ public class NotVipShopActivity extends BaseActivity implements OnClickListener
 					// 由于Onekeyshare没有关于应用分享的参数如setShareType等，我们需要通过自定义
 					// 分享来实现
 					// 比如下面设置了setTitle,可以覆盖oks.setTitle里面的title值
-					paramsToShare.setTitle(entity.getRoadlineTitle());
-					paramsToShare.setText(entity.getRoadlineTitle());
+//					paramsToShare.setTitle(entity.getRoadlineTitle());
+//					paramsToShare.setText(entity.getRoadlineTitle());
 //						paramsToShare.setImageUrl(APPRestClient.SERVER_IP
 //								+ "images/roadlineBackgroud/" + bgaddress);
 //
@@ -271,7 +282,8 @@ public class NotVipShopActivity extends BaseActivity implements OnClickListener
 										+ "images/roadlineBackgroud/" + bgaddress);
 								HttpURLConnection connection = (HttpURLConnection) urlStr.openConnection();
 								int state = connection.getResponseCode();
-								paramsToShare.setText(entity.getRoadlineTitle() + shareUrl);
+//								paramsToShare.setText(entity.getRoadlineTitle() + shareUrl);
+								paramsToShare.setText( shareUrl);
 								paramsToShare.setShareType(Platform.SHARE_WEBPAGE);// 一定要设置分享属性
 								paramsToShare.setImagePath("");
 								if (state == 200) {

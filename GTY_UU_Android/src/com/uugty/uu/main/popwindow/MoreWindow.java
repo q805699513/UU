@@ -39,7 +39,7 @@ import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.entity.VipEntity;
-import com.uugty.uu.friendstask.FriendsDynamicActivity;
+import com.uugty.uu.friendstask.PublishTalkActivity;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.map.OpenShopActivity;
 import com.uugty.uu.map.PublishServicesActivity;
@@ -294,7 +294,7 @@ public class MoreWindow extends PopupWindow implements OnClickListener{
 			dismiss();
 			break;
 		case R.id.more_window_external:
-			intent.setClass(mContext, FriendsDynamicActivity.class);
+			intent.setClass(mContext, PublishTalkActivity.class);
 			mContext.startActivity(intent);
 			dismiss();
 			break;

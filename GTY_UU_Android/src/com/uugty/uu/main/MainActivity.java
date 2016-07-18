@@ -108,7 +108,14 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 			
 			@Override
 			public void onClick(View v) {
-				showMoreWindow(v);
+				if(MyApplication.getInstance().isLogin()) {
+					showMoreWindow(v);
+				}else {
+					Intent intent = new Intent();
+					intent.putExtra("topage", MainActivity.class.getName());
+					intent.setClass(MainActivity.this, LoginActivity.class);
+					startActivity(intent);
+				}
 			}
 		});
 		// setContactListener监听联系人的变化等

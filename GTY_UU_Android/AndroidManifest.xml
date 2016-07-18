@@ -642,6 +642,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/MyStyle" >
         </activity>
+
+        <activity
+            android:name=".appstart.MaskBackActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaskStyle" >
+        </activity>
         <!-- 发布路线引导页 -->
         <activity
             android:name=".guide.ServicesGuideActivity"

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mask_linearlayout"
+    android:background="@drawable/phone_dialog_bg_shape"
+    android:orientation="vertical" >
+
+
+
+        <ImageView
+            android:id="@+id/mask_img"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="left"
+            android:src="@drawable/lzh_mengban"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="125dp"
+            android:id="@+id/mask_vip_img"
+            android:layout_gravity="left"
+            android:src="@drawable/lzh_mask_vip"/>
+
+</LinearLayout>

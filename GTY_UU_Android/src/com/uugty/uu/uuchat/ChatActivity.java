@@ -774,7 +774,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 	 * 
 	 * @param content
 	 *            message content
-	 * @param isResend
 	 *            boolean resend
 	 */
 	public void sendText(String content) {
@@ -1136,7 +1135,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 	/**
 	 * 消息图标点击事件
 	 * 
-	 * @param view
 	 */
 
 	@Override

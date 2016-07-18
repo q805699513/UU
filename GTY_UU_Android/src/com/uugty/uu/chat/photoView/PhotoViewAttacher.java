@@ -103,15 +103,17 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener, Vers
 	private static boolean isSupportedScaleType(final ScaleType scaleType) {
 		if (null == scaleType) {
 			return false;
-		}
-
-		switch (scaleType) {
-		case MATRIX:
-			throw new IllegalArgumentException(scaleType.name() + " is not supported in PhotoView");
-
-		default:
+		} else {
 			return true;
 		}
+
+//		switch (scaleType) {
+//		case MATRIX:
+//			throw new IllegalArgumentException(scaleType.name() + " is not supported in PhotoView");
+//
+//		default:
+//			return true;
+//		}
 	}
 
 	/**

@@ -52,10 +52,17 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="34dp">
 
+            <ImageView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/lzh_upgard_black"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+                android:text="我的小店页面全新升级,UI更美观"
                 android:textColor="#98999a"
                 android:textSize="12sp"/>
 
@@ -69,10 +76,16 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="34dp">
 
+            <ImageView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/lzh_upgard_black"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+                android:text="服务管理可视化操作,使用更方便"
                 android:textColor="#98999a"
                 android:textSize="12sp"/>
 
@@ -86,10 +99,16 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="34dp">
 
+            <ImageView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/lzh_upgard_black"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+                android:text="修复若干BUG,体验更舒心"
                 android:textColor="#98999a"
                 android:textSize="12sp"/>
 

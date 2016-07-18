@@ -283,8 +283,8 @@ public class StopFragment extends Fragment implements
 	private void loadData(final int what) {
 		routeList.clear();
 		RequestParams params = new RequestParams();
-		params.add("currentPage", String.valueOf(startId)); // 当前页数
-		params.add("pageSize", "50"); // pageSize
+//		params.add("currentPage", String.valueOf(startId)); // 当前页数
+//		params.add("pageSize", "50"); // pageSize
 		APPRestClient.post(getActivity(), ServiceCode.ROAD_DROP_LIST, params,
 				new APPResponseHandler<GuideRouteEntity>(GuideRouteEntity.class, getActivity()) {
 					@Override
