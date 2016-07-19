@@ -1,7 +1,6 @@
 package com.uugty.uu.uuchat;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,16 +11,17 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
@@ -33,9 +33,13 @@ import com.uugty.uu.common.dialog.CustomDialog;
 import com.uugty.uu.common.dialog.loading.SpotsDialog;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.TopBackView;
+import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.UUMessage;
 import com.uugty.uu.entity.UUMessage.DetailModeal;
 import com.uugty.uu.main.MainActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChatFriendsActivity extends BaseActivity implements
 		OnClickListener {
@@ -48,6 +52,7 @@ public class ChatFriendsActivity extends BaseActivity implements
 	private TopBackView topTitle;
 	private String toForm, forward_msg_id;
 	private SpotsDialog loadingDialog;
+
 
 	@Override
 	protected int getContentLayout() {
@@ -232,6 +237,7 @@ public class ChatFriendsActivity extends BaseActivity implements
 class WishFriendAdapter extends BaseAdapter {
 	private List<DetailModeal> list;
 	private Context context;
+	private int mFocus = 0;
 
 	public WishFriendAdapter(Context context, List<DetailModeal> list) {
 		this.list = list;
@@ -256,7 +262,7 @@ class WishFriendAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		ViewManger viewmanger = null;
 		if (convertView == null) {
@@ -271,6 +277,8 @@ class WishFriendAdapter extends BaseAdapter {
 					.findViewById(R.id.wish_city_name);
 			viewmanger.wish_mangertwo_linearla = (LinearLayout) convertView
 					.findViewById(R.id.wish_mangertwo_linearla);
+			viewmanger.isFocus = (TextView) convertView
+					.findViewById(R.id.friend_isfocus);
 			convertView.setTag(viewmanger);
 		} else {
 			viewmanger = (ViewManger) convertView.getTag();
@@ -289,14 +297,83 @@ class WishFriendAdapter extends BaseAdapter {
 		} else {
 			viewmanger.wishcityname.setText(list.get(position).getUserCity());
 		}
+		viewmanger.isFocus.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(final View v) {
+				if(mFocus == 0){
+					mFocus = 1;
+					friendsRequest(v,false,list.get(position).getUserId());
+				}else{
+					mFocus = 0;
+					friendsRequest(v,true,list.get(position).getUserId());
+				}
+			}
+		});
 
 		return convertView;
+	}
+
+	private void friendsRequest(final View view, final boolean isFocus, final String detailUserId) {
+		String post="";
+		RequestParams params = new RequestParams();
+		params.add("friendId", detailUserId);
+		if(isFocus){
+			post = ServiceCode.ADD_FRIENDS;
+		}else{
+			post = ServiceCode.DELETE_FRIENDS;
+		}
+		APPRestClient.post(context, post, params,
+				new APPResponseHandler<BaseEntity>(BaseEntity.class, context) {
+					@Override
+					public void onSuccess(BaseEntity result) {
+						if(isFocus) {
+							view.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.lzh_friend_close));
+							CustomToast.makeText(context, 0, "添加关注成功", 300).show();
+						}else{
+							view.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.lzh_friend_focus));
+							CustomToast.makeText(context, 0, "取消关注成功", 300).show();
+						}
+
+					}
+
+					@Override
+					public void onFailure(int errorCode, String errorMsg) {
+						if (errorCode == 3) {
+							friendsRequest(view,isFocus,detailUserId);
+						} else {
+							CustomToast.makeText(context, 0, errorMsg, 300).show();
+							if (errorCode == -999) {
+								new AlertDialog.Builder(context)
+										.setTitle("提示")
+										.setMessage("服务器连接失败！")
+										.setPositiveButton(
+												"确定",
+												new DialogInterface.OnClickListener() {
+													@Override
+													public void onClick(
+															DialogInterface dialog,
+															int which) {
+														dialog.dismiss();
+													}
+												}).show();
+							}
+
+						}
+					}
+
+					@Override
+					public void onFinish() {
+
+					}
+				});
+
 	}
 
 	static class ViewManger {
 		SimpleDraweeView wishimg;
 		TextView wishtitle;
 		TextView wishcityname;
+		TextView isFocus;
 		LinearLayout wish_mangertwo_linearla;
 	}
 }

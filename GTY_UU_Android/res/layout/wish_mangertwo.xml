@@ -9,12 +9,12 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp" >
+        android:layout_height="61dp" >
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/wish_chat_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
             android:layout_marginLeft="12dp"
             android:layout_centerVertical="true"
             fresco:placeholderImage="@drawable/no_default_head_img"
@@ -25,12 +25,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_toRightOf="@+id/wish_chat_image"
-            android:textColor="#565a5c"
+            android:textColor="#010101"
             android:textSize="15sp"
-            android:text="123"
-            android:layout_centerVertical="true" />
+            android:text="123"/>
 
        <!--  <ImageView
             android:id="@+id/city_mapimg"
@@ -48,12 +47,22 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/wish_chat_name"
             android:layout_toRightOf="@+id/wish_chat_image"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
             android:textColor="#98999a"
             android:textSize="13sp"
-            android:text="123"
-            android:visibility="gone" />
+            android:text="暂无坐标"
+             />
+        <TextView
+            android:id="@+id/friend_isfocus"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="19dp"
+            android:layout_marginBottom="17dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lzh_friend_close"/>
     </RelativeLayout>
 
 </LinearLayout>

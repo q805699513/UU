@@ -74,13 +74,15 @@
         android:id="@+id/tourist_swipe_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-	<ListView 
-	    android:background="#ffffff"
-	    android:id="@+id/tourist_card_list"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"	    
-	    android:divider="@null"
-	    android:scrollbars="none"
-	    ></ListView>
+		<com.uugty.uu.simplistview.SwipeMenuListView
+			android:background="#ffffff"
+			android:id="@+id/tourist_card_list"
+			android:listSelector="@android:color/transparent"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:divider="@null"
+			android:scrollbars="none"
+			>
+		</com.uugty.uu.simplistview.SwipeMenuListView>
 	</android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

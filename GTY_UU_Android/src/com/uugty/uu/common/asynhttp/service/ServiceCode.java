@@ -266,4 +266,8 @@ public class ServiceCode {
 	public static final String THREE_COUNT = "queryUserCount.do";
 	//各级人数
 	public static final String PEER_USER = "queryPromotionUser.do";
+	//取消关注
+	public static final String  DELETE_FRIENDS="deleteFriend.do";
+	//删除联系人
+	public static final String DELETE_CONTACT="deleteContact.do";
 }

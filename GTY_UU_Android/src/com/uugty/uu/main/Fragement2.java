@@ -1,17 +1,33 @@
 package com.uugty.uu.main;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Hashtable;
-import java.util.List;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.text.TextUtils;
+import android.util.Pair;
+import android.util.TypedValue;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.TextView.BufferType;
+import android.widget.Toast;
+
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMConversation;
-import com.easemob.chat.EMMessage;
-import com.easemob.chat.TextMessageBody;
 import com.easemob.chat.EMConversation.EMConversationType;
+import com.easemob.chat.EMMessage;
 import com.easemob.chat.EMMessage.ChatType;
+import com.easemob.chat.TextMessageBody;
 import com.easemob.util.DateUtils;
 import com.uugty.uu.R;
 import com.uugty.uu.base.application.MyApplication;
@@ -33,28 +49,13 @@ import com.uugty.uu.simplistview.SwipeMenuListView.OnMenuItemClickListener;
 import com.uugty.uu.uuchat.ChatActivity;
 import com.uugty.uu.uuchat.ChatFriendsActivity;
 import com.uugty.uu.uuchat.GroupChatListActivity;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.text.TextUtils;
-import android.util.Pair;
-import android.util.TypedValue;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.RelativeLayout;
-import android.widget.TextView.BufferType;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.List;
 
 public class Fragement2 extends Fragment {
 
@@ -101,7 +102,7 @@ public class Fragement2 extends Fragment {
 		conversationList.addAll(loadConversationsWithRecentChat());
 		chat_listview = (SwipeMenuListView) rootview
 				.findViewById(R.id.uuchat_listview);
-		chat_listview.setSource(false);
+		chat_listview.setSource(false);//设置左滑删除Boolean值
 		TextView footView = new TextView(context);
 		footView.setBackgroundColor(getResources().getColor(
 				R.color.chat_bg_color));

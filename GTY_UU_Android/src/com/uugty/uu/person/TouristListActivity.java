@@ -1,53 +1,53 @@
 package com.uugty.uu.person;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.R.integer;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.AbsListView.OnScrollListener;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.dialog.CustomDialog;
 import com.uugty.uu.common.dialog.loading.SpotsDialog;
 import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.entity.DynamicEntity;
-import com.uugty.uu.entity.DynamicEntity.Dynamic;
+import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.TouristEntity;
 import com.uugty.uu.entity.TouristEntity.Tourist;
-import com.uugty.uu.friendstask.DynamicDetailActivity;
 import com.uugty.uu.order.UUPayActivity;
+import com.uugty.uu.simplistview.SwipeMenu;
+import com.uugty.uu.simplistview.SwipeMenuCreator;
+import com.uugty.uu.simplistview.SwipeMenuListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TouristListActivity extends BaseActivity implements
 OnScrollListener, SwipeRefreshLayout.OnRefreshListener,
 OnClickListener{
 	private ImageView tourist_list_back;
 	private TextView tourist_list_confirm,tourist_add_text;
-	private ListView mListView;
+	private SwipeMenuListView mListView;
 	private int startId = 1;// 起始页页
 	private SwipeRefreshLayout mSwipeLayout;
 	private SpotsDialog loadingDialog;
@@ -102,7 +102,7 @@ OnClickListener{
 	protected void initGui() {
 		// TODO Auto-generated method stub
 		if(getIntent()!=null){
-		contactId=getIntent().getStringExtra("id");
+			contactId=getIntent().getStringExtra("id");
 		}
 		String ids[]=contactId.split(",");
 		for (int i = 0; i < ids.length; i++) {
@@ -111,7 +111,7 @@ OnClickListener{
 		tourist_list_back=(ImageView) findViewById(R.id.tourist_list_back);
 		tourist_add_text=(TextView) findViewById(R.id.tourist_add_text);
 		tourist_list_confirm=(TextView) findViewById(R.id.tourist_list_confirm);
-		mListView=(ListView) findViewById(R.id.tourist_card_list);
+		mListView=(SwipeMenuListView) findViewById(R.id.tourist_card_list);
 		mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.tourist_swipe_container);
 		adapter=new TouristAdapter(ctx, list);
 		mListView.setAdapter(adapter);
@@ -132,23 +132,86 @@ OnClickListener{
 				android.R.color.holo_red_light);
 		mSwipeLayout.setDistanceToTriggerSync(200);
 		mListView.setOnScrollListener(this);
-		loadData(1, true);
-		mListView.setOnItemClickListener(new OnItemClickListener() {
-
+		mListView.setSource(true);//设置是否与源码保持一致
+		// 添加向右滑动删除
+		SwipeMenuCreator menucreatot = new SwipeMenuCreator() {
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub			
-				touristType="1";
-				Intent intent=new Intent();
-				intent.setClass(ctx, TouristFillActivity.class);
-				intent.putExtra("touristType", touristType);
-				intent.putExtra("name", list.get(position).getContactName());
-				intent.putExtra("id_card", list.get(position).getContactIDCard());
-				intent.putExtra("toristId", list.get(position).getContactId());
-				startActivityForResult(intent, ADDTOURIST);
+			public void create(SwipeMenu menu) {
+				// TODO Auto-generated method stub
+				com.uugty.uu.simplistview.SwipeMenuItem deleteltem = new com.uugty.uu.simplistview.SwipeMenuItem(getApplicationContext());
+				// 设置item的背景
+				deleteltem.setBackground(new ColorDrawable(Color.rgb(0xF9, 0x3F, 0x25)));
+				// 设置item的宽度
+				deleteltem.setWidth(dp2px(75));
+
+				// 设置item的图片
+				deleteltem.setIcon(R.drawable.ic_delete);
+				// add to menu
+
+				menu.addMenuItem(deleteltem);
 			}
+		};
+
+		mListView.setMenuCreator(menucreatot); // 设置左滑删除事件
+
+		mListView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+			@Override
+			public void onMenuItemClick(final int position, SwipeMenu menu, int index) {
+				// TODO Auto-generated method stub
+
+				switch (index) {
+					case 0:
+						CustomDialog.Builder builder = new CustomDialog.Builder(ctx);
+						builder.setMessage("确定删联系人吗");
+						builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int which) {
+								// 删除联系人
+								deleteContact(list.get(position).getContactId());
+								dialog.dismiss();
+
+
+							}
+						});
+
+						builder.setNegativeButton("取消",
+								new android.content.DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int which) {
+										dialog.dismiss();
+									}
+								});
+
+						builder.create().show();
+
+						break;
+
+					default:
+						break;
+				}
+			}
+
 		});
+		loadData(1, true);
+//		mListView.setOnItemClickListener(new OnItemClickListener() {
+//
+//			@Override
+//			public void onItemClick(AdapterView<?> parent, View view,
+//					int position, long id) {
+//				// TODO Auto-generated method stub
+//				touristType="1";
+//				Intent intent=new Intent();
+//				intent.setClass(ctx, TouristFillActivity.class);
+//				intent.putExtra("touristType", touristType);
+//				intent.putExtra("name", list.get(position).getContactName());
+//				intent.putExtra("id_card", list.get(position).getContactIDCard());
+//				intent.putExtra("toristId", list.get(position).getContactId());
+//				startActivityForResult(intent, ADDTOURIST);
+//			}
+//		});
+	}
+
+	private int dp2px(int dp) {
+		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
+				getResources().getDisplayMetrics());
 	}
 	@Override
 	public void onClick(View v) {
@@ -223,6 +286,51 @@ OnClickListener{
 	protected void initData() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	private void deleteContact(final String contactId) {
+		RequestParams params = new RequestParams();
+		params.add("contactId", contactId); // 当前页数
+		APPRestClient
+				.post(this, ServiceCode.DELETE_CONTACT, params,
+						new APPResponseHandler<BaseEntity>(
+								BaseEntity.class, this) {
+							@Override
+							public void onSuccess(BaseEntity result) {
+
+							}
+
+							@Override
+							public void onFailure(int errorCode, String errorMsg) {
+								if (errorCode == 3) {
+									deleteContact(contactId);
+								} else {
+									loadingDialog.dismiss();
+									CustomToast.makeText(ctx, 0, errorMsg, 300)
+											.show();
+									if (errorCode == -999) {
+										new AlertDialog.Builder(
+												TouristListActivity.this)
+												.setTitle("提示")
+												.setMessage("服务器连接失败！")
+												.setPositiveButton(
+														"确定",
+														new DialogInterface.OnClickListener() {
+															@Override
+															public void onClick(
+																	DialogInterface dialog,
+																	int which) {
+																finish();
+																dialog.dismiss();
+															}
+														}).show();
+									}
+								}
+							}
+							@Override
+							public void onFinish() {
+							}
+						});
 	}
 	@Override
 	protected void onDestroy() {
@@ -384,6 +492,9 @@ OnClickListener{
 				holder.touristname_selected_img=(ImageView) view.findViewById(R.id.touristname_selected_img);
 				holder.touristname_text=(TextView) view.findViewById(R.id.touristname_text);
 				holder.tourist_id_card_text=(TextView) view.findViewById(R.id.tourist_id_card_text);
+				holder.contact_edit = (LinearLayout) view.findViewById(R.id.contact_edit);
+				holder.contact_check = (LinearLayout) view.findViewById(R.id.contact_check);
+
 				view.setTag(holder);
 			}else{
 				holder=(ViewHolder) view.getTag();
@@ -394,14 +505,28 @@ OnClickListener{
 					clist.remove(i);
 				}
 			}
-			holder.touristname_text.setText(ls.get(position).getContactName());
-			holder.tourist_id_card_text.setText(replaceSubString(ls.get(position).getContactIDCard()));
-			if (ls.get(position).getContactStatus().equals("1")) {
-				holder.touristname_selected_img.setImageResource(R.drawable.route_tianxia1);
-			} else {
-				holder.touristname_selected_img.setImageResource(R.drawable.route_tianxia);			
+			holder.contact_edit.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					touristType="1";
+					Intent intent=new Intent();
+					intent.setClass(ctx, TouristFillActivity.class);
+					intent.putExtra("touristType", touristType);
+					intent.putExtra("name", ls.get(position).getContactName());
+					intent.putExtra("id_card", ls.get(position).getContactIDCard());
+					intent.putExtra("toristId", ls.get(position).getContactId());
+					startActivityForResult(intent, ADDTOURIST);
 				}
-			holder.touristname_selected_img.setOnClickListener(new OnClickListener() {
+			});
+			holder.touristname_text.setText(ls.get(position).getContactName());
+//			holder.tourist_id_card_text.setText(replaceSubString(ls.get(position).getContactIDCard()));
+			holder.tourist_id_card_text.setText(ls.get(position).getContactIDCard());
+			if (ls.get(position).getContactStatus().equals("1")) {
+				holder.touristname_selected_img.setImageResource(R.drawable.lzh_check_on);
+			} else {
+				holder.touristname_selected_img.setImageResource(R.drawable.lzh_check_off);
+				}
+			holder.contact_check.setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
@@ -418,6 +543,7 @@ OnClickListener{
 		}
 		class ViewHolder{
 			ImageView touristname_selected_img;
+			LinearLayout contact_check,contact_edit;
 			TextView touristname_text,tourist_id_card_text;
 		}
 	}

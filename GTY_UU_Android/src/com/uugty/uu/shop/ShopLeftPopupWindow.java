@@ -109,6 +109,7 @@ public class ShopLeftPopupWindow extends PopupWindow implements PlatformActionLi
 		this.setHeight(LayoutParams.WRAP_CONTENT);
 		// 设置SelectPicPopupWindow弹出窗体可点击
 		this.setFocusable(true);
+//		this.setAnimationStyle(R.style.popWindowAnimation);
 		// 设置SelectPicPopupWindow弹出窗体动画效果
 		//this.setAnimationStyle(R.style.mystyle);
 		// 实例化一个ColorDrawable颜色为半透明
