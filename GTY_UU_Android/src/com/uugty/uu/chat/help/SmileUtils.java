@@ -13,18 +13,18 @@
  */
 
 package com.uugty.uu.chat.help;
+import android.content.Context;
+import android.text.Spannable;
+import android.text.Spannable.Factory;
+import android.text.style.ImageSpan;
+
+import com.uugty.uu.R;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.uugty.uu.R;
-
-import android.content.Context;
-import android.text.Spannable;
-import android.text.Spannable.Factory;
-import android.text.style.ImageSpan;
 
 
 public class SmileUtils {
@@ -63,7 +63,14 @@ public class SmileUtils {
 	public static final String ee_33 = "[(F)]";
 	public static final String ee_34 = "[(W)]";
 	public static final String ee_35 = "[(D)]";
-	
+	public static final String ee_36 = "[(1)]";
+	public static final String ee_37 = "[(2)]";
+	public static final String ee_38 = "[(3)]";
+	public static final String ee_39 = "[(4)]";
+	public static final String ee_40 = "[(5)]";
+	public static final String ee_41 = "[(6)]";
+	public static final String ee_42 = "[(7)]";
+
 	private static final Factory spannableFactory = Spannable.Factory
 	        .getInstance();
 	
@@ -106,6 +113,13 @@ public class SmileUtils {
 	    addPattern(emoticons, ee_33, R.drawable.ee_33);
 	    addPattern(emoticons, ee_34, R.drawable.ee_34);
 	    addPattern(emoticons, ee_35, R.drawable.ee_35);
+	    addPattern(emoticons, ee_36, R.drawable.ee_36);
+	    addPattern(emoticons, ee_37, R.drawable.ee_37);
+	    addPattern(emoticons, ee_38, R.drawable.ee_38);
+	    addPattern(emoticons, ee_39, R.drawable.ee_39);
+	    addPattern(emoticons, ee_40, R.drawable.ee_40);
+	    addPattern(emoticons, ee_41, R.drawable.ee_41);
+	    addPattern(emoticons, ee_42, R.drawable.ee_42);
 	}
 
 	private static void addPattern(Map<Pattern, Integer> map, String smile,

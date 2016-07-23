@@ -13,10 +13,6 @@
  */
 package com.uugty.uu.com.helper;
 
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -25,6 +21,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import android.util.Log;
+
 import com.easemob.EMCallBack;
 import com.easemob.EMChatRoomChangeListener;
 import com.easemob.EMEventListener;
@@ -35,7 +32,6 @@ import com.easemob.chat.EMChatOptions;
 import com.easemob.chat.EMMessage;
 import com.easemob.chat.EMMessage.Type;
 import com.easemob.exceptions.EaseMobException;
-import com.easemob.util.EMLog;
 import com.easemob.util.EasyUtils;
 import com.uugty.uu.R;
 import com.uugty.uu.base.application.MyApplication;
@@ -53,6 +49,11 @@ import com.uugty.uu.entity.TestEntity;
 import com.uugty.uu.entity.User;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.main.MainActivity;
+
+import org.json.JSONObject;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Demo UI HX SDK helper class which subclass HXSDKHelper
@@ -312,6 +313,14 @@ public class DemoHXSDKHelper extends HXSDKHelper {
 		        final Activity activity = ActivityCollector.getTopActivity();
 		        activity.runOnUiThread(new Runnable() {
 		        	public void run() {
+						SharedPreferenceUtil.getInstance(appContext).setString(
+								"userName", "");
+						SharedPreferenceUtil.getInstance(appContext).setString(
+								"userPwd", "");
+						SharedPreferenceUtil.getInstance(appContext)
+								.setString("access_token", "");
+						SharedPreferenceUtil.getInstance(appContext)
+								.setString("refresh_token", "");
 		 				MyApplication.getInstance().clearLoginData();
 		 				DemoHXSDKHelper.getInstance().logout(null);
 		 				sendLogoutRequest(activity);

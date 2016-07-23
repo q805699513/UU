@@ -33,6 +33,7 @@ import com.uugty.uu.discount.c.MyDiscountActivity;
 import com.uugty.uu.discount.m.DiscountListItem;
 import com.uugty.uu.discount.m.DiscountListItem.DiscountEntity;
 import com.uugty.uu.main.OrderDateActivty;
+import com.uugty.uu.order.insure.InsureActivity;
 import com.uugty.uu.person.TouristListActivity;
 
 import java.io.Serializable;
@@ -68,6 +69,10 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 	private EmojiEdite msgEditText;
 	float allPrice;
 	private SpotsDialog loadingDialog;
+
+	//保险模块
+	private LinearLayout mInsureLayout;
+	private TextView mInsureDetail;
 	
 	// 支付按钮
 	private Button payConfirmBtn;
@@ -127,6 +132,10 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 		mTrvalPhone = (EmojiEdite) findViewById(R.id.order_pay_phone);
 		mTrvalPhone.setInputType(InputType.TYPE_CLASS_PHONE);//限制只能输入电话号码
 		payConfirmBtn = (Button) findViewById(R.id.uu_order_pay_cofirm);
+
+		//保险
+		mInsureLayout = (LinearLayout)findViewById(R.id.activity_paypricea_add_insure);
+		mInsureDetail = (TextView) findViewById(R.id.order_write_insure_txt);
 		ImageLoader.getInstance().displayImage(routeBackgroundImage,
 				headImageView);
 		activity_payprice_guide_title.setText(roadTitle);
@@ -144,6 +153,15 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 		}
 		reserve_minus.setOnClickListener(this);
 		reserve_add.setOnClickListener(this);
+		//选择保险
+		mInsureLayout.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent();
+				i.setClass(UUPayActivity.this, InsureActivity.class);
+				startActivity(i);
+			}
+		});
 		mDiscountTv.setOnClickListener(new OnClickListener() {
 			
 			@Override

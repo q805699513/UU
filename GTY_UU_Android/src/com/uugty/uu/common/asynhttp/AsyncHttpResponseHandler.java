@@ -33,6 +33,7 @@ import org.apache.http.util.ByteArrayBuffer;
 
 import com.uugty.uu.util.LogUtils;
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -211,6 +212,7 @@ public abstract class AsyncHttpResponseHandler implements
 	 * @param totalSize
 	 *            total size of file
 	 */
+	@SuppressLint("LongLogTag")
 	public void onProgress(int bytesWritten, int totalSize) {
 		Log.d(LOG_TAG, String.format("Progress %d from %d (%d%%)",
 				bytesWritten, totalSize,

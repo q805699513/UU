@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="保险类型"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+        <LinearLayout
+	        android:id="@+id/insure_linear1"
+	        android:layout_height="50dp"
+	        android:layout_width="match_parent"
+	        android:orientation="horizontal">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="11dp"
+            android:text="初级保险"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="18dp"
+                android:text="￥5/天"
+                android:textColor="#f15353"
+                android:textSize="15sp" />
+        
+        <TextView 
+            android:id="@+id/insure_img1"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/pay_noclick"/>
+        
+    </LinearLayout>
+        <View 
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e5e5"/>
+
+        <LinearLayout
+            android:id="@+id/insure_linear2"
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="11dp"
+                android:text="中级保险"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="18dp"
+                android:text="￥10/天"
+                android:textColor="#f15353"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/insure_img2"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/pay_noclick"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e5e5"/>
+
+        <LinearLayout
+            android:id="@+id/insure_linear3"
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="11dp"
+                android:text="高级保险"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="18dp"
+                android:text="￥15/天"
+                android:textColor="#f15353"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/insure_img3"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/pay_noclick"/>
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/insure_selected_commit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:background="#00a1d9"
+            android:text="确定"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+</LinearLayout>

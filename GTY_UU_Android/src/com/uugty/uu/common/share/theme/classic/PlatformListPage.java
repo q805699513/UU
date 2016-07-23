@@ -8,12 +8,6 @@
 
 package com.uugty.uu.common.share.theme.classic;
 
-import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
-import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
-import java.util.ArrayList;
-
-import com.uugty.uu.common.share.onekeyshare.PlatformListFakeActivity;
-
 import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.util.TypedValue;
@@ -25,6 +19,13 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+
+import com.uugty.uu.common.share.onekeyshare.PlatformListFakeActivity;
+
+import java.util.ArrayList;
+
+import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
 
 public class PlatformListPage extends PlatformListFakeActivity implements View.OnClickListener {
 	// page container
@@ -63,7 +64,7 @@ public class PlatformListPage extends PlatformListFakeActivity implements View.O
 	private void initPageView() {
 		flPage = new FrameLayout(getContext());
 		flPage.setOnClickListener(this);
-		flPage.setBackgroundDrawable(new ColorDrawable(0x55000000));
+		flPage.setBackgroundDrawable(new ColorDrawable(0x99000000));
 
 		// container of the platform gridview
 		llPage = new LinearLayout(getContext()) {
@@ -72,9 +73,10 @@ public class PlatformListPage extends PlatformListFakeActivity implements View.O
 			}
 		};
 		llPage.setOrientation(LinearLayout.VERTICAL);
-		llPage.setBackgroundDrawable(new ColorDrawable(0xffffffff));
+		llPage.setGravity(Gravity.BOTTOM);
+		llPage.setBackgroundDrawable(new ColorDrawable(0x99000000));
 		FrameLayout.LayoutParams lpLl = new FrameLayout.LayoutParams(
-				FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+				FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
 		lpLl.gravity = Gravity.BOTTOM;
 		llPage.setLayoutParams(lpLl);
 		flPage.addView(llPage);
@@ -89,25 +91,27 @@ public class PlatformListPage extends PlatformListFakeActivity implements View.O
 
 		// cancel button
 		btnCancel = new Button(getContext());
-		btnCancel.setTextColor(0xff3a65ff);
-		btnCancel.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+		btnCancel.setTextColor(0xffffffff);
+		btnCancel.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
 		int resId = getStringRes(getContext(), "ssdk_oks_cancel");
 		if (resId > 0) {
 			btnCancel.setText(resId);
 		}
-		btnCancel.setPadding(0, 0, 0, com.mob.tools.utils.R.dipToPx(getContext(), 5));
+		btnCancel.setPadding(0, 0, 0, com.mob.tools.utils.R.dipToPx(getContext(), 1));
 
 		resId = getBitmapRes(getContext(), "ssdk_oks_classic_platform_corners_bg");
 		if(resId > 0){
 			btnCancel.setBackgroundResource(resId);
 		}else {
-		    btnCancel.setBackgroundDrawable(new ColorDrawable(0xffffffff));
+		    btnCancel.setBackgroundDrawable(new ColorDrawable(0x99000000));
 		}
 
 		LinearLayout.LayoutParams lpBtn = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT, com.mob.tools.utils.R.dipToPx(getContext(), 45));
-		int dp_10 = com.mob.tools.utils.R.dipToPx(getContext(), 10);
-		lpBtn.setMargins(dp_10, dp_10, dp_10, dp_10);
+				com.mob.tools.utils.R.dipToPx(getContext(), 150), com.mob.tools.utils.R.dipToPx(getContext(), 40));
+		int dp_bottom = com.mob.tools.utils.R.dipToPx(getContext(), 44);
+		int dp_top = com.mob.tools.utils.R.dipToPx(getContext(), 36);
+		lpBtn.gravity = Gravity.CENTER;
+		lpBtn.setMargins(0, dp_top, 0, dp_bottom);
 		btnCancel.setLayoutParams(lpBtn);
 		llPage.addView(btnCancel);
 	}

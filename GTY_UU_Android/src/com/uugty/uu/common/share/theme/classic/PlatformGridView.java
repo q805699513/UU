@@ -8,13 +8,6 @@
 
 package com.uugty.uu.common.share.theme.classic;
 
-import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
-import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -31,12 +24,23 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.ShareSDK;
+
 import com.mob.tools.gui.ViewPagerAdapter;
 import com.mob.tools.gui.ViewPagerClassic;
 import com.mob.tools.utils.UIHandler;
 import com.uugty.uu.common.share.onekeyshare.CustomerLogo;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.ShareSDK;
+
+import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
 
 /** platform logo list gridview */
 @SuppressWarnings("deprecation")
@@ -108,10 +112,10 @@ public class PlatformGridView extends LinearLayout implements
 		float scrH = com.mob.tools.utils.R.getScreenHeight(getContext());
 		float whR = scrW / scrH;
 		if (whR < 0.63) {
-			COLUMN_PER_LINE = 3;
+			COLUMN_PER_LINE = 4;
 			LINE_PER_PAGE = 3;
 		} else if (whR < 0.75) {
-			COLUMN_PER_LINE = 3;
+			COLUMN_PER_LINE = 4;
 			LINE_PER_PAGE = 2;
 		} else {
 			LINE_PER_PAGE = 1;
@@ -435,8 +439,8 @@ public class PlatformGridView extends LinearLayout implements
 			ll.addView(iv);
 
 			TextView tv = new TextView(context);
-			tv.setTextColor(0xff000000);
-			tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
+			tv.setTextColor(0xffffffff);
+			tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 11);
 			tv.setSingleLine();
 			tv.setIncludeFontPadding(false);
 			LayoutParams lpTv = new LayoutParams(

@@ -15,6 +15,6 @@
         android:numColumns="7"
         android:scrollbars="none"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp"/>
+        android:verticalSpacing="1dp"/>
 
 </LinearLayout>

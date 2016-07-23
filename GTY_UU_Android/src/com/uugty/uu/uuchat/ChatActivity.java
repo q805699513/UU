@@ -1,9 +1,5 @@
 package com.uugty.uu.uuchat;
 
-import java.io.File;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -25,12 +21,13 @@ import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.View.OnTouchListener;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -39,21 +36,21 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
+
 import com.easemob.EMError;
 import com.easemob.EMEventListener;
 import com.easemob.EMNotifierEvent;
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMContactManager;
 import com.easemob.chat.EMConversation;
+import com.easemob.chat.EMConversation.EMConversationType;
 import com.easemob.chat.EMGroup;
 import com.easemob.chat.EMGroupManager;
 import com.easemob.chat.EMMessage;
+import com.easemob.chat.EMMessage.ChatType;
 import com.easemob.chat.ImageMessageBody;
 import com.easemob.chat.TextMessageBody;
 import com.easemob.chat.VoiceMessageBody;
-import com.easemob.chat.EMConversation.EMConversationType;
-import com.easemob.chat.EMMessage.ChatType;
 import com.easemob.exceptions.EaseMobException;
 import com.easemob.util.VoiceRecorder;
 import com.uugty.uu.R;
@@ -66,7 +63,6 @@ import com.uugty.uu.chat.help.GroupRemoveListener;
 import com.uugty.uu.chat.help.SmileUtils;
 import com.uugty.uu.chat.help.VoicePlayClickListener;
 import com.uugty.uu.com.helper.HXSDKHelper;
-import com.uugty.uu.com.rightview.UPdataActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -82,6 +78,11 @@ import com.uugty.uu.entity.UserSimpleEntity;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.viewpage.adapter.ChatMessageAdapter;
 import com.uugty.uu.viewpage.adapter.ExpressionPagerAdapter;
+
+import java.io.File;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChatActivity extends BaseActivity implements OnClickListener,
 		EMEventListener {
@@ -219,13 +220,15 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 				getResources().getDrawable(R.drawable.record_animate_13),
 				getResources().getDrawable(R.drawable.record_animate_14) };
 		// 表情list
-		reslist = getExpressionRes(35);
+		reslist = getExpressionRes(42);
 		// 初始化标签viewpager
 		List<View> views = new ArrayList<View>();
 		View view1 = getGridChildView(1);
 		View view2 = getGridChildView(2);
+		View view3 = getGridChildView(3);
 		views.add(view1);
 		views.add(view2);
+		views.add(view3);
 		expressionViewpager.setAdapter(new ExpressionPagerAdapter(views));
 		edittext_layout.requestFocus();
 		// 录音图片
@@ -820,7 +823,9 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 			List<String> list1 = reslist.subList(0, 20);
 			list.addAll(list1);
 		} else if (i == 2) {
-			list.addAll(reslist.subList(20, reslist.size()));
+			list.addAll(reslist.subList(20,40));
+		} else if( i == 3){
+			list.addAll(reslist.subList(40,reslist.size()));
 		}
 		list.add("delete_expression");
 		final ExpressionAdapter expressionAdapter = new ExpressionAdapter(this,
@@ -1395,7 +1400,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 	public void selectPicFromCamera() {
 		if (!CommonUtils.isExitsSdcard()) {
 			String st = "SD卡不存在，不能拍照";
-			Toast.makeText(this, st, 0).show();
+			Toast.makeText(this, st, Toast.LENGTH_LONG).show();
 			return;
 		}
 		cameraFile = new File(CacheFileUtil.carmePaht, MyApplication
@@ -1465,7 +1470,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
 				public void run() {
 					if (toChatUsername.equals(groupId)) {
-						Toast.makeText(ChatActivity.this, st13, 1).show();
+						Toast.makeText(ChatActivity.this, st13, Toast.LENGTH_LONG).show();
 						/*
 						 * if (GroupDetailsActivity.instance != null)
 						 * GroupDetailsActivity.instance.finish();
@@ -1484,7 +1489,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
 				public void run() {
 					if (toChatUsername.equals(groupId)) {
-						Toast.makeText(ChatActivity.this, st14, 1).show();
+						Toast.makeText(ChatActivity.this, st14, Toast.LENGTH_LONG).show();
 						/*
 						 * if (GroupDetailsActivity.instance != null)
 						 * GroupDetailsActivity.instance.finish();

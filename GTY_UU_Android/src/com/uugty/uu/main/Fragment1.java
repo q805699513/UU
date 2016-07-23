@@ -394,6 +394,7 @@ public class Fragment1 extends Fragment implements
 								recommendList.clear();
 							horizontalLin.removeAllViews();
 							recommendList = result.getLIST();
+							homeSlideShowView.setIsAutoPlay(true);
 							homeSlideShowView.setSource(recommendList);
 							/*
 							 * LayoutParams params = new LayoutParams(
@@ -488,9 +489,16 @@ public class Fragment1 extends Fragment implements
 	}
 
 	@Override
+	public void onPause(){
+		super.onPause();
+		homeSlideShowView.setIsAutoPlay(false);
+	}
+
+	@Override
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+		homeSlideShowView.setIsAutoPlay(true);
 		if (y > 0) {
 			TranslateAnimation animation = new TranslateAnimation(0, 0, -y, 0);
 			animation.setDuration(200);
@@ -567,6 +575,7 @@ public class Fragment1 extends Fragment implements
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
+		homeSlideShowView.setIsAutoPlay(false);
 		homePageList.clear();
 	}
 

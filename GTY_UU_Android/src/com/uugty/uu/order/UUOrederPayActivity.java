@@ -6,22 +6,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.text.InputType;
-import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-
-import java.io.Serializable;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -42,10 +35,15 @@ import com.uugty.uu.discount.c.MyDiscountActivity;
 import com.uugty.uu.discount.m.DiscountListItem;
 import com.uugty.uu.discount.m.DiscountListItem.DiscountEntity;
 import com.uugty.uu.entity.OrderDetailEntity;
-import com.uugty.uu.entity.OrderEntity;
 import com.uugty.uu.entity.OrderDetailEntity.OrderDetail;
+import com.uugty.uu.entity.OrderEntity;
 import com.uugty.uu.main.OrderDateActivty;
 import com.uugty.uu.person.TouristListActivity;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UUOrederPayActivity extends BaseActivity implements
 		OnClickListener {
@@ -217,7 +215,7 @@ public class UUOrederPayActivity extends BaseActivity implements
 
 									@Override
 									public void onFailure(int errorCode, String errorMsg) {
-										CustomToast.makeText(UUOrederPayActivity.this, errorMsg, 300).show();
+										CustomToast.makeText(UUOrederPayActivity.this, errorMsg, Toast.LENGTH_LONG).show();
 										commitBtn.setEnabled(true);
 										if (errorCode == -999) {
 											new AlertDialog.Builder(UUOrederPayActivity.this).setTitle("提示")

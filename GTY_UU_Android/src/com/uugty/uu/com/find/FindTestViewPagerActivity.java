@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -975,6 +977,24 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 		oks.setCallback(this);
 		// 此处为本demo关键为一键分享折子定义分享回调函数 shareContentCustomuzeCallback
 		// 自定义平台可以通过判断不同的平台来实现不同平台间的不同操作
+		// 构造一个图标
+		Bitmap enableLogo = BitmapFactory.decodeResource(getResources(), R.drawable.lzh_uu_firend);
+		String label = "UU好友";
+		OnClickListener listener = new OnClickListener() {
+			public void onClick(View v) {
+
+			}
+		};
+
+		Bitmap enableLogo1 = BitmapFactory.decodeResource(getResources(), R.drawable.lzh_uu_group);
+		String label1 = "UU群";
+		OnClickListener listener1 = new OnClickListener() {
+			public void onClick(View v) {
+
+			}
+		};
+		oks.setCustomerLogo(enableLogo,null,label,listener);
+		oks.setCustomerLogo(enableLogo1,null,label1,listener1);
 		
 		oks.setShareContentCustomizeCallback(new ShareContentCustomizeCallback() {
 			// 自定义分享的回调想要函数

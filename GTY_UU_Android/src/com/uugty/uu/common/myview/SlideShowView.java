@@ -1,10 +1,5 @@
 package com.uugty.uu.common.myview;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -24,6 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
+
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.uugty.uu.R;
@@ -31,6 +27,12 @@ import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.entity.HomePageRecommendEntity.HomePageRecommend;
 import com.uugty.uu.main.RecomendActivity;
 import com.uugty.uu.main.RecomendWebActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class SlideShowView extends FrameLayout {
 
@@ -46,8 +48,9 @@ public class SlideShowView extends FrameLayout {
 	private final static int IMAGE_COUNT = 3;
 	// 自动轮播的时间间隔
 	private final static int TIME_INTERVAL = 5;
+
 	// 自动轮播启用开关
-	private static boolean isAutoPlay = true;
+	private boolean isAutoPlay = true;
 	private SwipeRefreshLayout mSwipeLayout;
 
 	// 自定义轮播图的资源
@@ -68,6 +71,9 @@ public class SlideShowView extends FrameLayout {
 	private MyPagerAdapter adapter;
 	LinearLayout dotLayout;
 
+	public void setIsAutoPlay(boolean isAutoPlay) {
+		this.isAutoPlay = isAutoPlay;
+	}
 	// Handler
 	private Handler handler = new Handler() {
 

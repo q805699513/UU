@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical" >
+
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        >
+        <ImageView 
+            android:id="@+id/tourist_list_back"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/phone_back"
+            android:scaleType="fitCenter"
+            />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保险产品"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView 
+            android:id="@+id/tourist_list_confirm"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确定"           
+            android:textColor="#00a1d9"
+            android:textSize="16sp"
+            />
+    </RelativeLayout>
+	<LinearLayout
+		android:id="@+id/activity_insure_layout"
+		android:layout_marginTop="10dp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#ffffff"
+		android:orientation="vertical" >
+
+		<RelativeLayout
+			android:id="@+id/insure_selected_relative"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:background="#ffffff"
+			android:orientation="horizontal" >
+
+			<TextView
+				android:id="@+id/order_write_insure_txt"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_marginBottom="19dp"
+				android:layout_marginLeft="12dp"
+				android:layout_marginTop="14dp"
+				android:text="选择保险类型"
+				android:textColor="#000000"
+				android:textSize="15sp" />
+
+			<TextView
+				android:id="@+id/order_write_insure"
+				android:layout_marginLeft="5dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@+id/order_write_insure_txt"
+				android:layout_centerVertical="true"
+				android:gravity="center"
+				android:background="@drawable/lzh_contact"/>
+
+			<TextView
+				android:id="@+id/insure_txt"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="10dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_toLeftOf="@+id/image_view"
+				android:layout_centerVertical="true"
+
+				android:gravity="center"
+				android:text="￥5/天"
+				android:textColor="#f15353"
+				android:textSize="15sp"/>
+
+			<ImageView
+				android:id="@+id/image_view"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:layout_centerVertical="true"
+				android:layout_marginRight="10dp"
+				android:src="@drawable/person_compile_enter" />
+		</RelativeLayout>
+	</LinearLayout>
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="10dp">
+
+	</View>
+
+		<ListView
+			android:id="@+id/person_card_list"
+			android:background="@color/white"
+			android:listSelector="@android:color/transparent"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:divider="@null"
+			android:scrollbars="none"
+			>
+		</ListView>
+</LinearLayout>
