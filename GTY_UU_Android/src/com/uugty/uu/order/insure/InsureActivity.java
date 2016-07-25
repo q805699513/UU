@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
+import com.uugty.uu.entity.TouristEntity;
 import com.uugty.uu.entity.TouristEntity.Tourist;
 
 import java.util.ArrayList;
@@ -35,6 +36,9 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 
 	@Override
 	protected void initGui() {
+		if(getIntent()!=null){
+			list = (List<TouristEntity.Tourist>) getIntent().getSerializableExtra("list");
+		}
 
 		tourist_list_back=(ImageView) findViewById(R.id.tourist_list_back);
 		tourist_list_confirm=(TextView) findViewById(R.id.tourist_list_confirm);

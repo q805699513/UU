@@ -39,6 +39,7 @@ import com.uugty.uu.simplistview.SwipeMenu;
 import com.uugty.uu.simplistview.SwipeMenuCreator;
 import com.uugty.uu.simplistview.SwipeMenuListView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +55,7 @@ OnClickListener{
 	private List<Tourist> list = new ArrayList<Tourist>(); //联系人数据
 	private List<String> ilist=new ArrayList<String>(); // 联系人 ID
 	private List<String> clist=new ArrayList<String>(); //对比联系人ID
+	private List<Tourist> selectList = new ArrayList<Tourist>();
 	private List<String> mNameList = new ArrayList<String>();
 	private TouristAdapter adapter;
 	private String contactId="";
@@ -226,6 +228,7 @@ OnClickListener{
 			mNameList.clear();
 			for (int i = 0; i < list.size(); i++) {				
 				if(list.get(i).getContactStatus().equals("1")){
+					selectList.add(list.get(i));
 					ilist.add(list.get(i).getContactId());	
 					mNameList.add(list.get(i).getContactName());
 				}
@@ -249,6 +252,7 @@ OnClickListener{
 			}else{
 				intent.setClass(ctx, UUPayActivity.class);
 				intent.putExtra("num", ilist.size()+"");
+				intent.putExtra("list",(Serializable)selectList);
 				intent.putExtra("name", name);
 				intent.putExtra("allId",all);
 				setResult(RESULT_OK, intent);

@@ -11,27 +11,25 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
-import com.uugty.uu.discount.m.DiscountListItem.DiscountEntity;
-import com.uugty.uu.order.UUOrederPayActivity;
-import com.uugty.uu.order.UUPayActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SelectActivity extends BaseActivity{
 	
 	private Button mButton;//确定
 	private Drawable noclick,click;
-	
-	private String isNotRec = "1";//是否选择暂不使用
-	private String from = "";//从哪个页面跳转
-	private String DiscountId; //代金券id
-	private String UserId;//用户和代金券关联表主键id
-	private String discountMoney = "0";//代金券金额
-	private List<DiscountEntity> ls = new ArrayList<DiscountEntity>();
+	private String mType = "0";//保险类型
+	private LinearLayout mInsureLinear1;
+	private LinearLayout mInsureLinear2;
+	private LinearLayout mInsureLinear3;
+	private TextView mInsureImg1;
+	private TextView mInsureImg2;
+	private TextView mInsureImg3;
+	private int linear1 = 0;
+	private int linear2 = 0;
+	private int linear3 = 0;
 
 	@Override
 	protected int getContentLayout() {
@@ -40,11 +38,7 @@ public class SelectActivity extends BaseActivity{
 
 	@Override
 	protected void initGui() {
-		
-		if (null != getIntent()) {
-			ls = (List<DiscountEntity>) getIntent().getSerializableExtra("list");
-			from = getIntent().getStringExtra("from");
-		}
+
 		Resources res = ctx.getResources();
 		noclick = res.getDrawable(R.drawable.pay_noclick);
 		click = res.getDrawable(R.drawable.pay_click);
@@ -61,7 +55,14 @@ public class SelectActivity extends BaseActivity{
 		win.setAttributes(lp);
 		
 		mButton = (Button) findViewById(R.id.insure_selected_commit);
-		 
+		mInsureLinear1 = (LinearLayout) findViewById(R.id.insure_linear1);
+		mInsureLinear2 = (LinearLayout) findViewById(R.id.insure_linear2);
+		mInsureLinear3 = (LinearLayout) findViewById(R.id.insure_linear3);
+
+		mInsureImg1 = (TextView) findViewById(R.id.insure_img1);
+		mInsureImg2 = (TextView) findViewById(R.id.insure_img2);
+		mInsureImg3 = (TextView) findViewById(R.id.insure_img3);
+
 	}
 	
 
@@ -70,31 +71,65 @@ public class SelectActivity extends BaseActivity{
 		Resources res = ctx.getResources();
 		noclick = res.getDrawable(R.drawable.pay_noclick);
 		click = res.getDrawable(R.drawable.pay_click);
-		
+		mInsureLinear1.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				clearClick();
+				if(linear1 == 0){
+					linear1 = 1;
+					mInsureImg1.setBackgroundDrawable(click);
+				}else{
+					linear1 = 0;
+					mInsureImg1.setBackgroundDrawable(noclick);
+				}
+			}
+		});
+		mInsureLinear2.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				clearClick();
+				if(linear2 == 0){
+					linear2 = 1;
+					mInsureImg2.setBackgroundDrawable(click);
+				}else{
+					linear2 = 0;
+					mInsureImg2.setBackgroundDrawable(noclick);
+				}
+			}
+		});
+		mInsureLinear3.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				clearClick();
+				if(linear3 == 0){
+					linear3 = 1;
+					mInsureImg3.setBackgroundDrawable(click);
+				}else{
+					linear3 = 0;
+					mInsureImg3.setBackgroundDrawable(noclick);
+				}
+			}
+		});
 		mButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent();
-				intent.putExtra("id", DiscountId);
-				intent.putExtra("userId", UserId);
-				intent.putExtra("notRec", isNotRec);
-				intent.putExtra("discountMoney", discountMoney);
-				if("write".equals(from)){
-					intent.setClass(SelectActivity.this, UUPayActivity.class);
-				}
-				if("modify".equals(from)){
-					intent.setClass(SelectActivity.this, UUOrederPayActivity.class);
-				}
+				intent.putExtra("type", mType);
 				setResult(RESULT_OK,intent);
 				finish();
 			}
 		});
 	}
 
-	@Override
-	protected void initData() {
-		isNotRec = "1";
+	private void clearClick(){
+		mInsureImg1.setBackgroundDrawable(noclick);
+		mInsureImg2.setBackgroundDrawable(noclick);
+		mInsureImg3.setBackgroundDrawable(noclick);
 	}
 
+	@Override
+	protected void initData() {
+
+	}
 }

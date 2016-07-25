@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
@@ -42,7 +43,10 @@
                     android:layout_marginLeft="12dp"
                     android:layout_marginRight="12dp"
                     android:layout_marginTop="11dp"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY"
+                    fresco:placeholderImage="@drawable/default_image"
+                    fresco:placeholderImageScaleType="fitCenter"
+                    fresco:viewAspectRatio="1.0" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -222,23 +226,43 @@
 
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="#f5f5f5" />
 
             <LinearLayout
+                android:id="@+id/order_tourist_list_linear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f5f5f5"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="13dp"
+                    android:textColor="#98999a"
+                    android:text="出行人信息"/>
+                <com.uugty.uu.common.myview.ListViewForScrollView
+                    android:id="@+id/contact_list"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"
+                    android:dividerHeight="1px"
+                    android:divider="#f5f5f5">
+                </com.uugty.uu.common.myview.ListViewForScrollView>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/order_tourist_linear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#ffffff"
+                android:background="#f5f5f5"
                 android:orientation="vertical" >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="14dp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="11dp"
                     android:text="出行人信息"
                     android:textColor="#98999a"
                     android:textSize="13sp" />
@@ -248,14 +272,9 @@
                     <!--android:layout_height="1px"-->
                     <!--android:layout_alignParentBottom="true"-->
                     <!--android:background="#e5e5e5" />-->
-                <ListView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scrollbars="none"
-                    android:dividerHeight="1px"
-                    android:divider="#f5f5f5">
 
-                </ListView>
+
+
 
                 <RelativeLayout
                     android:id="@+id/activity_paypricea_add_person"
@@ -648,10 +667,6 @@
                     android:textColor="#666666"
                     android:textSize="12sp" />
             </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="50dp" />
         </LinearLayout>
     </ScrollView>
 
