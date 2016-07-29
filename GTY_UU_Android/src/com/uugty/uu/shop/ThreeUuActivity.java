@@ -4,6 +4,7 @@ package com.uugty.uu.shop;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -21,6 +22,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -38,6 +40,7 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.entity.PeerUserEntity;
 import com.uugty.uu.entity.PeerUserEntity.ThreeBean;
+import com.uugty.uu.uuchat.ChatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,6 +128,17 @@ public class ThreeUuActivity extends BaseActivity implements OnClickListener,Tex
 	protected void initAction() {
         mSerchEdit.addTextChangedListener(this);
         mSwipeLayout.setOnRefreshListener(this);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent();
+                intent.putExtra("userId", mThreeList.get(position).getUserId());
+                intent.putExtra("avatar", mThreeList.get(position).getUserAvatar());
+                intent.putExtra("userName", mThreeList.get(position).getUserName());
+                intent.setClass(ThreeUuActivity.this, ChatActivity.class);
+                startActivity(intent);
+            }
+        });
         // 设置下拉圆圈上的颜色，蓝色、绿色、橙色、红色
         mSwipeLayout.setColorSchemeResources(R.color.login_text_color,
                 android.R.color.holo_green_light,
@@ -139,6 +153,7 @@ public class ThreeUuActivity extends BaseActivity implements OnClickListener,Tex
                 mSwipeLayout.setRefreshing(true);
             }
         });
+
 	}
 
 	@Override

@@ -856,6 +856,15 @@
             android:theme="@style/myDiscountActivity"
             android:windowSoftInputMode="adjustPan" >
         </activity>
+
+        <!-- 明细 -->
+        <activity
+            android:name=".order.InsureOrderDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/myDiscountActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="55c96bd5e0f55ac696001f3e" >

@@ -207,11 +207,14 @@ public class ServiceCode {
 	//修改常用联系人接口
 	public static final String MODIFY_CONTACT="modifyContact.do";
 	//提交订单
-	public static final String ORDER_RESERVATION_LIST="batchOrderReservations.do";
+//	public static final String ORDER_RESERVATION_LIST="batchOrderReservations.do";
+	public static final String ORDER_RESERVATION_LIST="placeOrder.do";
 	//订单详情
-	public static final String BATCH_ORDERDETAIL_MESSAGE="batchOrderDetailMessage.do";
+//	public static final String BATCH_ORDERDETAIL_MESSAGE="batchOrderDetailMessage.do";
+	public static final String BATCH_ORDERDETAIL_MESSAGE="newOrderMessage.do";
 	//修改订单
-	public static final String GET_ORDERDETAIL_MESSAGE = "getOrderDetailMessage.do";
+//	public static final String GET_ORDERDETAIL_MESSAGE = "getOrderDetailMessage.do";
+	public static final String GET_ORDERDETAIL_MESSAGE = "newOrderMessage.do";
 	//修改订单
 	public static final String BATCH_ORDER_MODIFY="batchOrderModify.do";
 	//游客订单列表

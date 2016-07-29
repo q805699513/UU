@@ -631,6 +631,22 @@
                 android:background="#f5f5f5" >
             </RelativeLayout>
 
+			<com.uugty.uu.common.myview.ListViewForScrollView
+				android:id="@+id/orderdetail_contact_list"
+				android:background="@color/white"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:scrollbars="none"
+				android:dividerHeight="0px"
+				android:divider="#f5f5f5">
+			</com.uugty.uu.common.myview.ListViewForScrollView>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="10dp"
+				android:background="#f5f5f5" >
+			</RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/orderDetail_tourist"
                 android:layout_width="match_parent"
@@ -643,8 +659,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="12dp"
-                    android:text="游客"
-                    android:textColor="#000000"
+                    android:text="保险"
+					android:textColor="#98999a"
                     android:textSize="15sp" />
 
                 <TextView
@@ -655,7 +671,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_toLeftOf="@+id/activity_reserve_imageview_item"
                     android:gravity="center"
-                    android:text="1"
+                    android:text="未选择"
                     android:textColor="#000000"
                     android:textSize="14sp" />
 
@@ -665,7 +681,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:visibility="invisible"
+                    android:visibility="visible"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/person_compile_enter" />
 

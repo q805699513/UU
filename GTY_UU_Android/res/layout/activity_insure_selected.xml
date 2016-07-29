@@ -130,6 +130,37 @@
                 android:background="@drawable/pay_noclick"/>
 
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e5e5"/>
+
+        <LinearLayout
+            android:id="@+id/insure_linear4"
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="11dp"
+                android:text="暂不购买保险"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/insure_img4"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/pay_noclick"/>
+
+        </LinearLayout>
         <Button
             android:id="@+id/insure_selected_commit"
             android:layout_width="match_parent"

@@ -4,10 +4,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -28,14 +28,17 @@ import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.dialog.CustomDialog;
 import com.uugty.uu.common.dialog.loading.SpotsDialog;
 import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.common.myview.ListViewForScrollView;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.entity.OrderDetailEntity;
-import com.uugty.uu.entity.OrderEntity;
-import com.uugty.uu.util.LogUtils;
 import com.uugty.uu.entity.OrderDetailEntity.OrderDetail;
+import com.uugty.uu.entity.OrderEntity;
+import com.uugty.uu.entity.TouristEntity;
 import com.uugty.uu.evaluate.EvaluateActivity;
 import com.uugty.uu.uuchat.ChatActivity;
-import com.uugty.uu.viewpage.adapter.ListViewAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UUOrderPayDetailActivity extends BaseActivity implements
 		OnClickListener {
@@ -98,6 +101,9 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 	private TopBackView titleback;
 	private SpotsDialog loadingDialog;
 	private ScrollView scrollView;
+
+	//保险
+	private ListViewForScrollView mContactListView;
 	
 	protected int getContentLayout() {
 		return R.layout.activity_order_paydetails;// 订单详情
@@ -165,6 +171,9 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 		titleback.setTitle("订单详情");
 		scrollView = (ScrollView) findViewById(R.id.activity_orderpays_scrollview);
 		scrollView.setVisibility(View.INVISIBLE);
+
+		mContactListView = (ListViewForScrollView) findViewById(R.id.orderdetail_contact_list);
+		mContactListView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 		
 	}
 
@@ -333,6 +342,33 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 							}else{
 								mTourist.setText(detail.getContactName().replace(",", " "));
 							}
+							//保险
+							List<TouristEntity.Tourist> mTouristList = new ArrayList<TouristEntity.Tourist>();
+
+							if(result.getLIST().size() > 0){
+								if("1".equals(result.getLIST().get(0).getInsuranceType())) {
+									mTourist.setText("初级保险: ￥5/天");
+								}else if("2".equals(result.getLIST().get(0).getInsuranceType())){
+									mTourist.setText("中级保险: ￥10/天");
+								}else if("3".equals(result.getLIST().get(0).getInsuranceType())){
+									mTourist.setText("高级保险: ￥15/天");
+								}else{
+									mTourist.setText("未选择");
+								}
+								for(int i=0;i<result.getLIST().size();i++){
+									TouristEntity entity = new TouristEntity();
+									TouristEntity.Tourist tour = entity.new Tourist();
+									tour.setContactIDCard(result.getLIST().get(i).getContactIDCard());
+									tour.setContactId(result.getLIST().get(i).getContactId());
+									tour.setContactName(result.getLIST().get(i).getContactName());
+									mTouristList.add(tour);
+								}
+							}
+
+							OrderDetailTouristAdapter mTouristAdapter = new OrderDetailTouristAdapter(ctx,mTouristList);
+							mContactListView.setAdapter(mTouristAdapter);
+
+
 							mUserId = detail.getUserId();
 							mHeadPic = detail.getUserAvatar();
 							mUserName = detail.getUserRealname();
@@ -573,6 +609,7 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 								mLinearContact.setVisibility(View.GONE);
 								mLinearDetail.setVisibility(View.GONE);
 								mRelativeTourist.setVisibility(View.GONE);
+								mContactListView.setVisibility(View.GONE);
 								mReturnAcept.setVisibility(View.GONE);
 								mReturnMoney.setText("￥"+detail.getOrderDrawbackMoney());
 								mReturnReson.setText(detail.getOrderDrawbackReason());
@@ -702,6 +739,7 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 								mLinearContact.setVisibility(View.GONE);
 								mLinearDetail.setVisibility(View.GONE);
 								mRelativeTourist.setVisibility(View.GONE);
+								mContactListView.setVisibility(View.GONE);
 								mLinearReturnTv.setVisibility(View.GONE);
 								mLinearDrawback.setVisibility(View.VISIBLE);
 								mReturnImg.setImageResource(R.drawable.return_close);
@@ -721,6 +759,7 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 								mLinearContact.setVisibility(View.GONE);
 								mLinearDetail.setVisibility(View.GONE);
 								mRelativeTourist.setVisibility(View.GONE);
+								mContactListView.setVisibility(View.GONE);
 								mLinearReturnTv.setVisibility(View.GONE);
 								mLinearDrawback.setVisibility(View.VISIBLE);
 								mReturnImg.setImageResource(R.drawable.return_sucess);

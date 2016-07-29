@@ -55,6 +55,7 @@ public class PriceDetailActivity extends BaseActivity implements
 	protected void initData() {
 		// TODO Auto-generated method stub
 
+
 	}
 
 	@Override
@@ -72,6 +73,8 @@ public class PriceDetailActivity extends BaseActivity implements
 	}
 	@Override
 	public void onNoDoubleClick(View v) {
+		ActivityCollector
+				.removeSpecifiedActivity("com.uugty.uu.order.UUPaypriceActivity");
 		Intent intent = new Intent();
 		intent.putExtra("from", "priceDetail");
 		intent.setClass(this, UUOrderActivity.class);
@@ -81,6 +84,8 @@ public class PriceDetailActivity extends BaseActivity implements
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			ActivityCollector
+					.removeSpecifiedActivity("com.uugty.uu.order.UUPaypriceActivity");
 			ActivityCollector
 			.removeSpecifiedActivity("com.uugty.uu.uuchat.UUChatPaypriceActivity");
 			Intent intent = new Intent();

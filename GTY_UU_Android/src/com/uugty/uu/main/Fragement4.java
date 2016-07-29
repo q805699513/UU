@@ -733,10 +733,8 @@ public class Fragement4 extends Fragment implements OnClickListener {
 									context.startActivity(intent);
 								}
 							} else if (action.equals("shop")) {
-								if (!result.getOBJECT().getRoadlineId()
-										.equals("0")) {
-									if(result.getOBJECT().getUserIsPromoter()
-											.equals("1") ){
+								if("0".equals(result.getOBJECT().getUserIsPromoter())){
+									if("0".equals(result.getOBJECT().getRoadlineId())){
 										intent.setClass(context,
 												MyShopActivity.class);
 										context.startActivity(intent);
@@ -745,21 +743,38 @@ public class Fragement4 extends Fragment implements OnClickListener {
 												NotVipShopActivity.class);
 										context.startActivity(intent);
 									}
-								} else {
-
-									if(result.getOBJECT().getUserIsPromoter()
-											.equals("1") ){
-										intent.setClass(context,
-												MyShopActivity.class);
-										context.startActivity(intent);
-									}else {
-										intent.setClass(context,
-												OpenShopActivity.class);
-										Util.vipBack="main";
-										context.startActivity(intent);
-									}
-
+								}else {
+									intent.setClass(context,
+											MyShopActivity.class);
+									context.startActivity(intent);
 								}
+//								if (!result.getOBJECT().getRoadlineId()
+//										.equals("0")) {
+//									if(result.getOBJECT().getUserIsPromoter()
+//											.equals("1") ){
+//										intent.setClass(context,
+//												MyShopActivity.class);
+//										context.startActivity(intent);
+//									}else {
+//										intent.setClass(context,
+//												NotVipShopActivity.class);
+//										context.startActivity(intent);
+//									}
+//								} else {
+//
+//									if(result.getOBJECT().getUserIsPromoter()
+//											.equals("1") ){
+//										intent.setClass(context,
+//												MyShopActivity.class);
+//										context.startActivity(intent);
+//									}else {
+//										intent.setClass(context,
+//												OpenShopActivity.class);
+//										Util.vipBack="main";
+//										context.startActivity(intent);
+//									}
+//
+//								}
 							}
 						}
 

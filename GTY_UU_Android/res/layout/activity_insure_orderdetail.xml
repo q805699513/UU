@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/insure_ordertopic"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="标题"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:maxLength="18"
+            android:maxLines="2"/>
+        <TextView
+            android:id="@+id/insure_order_perprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="￥499 x 1"
+            android:textSize="12sp"
+            android:textColor="#666666"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="保险"
+            android:textSize="13sp"
+            android:textColor="#666666"/>
+        <TextView
+            android:id="@+id/insure_order_baoxian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text=" + ￥0"
+            android:textSize="12sp"
+            android:textColor="#666666"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="代金券"
+            android:textSize="13sp"
+            android:textColor="#666666"/>
+        <TextView
+            android:id="@+id/insure_order_daijinquang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text=" - ￥0"
+            android:textSize="12sp"
+            android:textColor="#666666"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="实付款"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:maxLength="18"
+            android:maxLines="2"/>
+        <TextView
+            android:id="@+id/insure_realprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="￥0"
+            android:textSize="12sp"
+            android:textColor="#666666"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#e5e5e5">
+    </View>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="11dp"
+            android:textSize="14dp"
+            android:textColor="#666666"
+            android:text="在线支付:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="11dp"
+            android:textSize="12dp"
+            android:textColor="#f15353"
+            android:text="￥"/>
+        <TextView
+            android:id="@+id/insure_order_price"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:textColor="#f15353"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:background="#ffffff" />
+        <TextView
+            android:id="@+id/order_insure_detail"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:drawableRight="@drawable/home_top_bottom"
+            android:gravity="center"
+            android:text="明细"
+            android:textColor="#98999a"
+            android:textSize="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

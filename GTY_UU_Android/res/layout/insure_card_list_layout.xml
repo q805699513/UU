@@ -87,7 +87,6 @@
 				android:layout_centerVertical="true"
 
 				android:gravity="center"
-				android:text="￥5/天"
 				android:textColor="#f15353"
 				android:textSize="15sp"/>
 

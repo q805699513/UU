@@ -113,7 +113,9 @@ public class UUPaypriceActivity extends BaseActivity implements
 	private String mRouteBackgroundImage;//路线图片
 	private String mOrderMark;// 订单留言
 	private String mContactId;// 联系人主键id
-	
+	private String mInsureType;// 保险类型
+	private String mInsureContactId;// 保险人id
+
 	private String mId;
 	private String mUserId;
 	
@@ -366,7 +368,9 @@ public class UUPaypriceActivity extends BaseActivity implements
 				mOrderTravelNumber = getIntent().getStringExtra("orderTravelNumber");//预定数量
 				mVisitorName = getIntent().getStringExtra("visitorName");// 联系人名
 				mVisitorTel = getIntent().getStringExtra("visitorTel");// 联系人手机号
-				mVisitorContent = getIntent().getStringExtra("visitorContent");// 联系人留言 
+				mVisitorContent = getIntent().getStringExtra("visitorContent");// 联系人留言
+				mInsureType = getIntent().getStringExtra("orderInsuranceType");// 联系人留言
+				mInsureContactId = getIntent().getStringExtra("insuranceContactId");// 联系人留言
 				if(mVisitorName == null){
 					mVisitorName = MyApplication.getInstance().getUserInfo().getOBJECT().getUserName();
 				}
@@ -459,6 +463,8 @@ public class UUPaypriceActivity extends BaseActivity implements
 						params.add("visitorContent", mVisitorContent);
 						params.add("couponUserId", mUserId);
 						params.add("couponId", mId);
+						params.add("insuranceType",mInsureType);
+						params.add("insuranceContactId",mInsureContactId);
 						APPRestClient.post(UUPaypriceActivity.this,
 								ServiceCode.ORDER_RESERVATION_LIST, params,
 								new APPResponseHandler<OrderEntity>(

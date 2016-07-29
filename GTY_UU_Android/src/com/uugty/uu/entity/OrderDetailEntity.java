@@ -1,13 +1,91 @@
 package com.uugty.uu.entity;
 
 
+import java.util.List;
 
 public class OrderDetailEntity {
 
 	private OrderDetail OBJECT;
 	private String STATUS;
 	private String MSG;
-	
+
+	private List<LISTBean> LIST;
+
+	public List<LISTBean> getLIST() {
+		return LIST;
+	}
+
+	public void setLIST(List<LISTBean> LIST) {
+		this.LIST = LIST;
+	}
+
+	public static class LISTBean {
+		private String contactIDCard;
+		private String contactId;
+		private String contactName;
+		private String insuranceStatus;
+		private String insuranceType;
+		private String orderId;
+
+		public String getContactStatus() {
+			return contactStatus;
+		}
+
+		public void setContactStatus(String contactStatus) {
+			this.contactStatus = contactStatus;
+		}
+
+		private String contactStatus;//状态
+
+		public String getContactIDCard() {
+			return contactIDCard;
+		}
+
+		public void setContactIDCard(String contactIDCard) {
+			this.contactIDCard = contactIDCard;
+		}
+
+		public String getContactId() {
+			return contactId;
+		}
+
+		public void setContactId(String contactId) {
+			this.contactId = contactId;
+		}
+
+		public String getContactName() {
+			return contactName;
+		}
+
+		public void setContactName(String contactName) {
+			this.contactName = contactName;
+		}
+
+		public String getInsuranceStatus() {
+			return insuranceStatus;
+		}
+
+		public void setInsuranceStatus(String insuranceStatus) {
+			this.insuranceStatus = insuranceStatus;
+		}
+
+		public String getInsuranceType() {
+			return insuranceType;
+		}
+
+		public void setInsuranceType(String insuranceType) {
+			this.insuranceType = insuranceType;
+		}
+
+		public String getOrderId() {
+			return orderId;
+		}
+
+		public void setOrderId(String orderId) {
+			this.orderId = orderId;
+		}
+	}
+
 	public class OrderDetail{
 		private String orderCreateDate;//订单创建时间
 		private String orderMark;//下单留言

@@ -73,7 +73,7 @@
 	            
                 <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1px"
                 android:background="#f5f5f5" />
 
                 <RelativeLayout
@@ -193,80 +193,103 @@
                         android:layout_alignParentBottom="true"
                         android:background="#e5e5e5" />
                 </RelativeLayout>
-	            
-                <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="#f5f5f5" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="#ffffff"
-                android:orientation="vertical" >
+			<LinearLayout
+				android:id="@+id/order_tourist_list_linear"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="#f5f5f5"
+				android:orientation="vertical">
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:layout_marginLeft="13dp"
+					android:textColor="#98999a"
+					android:text="出行人信息"/>
+				<com.uugty.uu.common.myview.ListViewForScrollView
+					android:id="@+id/contact_list"
+					android:background="@color/white"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:scrollbars="none"
+					android:dividerHeight="1px"
+					android:divider="#f5f5f5">
+				</com.uugty.uu.common.myview.ListViewForScrollView>
+			</LinearLayout>
+			<LinearLayout
+				android:id="@+id/order_tourist_linear"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#f5f5f5"
+				android:orientation="vertical" >
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="14dp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="14dp"
-                    android:text="出行人信息"
-                    android:textColor="#98999a"
-                    android:textSize="13sp" />
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="10dp"
+					android:layout_marginLeft="13dp"
+					android:layout_marginTop="11dp"
+					android:text="出行人信息"
+					android:textColor="#98999a"
+					android:textSize="13sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="#e5e5e5" />
+				<!--<TextView-->
+				<!--android:layout_width="match_parent"-->
+				<!--android:layout_height="1px"-->
+				<!--android:layout_alignParentBottom="true"-->
+				<!--android:background="#e5e5e5" />-->
 
-                <RelativeLayout
-                    android:id="@+id/activity_paypricea_add_person"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:background="#ffffff"
-                    android:orientation="horizontal" >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginBottom="19dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="14dp"
-                        android:text="添加出行人信息"
-                        android:textColor="#000000"
-                        android:textSize="15sp" />
 
-                    <TextView
-                        android:id="@+id/uu_tourist_number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="2.5dp"
-                        android:layout_toLeftOf="@+id/activity_touristnum_imageview_item"
-                        android:gravity="center"
-                        android:hint="选择出行人"
-                        android:textColor="#000000"
-                        android:textColorHint="#98999a"
-                        android:textSize="14sp" />
 
-                    <ImageView
-                        android:id="@+id/activity_touristnum_imageview_item"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/person_compile_enter" />
-                </RelativeLayout>
-            </LinearLayout>
+				<RelativeLayout
+					android:id="@+id/activity_paypricea_add_person"
+					android:layout_width="match_parent"
+					android:layout_height="52dp"
+					android:background="#ffffff"
+					android:orientation="horizontal"
+					android:visibility="visible">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="#f5f5f5" />
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:layout_marginBottom="19dp"
+						android:layout_marginLeft="12dp"
+						android:layout_marginTop="14dp"
+						android:text="添加出行人信息"
+						android:textColor="#000000"
+						android:textSize="15sp" />
+
+					<TextView
+						android:id="@+id/uu_tourist_number"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:layout_marginRight="2.5dp"
+						android:layout_toLeftOf="@+id/activity_touristnum_imageview_item"
+						android:gravity="center"
+						android:hint="选择出行人"
+						android:textColor="#000000"
+						android:textColorHint="#98999a"
+						android:textSize="14sp" />
+
+					<ImageView
+						android:id="@+id/activity_touristnum_imageview_item"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignParentRight="true"
+						android:layout_centerVertical="true"
+						android:layout_marginRight="10dp"
+						android:src="@drawable/person_compile_enter" />
+				</RelativeLayout>
+			</LinearLayout>
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="10dp"
+				android:background="#f5f5f5" />
 
 			<LinearLayout
 				android:id="@+id/activity_paypricea_add_insure"
@@ -339,7 +362,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:layout_alignParentBottom="true"
                     android:background="#e5e5e5" />
                 
@@ -441,15 +464,12 @@
                 
 
             </LinearLayout>
-            
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="#f5f5f5" />
+
             <LinearLayout
                 android:id="@+id/activity_payOrder_add_discount"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+				android:layout_marginTop="10dp"
                 android:background="#ffffff"
                 android:visibility="gone"
                 android:orientation="vertical" >
@@ -546,12 +566,12 @@
                 
                 <TextView
 	                android:layout_width="match_parent"
-	                android:layout_height="1dp"
+	                android:layout_height="1px"
 	                android:background="#e5e5e5" />
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:layout_alignParentBottom="true"
                     android:background="#e5e5e5" />
 
@@ -588,12 +608,12 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1px"
                 android:background="#e5e5e5" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:background="#F5F5F5"
                 android:orientation="vertical" >
 
@@ -617,17 +637,71 @@
                     android:textColor="#666666"
                     android:textSize="12sp" />
             </LinearLayout>
-            <Button
-		        android:id="@+id/order_pay_commit_btn"
-		        android:layout_width="match_parent"
-		        android:layout_height="50dp"
-		        android:layout_alignParentBottom="true"
-		        android:background="#f15353"
-		        android:text="确认支付"
-		        android:textColor="#ffffff" />
+            <!--<Button-->
+		        <!--android:id="@+id/order_pay_commit_btn"-->
+		        <!--android:layout_width="match_parent"-->
+		        <!--android:layout_height="50dp"-->
+		        <!--android:layout_alignParentBottom="true"-->
+		        <!--android:background="#f15353"-->
+		        <!--android:text="确认支付"-->
+		        <!--android:textColor="#ffffff" />-->
          </LinearLayout>
     </ScrollView>
+	<LinearLayout
+		android:layout_alignParentBottom="true"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:background="#ffffff"
+		android:orientation="horizontal">
 
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_marginLeft="11dp"
+			android:textSize="14dp"
+			android:textColor="#666666"
+			android:text="在线支付:"/>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_marginLeft="11dp"
+			android:textSize="12dp"
+			android:textColor="#f15353"
+			android:text="￥"/>
+		<Button
+			android:id="@+id/uu_order_pay_cofirm_price"
+			android:layout_gravity="center"
+			android:layout_weight="1"
+			android:layout_width="0dp"
+			android:layout_height="50dp"
+			android:textColor="#f15353"
+			android:gravity="left|center_vertical"
+			android:textSize="18dp"
+			android:background="#ffffff" />
+		<TextView
+			android:id="@+id/order_insure_detail"
+			android:layout_width="wrap_content"
+			android:layout_marginRight="12dp"
+			android:layout_height="50dp"
+			android:layout_gravity="center"
+			android:drawableRight="@drawable/home_top_bottom_on"
+			android:gravity="center"
+			android:text="明细"
+			android:textColor="#98999a"
+			android:textSize="10dp"/>
+
+		<Button
+			android:id="@+id/uu_order_pay_cofirm"
+			android:layout_gravity="center"
+			android:layout_width="120dp"
+			android:layout_height="50dp"
+			android:background="#f15353"
+			android:text="去支付"
+			android:textSize="16dp"
+			android:textColor="#ffffff"/>
+	</LinearLayout>
     
 
 </RelativeLayout>

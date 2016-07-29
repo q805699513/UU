@@ -16,7 +16,6 @@
         android:id="@+id/activity_paypricea_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/uu_order_pay_cofirm"
         android:layout_below="@+id/order_pay_title"
         android:scrollbars="none" >
 
@@ -496,14 +495,11 @@
                 
 
             </LinearLayout>
-            
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="#f5f5f5" />
+
             <LinearLayout
                 android:id="@+id/activity_paypricea_add_discount"
                 android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
                 android:layout_height="100dp"
                 android:background="#ffffff"
                 android:orientation="vertical" >
@@ -643,7 +639,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:background="#F5F5F5"
                 android:orientation="vertical" >
 
@@ -670,23 +666,60 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/uu_order_pay_cofirm_price"
-        android:layout_width="240dp"
-        android:layout_height="50dp"
+    <LinearLayout
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/uu_order_pay_cofirm"
-        android:background="#ffffff" />
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/uu_order_pay_cofirm"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="#f15353"
-        android:text="去支付" 
-        android:textSize="16dp"
-        android:textColor="#ffffff"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="11dp"
+            android:textSize="14dp"
+            android:textColor="#666666"
+            android:text="在线支付:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="11dp"
+            android:textSize="12dp"
+            android:textColor="#f15353"
+            android:text="￥"/>
+        <Button
+            android:id="@+id/uu_order_pay_cofirm_price"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:textColor="#f15353"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
+            android:background="#ffffff" />
+        <TextView
+            android:id="@+id/order_insure_detail"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:drawableRight="@drawable/home_top_bottom_on"
+            android:gravity="center"
+            android:text="明细"
+            android:textColor="#98999a"
+            android:textSize="10dp"/>
+
+        <Button
+            android:id="@+id/uu_order_pay_cofirm"
+            android:layout_gravity="center"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="#f15353"
+            android:text="去支付"
+            android:textSize="16dp"
+            android:textColor="#ffffff"/>
+    </LinearLayout>
 
 </RelativeLayout>

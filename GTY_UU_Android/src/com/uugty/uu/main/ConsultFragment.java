@@ -188,7 +188,7 @@ public class ConsultFragment extends Fragment implements
 				mSwipeLayout.setRefreshing(true);
 			}
 		});
-		loadData(1);
+//		loadData(1);
 	}
 
 	@Override
@@ -314,6 +314,7 @@ public class ConsultFragment extends Fragment implements
 		// TODO Auto-generated method stub
 		super.onResume();
 		city = UUConfig.INSTANCE.getmCtity();
+		loadData(1);
 	}
 
 	@Override

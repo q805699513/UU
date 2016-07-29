@@ -17,6 +17,7 @@ import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.entity.TouristEntity;
 import com.uugty.uu.entity.TouristEntity.Tourist;
+import com.uugty.uu.order.UUPayActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +25,13 @@ import java.util.List;
 public class InsureActivity extends BaseActivity implements OnClickListener{
 	private ImageView tourist_list_back;
 	private TextView tourist_list_confirm;
+	private TextView mInsureType;
 	private ListView mListView;
 	private List<Tourist> list = new ArrayList<Tourist>(); //联系人数据
+	private List<String> contactId = new ArrayList<String>(); //联系人数据
 	private PersonAdapter adapter;
 	private RelativeLayout mInsureRelative;//选择保险类型
+	private String type;//返回选择的保险类型
 
 	@Override
 	protected int getContentLayout() {
@@ -36,17 +40,33 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 
 	@Override
 	protected void initGui() {
-		if(getIntent()!=null){
-			list = (List<TouristEntity.Tourist>) getIntent().getSerializableExtra("list");
-		}
-
 		tourist_list_back=(ImageView) findViewById(R.id.tourist_list_back);
 		tourist_list_confirm=(TextView) findViewById(R.id.tourist_list_confirm);
+		mInsureType=(TextView) findViewById(R.id.insure_txt);
 		mInsureRelative = (RelativeLayout) findViewById(R.id.insure_selected_relative);
 		mListView=(ListView) findViewById(R.id.person_card_list);
+
+	}
+
+	@Override
+	protected void initData() {
+		if(getIntent()!=null){
+			list = (List<TouristEntity.Tourist>) getIntent().getSerializableExtra("list");
+			if(null != getIntent().getStringExtra("type") && !"".equals(getIntent().getStringExtra("type"))){
+				type = getIntent().getStringExtra("type");
+				if("1".equals(type)){
+					mInsureType.setText("￥5/天");
+				}else if("2".equals(type)){
+					mInsureType.setText("￥10/天");
+				}else if("3".equals(type)){
+					mInsureType.setText("￥15/天");
+				}else{
+					mInsureType.setText(" ");
+				}
+			}
+		}
 		adapter=new PersonAdapter(ctx, list);
 		mListView.setAdapter(adapter);
-
 	}
 
 	@Override
@@ -64,20 +84,30 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 		switch (v.getId()) {
 			case R.id.insure_selected_relative:
 				intent.setClass(InsureActivity.this,SelectActivity.class);
-				startActivity(intent);
+				startActivityForResult(intent,1);
 				break;
 		case R.id.tourist_list_confirm:
-//
-//			if(ilist.size()<1){
-//				CustomToast.makeText(ctx, 0, "请选择出行人", 300).show();
-//			}else{
-//				intent.setClass(ctx, UUPayActivity.class);
-//				intent.putExtra("num", ilist.size()+"");
-//				intent.putExtra("name", name);
-//				intent.putExtra("allId",all);
-//				setResult(RESULT_OK, intent);
-//				finish();
-//			}
+			String allId = "";
+			contactId.clear();
+			for (int i = 0; i < list.size(); i++) {
+				if(list.get(i).getContactStatus().equals("1")){
+					contactId.add(list.get(i).getContactId());
+				}
+			}
+			for (int i = 0; i < contactId.size(); i++) {
+				if (i == contactId.size() - 1) {
+					allId+=contactId.get(i);
+				}else{
+					allId+=contactId.get(i)+",";
+				}
+			}
+
+			intent.setClass(ctx, UUPayActivity.class);
+			intent.putExtra("type",type);
+			intent.putExtra("num", contactId.size()+"");
+			intent.putExtra("allId",allId);
+			setResult(RESULT_OK, intent);
+			finish();
 			break;
 		case R.id.tourist_list_back:
 			finish();
@@ -91,17 +121,24 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 		super.onActivityResult(requestCode, resultCode, data);
 		if(resultCode==RESULT_OK){
 			switch (requestCode) {
-//			case ADDTOURIST:
-//				onRefresh();
-//				break;
+			case 1:
+				type = data.getStringExtra("type");
+				if(null != type) {
+					if ("1".equals(type)) {
+						mInsureType.setText("￥5/天");
+					} else if ("2".equals(type)) {
+						mInsureType.setText("￥10/天");
+					} else if ("3".equals(type)) {
+						mInsureType.setText("￥15/天");
+					}
+				}else{
+					mInsureType.setText("去选择");
+				}
+				break;
 			default:
 				break;
 			}
 		}
-	}
-	@Override  
-	protected void initData() {
-
 	}
 
 	@Override

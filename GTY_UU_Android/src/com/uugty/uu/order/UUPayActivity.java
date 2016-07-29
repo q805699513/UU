@@ -81,7 +81,12 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 	private ListViewForScrollView mTouristListView;
 	private OrderTouristAdapter mTouristAdapter;//出行人适配器
 	private LinearLayout mInsureLayout;
+	private String mInsureType="";//保险类型
 	private TextView mInsureDetail;
+	private String mInsureNum;//保险人数
+	private String mInsureContactId="";//保险人ID
+	private TextView mInsureOrderDetail;
+	private int mTotalInsure = 0;//保险价格总和
 	
 	// 支付按钮
 	private Button payConfirmBtn;
@@ -118,7 +123,10 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 		mOrderTopic = (TextView)findViewById(R.id.order_confirm_topic);
 		mOrderTopic.setText(roadTitle);
 		mPayPriceButton = (Button)findViewById(R.id.uu_order_pay_cofirm_price);
-		mPayPriceButton.setText("实付：￥"+ routePrice);
+//		mPayPriceButton.setText("实付：￥"+ routePrice);
+		mPayPriceButton.setText(routePrice);
+
+		mInsureOrderDetail = (TextView) findViewById(R.id.order_insure_detail);
 		
 		mDiscountRelative = (LinearLayout) findViewById(R.id.activity_paypricea_add_discount);
 		mDiscountRec = (TextView) findViewById(R.id.uu_order_discountRec);//代金券金额
@@ -150,7 +158,7 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 		mTouristListView = (ListViewForScrollView) findViewById(R.id.contact_list);
 		mTouristListLinear.setVisibility(View.GONE);
 		mTouristLinear.setVisibility(View.VISIBLE);
-		mInsureDetail = (TextView) findViewById(R.id.order_write_insure_txt);
+		mInsureDetail = (TextView) findViewById(R.id.order_write_insure);
 		ImageLoader.getInstance().displayImage(routeBackgroundImage,
 				headImageView);
 		activity_payprice_guide_title.setText(roadTitle);
@@ -168,6 +176,23 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 		}
 		reserve_minus.setOnClickListener(this);
 		reserve_add.setOnClickListener(this);
+		//订单明细
+		mInsureOrderDetail.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				Intent i = new Intent();
+				i.putExtra("topic",mOrderTopic.getText().toString());
+				i.putExtra("perPrice",mOrderPrie.getText().toString()+"x"+reserve_num.getText().toString());
+				i.putExtra("insure",mInsureType);
+				i.putExtra("insureNum",mInsureNum);
+				i.putExtra("discount",mDiscountMoney);
+				i.putExtra("realPrice",mPayPriceButton.getText().toString());
+				i.setClass(UUPayActivity.this,InsureOrderDetailActivity.class);
+				startActivity(i);
+
+			}
+		});
 		//出行人
 		mTouristListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
@@ -187,9 +212,13 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 				if(null !=mTouristList && mTouristList.size() > 0){
 
 					i.putExtra("list",(Serializable)mTouristList);
+					i.putExtra("type",mInsureType);
+					i.setClass(UUPayActivity.this, InsureActivity.class);
+					startActivityForResult(i,1000);
+				}else {
+					CustomToast.showToast(ctx,"请先选择出行人");
 				}
-				i.setClass(UUPayActivity.this, InsureActivity.class);
-				startActivity(i);
+
 			}
 		});
 		mDiscountTv.setOnClickListener(new OnClickListener() {
@@ -215,7 +244,7 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 							Intent intent = new Intent();
 							intent.putExtra("orderImage", routeBackgroundImage);//路线图片
 							intent.putExtra("price", "" + allPrice);
-							intent.putExtra("orderPrice", "" + allPrice);// 路线价钱
+							intent.putExtra("orderPrice", mPayPriceButton.getText().toString());// 路线价钱
 							intent.putExtra("orderName", roadTitle); //路线标题
 							intent.putExtra("contactName", mContactName);//出行人名
 							intent.putExtra("pageFlag", "UUPayActivity");
@@ -228,7 +257,9 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 							intent.putExtra("orderTravelNumber", "" + reserve_nums);//预定数量
 							intent.putExtra("visitorName", mName);// 联系人名
 							intent.putExtra("visitorTel", mPhone);// 联系人手机号
-							intent.putExtra("visitorContent", mTrvalNote.getText().toString());// 联系人留言 	 	
+							intent.putExtra("visitorContent", mTrvalNote.getText().toString());// 联系人留言
+							intent.putExtra("orderInsuranceType",mInsureType);
+							intent.putExtra("insuranceContactId",mInsureContactId);
 							intent.setClass(UUPayActivity.this, UUPaypriceActivity.class);
 							startActivity(intent);
 						}else{
@@ -342,7 +373,7 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 
 								allPrice = Float.parseFloat(routePrice) - Float.parseFloat(mDiscountMoney);
 								mDiscountRec.setText(mDiscountMoney + "元代金券");
-								mPayPriceButton.setText("实付：￥" + allPrice);
+								mPayPriceButton.setText(""+allPrice);
 							}
 						} else {
 							mDiscountRelative.setVisibility(View.GONE);
@@ -430,8 +461,8 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 							.setImageResource(R.drawable.chat_costom_minus);
 				}
 			}
-			allPrice=Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)- Float.parseFloat(mDiscountMoney);
-			mPayPriceButton.setText("实付：￥"+ allPrice);
+			allPrice=Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)- Float.parseFloat(mDiscountMoney)+mTotalInsure;
+			mPayPriceButton.setText(""+allPrice);
 			break;
 		case R.id.reserve_add:
 			reserve_nums = "" + (Integer.parseInt(reserve_nums) + 1);
@@ -440,8 +471,8 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 				reserve_minus
 						.setImageResource(R.drawable.chat_costom_minus_enable);
 			}
-			allPrice=Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)- Float.parseFloat(mDiscountMoney);
-			mPayPriceButton.setText("实付：￥"+ allPrice);
+			allPrice=Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)- Float.parseFloat(mDiscountMoney)+mTotalInsure;
+			mPayPriceButton.setText(""+allPrice);
 			break;
 		}		
 	}
@@ -486,6 +517,33 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == RESULT_OK) {
 			switch (requestCode) {
+			case 1000:
+				float price;
+				mInsureNum = data.getStringExtra("num");
+				mInsureType = data.getStringExtra("type");
+				mInsureContactId = data.getStringExtra("allId");
+				if(null != mInsureType && !"".equals(mInsureType)) {
+					if ("1".equals(mInsureType)) {
+						mInsureDetail.setText("￥5/天 x " + mInsureNum + "人");
+						mTotalInsure = Integer.parseInt(mInsureNum) * 5;
+						price = allPrice + mTotalInsure;
+						mPayPriceButton.setText(""+price);
+					} else if ("2".equals(mInsureType)) {
+						mInsureDetail.setText("￥10/天 x " + mInsureNum + "人");
+						mTotalInsure = Integer.parseInt(mInsureNum) * 10;
+						price = allPrice + mTotalInsure;
+						mPayPriceButton.setText("" + price);
+					} else if ("3".equals(mInsureType)) {
+						mInsureDetail.setText("￥15/天 x " + mInsureNum + "人");
+						mTotalInsure = Integer.parseInt(mInsureNum) * 15;
+						price = allPrice + mTotalInsure;
+						mPayPriceButton.setText("" + price);
+					}
+				}else{
+					mInsureDetail.setText("选择保险类型");
+				}
+
+				break;
 			case REQUEST_CHOOSE_DATE:
 				String chooseDate = data.getStringExtra("choose_date");
 				dateTextView.setText(chooseDate);
@@ -517,7 +575,7 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 						if (mDiscountId.equals(discountList.get(i).getCouponId())) {
 							mDiscountMoney = discountList.get(i).getCouponMoney();
 							allPrice = Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums) - Float.parseFloat(mDiscountMoney);
-							mPayPriceButton.setText("实付：￥" + allPrice);
+							mPayPriceButton.setText("" + allPrice);
 							if (discountList.get(i).getCouponUserStatus().equals("2")) {
 								mDiscountRec.setText(mDiscountMoney + "元代金券");
 								mDiscountRec.setVisibility(View.VISIBLE);
@@ -531,7 +589,7 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 					mDiscountRec.setText("暂不使用元代金券");
 					mDiscountRec.setVisibility(View.VISIBLE);
 					allPrice =Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums);
-					mPayPriceButton.setText("实付：￥"+ allPrice);
+					mPayPriceButton.setText(""+ allPrice);
 				}
 				break;
 			default:
