@@ -1,6 +1,5 @@
 package com.uugty.uu.person;
 
-import java.util.ArrayList;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,12 +11,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
@@ -36,6 +36,8 @@ import com.uugty.uu.mhvp.core.magic.viewpager.MagicHeaderViewPager;
 import com.uugty.uu.mhvp.core.magic.viewpager.PagerSlidingTabStrip;
 import com.uugty.uu.uuchat.ChatActivity;
 import com.uugty.uu.viewpage.adapter.PersonCenterPagerAdapter;
+
+import java.util.ArrayList;
 
 public class PersonCenterActivity extends BaseActivity implements
 		OnClickListener {
@@ -313,7 +315,7 @@ public class PersonCenterActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										PersonCenterActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -360,7 +362,7 @@ public class PersonCenterActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										PersonCenterActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

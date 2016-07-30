@@ -1,8 +1,5 @@
 package com.uugty.uu.friendstask;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,21 +12,15 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.TextPaint;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnLayoutChangeListener;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,8 +28,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -57,14 +47,17 @@ import com.uugty.uu.common.photoview.ImagePagerActivity;
 import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.DynamicCommentsEntity;
 import com.uugty.uu.entity.DynamicCommentsEntity.DynamicComments;
-import com.uugty.uu.entity.UpVoteEntity;
 import com.uugty.uu.entity.DynamicEntity.Dynamic;
+import com.uugty.uu.entity.UpVoteEntity;
 import com.uugty.uu.entity.UpVotersTitleEntity;
 import com.uugty.uu.entity.UpVotersTitleEntity.UpvotersTitle;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.person.PersonCenterActivity;
 import com.uugty.uu.util.LogUtils;
 import com.uugty.uu.uuchat.ReportInterfaceActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DynamicCommentActivity extends BaseActivity implements
 		OnScrollListener, SwipeRefreshLayout.OnRefreshListener,
@@ -210,7 +203,7 @@ public class DynamicCommentActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										DynamicCommentActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -253,7 +246,7 @@ public class DynamicCommentActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										DynamicCommentActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -298,7 +291,7 @@ public class DynamicCommentActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										DynamicCommentActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -344,7 +337,7 @@ public class DynamicCommentActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										DynamicCommentActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -403,7 +396,7 @@ public class DynamicCommentActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										DynamicCommentActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -729,7 +722,7 @@ public class DynamicCommentActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										DynamicCommentActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

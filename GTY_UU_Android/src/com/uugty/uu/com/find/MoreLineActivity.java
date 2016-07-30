@@ -1,7 +1,5 @@
 package com.uugty.uu.com.find;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,8 +9,9 @@ import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
@@ -26,6 +25,9 @@ import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.entity.MoreLvEntity;
 import com.uugty.uu.entity.MoreLvEntity.MoreListEntity;
 import com.uugty.uu.viewpage.adapter.MoreListAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MoreLineActivity extends BaseActivity implements OnClickListener{
 	private TopBackView back;
@@ -135,7 +137,7 @@ public class MoreLineActivity extends BaseActivity implements OnClickListener{
 						if (errorCode == -999) {
 							new AlertDialog.Builder(MoreLineActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.city.customview.CityListActivity;
@@ -22,9 +23,7 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.EmojiEdite;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.common.myview.UnderLineTextAndImage;
-import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.entity.ChatCustomEntity;
-import com.uugty.uu.guide.LeadPageActivity;
 import com.uugty.uu.main.OrderDateActivty;
 
 public class ChatCustomActivity extends BaseActivity implements OnClickListener {
@@ -419,7 +418,7 @@ public class ChatCustomActivity extends BaseActivity implements OnClickListener 
 							if (errorCode == -999) {
 								new AlertDialog.Builder(ChatCustomActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

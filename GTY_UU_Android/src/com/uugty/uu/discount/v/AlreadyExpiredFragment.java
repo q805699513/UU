@@ -1,18 +1,5 @@
 package com.uugty.uu.discount.v;
 
-import java.util.ArrayList;
-import java.util.List;
-import com.uugty.uu.R;
-import com.uugty.uu.common.asynhttp.RequestParams;
-import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.dialog.loading.SpotsDialog;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.discount.c.MyDiscountActivity;
-import com.uugty.uu.discount.m.DiscountAdapter;
-import com.uugty.uu.discount.m.DiscountListItem;
-import com.uugty.uu.discount.m.DiscountListItem.DiscountEntity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -25,9 +12,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.ListView;
+
+import com.uugty.uu.R;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.dialog.loading.SpotsDialog;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.discount.c.MyDiscountActivity;
+import com.uugty.uu.discount.m.DiscountAdapter;
+import com.uugty.uu.discount.m.DiscountListItem;
+import com.uugty.uu.discount.m.DiscountListItem.DiscountEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AlreadyExpiredFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -160,7 +162,7 @@ public class AlreadyExpiredFragment extends Fragment implements SwipeRefreshLayo
 						if (errorCode == -999) {
 							new AlertDialog.Builder(getActivity())
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

@@ -292,7 +292,7 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 							loadingDialog.dismiss();
 							CustomToast.makeText(ctx, 0, errorMsg, 300).show();
 							if (errorCode == -999) {
-								new AlertDialog.Builder(UUOrderPayDetailActivity.this).setTitle("提示").setMessage("服务器连接失败！")
+								new AlertDialog.Builder(UUOrderPayDetailActivity.this).setTitle("提示").setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 											@Override
 											public void onClick(DialogInterface dialog, int which) {
@@ -376,15 +376,15 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 							mDetailTopic.setText(detail.getRoadlineTitle());
 							mStateString = detail.getOrderStatus();//订单状态字符串
 							mOrderState.setText(transOrderStatus(detail.getOrderStatus()));
-							mOrderPrice.setText("￥"+detail.getOrderPrice());
+							mOrderPrice.setText("￥"+detail.getOrderActualPayment());
 							mScheduleNum.setText(detail.getOrderTravelNumber());
 							mJourneyDate.setText(detail.getOrderTime().substring(0, 10));
 							
 							mPayQuota.setTextColor(Color.parseColor("#F15353"));
-							mPayQuota.setText((Float.parseFloat(detail.getOrderPrice())*Float.parseFloat(detail.getOrderTravelNumber())-Float.parseFloat(detail.getOrderCouponMoney())) + "元");
+							mPayQuota.setText(detail.getOrderActualPayment()+ "元");
 							
 							mPayQuota1.setTextColor(Color.parseColor("#F15353"));
-							mPayQuota1.setText((Float.parseFloat(detail.getOrderPrice())*Float.parseFloat(detail.getOrderTravelNumber())-Float.parseFloat(detail.getOrderCouponMoney())) + "元");
+							mPayQuota1.setText(detail.getOrderActualPayment() + "元");
 							
 							mOrderTotile.setText(Float.parseFloat(detail.getOrderPrice())*Float.parseFloat(detail.getOrderTravelNumber())+"元");
 							mDiscount.setText("-"+ Float.parseFloat(detail.getOrderCouponMoney()) + "元");
@@ -789,7 +789,7 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 							new AlertDialog.Builder(
 									UUOrderPayDetailActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -877,7 +877,7 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 								if (errorCode == -999) {
 									new AlertDialog.Builder(ctx)
 											.setTitle("提示")
-											.setMessage("服务器连接失败！")
+											.setMessage("网络拥堵,请稍后重试！")
 											.setPositiveButton(
 													"确定",
 													new DialogInterface.OnClickListener() {
@@ -923,7 +923,7 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 								if (errorCode == -999) {
 									new AlertDialog.Builder(ctx)
 											.setTitle("提示")
-											.setMessage("服务器连接失败！")
+											.setMessage("网络拥堵,请稍后重试！")
 											.setPositiveButton(
 													"确定",
 													new DialogInterface.OnClickListener() {
@@ -969,7 +969,7 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 								if (errorCode == -999) {
 									new AlertDialog.Builder(ctx)
 											.setTitle("提示")
-											.setMessage("服务器连接失败！")
+											.setMessage("网络拥堵,请稍后重试！")
 											.setPositiveButton(
 													"确定",
 													new DialogInterface.OnClickListener() {

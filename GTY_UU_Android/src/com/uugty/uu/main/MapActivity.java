@@ -1,16 +1,5 @@
 package com.uugty.uu.main;
 
-import static java.lang.Math.asin;
-import static java.lang.Math.cos;
-import static java.lang.Math.pow;
-import static java.lang.Math.sin;
-import static java.lang.Math.sqrt;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.Timer;
-import java.util.TimerTask;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -24,7 +13,6 @@ import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.LocationManagerProxy;
@@ -63,11 +52,23 @@ import com.uugty.uu.common.myview.MapCirculImage;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.MapUserEntity;
-import com.uugty.uu.entity.MarkerEntity;
 import com.uugty.uu.entity.MapUserEntity.MapUser;
-import com.uugty.uu.util.LogUtils;
+import com.uugty.uu.entity.MarkerEntity;
 import com.uugty.uu.util.MathUtil;
 import com.uugty.uu.uuchat.ChatActivity;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import static java.lang.Math.asin;
+import static java.lang.Math.cos;
+import static java.lang.Math.pow;
+import static java.lang.Math.sin;
+import static java.lang.Math.sqrt;
 
 public class MapActivity extends Activity implements AMapLocationListener
     ,OnMapLoadedListener,LocationSource,OnCameraChangeListener,InfoWindowAdapter
@@ -882,7 +883,7 @@ public class MapActivity extends Activity implements AMapLocationListener
 							if (errorCode == -999) {
 								new AlertDialog.Builder(MapActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

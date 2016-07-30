@@ -1,19 +1,14 @@
 package com.uugty.uu.person;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
@@ -29,9 +24,10 @@ import com.uugty.uu.common.myview.EmojiEdite;
 import com.uugty.uu.entity.AddMarkEntity;
 import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.MarkEntity;
-import com.uugty.uu.entity.UpVoteEntity;
 import com.uugty.uu.entity.MarkEntity.PersonMark;
-import com.uugty.uu.friendstask.DynamicDetailActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddLableActivity extends BaseActivity implements OnClickListener,
 		OnItemClick {
@@ -215,7 +211,7 @@ public class AddLableActivity extends BaseActivity implements OnClickListener,
 										new AlertDialog.Builder(
 												AddLableActivity.this)
 												.setTitle("提示")
-												.setMessage("服务器连接失败！")
+												.setMessage("网络拥堵,请稍后重试！")
 												.setPositiveButton(
 														"确定",
 														new DialogInterface.OnClickListener() {
@@ -262,7 +258,7 @@ public class AddLableActivity extends BaseActivity implements OnClickListener,
 							if (errorCode == -999) {
 								new AlertDialog.Builder(AddLableActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -304,7 +300,7 @@ public class AddLableActivity extends BaseActivity implements OnClickListener,
 							if (errorCode == -999) {
 								new AlertDialog.Builder(AddLableActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

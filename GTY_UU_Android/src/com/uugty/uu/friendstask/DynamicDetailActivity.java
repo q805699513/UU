@@ -1,8 +1,5 @@
 package com.uugty.uu.friendstask;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -24,16 +21,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -51,11 +49,14 @@ import com.uugty.uu.common.myview.JoyGridView;
 import com.uugty.uu.common.photoview.ImagePagerActivity;
 import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.DynamicEntity;
-import com.uugty.uu.entity.UpVoteEntity;
 import com.uugty.uu.entity.DynamicEntity.Dynamic;
+import com.uugty.uu.entity.UpVoteEntity;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.person.PersonCenterActivity;
 import com.uugty.uu.uuchat.ChatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DynamicDetailActivity extends BaseActivity implements
 		OnScrollListener, SwipeRefreshLayout.OnRefreshListener,
@@ -338,7 +339,7 @@ public class DynamicDetailActivity extends BaseActivity implements
 									new AlertDialog.Builder(
 											DynamicDetailActivity.this)
 											.setTitle("提示")
-											.setMessage("服务器连接失败！")
+											.setMessage("网络拥堵,请稍后重试！")
 											.setPositiveButton(
 													"确定",
 													new DialogInterface.OnClickListener() {
@@ -382,7 +383,7 @@ public class DynamicDetailActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(DynamicDetailActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -424,7 +425,7 @@ public class DynamicDetailActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(DynamicDetailActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

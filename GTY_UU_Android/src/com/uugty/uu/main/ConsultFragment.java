@@ -112,6 +112,7 @@ public class ConsultFragment extends Fragment implements
 		initAction();
 	}
 
+
 	protected void initGui() {
 		// TODO Auto-generated method stub
 		mListView = (ListView) rootview.findViewById(R.id.consult_listview);
@@ -188,7 +189,7 @@ public class ConsultFragment extends Fragment implements
 				mSwipeLayout.setRefreshing(true);
 			}
 		});
-//		loadData(1);
+		loadData(1);
 	}
 
 	@Override
@@ -249,7 +250,7 @@ public class ConsultFragment extends Fragment implements
 										new AlertDialog.Builder(
 												context)
 												.setTitle("提示")
-												.setMessage("服务器连接失败！")
+												.setMessage("网络拥堵,请稍后重试！")
 												.setPositiveButton(
 														"确定",
 														new DialogInterface.OnClickListener() {
@@ -314,7 +315,8 @@ public class ConsultFragment extends Fragment implements
 		// TODO Auto-generated method stub
 		super.onResume();
 		city = UUConfig.INSTANCE.getmCtity();
-		loadData(1);
+		onRefresh();
+
 	}
 
 	@Override

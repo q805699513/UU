@@ -1,7 +1,5 @@
 package com.uugty.uu.uuchat;
 
-import android.text.TextUtils;
-import java.util.List;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,18 +7,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
+
 import com.easemob.chat.EMChatManager;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
-import com.uugty.uu.com.rightview.UPdataActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -37,6 +36,8 @@ import com.uugty.uu.entity.GroupChatDetailEntity;
 import com.uugty.uu.entity.GroupMemberEntity;
 import com.uugty.uu.entity.GroupMemberEntity.GroupMember;
 import com.uugty.uu.login.LoginActivity;
+
+import java.util.List;
 
 public class GroupDetailActivity extends BaseActivity implements
 		OnClickListener {
@@ -128,7 +129,7 @@ public class GroupDetailActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(GroupDetailActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -176,7 +177,7 @@ public class GroupDetailActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(GroupDetailActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -230,7 +231,7 @@ public class GroupDetailActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(GroupDetailActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

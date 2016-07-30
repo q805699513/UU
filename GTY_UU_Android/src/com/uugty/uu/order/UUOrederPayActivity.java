@@ -266,14 +266,14 @@ public class UUOrederPayActivity extends BaseActivity implements
 						params.add("visitorContent", mVisitorContent);
 						params.add("couponId", mDiscountId);
 						params.add("couponUserId", mUserId);
-						params.add("insuranceType",mInsureType);
+						params.add("orderInsuranceType",mInsureType);
 						params.add("insuranceContactId",mInsureContactId);
 						APPRestClient.post(UUOrederPayActivity.this, ServiceCode.BATCH_ORDER_MODIFY, params,
 								new APPResponseHandler<OrderEntity>(OrderEntity.class, UUOrederPayActivity.this) {
 									@Override
 									public void onSuccess(OrderEntity result) {
 										Intent intent = new Intent();
-										intent.putExtra("price", allPrice);
+										intent.putExtra("price", mPayPriceButton.getText().toString());
 										intent.putExtra("orderId", orderId);
 										intent.putExtra("orderName", roadLineTitle);
 										intent.putExtra("orderNo", orderNo);
@@ -304,7 +304,7 @@ public class UUOrederPayActivity extends BaseActivity implements
 										payConfirmBtn.setEnabled(true);
 										if (errorCode == -999) {
 											new AlertDialog.Builder(UUOrederPayActivity.this).setTitle("提示")
-													.setMessage("服务器连接失败！")
+													.setMessage("网络拥堵,请稍后重试！")
 													.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 														@Override
 														public void onClick(DialogInterface dialog, int which) {
@@ -425,7 +425,7 @@ public class UUOrederPayActivity extends BaseActivity implements
 							if(result.getLIST().size()>0) {
 
 								for (int i = 0; i < result.getLIST().size(); i++) {
-									if ("1".equals(result.getLIST().get(i).getInsuranceStatus())) {
+									if ("2".equals(result.getLIST().get(i).getInsuranceStatus())) {
 										++mInsureReturn;
 									}
 									TouristEntity entity = new TouristEntity();
@@ -443,11 +443,11 @@ public class UUOrederPayActivity extends BaseActivity implements
 									mTouristListView.setAdapter(mTouristAdapter);
 								}
 								mInsureType = result.getLIST().get(0).getInsuranceType();
-								if ("1".equals(mInsureType)) {
+								if (mInsureType.contains("1")) {
 									mInsureDetail.setText("￥5/天 x " + String.valueOf(mInsureReturn) + "人");
-								} else if ("2".equals(mInsureType)) {
+								} else if (mInsureType.contains("2")) {
 									mInsureDetail.setText("￥10/天 x " + String.valueOf(mInsureReturn) + "人");
-								} else if ("3".equals(mInsureType)) {
+								} else if (mInsureType.contains("3")) {
 									mInsureDetail.setText("￥15/天 x " + String.valueOf(mInsureReturn) + "人");
 								}else{
 									mInsureDetail.setText("选择保险类型");
@@ -510,8 +510,8 @@ public class UUOrederPayActivity extends BaseActivity implements
 							}else{
 								mDiscountRelative.setVisibility(View.GONE);
 							}
-							mPayPriceButton.setText(allPrice);
-							mOrderPrie.setText("￥"+allPrice);//设置总价
+							mPayPriceButton.setText(detail.getOrderActualPayment());
+							mOrderPrie.setText("￥"+routePrice);//设置总价
 							
 							scrollView.setVisibility(View.VISIBLE);
 //							commitBtn.setVisibility(View.VISIBLE);
@@ -531,7 +531,7 @@ public class UUOrederPayActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(UUOrederPayActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -605,7 +605,7 @@ public class UUOrederPayActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(UUOrederPayActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -734,15 +734,15 @@ public class UUOrederPayActivity extends BaseActivity implements
 					mInsureType = data.getStringExtra("type");
 					mInsureContactId = data.getStringExtra("allId");
 					if(null != mInsureType && !"".equals(mInsureType)) {
-						if ("1".equals(mInsureType)) {
+						if (mInsureType.contains("1")) {
 							mInsureDetail.setText("￥5/天 x " + mInsureNum + "人");
 							mTotalInsure = Integer.parseInt(mInsureNum) * 5;
 
-						} else if ("2".equals(mInsureType)) {
+						} else if (mInsureType.contains("2")) {
 							mInsureDetail.setText("￥10/天 x " + mInsureNum + "人");
 							mTotalInsure = Integer.parseInt(mInsureNum) * 10;
 
-						} else if ("3".equals(mInsureType)) {
+						} else if (mInsureType.contains("3")) {
 							mInsureDetail.setText("￥15/天 x " + mInsureNum + "人");
 							mTotalInsure = Integer.parseInt(mInsureNum) * 15;
 						}

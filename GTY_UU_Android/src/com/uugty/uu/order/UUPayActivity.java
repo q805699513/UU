@@ -243,7 +243,7 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 						if (isPhoneNumberValid(mPhone)) {
 							Intent intent = new Intent();
 							intent.putExtra("orderImage", routeBackgroundImage);//路线图片
-							intent.putExtra("price", "" + allPrice);
+							intent.putExtra("price", mPayPriceButton.getText().toString());
 							intent.putExtra("orderPrice", mPayPriceButton.getText().toString());// 路线价钱
 							intent.putExtra("orderName", roadTitle); //路线标题
 							intent.putExtra("contactName", mContactName);//出行人名
@@ -407,7 +407,7 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 						if (errorCode == -999) {
 							new AlertDialog.Builder(UUPayActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -523,17 +523,17 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 				mInsureType = data.getStringExtra("type");
 				mInsureContactId = data.getStringExtra("allId");
 				if(null != mInsureType && !"".equals(mInsureType)) {
-					if ("1".equals(mInsureType)) {
+					if (mInsureType.contains("1")) {
 						mInsureDetail.setText("￥5/天 x " + mInsureNum + "人");
 						mTotalInsure = Integer.parseInt(mInsureNum) * 5;
 						price = allPrice + mTotalInsure;
 						mPayPriceButton.setText(""+price);
-					} else if ("2".equals(mInsureType)) {
+					} else if (mInsureType.contains("2")) {
 						mInsureDetail.setText("￥10/天 x " + mInsureNum + "人");
 						mTotalInsure = Integer.parseInt(mInsureNum) * 10;
 						price = allPrice + mTotalInsure;
 						mPayPriceButton.setText("" + price);
-					} else if ("3".equals(mInsureType)) {
+					} else if (mInsureType.contains("3")) {
 						mInsureDetail.setText("￥15/天 x " + mInsureNum + "人");
 						mTotalInsure = Integer.parseInt(mInsureNum) * 15;
 						price = allPrice + mTotalInsure;

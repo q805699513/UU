@@ -62,7 +62,7 @@
     <com.uugty.uu.common.myview.ListViewForScrollView
         android:id="@+id/user_comment_listview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:divider="@color/base_text_color"
         android:dividerHeight="1px"

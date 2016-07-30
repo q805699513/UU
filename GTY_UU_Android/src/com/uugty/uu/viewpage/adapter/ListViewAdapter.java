@@ -1,7 +1,22 @@
 package com.uugty.uu.viewpage.adapter;
 
-import java.util.List;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.uugty.uu.R;
 import com.uugty.uu.common.asynhttp.RequestParams;
@@ -13,25 +28,11 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.entity.OrderEntity;
 import com.uugty.uu.entity.OrderListItem.ItemEntity;
 import com.uugty.uu.evaluate.EvaluateActivity;
-import com.uugty.uu.order.UUOrederPayActivity;
 import com.uugty.uu.order.ApplyRefundActivity;
+import com.uugty.uu.order.UUOrederPayActivity;
 import com.uugty.uu.uuchat.ChatActivity;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import java.util.List;
 
 public class ListViewAdapter extends BaseAdapter {
 
@@ -898,7 +899,7 @@ public class ListViewAdapter extends BaseAdapter {
 								if (errorCode == -999) {
 									new AlertDialog.Builder(context)
 											.setTitle("提示")
-											.setMessage("服务器连接失败！")
+											.setMessage("网络拥堵,请稍后重试！")
 											.setPositiveButton(
 													"确定",
 													new DialogInterface.OnClickListener() {
@@ -950,7 +951,7 @@ public class ListViewAdapter extends BaseAdapter {
 								if (errorCode == -999) {
 									new AlertDialog.Builder(context)
 											.setTitle("提示")
-											.setMessage("服务器连接失败！")
+											.setMessage("网络拥堵,请稍后重试！")
 											.setPositiveButton(
 													"确定",
 													new DialogInterface.OnClickListener() {
@@ -996,7 +997,7 @@ public class ListViewAdapter extends BaseAdapter {
 								if (errorCode == -999) {
 									new AlertDialog.Builder(context)
 											.setTitle("提示")
-											.setMessage("服务器连接失败！")
+											.setMessage("网络拥堵,请稍后重试！")
 											.setPositiveButton(
 													"确定",
 													new DialogInterface.OnClickListener() {
@@ -1041,7 +1042,7 @@ public class ListViewAdapter extends BaseAdapter {
 								if (errorCode == -999) {
 									new AlertDialog.Builder(context)
 											.setTitle("提示")
-											.setMessage("服务器连接失败！")
+											.setMessage("网络拥堵,请稍后重试！")
 											.setPositiveButton(
 													"确定",
 													new DialogInterface.OnClickListener() {
@@ -1089,7 +1090,7 @@ public class ListViewAdapter extends BaseAdapter {
 								if (errorCode == -999) {
 									new AlertDialog.Builder(context)
 											.setTitle("提示")
-											.setMessage("服务器连接失败！")
+											.setMessage("网络拥堵,请稍后重试！")
 											.setPositiveButton(
 													"确定",
 													new DialogInterface.OnClickListener() {

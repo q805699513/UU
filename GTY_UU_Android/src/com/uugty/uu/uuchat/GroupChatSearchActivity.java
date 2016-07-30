@@ -1,17 +1,5 @@
 package com.uugty.uu.uuchat;
 
-import java.util.List;
-import com.uugty.uu.R;
-import com.uugty.uu.common.asynhttp.RequestParams;
-import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.dialog.loading.SpotsDialog;
-import com.uugty.uu.common.myview.CirculHeadImage;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.common.util.ActivityCollector;
-import com.uugty.uu.entity.GroupChatEntity;
-import com.uugty.uu.entity.GroupChatEntity.GroupChat;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -23,8 +11,8 @@ import android.os.Message;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -33,6 +21,20 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.uugty.uu.R;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.dialog.loading.SpotsDialog;
+import com.uugty.uu.common.myview.CirculHeadImage;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.common.util.ActivityCollector;
+import com.uugty.uu.entity.GroupChatEntity;
+import com.uugty.uu.entity.GroupChatEntity.GroupChat;
+
+import java.util.List;
 
 public class GroupChatSearchActivity extends Activity {
 
@@ -166,7 +168,7 @@ public class GroupChatSearchActivity extends Activity {
 							new AlertDialog.Builder(
 									GroupChatSearchActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -227,7 +229,7 @@ public class GroupChatSearchActivity extends Activity {
 								new AlertDialog.Builder(
 										GroupChatSearchActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

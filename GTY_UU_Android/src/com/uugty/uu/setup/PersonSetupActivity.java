@@ -16,14 +16,12 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.easemob.chat.EMChatManager;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.umeng.analytics.MobclickAgent;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
-import com.uugty.uu.com.rightview.UPdataActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -32,7 +30,6 @@ import com.uugty.uu.common.dialog.AppVersionCheckDialog;
 import com.uugty.uu.common.dialog.CustomDialog;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.UISwitchButton;
-import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.CacheFileUtil;
 import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.entity.AppVersionCheckVo;
@@ -297,7 +294,7 @@ public class PersonSetupActivity extends BaseActivity implements OnClickListener
 							if (errorCode == -999) {
 								new AlertDialog.Builder(ctx)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

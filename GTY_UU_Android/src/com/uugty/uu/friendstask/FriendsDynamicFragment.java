@@ -1,7 +1,5 @@
 package com.uugty.uu.friendstask;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -25,15 +23,16 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.ListView;
 import android.widget.TextView;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -56,6 +55,9 @@ import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.main.MainActivity;
 import com.uugty.uu.person.PersonCenterActivity;
 import com.uugty.uu.uuchat.ChatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FriendsDynamicFragment extends Fragment implements
 		OnScrollListener, SwipeRefreshLayout.OnRefreshListener {
@@ -273,7 +275,7 @@ public class FriendsDynamicFragment extends Fragment implements
 							if (errorCode == -999) {
 								new AlertDialog.Builder(getActivity())
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -783,7 +785,7 @@ class DynamicAdapter extends BaseAdapter {
 							if (errorCode == -999) {
 								new AlertDialog.Builder(context)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -826,7 +828,7 @@ class DynamicAdapter extends BaseAdapter {
 							if (errorCode == -999) {
 								new AlertDialog.Builder(context)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

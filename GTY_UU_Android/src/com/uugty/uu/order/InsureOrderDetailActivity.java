@@ -65,11 +65,11 @@ public class InsureOrderDetailActivity extends BaseActivity{
 		if(getIntent() != null){
 			mTopic.setText(getIntent().getStringExtra("topic"));
 			mPeerPrice.setText(getIntent().getStringExtra("perPrice"));
-			if("1".equals(getIntent().getStringExtra("insure"))) {
+			if((getIntent().getStringExtra("insure").contains("1"))) {
 				mInsure.setText(" + ￥" + "5" + "x" + getIntent().getStringExtra("insureNum"));
-			}else if("2".equals(getIntent().getStringExtra("insure"))) {
+			}else if((getIntent().getStringExtra("insure").contains("2"))) {
 				mInsure.setText(" + ￥" + "10" + "x" + getIntent().getStringExtra("insureNum"));
-			}else if("3".equals(getIntent().getStringExtra("insure"))) {
+			}else if((getIntent().getStringExtra("insure").contains("3"))) {
 				mInsure.setText(" + ￥" + "15" + "x" + getIntent().getStringExtra("insureNum"));
 			}
 			if(null != getIntent().getStringExtra("discount") && !"".equals(getIntent().getStringExtra("discount"))){

@@ -1,9 +1,5 @@
 package com.uugty.uu.common.myview;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import com.uugty.uu.R;
-import com.uugty.uu.main.GuideDetailActivity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -18,9 +14,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
+
+import com.uugty.uu.R;
+import com.uugty.uu.main.GuideDetailActivity;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 @SuppressLint("ViewConstructor")
 public class SearchPopuWindow extends Activity {
@@ -53,7 +55,6 @@ public class SearchPopuWindow extends Activity {
 	/**
 	 * 初始化搜索栏控件
 	 * 
-	 * @param view
 	 */
 	private void initWidget() {
 		mSearchAutoAdapter = new SearchAutoAdapter(this, -1);
@@ -134,7 +135,7 @@ public class SearchPopuWindow extends Activity {
 			public void onClick(View arg0) {
 				saveSearchHistory();
 				if (null != searchEdit.getText().toString()
-						&& !searchEdit.getText().toString().equals("")) {
+						&& !searchEdit.getText().toString().equals("") && !searchEdit.getText().toString().contains(" ")) {
 					// 发送请求
 					// 调用接口
 					Intent intent = new Intent();

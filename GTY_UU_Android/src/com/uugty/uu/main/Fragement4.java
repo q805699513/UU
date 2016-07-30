@@ -596,7 +596,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 							if (errorCode == -999) {
 								new AlertDialog.Builder(context)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -733,6 +733,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 									context.startActivity(intent);
 								}
 							} else if (action.equals("shop")) {
+								intent.putExtra("isPromoter",result.getOBJECT().getUserIsPromoter());
 								if("0".equals(result.getOBJECT().getUserIsPromoter())){
 									if("0".equals(result.getOBJECT().getRoadlineId())){
 										intent.setClass(context,
@@ -790,7 +791,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 							if (errorCode == -999) {
 								new AlertDialog.Builder(context)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -843,7 +844,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 							if (errorCode == -999) {
 								new AlertDialog.Builder(context)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -913,7 +914,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 							if (errorCode == -999) {
 								new AlertDialog.Builder(context)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

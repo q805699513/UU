@@ -8,27 +8,11 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/menu/first.xml"
     },
     {
-        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/menu/main.xml",
-        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/menu/main.xml"
-    },
-    {
-        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/menu/first.xml",
-        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/menu/first.xml"
-    },
-    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/menu/main.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/menu/main.xml"
     },
     {
-        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/menu/frist.xml",
-        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/menu/frist.xml"
-    },
-    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/menu/frist.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/menu/frist.xml"
-    },
-    {
-        "merged": "/Users/libertyair/Desktop/UU/GTY_UU_Android/build/intermediates/res/merged/debug/menu/friends_dynamic.xml",
-        "source": "/Users/libertyair/Desktop/UU/GTY_UU_Android/res/menu/friends_dynamic.xml"
     }
 ]

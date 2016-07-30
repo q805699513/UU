@@ -1,14 +1,5 @@
 package com.uugty.uu.evaluate;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -25,18 +16,19 @@ import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RatingBar;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.TextView;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
@@ -53,6 +45,17 @@ import com.uugty.uu.common.util.CacheFileUtil;
 import com.uugty.uu.entity.EvaluaBaseEntity;
 import com.uugty.uu.entity.EvaluationDetailEntity;
 import com.uugty.uu.map.PhoneDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class EvaluateActivity extends BaseActivity implements
@@ -243,7 +246,7 @@ public class EvaluateActivity extends BaseActivity implements
 							if (errorCode == -999) {
 								new AlertDialog.Builder(EvaluateActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -304,7 +307,7 @@ public class EvaluateActivity extends BaseActivity implements
 							if (errorCode == -999) {
 								new AlertDialog.Builder(EvaluateActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

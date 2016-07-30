@@ -625,12 +625,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name="com.uugty.uu.map.MyServicesActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
-        </activity>
+
         <!-- 咨询引导页 -->
         <activity
             android:name="com.uugty.uu.guide.LeadPageActivity"
@@ -642,7 +637,13 @@
             android:name="com.uugty.uu.appstart.UpgradeDialogActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/PhoneDialog" >
+            android:theme="@style/MyStyle" >
+        </activity>
+        <activity
+            android:name="com.uugty.uu.appstart.MaskBackActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaskStyle" >
         </activity>
         <!-- 发布路线引导页 -->
         <activity
@@ -786,6 +787,41 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
         </activity>
+        <!-- 我是小u -->
+        <activity
+            android:name="com.uugty.uu.shop.MyIsUuActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 各级小u -->
+        <activity
+            android:name="com.uugty.uu.shop.ThreeUuActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- vip我的小店 -->
+        <activity
+            android:name="com.uugty.uu.shop.MyShopActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- notvip我的小店 -->
+        <activity
+            android:name="com.uugty.uu.shop.NotVipShopActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 服务管理 -->
+        <activity
+            android:name="com.uugty.uu.shop.ShopControlActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
         <!-- 使用规则 -->
         <activity
             android:name="com.uugty.uu.discount.c.OrderUseActivity"
@@ -796,6 +832,30 @@
         <!-- 代金券选择 -->
         <activity
             android:name="com.uugty.uu.discount.c.DiscountSelectActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/myDiscountActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 保险 -->
+        <activity
+            android:name="com.uugty.uu.order.insure.InsureActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 保险选择 -->
+        <activity
+            android:name="com.uugty.uu.order.insure.SelectActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/myDiscountActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+
+        <!-- 明细 -->
+        <activity
+            android:name="com.uugty.uu.order.InsureOrderDetailActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/myDiscountActivity"

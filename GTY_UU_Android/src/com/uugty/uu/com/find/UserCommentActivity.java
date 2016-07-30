@@ -1,7 +1,5 @@
 package com.uugty.uu.com.find;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
@@ -25,6 +24,9 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.entity.UserCommentEntity;
 import com.uugty.uu.entity.UserCommentEntity.UserCommentList;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserCommentActivity extends BaseActivity {
 
@@ -118,7 +120,7 @@ public class UserCommentActivity extends BaseActivity {
 						if (errorCode == -999) {
 							new AlertDialog.Builder(UserCommentActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

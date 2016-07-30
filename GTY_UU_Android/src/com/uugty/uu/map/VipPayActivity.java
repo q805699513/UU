@@ -1,12 +1,5 @@
 package com.uugty.uu.map;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.alipay.sdk.app.PayTask;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tencent.mm.sdk.modelpay.PayReq;
@@ -42,8 +36,16 @@ import com.uugty.uu.entity.ParentIdEntity;
 import com.uugty.uu.entity.PayResult;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.entity.VipAlipayEntity;
-import com.uugty.uu.entity.VipEntity;
 import com.uugty.uu.entity.VipWxpayEntity;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 
 
 public class VipPayActivity extends BaseActivity implements OnClickListener {
@@ -224,7 +226,7 @@ public class VipPayActivity extends BaseActivity implements OnClickListener {
 								new AlertDialog.Builder(
 										VipPayActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -279,7 +281,7 @@ public class VipPayActivity extends BaseActivity implements OnClickListener {
 								new AlertDialog.Builder(
 										VipPayActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -337,7 +339,7 @@ public class VipPayActivity extends BaseActivity implements OnClickListener {
 							if (errorCode == -999) {
 								new AlertDialog.Builder(VipPayActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

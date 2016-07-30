@@ -1,18 +1,5 @@
 package com.uugty.uu.person;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.uugty.uu.R;
-import com.uugty.uu.common.asynhttp.RequestParams;
-import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.common.myview.JoyGridView;
-import com.uugty.uu.common.photoview.ImagePagerActivity;
-import com.uugty.uu.modeal.UUlogin;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -28,9 +15,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.uugty.uu.R;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.common.myview.JoyGridView;
+import com.uugty.uu.common.photoview.ImagePagerActivity;
+import com.uugty.uu.modeal.UUlogin;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PersonDateFragment_Photo extends Fragment {
 	private View view;
@@ -160,7 +161,7 @@ public class PersonDateFragment_Photo extends Fragment {
 						if (errorCode == -999) {
 							new AlertDialog.Builder(getActivity())
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

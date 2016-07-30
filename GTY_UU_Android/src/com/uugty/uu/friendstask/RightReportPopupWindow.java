@@ -1,5 +1,18 @@
 package com.uugty.uu.friendstask;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+
 import com.uugty.uu.R;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.common.asynhttp.RequestParams;
@@ -7,27 +20,10 @@ import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.IsCollecteEntity;
-import com.uugty.uu.entity.IsCollecteEntity.IsCollct;
-import com.uugty.uu.entity.UpVoteEntity;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.main.MainActivity;
 import com.uugty.uu.uuchat.ReportInterfaceActivity;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.PopupWindow;
-import android.widget.TextView;
 
 public class RightReportPopupWindow extends PopupWindow {
     private Activity context;
@@ -156,7 +152,7 @@ public class RightReportPopupWindow extends PopupWindow {
 							if (errorCode == -999) {
 								new AlertDialog.Builder(context)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -201,7 +197,7 @@ public class RightReportPopupWindow extends PopupWindow {
 							if (errorCode == -999) {
 								new AlertDialog.Builder(context)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

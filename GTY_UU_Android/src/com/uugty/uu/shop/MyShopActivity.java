@@ -32,6 +32,7 @@ import com.uugty.uu.common.share.onekeyshare.ShareContentCustomizeCallback;
 import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.entity.SellEntity;
 import com.uugty.uu.entity.Util;
+import com.uugty.uu.map.OpenShopActivity;
 import com.uugty.uu.map.PublishServicesActivity;
 import com.uugty.uu.util.LogUtils;
 
@@ -60,6 +61,7 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 	private Button mPublishService;//发布服务
 
 	private int count = 0;//第几次进入
+	private String isPromoter;//是否为会员
 
 	private static final int MSG_TOAST = 1;
 	private static final int MSG_ACTION_CCALLBACK = 2;
@@ -74,6 +76,9 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 	@Override
 	protected void initGui() {
 		// TODO Auto-generated method stub
+		if(getIntent() != null){
+			isPromoter = getIntent().getStringExtra("isPromoter");
+		}
 		titleView = (TopBackView) findViewById(R.id.open_shop_title);
 		titleView.setTitle("我的小店");
 		mServiceControl = (LinearLayout) findViewById(R.id.my_shop_service_control);
@@ -176,7 +181,7 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 								new AlertDialog.Builder(
 										MyShopActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -201,15 +206,30 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 	@Override
 	public void onClick(View v) {
 		Intent i = new Intent();
-		switch(v.getId()){
+		switch(v.getId()) {
 			case R.id.my_shop_publish:
-				i.setClass(this,PublishServicesActivity.class);
-				i.putExtra("from", "framgent");
-				startActivity(i);
+				if ("1".equals(isPromoter)) {
+					i.setClass(this,PublishServicesActivity.class);
+					i.putExtra("from", "framgent");
+					startActivity(i);
+				}else{
+					i.setClass(this,
+							OpenShopActivity.class);
+					Util.vipBack = "main";
+					startActivity(i);
+				}
 				break;
 			case R.id.my_shop_service_control:
-				i.setClass(this,ShopControlActivity.class);
-				startActivity(i);
+				if ("1".equals(isPromoter)) {
+					i.setClass(this,ShopControlActivity.class);
+					startActivity(i);
+				}else{
+					i.setClass(this,
+							OpenShopActivity.class);
+					Util.vipBack = "main";
+					startActivity(i);
+				}
+
 				break;
 			case R.id.my_shop_share:
 //				RoadLineEntity mRoadEntity = new RoadLineEntity();

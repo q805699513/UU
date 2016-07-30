@@ -1,21 +1,5 @@
 package com.uugty.uu.person;
 
-import java.util.ArrayList;
-import java.util.List;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.uugty.uu.R;
-import com.uugty.uu.com.find.FindTestViewPagerActivity;
-import com.uugty.uu.common.asynhttp.RequestParams;
-import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.common.util.ActivityCollector;
-import com.uugty.uu.entity.MoreLvEntity;
-import com.uugty.uu.entity.MoreLvEntity.MoreListEntity;
-import com.uugty.uu.mhvp.core.magic.viewpager.AbsBaseFragment;
-import com.uugty.uu.mhvp.core.magic.viewpager.InnerListView;
-import com.uugty.uu.mhvp.core.magic.viewpager.InnerScroller;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -35,6 +19,24 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.uugty.uu.R;
+import com.uugty.uu.com.find.FindTestViewPagerActivity;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.common.util.ActivityCollector;
+import com.uugty.uu.entity.MoreLvEntity;
+import com.uugty.uu.entity.MoreLvEntity.MoreListEntity;
+import com.uugty.uu.mhvp.core.magic.viewpager.AbsBaseFragment;
+import com.uugty.uu.mhvp.core.magic.viewpager.InnerListView;
+import com.uugty.uu.mhvp.core.magic.viewpager.InnerScroller;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class PersonDateFragment_MyLines extends AbsBaseFragment implements
@@ -177,7 +179,7 @@ public class PersonDateFragment_MyLines extends AbsBaseFragment implements
 							if (errorCode == -999) {
 								new AlertDialog.Builder(getActivity())
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

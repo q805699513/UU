@@ -1,17 +1,5 @@
 package com.uugty.uu.main;
 
-import java.util.List;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.uugty.uu.R;
-import com.uugty.uu.common.asynhttp.RequestParams;
-import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.common.myview.JoyGridView;
-import com.uugty.uu.common.myview.SearchPopuWindow;
-import com.uugty.uu.entity.DisCoveryEntity;
-import com.uugty.uu.entity.DisCoveryEntity.TagTypeDetail;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,6 +20,20 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.uugty.uu.R;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.common.myview.JoyGridView;
+import com.uugty.uu.common.myview.SearchPopuWindow;
+import com.uugty.uu.entity.DisCoveryEntity;
+import com.uugty.uu.entity.DisCoveryEntity.TagTypeDetail;
+
+import java.util.List;
 
 public class LabelFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener,OnClickListener{
 	private Context context;
@@ -174,7 +176,7 @@ public class LabelFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 						if (errorCode == -999) {
 							new AlertDialog.Builder(context)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

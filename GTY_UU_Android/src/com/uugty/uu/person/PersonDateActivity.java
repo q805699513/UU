@@ -1,7 +1,5 @@
 package com.uugty.uu.person;
 
-import java.util.ArrayList;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +19,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
@@ -35,9 +34,10 @@ import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.UUMessage;
 import com.uugty.uu.entity.UserMessage;
 import com.uugty.uu.login.LoginActivity;
-import com.uugty.uu.main.MainActivity;
 import com.uugty.uu.uuchat.ChatActivity;
 import com.uugty.uu.viewpage.adapter.TabFragmentPagerAdapter;
+
+import java.util.ArrayList;
 
 public class PersonDateActivity extends BaseActivity implements OnClickListener {
 	private CirculHeadImage headImage;
@@ -270,7 +270,7 @@ public class PersonDateActivity extends BaseActivity implements OnClickListener 
 						if (errorCode == -999) {
 							new AlertDialog.Builder(PersonDateActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -315,7 +315,7 @@ public class PersonDateActivity extends BaseActivity implements OnClickListener 
 						if (errorCode == -999) {
 							new AlertDialog.Builder(PersonDateActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

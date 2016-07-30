@@ -1,7 +1,5 @@
 package com.uugty.uu.com.rightview;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,7 +8,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AbsListView;
@@ -31,6 +28,9 @@ import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.entity.BillRecordEntity;
 import com.uugty.uu.entity.BillRecordEntity.BillRecord;
 import com.uugty.uu.viewpage.adapter.BillRecordListAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BillRecordActivity extends BaseActivity implements
 		OnRefreshListener, OnClickListener, OnItemClickListener,
@@ -126,7 +126,7 @@ public class BillRecordActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(BillRecordActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

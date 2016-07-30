@@ -287,7 +287,7 @@ public class WithdrawcashActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										WithdrawcashActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -346,7 +346,7 @@ public class WithdrawcashActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										WithdrawcashActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

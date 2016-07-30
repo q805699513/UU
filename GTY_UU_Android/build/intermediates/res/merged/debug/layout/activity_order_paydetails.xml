@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+	xmlns:fresco="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:orientation="vertical" >
@@ -117,7 +118,7 @@
 			        android:layout_height="97dp"
 			        android:background="#ffffff"
 			        android:orientation="horizontal" >
-			
+
 			        <com.facebook.drawee.view.SimpleDraweeView
 			            android:id="@+id/pay_detail_img"
 			            android:layout_width="75dp"
@@ -126,7 +127,10 @@
 			            android:layout_marginLeft="12dp"
 			            android:layout_marginRight="12dp"
 			            android:layout_marginTop="11dp"
-			            android:scaleType="fitXY" />
+						android:scaleType="fitXY"
+						fresco:placeholderImage="@drawable/default_image"
+						fresco:placeholderImageScaleType="fitCenter"
+						fresco:viewAspectRatio="1.0" />
 			
 			        <LinearLayout
 			            android:layout_width="match_parent"
@@ -144,16 +148,30 @@
 			                android:ellipsize="end"
 			                android:textColor="#282828"
 			                android:textSize="15sp" />
-			            
-			            <TextView
-			                android:id="@+id/pay_wait_acept_state"
-			                android:layout_width="wrap_content"
-			                android:layout_height="wrap_content"
-			                android:layout_marginRight="12dp"
-			                android:layout_marginTop="9dp"
-			                android:text="待支付"
-			                android:textColor="#F15353"
-			                android:textSize="12sp" />
+
+						<RelativeLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							<TextView
+								android:id="@+id/pay_wait_acept_state"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginRight="12dp"
+								android:layout_marginTop="9dp"
+								android:text="待支付"
+								android:textColor="#F15353"
+								android:textSize="12sp" />
+
+							<TextView
+								android:id="@+id/textView5"
+								android:layout_width="6dp"
+								android:layout_height="11dp"
+								android:layout_marginTop="9dp"
+								android:layout_alignParentRight="true"
+								android:layout_marginRight="10dp"
+								android:background="@drawable/person_compile_enter" />
+						</RelativeLayout>
 			
 			            <TextView
 			                android:id="@+id/pay_wait_acept_price"
@@ -613,6 +631,22 @@
                 android:background="#f5f5f5" >
             </RelativeLayout>
 
+			<com.uugty.uu.common.myview.ListViewForScrollView
+				android:id="@+id/orderdetail_contact_list"
+				android:background="@color/white"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:scrollbars="none"
+				android:dividerHeight="0px"
+				android:divider="#f5f5f5">
+			</com.uugty.uu.common.myview.ListViewForScrollView>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="10dp"
+				android:background="#f5f5f5" >
+			</RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/orderDetail_tourist"
                 android:layout_width="match_parent"
@@ -625,8 +659,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="12dp"
-                    android:text="游客"
-                    android:textColor="#000000"
+                    android:text="保险"
+					android:textColor="#98999a"
                     android:textSize="15sp" />
 
                 <TextView
@@ -637,7 +671,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_toLeftOf="@+id/activity_reserve_imageview_item"
                     android:gravity="center"
-                    android:text="1"
+                    android:text="未选择"
                     android:textColor="#000000"
                     android:textSize="14sp" />
 
@@ -647,7 +681,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:visibility="invisible"
+                    android:visibility="visible"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/person_compile_enter" />
 
@@ -803,73 +837,6 @@
                 </RelativeLayout>
 
             </LinearLayout>
-            
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="#f5f5f5" />
-
-            <LinearLayout
-                android:id="@+id/orderDetail_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="#ffffff"
-                android:orientation="horizontal" >
-
-                <TextView
-                    android:id="@+id/order_evaluate"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="9dp"
-                    android:layout_marginTop="13dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/text_view_board"
-                    android:gravity="center"
-                    android:maxWidth="80dp"
-                    android:text="评价订单"
-                    android:textColor="#666666"
-                    android:visibility="invisible" />
-
-                <TextView
-                    android:id="@+id/order_cancle"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="9dp"
-                    android:layout_marginTop="13dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/text_view_board"
-                    android:gravity="center"
-                    android:maxWidth="80dp"
-                    android:text="删除订单"
-                    android:textColor="#666666"
-                    android:visibility="invisible" />
-
-                <TextView
-                    android:id="@+id/order_pay"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="9dp"
-                    android:layout_marginTop="13dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/text_view_board"
-                    android:gravity="center"
-                    android:maxWidth="80dp"
-                    android:text="支付"
-                    android:visibility="invisible" />
-
-                <TextView
-                    android:id="@+id/order_chat"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="9dp"
-                    android:layout_marginRight="9dp"
-                    android:layout_marginTop="13dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/text_view_board"
-                    android:gravity="center"
-                    android:text="聊一聊"
-                    android:textColor="#666666" />
-            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -879,14 +846,67 @@
         </LinearLayout>
     </ScrollView>
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="6dp"
-        android:layout_height="11dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/activity_orderpays_scrollview"
-        android:layout_marginTop="56dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/person_compile_enter" />
+	<LinearLayout
+		android:id="@+id/orderDetail_bottom"
+		android:layout_width="match_parent"
+		android:layout_alignParentBottom="true"
+		android:layout_height="50dp"
+		android:background="#ffffff"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:id="@+id/order_evaluate"
+			android:layout_width="0dp"
+			android:layout_height="25dp"
+			android:layout_marginLeft="9dp"
+			android:layout_marginTop="13dp"
+			android:layout_weight="1"
+			android:background="@drawable/text_view_board"
+			android:gravity="center"
+			android:maxWidth="80dp"
+			android:text="评价订单"
+			android:textColor="#666666"
+			android:visibility="invisible" />
+
+		<TextView
+			android:id="@+id/order_cancle"
+			android:layout_width="0dp"
+			android:layout_height="25dp"
+			android:layout_marginLeft="9dp"
+			android:layout_marginTop="13dp"
+			android:layout_weight="1"
+			android:background="@drawable/text_view_board"
+			android:gravity="center"
+			android:maxWidth="80dp"
+			android:text="删除订单"
+			android:textColor="#666666"
+			android:visibility="invisible" />
+
+		<TextView
+			android:id="@+id/order_pay"
+			android:layout_width="0dp"
+			android:layout_height="25dp"
+			android:layout_marginLeft="9dp"
+			android:layout_marginTop="13dp"
+			android:layout_weight="1"
+			android:background="@drawable/text_view_board"
+			android:gravity="center"
+			android:maxWidth="80dp"
+			android:text="支付"
+			android:visibility="invisible" />
+
+		<TextView
+			android:id="@+id/order_chat"
+			android:layout_width="0dp"
+			android:layout_height="25dp"
+			android:layout_marginLeft="9dp"
+			android:layout_marginRight="9dp"
+			android:layout_marginTop="13dp"
+			android:layout_weight="1"
+			android:background="@drawable/text_view_board"
+			android:gravity="center"
+			android:text="聊一聊"
+			android:textColor="#666666" />
+	</LinearLayout>
 
 </RelativeLayout>

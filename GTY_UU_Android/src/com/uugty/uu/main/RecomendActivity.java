@@ -1,7 +1,5 @@
 package com.uugty.uu.main;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,15 +12,16 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 import com.uugty.uu.R;
@@ -36,6 +35,9 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.entity.GuideEntity;
 import com.uugty.uu.entity.GuideEntity.GuideDetail;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RecomendActivity extends BaseActivity implements
 		SwipeRefreshLayout.OnRefreshListener, OnClickListener,
@@ -202,7 +204,7 @@ public class RecomendActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(RecomendActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

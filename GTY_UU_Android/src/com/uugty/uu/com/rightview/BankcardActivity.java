@@ -1,7 +1,5 @@
 package com.uugty.uu.com.rightview;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,11 +11,8 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.easemob.chat.EMChatManager;
-import com.easemob.chat.EMConversation;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
@@ -28,13 +23,14 @@ import com.uugty.uu.common.dialog.CustomDialog;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.entity.BoundBankEntity;
 import com.uugty.uu.entity.BoundBankEntity.BankCardInfo;
-import com.uugty.uu.main.MainActivity;
 import com.uugty.uu.simplistview.SwipeMenu;
 import com.uugty.uu.simplistview.SwipeMenuCreator;
-import com.uugty.uu.simplistview.SwipeMenuItem;
 import com.uugty.uu.simplistview.SwipeMenuListView;
 import com.uugty.uu.simplistview.SwipeMenuListView.OnMenuItemClickListener;
 import com.uugty.uu.viewpage.adapter.BankCardAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BankcardActivity extends BaseActivity implements OnClickListener,
 		OnItemClickListener {
@@ -194,7 +190,7 @@ public class BankcardActivity extends BaseActivity implements OnClickListener,
 						if (errorCode == -999) {
 							new AlertDialog.Builder(BankcardActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -237,7 +233,7 @@ public class BankcardActivity extends BaseActivity implements OnClickListener,
 						if (errorCode == -999) {
 							new AlertDialog.Builder(BankcardActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

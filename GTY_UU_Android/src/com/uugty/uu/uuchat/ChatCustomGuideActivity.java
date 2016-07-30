@@ -203,7 +203,7 @@ public class ChatCustomGuideActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										ChatCustomGuideActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {

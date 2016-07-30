@@ -1,14 +1,5 @@
 package com.uugty.uu.com.rightview;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Handler;
@@ -24,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
 import com.alipay.sdk.app.PayTask;
 import com.tencent.mm.sdk.modelpay.PayReq;
 import com.tencent.mm.sdk.openapi.IWXAPI;
@@ -43,6 +35,17 @@ import com.uugty.uu.entity.AlipayEntity;
 import com.uugty.uu.entity.PayResult;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.entity.WXPayEntity;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 
 
 public class RechargeActivity extends BaseActivity implements OnClickListener {
@@ -253,7 +256,7 @@ public class RechargeActivity extends BaseActivity implements OnClickListener {
 						if (errorCode == -999) {
 							new AlertDialog.Builder(RechargeActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -320,7 +323,7 @@ public class RechargeActivity extends BaseActivity implements OnClickListener {
 						if (errorCode == -999) {
 							new AlertDialog.Builder(RechargeActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

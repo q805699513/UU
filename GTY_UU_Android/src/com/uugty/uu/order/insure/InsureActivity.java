@@ -31,7 +31,8 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 	private List<String> contactId = new ArrayList<String>(); //联系人数据
 	private PersonAdapter adapter;
 	private RelativeLayout mInsureRelative;//选择保险类型
-	private String type;//返回选择的保险类型
+	private String type="0";//返回选择的保险类型
+	private String alltype="0";//返回选择的保险类型
 
 	@Override
 	protected int getContentLayout() {
@@ -53,12 +54,12 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 		if(getIntent()!=null){
 			list = (List<TouristEntity.Tourist>) getIntent().getSerializableExtra("list");
 			if(null != getIntent().getStringExtra("type") && !"".equals(getIntent().getStringExtra("type"))){
-				type = getIntent().getStringExtra("type");
-				if("1".equals(type)){
+				alltype = getIntent().getStringExtra("type");
+				if(alltype.contains("1")){
 					mInsureType.setText("￥5/天");
-				}else if("2".equals(type)){
+				}else if(alltype.contains("2")){
 					mInsureType.setText("￥10/天");
-				}else if("3".equals(type)){
+				}else if(alltype.contains("3")){
 					mInsureType.setText("￥15/天");
 				}else{
 					mInsureType.setText(" ");
@@ -97,13 +98,15 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 			for (int i = 0; i < contactId.size(); i++) {
 				if (i == contactId.size() - 1) {
 					allId+=contactId.get(i);
+					alltype+=type;
 				}else{
 					allId+=contactId.get(i)+",";
+					alltype+=type+",";
 				}
 			}
 
 			intent.setClass(ctx, UUPayActivity.class);
-			intent.putExtra("type",type);
+			intent.putExtra("type",alltype);
 			intent.putExtra("num", contactId.size()+"");
 			intent.putExtra("allId",allId);
 			setResult(RESULT_OK, intent);

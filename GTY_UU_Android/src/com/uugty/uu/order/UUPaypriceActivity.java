@@ -463,7 +463,7 @@ public class UUPaypriceActivity extends BaseActivity implements
 						params.add("visitorContent", mVisitorContent);
 						params.add("couponUserId", mUserId);
 						params.add("couponId", mId);
-						params.add("insuranceType",mInsureType);
+						params.add("orderInsuranceType",mInsureType);
 						params.add("insuranceContactId",mInsureContactId);
 						APPRestClient.post(UUPaypriceActivity.this,
 								ServiceCode.ORDER_RESERVATION_LIST, params,
@@ -489,7 +489,7 @@ public class UUPaypriceActivity extends BaseActivity implements
 											new AlertDialog.Builder(
 													UUPaypriceActivity.this)
 													.setTitle("提示")
-													.setMessage("服务器连接失败！")
+													.setMessage("网络拥堵,请稍后重试！")
 													.setPositiveButton(
 															"确定",
 															new DialogInterface.OnClickListener() {
@@ -671,7 +671,7 @@ public class UUPaypriceActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(UUPaypriceActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -829,7 +829,7 @@ public class UUPaypriceActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										UUPaypriceActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -892,7 +892,7 @@ public class UUPaypriceActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										UUPaypriceActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -951,7 +951,7 @@ public class UUPaypriceActivity extends BaseActivity implements
 								new AlertDialog.Builder(
 										UUPaypriceActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -1033,7 +1033,7 @@ public class UUPaypriceActivity extends BaseActivity implements
 										new AlertDialog.Builder(
 												UUPaypriceActivity.this)
 												.setTitle("提示")
-												.setMessage("服务器连接失败！")
+												.setMessage("网络拥堵,请稍后重试！")
 												.setPositiveButton(
 														"确定",
 														new DialogInterface.OnClickListener() {
@@ -1102,7 +1102,7 @@ public class UUPaypriceActivity extends BaseActivity implements
 										new AlertDialog.Builder(
 												UUPaypriceActivity.this)
 												.setTitle("提示")
-												.setMessage("服务器连接失败！")
+												.setMessage("网络拥堵,请稍后重试！")
 												.setPositiveButton(
 														"确定",
 														new DialogInterface.OnClickListener() {
@@ -1172,7 +1172,7 @@ public class UUPaypriceActivity extends BaseActivity implements
 										new AlertDialog.Builder(
 												UUPaypriceActivity.this)
 												.setTitle("提示")
-												.setMessage("服务器连接失败！")
+												.setMessage("网络拥堵,请稍后重试！")
 												.setPositiveButton(
 														"确定",
 														new DialogInterface.OnClickListener() {

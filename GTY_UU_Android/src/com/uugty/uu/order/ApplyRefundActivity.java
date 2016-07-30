@@ -1,16 +1,5 @@
 package com.uugty.uu.order;
 
-import java.util.Map;
-import com.uugty.uu.R;
-import com.uugty.uu.base.BaseActivity;
-import com.uugty.uu.common.asynhttp.RequestParams;
-import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
-import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.dialog.CustomDialog;
-import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.entity.BaseEntity;
-import com.uugty.uu.login.AgreementWebActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,9 +10,18 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+
+import com.uugty.uu.R;
+import com.uugty.uu.base.BaseActivity;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.dialog.CustomDialog;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.entity.BaseEntity;
+
+import java.util.Map;
 
 public class ApplyRefundActivity extends BaseActivity implements
 		OnClickListener {
@@ -181,7 +179,7 @@ public class ApplyRefundActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(ApplyRefundActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

@@ -12,7 +12,6 @@ import android.widget.RelativeLayout;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
-import com.uugty.uu.com.rightview.UPdataActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -20,7 +19,6 @@ import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.entity.BaseEntity;
-import com.uugty.uu.friendstask.DynamicCommentActivity;
 import com.uugty.uu.login.LoginActivity;
 
 public class ReportInterfaceActivity extends BaseActivity implements OnClickListener{
@@ -174,7 +172,7 @@ public class ReportInterfaceActivity extends BaseActivity implements OnClickList
 						if (errorCode == -999) {
 							new AlertDialog.Builder(ReportInterfaceActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

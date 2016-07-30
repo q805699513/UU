@@ -198,8 +198,8 @@
 	                    
 	                    <TextView
 	                        android:id="@+id/login_user_name_ver"
-	                        android:layout_width="39dp"
-                    		android:layout_height="17dp"
+	                        android:layout_width="wrap_content"
+                    		android:layout_height="wrap_content"
 	                        android:layout_marginLeft="5dp"
 	                        android:layout_gravity="center"
 	                        android:visibility="invisible"

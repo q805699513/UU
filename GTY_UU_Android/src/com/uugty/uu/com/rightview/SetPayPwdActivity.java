@@ -197,7 +197,7 @@ public class SetPayPwdActivity extends BaseActivity implements OnClickListener {
 						if (errorCode == -999) {
 							new AlertDialog.Builder(SetPayPwdActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

@@ -1,6 +1,5 @@
 package com.uugty.uu.uuchat;
 
-import java.util.List;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,11 +9,11 @@ import android.os.Message;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.view.animation.Animation.AnimationListener;
+import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -22,10 +21,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
-import com.uugty.uu.com.rightview.UPdataActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -38,6 +37,8 @@ import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.entity.GroupChatEntity;
 import com.uugty.uu.entity.GroupChatEntity.GroupChat;
 import com.uugty.uu.login.LoginActivity;
+
+import java.util.List;
 
 public class GroupChatListActivity extends BaseActivity implements
 		OnClickListener {
@@ -155,7 +156,7 @@ public class GroupChatListActivity extends BaseActivity implements
 						if (errorCode == -999) {
 							new AlertDialog.Builder(GroupChatListActivity.this)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

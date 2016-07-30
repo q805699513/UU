@@ -1,5 +1,13 @@
 package com.uugty.uu.common.util;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMGroupManager;
 import com.uugty.uu.base.application.MyApplication;
@@ -11,14 +19,6 @@ import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.modeal.UUlogin;
-
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 
 public class AutoLogin {
 
@@ -92,7 +92,7 @@ public class AutoLogin {
 						if (errorCode == -999) {
 							new AlertDialog.Builder(context)
 									.setTitle("提示")
-									.setMessage("服务器连接失败！")
+									.setMessage("网络拥堵,请稍后重试！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

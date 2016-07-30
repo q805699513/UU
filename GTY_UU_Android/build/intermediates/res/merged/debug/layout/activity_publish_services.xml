@@ -6,11 +6,30 @@
     android:background="@color/white"
     android:orientation="vertical" >
 
-    <com.uugty.uu.common.myview.TopBackView
-        android:id="@+id/publish_services_title"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true" />
+	<RelativeLayout
+		android:id="@+id/relative"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:background="@drawable/boder"
+		android:orientation="vertical" >
+
+		<ImageView
+			android:id="@+id/right_publish_back"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="20dp"
+			android:background="@drawable/phone_back" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:layout_centerVertical="true"
+			android:text="发布服务"
+			android:textColor="@color/black"
+			android:textSize="18sp" />
+	</RelativeLayout>
 
     <ScrollView
         android:id="@+id/publish_services_scrollview"

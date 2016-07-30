@@ -3,7 +3,6 @@ package com.uugty.uu.person;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -18,7 +17,6 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.EmojiEdite;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.entity.BaseEntity;
-import com.uugty.uu.uuchat.ReportInterfaceActivity;
 
 public class TouristFillActivity extends BaseActivity implements OnClickListener{
 	private TopBackView titleView;
@@ -121,7 +119,7 @@ public class TouristFillActivity extends BaseActivity implements OnClickListener
 							if (errorCode == -999) {
 								new AlertDialog.Builder(TouristFillActivity.this)
 										.setTitle("提示")
-										.setMessage("服务器连接失败！")
+										.setMessage("网络拥堵,请稍后重试！")
 										.setPositiveButton(
 												"确定",
 												new DialogInterface.OnClickListener() {
@@ -165,7 +163,7 @@ public class TouristFillActivity extends BaseActivity implements OnClickListener
 									if (errorCode == -999) {
 										new AlertDialog.Builder(TouristFillActivity.this)
 												.setTitle("提示")
-												.setMessage("服务器连接失败！")
+												.setMessage("网络拥堵,请稍后重试！")
 												.setPositiveButton(
 														"确定",
 														new DialogInterface.OnClickListener() {
