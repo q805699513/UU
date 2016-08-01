@@ -60,6 +60,7 @@ public class ConsultFragment extends Fragment implements
 	private ConsultAdapter adapter;
 	private String city = "北京";
 	private ImageView MapImageView;
+	private int isFirst=0;//是否第一次加载
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
 			ConsultEntity entity = (ConsultEntity) msg.getData()
@@ -315,8 +316,10 @@ public class ConsultFragment extends Fragment implements
 		// TODO Auto-generated method stub
 		super.onResume();
 		city = UUConfig.INSTANCE.getmCtity();
-		onRefresh();
-
+		if(isFirst != 0||!city.equals("北京")){
+			isFirst = 1;
+			onRefresh();
+		}
 	}
 
 	@Override

@@ -64,6 +64,11 @@ public class SlideShowView extends FrameLayout {
 	private DecoratorViewPager viewPager;
 	// 当前轮播页
 	private int currentItem = 0;
+
+	public ScheduledExecutorService getScheduledExecutorService() {
+		return scheduledExecutorService;
+	}
+
 	// 定时任务
 	private ScheduledExecutorService scheduledExecutorService;
 
@@ -117,17 +122,20 @@ public class SlideShowView extends FrameLayout {
 	/**
 	 * 开始轮播图切换
 	 */
-	private void startPlay() {
+	public void startPlay() {
 		scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
-		scheduledExecutorService.scheduleAtFixedRate(new SlideShowTask(), 1, TIME_INTERVAL,
+		scheduledExecutorService.scheduleAtFixedRate(new SlideShowTask(), 2, TIME_INTERVAL,
 				TimeUnit.SECONDS);
 	}
 
 	/**
 	 * 停止轮播图切换
 	 */
-	private void stopPlay() {
-		scheduledExecutorService.shutdown();
+	public void stopPlay() {
+		if(scheduledExecutorService != null){
+			scheduledExecutorService.shutdown();
+			scheduledExecutorService = null;
+		}
 	}
 
 	/**
@@ -168,10 +176,10 @@ public class SlideShowView extends FrameLayout {
 			ImageView view = new ImageView(context);
 			if (imageUrls.size() > i) {
 				view.setTag(imageUrls.get(i));
-				/*
-				 * if (i == 0)// 给一个默认图
-				 * view.setBackgroundResource(R.drawable.page_indicator);
-				 */
+
+				if (i == 0)// 给一个默认图
+				 view.setBackgroundResource(R.drawable.page_indicator);
+
 				ImageLoader.getInstance().displayImage(
 						APPRestClient.SERVER_IP + imageUrls.get(i).getRoadlineThemeImage(), view, options);
 				view.setScaleType(ScaleType.FIT_XY);
@@ -380,7 +388,7 @@ public class SlideShowView extends FrameLayout {
 			// TODO Auto-generated method stub
 			synchronized (viewPager) {
 				currentItem = (currentItem + 1) % imageViewsList.size();
-				handler.obtainMessage().sendToTarget();
+				handler.sendEmptyMessage(0);
 			}
 		}
 
