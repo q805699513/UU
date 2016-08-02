@@ -35,8 +35,10 @@ import com.uugty.uu.entity.OrderDetailEntity.OrderDetail;
 import com.uugty.uu.entity.OrderEntity;
 import com.uugty.uu.entity.TouristEntity;
 import com.uugty.uu.evaluate.EvaluateActivity;
+import com.uugty.uu.order.insure.InsureActivity;
 import com.uugty.uu.uuchat.ChatActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -325,7 +327,7 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 				new APPResponseHandler<OrderDetailEntity>(
 						OrderDetailEntity.class, this) {
 					@Override
-					public void onSuccess(OrderDetailEntity result) {
+					public void onSuccess(final OrderDetailEntity result) {
 						if (result != null) {
 							final OrderDetail detail = result.getOBJECT();
 							if (detail.getUserAvatar() != null) {
@@ -342,8 +344,11 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 							}else{
 								mTourist.setText(detail.getContactName().replace(",", " "));
 							}
-							//保险
+							//联系人
 							List<TouristEntity.Tourist> mTouristList = new ArrayList<TouristEntity.Tourist>();
+							//保险人
+							final List<TouristEntity.Tourist> mInsureList = new ArrayList<TouristEntity.Tourist>();
+
 
 							if(result.getLIST().size() > 0){
 								if("1".equals(result.getLIST().get(0).getInsuranceType())) {
@@ -362,6 +367,28 @@ public class UUOrderPayDetailActivity extends BaseActivity implements
 									tour.setContactId(result.getLIST().get(i).getContactId());
 									tour.setContactName(result.getLIST().get(i).getContactName());
 									mTouristList.add(tour);
+									if("2".equals(result.getLIST().get(i).getInsuranceStatus())){
+										TouristEntity entity1 = new TouristEntity();
+										TouristEntity.Tourist tour1 = entity1.new Tourist();
+										tour1.setContactIDCard(result.getLIST().get(i).getContactIDCard());
+										tour1.setContactId(result.getLIST().get(i).getContactId());
+										tour1.setContactName(result.getLIST().get(i).getContactName());
+										tour1.setContactStatus(result.getLIST().get(i).getContactStatus());
+										mInsureList.add(tour1);
+									}
+								}
+								if(null !=mInsureList && mInsureList.size() > 0){
+									mTourist.setOnClickListener(new OnClickListener() {
+										@Override
+										public void onClick(View v) {
+											Intent i = new Intent();
+											i.putExtra("list",(Serializable)mInsureList);
+											i.putExtra("type",result.getLIST().get(0).getInsuranceType());
+											i.putExtra("where","1");
+											i.setClass(UUOrderPayDetailActivity.this, InsureActivity.class);
+											startActivity(i);
+										}
+									});
 								}
 							}
 

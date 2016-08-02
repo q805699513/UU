@@ -26,6 +26,8 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 	private ImageView tourist_list_back;
 	private TextView tourist_list_confirm;
 	private TextView mInsureType;
+	private ImageView mView;
+	private TextView mHelpText;
 	private ListView mListView;
 	private List<Tourist> list = new ArrayList<Tourist>(); //联系人数据
 	private List<String> contactId = new ArrayList<String>(); //联系人数据
@@ -33,6 +35,7 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 	private RelativeLayout mInsureRelative;//选择保险类型
 	private String type="0";//返回选择的保险类型
 	private String alltype="0";//返回选择的保险类型
+	private String where;//订单详情页面只负责展示
 
 	@Override
 	protected int getContentLayout() {
@@ -42,6 +45,8 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void initGui() {
 		tourist_list_back=(ImageView) findViewById(R.id.tourist_list_back);
+		mHelpText = (TextView) findViewById(R.id.order_write_insure);
+		mView = (ImageView) findViewById(R.id.image_view);
 		tourist_list_confirm=(TextView) findViewById(R.id.tourist_list_confirm);
 		mInsureType=(TextView) findViewById(R.id.insure_txt);
 		mInsureRelative = (RelativeLayout) findViewById(R.id.insure_selected_relative);
@@ -53,6 +58,13 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 	protected void initData() {
 		if(getIntent()!=null){
 			list = (List<TouristEntity.Tourist>) getIntent().getSerializableExtra("list");
+			where = getIntent().getStringExtra("where");
+			if("1".equals(where)){
+				tourist_list_confirm.setVisibility(View.GONE);
+				mView.setVisibility(View.INVISIBLE);
+				mHelpText.setVisibility(View.INVISIBLE);
+				mInsureRelative.setClickable(false);
+			}
 			if(null != getIntent().getStringExtra("type") && !"".equals(getIntent().getStringExtra("type"))){
 				alltype = getIntent().getStringExtra("type");
 				if(alltype.contains("1")){
@@ -190,7 +202,9 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 			}else{
 				holder=(ViewHolder) view.getTag();
 			}
-
+			if("1".equals(where)){
+				holder.contact_check.setVisibility(View.GONE);
+			}
 			holder.touristname_text.setText(ls.get(position).getContactName());
 //			holder.tourist_id_card_text.setText(replaceSubString(ls.get(position).getContactIDCard()));
 			holder.tourist_id_card_text.setText(ls.get(position).getContactIDCard());
