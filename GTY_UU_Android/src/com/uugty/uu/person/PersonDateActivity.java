@@ -72,8 +72,8 @@ public class PersonDateActivity extends BaseActivity implements OnClickListener 
 		}
 
 		headImage = (CirculHeadImage) findViewById(R.id.persondate_title);
-		headImage.setBackPic("drawable://" + R.drawable.persion_circle_bg);
-		headImage.setCirCularImageSize(80, 80, 8);
+//		headImage.setBackPic("drawable://" + R.drawable.persion_circle_bg);
+		headImage.setCirCularImageSize(80, 80, 1);
 		persondate_addfriend_text = (TextView) findViewById(R.id.persondate_addfriend_text);
 		persondate_addfriend_text.setEnabled(false);
 		tv_routeline = (TextView) findViewById(R.id.tv_routeline);

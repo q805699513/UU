@@ -294,9 +294,9 @@ public class MoreWindow extends PopupWindow implements OnClickListener{
 			dismiss();
 			break;
 		case R.id.more_window_external:
+			dismiss();
 			intent.setClass(mContext, PublishTalkActivity.class);
 			mContext.startActivity(intent);
-			dismiss();
 			break;
 
 		default:

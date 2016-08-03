@@ -1,15 +1,5 @@
 package com.uugty.uu.friendstask;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -36,11 +26,11 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
-import com.uugty.uu.com.rightview.UPdataActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -50,16 +40,27 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.SelectPictureActivity;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.common.photoview.ImagePagerActivity;
+import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.CacheFileUtil;
 import com.uugty.uu.common.util.DateUtil;
 import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.login.AgreementWebActivity;
 import com.uugty.uu.login.LoginActivity;
-import com.uugty.uu.main.MainActivity;
 import com.uugty.uu.map.PhoneDialog;
 import com.uugty.uu.person.PersonCompileActivity;
 import com.uugty.uu.person.PersonInfoTextActivity;
-import com.uugty.uu.setup.UUHelpActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class PublishTalkActivity extends BaseActivity implements
 		OnClickListener {
@@ -626,7 +627,6 @@ public class PublishTalkActivity extends BaseActivity implements
 						this) {
 					@Override
 					public void onSuccess(BaseEntity result) {
-						
 						CustomDialog.Builder builder = new CustomDialog.Builder(
 								PublishTalkActivity.this);
 						builder.setIsOutSideCancle(false);
@@ -640,7 +640,7 @@ public class PublishTalkActivity extends BaseActivity implements
 										Intent intent = new Intent();
 										intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 										intent.putExtra("publish", "publish");
-										intent.setClass(PublishTalkActivity.this, MainActivity.class);
+										intent.setClass(PublishTalkActivity.this, FriendsDynamicActivity.class);
 										startActivity(intent);
 										list.clear();
 										ratiolist.clear();

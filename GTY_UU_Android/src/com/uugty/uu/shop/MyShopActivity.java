@@ -116,8 +116,8 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 		if (!MyApplication.getInstance().getUserInfo().getOBJECT()
 				.getUserAvatar().equals("")) {
 			mHeadImg.setCirCularImageSize(55, 55, 5);
-			mHeadImg.setBackPic("drawable://"
-					+ R.drawable.persion_circle_bg);
+//			mHeadImg.setBackPic("drawable://"
+//					+ R.drawable.persion_circle_bg);
 			// imageView.setCirCularImageSize(85, 85, 6);
 			if (MyApplication.getInstance().getUserInfo().getOBJECT()
 					.getUserAvatar().contains("images")) {
@@ -131,8 +131,8 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 			}
 		} else {
 			// 加载默认的图片
-			mHeadImg.setBackPic("drawable://"
-					+ R.drawable.persion_circle_bg);
+//			mHeadImg.setBackPic("drawable://"
+//					+ R.drawable.persion_circle_bg);
 			mHeadImg.setNoHeadPic("drawable://"
 					+ R.drawable.no_default_head_img, "drawable");
 			mHeadImg.setCirCularImageSize(55, 55, 5);

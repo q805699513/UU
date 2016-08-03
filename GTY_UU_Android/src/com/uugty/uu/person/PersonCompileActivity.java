@@ -1,12 +1,5 @@
 package com.uugty.uu.person;
 
-import java.io.File;
-import java.util.Calendar;
-import java.util.Date;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
@@ -27,6 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
@@ -46,6 +40,13 @@ import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.loaderimg.PhoneimageActivity;
 import com.uugty.uu.map.PhoneDialog;
 import com.uugty.uu.modeal.UUlogin;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.util.Calendar;
+import java.util.Date;
 
 public class PersonCompileActivity extends BaseActivity implements
 		OnClickListener {
@@ -563,15 +564,15 @@ public class PersonCompileActivity extends BaseActivity implements
 				headImage.setNoHeadPic(MyApplication.getInstance()
 						.getUserInfo().getOBJECT().getUserAvatar(), "local");
 			}
-			headImage.setBackPic("drawable://" + R.drawable.persion_circle_bg);
-			headImage.setCirCularImageSize(80, 80, 12);
+//			headImage.setBackPic("drawable://" + R.drawable.persion_circle_bg);
+			headImage.setCirCularImageSize(80, 80, 1);
 
 		} else {
 			// 加载默认的图片
 			headImage.setNoHeadPic("drawable://" + R.drawable.no_default_head_img,
 					"drawable");
-			headImage.setBackPic("drawable://" + R.drawable.persion_circle_bg);
-			headImage.setCirCularImageSize(80, 80, 12);
+//			headImage.setBackPic("drawable://" + R.drawable.persion_circle_bg);
+			headImage.setCirCularImageSize(80, 80, 1);
 		}
 
 //		if (!userInfo.getOBJECT().getUserLifePhoto().equals("")) {

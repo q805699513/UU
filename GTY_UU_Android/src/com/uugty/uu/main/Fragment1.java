@@ -779,6 +779,10 @@ class FragmentOneListViewAdapter extends ArrayAdapter {
 					.findViewById(R.id.recmmend_road_title_text);
 			holder.roadOrderNumText = (TextView) convertView
 					.findViewById(R.id.recmmend_road_order_num_text);
+			holder.chuxing = (TextView) convertView
+					.findViewById(R.id.main_text_chuxing);
+			holder.view1 = (View) convertView.findViewById(R.id.main_view_chuxing);
+
 			holder.roadPriceText = (TextView) convertView
 					.findViewById(R.id.recmmend_road_price_text);
 			holder.headImageView = (SimpleDraweeView) convertView
@@ -848,7 +852,16 @@ class FragmentOneListViewAdapter extends ArrayAdapter {
 			holder.onlineImageView.setVisibility(View.GONE);
 		}
 		holder.roadTitleText.setText(ls.get(position).getRoadlineTitle());
-		holder.roadOrderNumText.setText(ls.get(position).getOrderCount());
+		if("0".equals(ls.get(position).getOrderCount())){
+			holder.chuxing.setVisibility(View.GONE);
+			holder.roadOrderNumText.setVisibility(View.GONE);
+			holder.view1.setVisibility(View.GONE);
+		}else {
+			holder.chuxing.setVisibility(View.VISIBLE);
+			holder.roadOrderNumText.setVisibility(View.VISIBLE);
+			holder.view1.setVisibility(View.VISIBLE);
+			holder.roadOrderNumText.setText(ls.get(position).getOrderCount());
+		}
 		if (!TextUtils.isEmpty(ls.get(position).getLineNum())) {
 			holder.roadLookNumText.setText(ls.get(position).getLineNum());
 		} else {
@@ -883,11 +896,11 @@ class FragmentOneListViewAdapter extends ArrayAdapter {
 	static class ViewHolder {
 		SimpleDraweeView imageView, headImageView, recommend_iscollect_img;
 		ImageView newImageView, onlineImageView;
-		TextView addressText, titleText, roadTitleText, roadOrderNumText,
+		TextView addressText, titleText, roadTitleText, roadOrderNumText,chuxing,
 				roadLookNumText, roadPriceText, played;
 		RelativeLayout roadRel;
 		LinearLayout playLin;
-		View view;
+		View view,view1;
 	}
 
 }

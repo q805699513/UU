@@ -202,9 +202,9 @@ MERGED from [:appcompat_v7-release:] /Users/libertyair/workspace/UU/GTY_UU_Andro
 	android:name
 		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:81:9-55
 meta-data#EASEMOB_APPKEY
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:90:9-92:43
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:90:9-92:47
 	android:value
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:92:13-40
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:92:13-44
 	android:name
 		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:91:13-42
 service#com.easemob.chat.EMChatService

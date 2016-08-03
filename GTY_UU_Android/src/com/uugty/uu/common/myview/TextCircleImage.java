@@ -1,14 +1,14 @@
 package com.uugty.uu.common.myview;
 
 
-import com.uugty.uu.R;
-import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.uugty.uu.R;
 
 //评论，圆形图像在右侧
 public class TextCircleImage extends RelativeLayout {
@@ -56,11 +56,11 @@ public class TextCircleImage extends RelativeLayout {
 		}
 		if (null != image && !image.equals("")) {
 			mImageView.setCirCularImageSize(45, 45, 5);
-			mImageView.setBackPic("drawable://" + R.drawable.persion_circle_bg);
+//			mImageView.setBackPic("drawable://" + R.drawable.persion_circle_bg);
 			mImageView.setHeadPic(image, "net");
 		} else {
 			// 加载默认的图片
-			mImageView.setBackPic("drawable://" + R.drawable.persion_circle_bg);
+//			mImageView.setBackPic("drawable://" + R.drawable.persion_circle_bg);
 			mImageView.setHeadPic("drawable://"
 					+ R.drawable.map_no_user_head_image_default, "drawable");
 			mImageView.setCirCularImageSize(45, 45, 5);

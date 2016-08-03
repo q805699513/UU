@@ -236,13 +236,22 @@ public class ChatMessageAdapter extends BaseAdapter {
 						.inflate(R.layout.uuchat_redprice_left, null)
 						: inflater
 								.inflate(R.layout.uuchat_redprice_right, null);
-			} else if(message.getStringAttribute(Constant.MESSAGE_ATTR_CUSTOMER, null)!=null){
+			} else if(message.getStringAttribute(Constant.MESSAGE_ATTR_CUSTOMER, null)!=null) {
 				view = message.direct == EMMessage.Direct.RECEIVE ? inflater
 						.inflate(R.layout.uuchat_cutomer_left, null)
 						: inflater
-								.inflate(R.layout.uuchat_cutomer_right, null);
-			}
-			else{
+						.inflate(R.layout.uuchat_cutomer_right, null);
+
+			} else if(message.getStringAttribute(Constant.UUCHAT_ROADTITLE, null)!=null
+					&& message.getStringAttribute(Constant.UUCHAT_ROADPRICE, null)!=null
+					&& message.getStringAttribute(Constant.UUCHAT_ROADIMG, null)!=null){
+				view = message.direct == EMMessage.Direct.RECEIVE ? inflater
+						.inflate(R.layout.uuchat_shareroad_left, null)
+						: inflater
+						.inflate(R.layout.uuchat_shareroad_right, null);
+
+
+			}else{
 				view = message.direct == EMMessage.Direct.RECEIVE ? inflater
 						.inflate(R.layout.chattxt_row_left, null) : inflater
 						.inflate(R.layout.chattxt_row_right, null);

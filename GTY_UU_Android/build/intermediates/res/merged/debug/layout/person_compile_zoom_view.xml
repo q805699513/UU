@@ -23,8 +23,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/persion_circle_bg" >
+            android:layout_centerVertical="true" >
         </com.uugty.uu.common.myview.CirculHeadImage>
     </RelativeLayout>
 

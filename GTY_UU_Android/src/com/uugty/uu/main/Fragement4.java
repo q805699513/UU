@@ -183,7 +183,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 		userimg.setCirCularImageSize(55, 55, 5);
 		userimg.setNoHeadPic("drawable://" + R.drawable.no_default_head_img,
 				"drawable");
-		userimg.setBackPic("drawable://" + R.drawable.persion_circle_bg);
+//		userimg.setBackPic("drawable://" + R.drawable.persion_circle_bg);
 
 		route = (UserLineTextAndImage) rootview
 				.findViewById(R.id.home_no_login_route_lin);
@@ -239,8 +239,8 @@ public class Fragement4 extends Fragment implements OnClickListener {
 			if (!MyApplication.getInstance().getUserInfo().getOBJECT()
 					.getUserAvatar().equals("")) {
 				login_person_circul_imageview.setCirCularImageSize(55, 55, 5);
-				login_person_circul_imageview.setBackPic("drawable://"
-						+ R.drawable.persion_circle_bg);
+//				login_person_circul_imageview.setBackPic("drawable://"
+//						+ R.drawable.persion_circle_bg);
 				// imageView.setCirCularImageSize(85, 85, 6);
 				if (MyApplication.getInstance().getUserInfo().getOBJECT()
 						.getUserAvatar().contains("images")) {
@@ -254,15 +254,15 @@ public class Fragement4 extends Fragment implements OnClickListener {
 				}
 			} else {
 				// 加载默认的图片
-				login_person_circul_imageview.setBackPic("drawable://"
-						+ R.drawable.persion_circle_bg);
+//				login_person_circul_imageview.setBackPic("drawable://"
+//						+ R.drawable.persion_circle_bg);
 				login_person_circul_imageview.setNoHeadPic("drawable://"
 						+ R.drawable.no_default_head_img, "drawable");
 				login_person_circul_imageview.setCirCularImageSize(55, 55, 5);
 			}
 		} else {
-			login_person_circul_imageview.setBackPic("drawable://"
-					+ R.drawable.persion_circle_bg);
+//			login_person_circul_imageview.setBackPic("drawable://"
+//					+ R.drawable.persion_circle_bg);
 			login_person_circul_imageview.setHeadPic("drawable://"
 					+ R.drawable.no_default_head_img, "drawable");
 			login_person_circul_imageview.setCirCularImageSize(55, 55, 5);

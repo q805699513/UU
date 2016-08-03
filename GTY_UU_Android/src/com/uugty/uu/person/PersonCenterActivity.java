@@ -201,8 +201,8 @@ public class PersonCenterActivity extends BaseActivity implements
 				R.layout.person_center_header, null);
 		headImage = (CirculHeadImage) headView
 				.findViewById(R.id.persondate_title);
-		headImage.setBackPic("drawable://" + R.drawable.persion_circle_bg);
-		headImage.setCirCularImageSize(80, 80, 8);
+//		headImage.setBackPic("drawable://" + R.drawable.persion_circle_bg);
+		headImage.setCirCularImageSize(80, 80, 1);
 		persondate_name = (TextView) headView
 				.findViewById(R.id.persondate_name);
 		persondate_work = (TextView) headView
