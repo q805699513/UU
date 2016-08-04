@@ -12,7 +12,7 @@ import com.uugty.uu.common.util.ActivityCollector;
 public class ContextMenu extends Activity {
 
 	private int position;
-	
+	private String isShare;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -26,6 +26,7 @@ public class ContextMenu extends Activity {
 			setContentView(R.layout.context_menu_for_custom) ;
 		}
 		position = getIntent().getIntExtra("position", -1);
+		isShare = getIntent().getStringExtra("isShare");
 		ActivityCollector.addActivity(this);
 	}
 
@@ -41,7 +42,14 @@ public class ContextMenu extends Activity {
 	}
 	
 	public void forward(View view){
-		setResult(ChatActivity.RESULT_CODE_FORWARD, new Intent().putExtra("position", position));
+		Intent i = new Intent();
+		if(null != isShare && "true".equals(isShare)){
+			i.putExtra("isShare","true");
+			i.putExtra("position", position);
+		}else{
+			i.putExtra("position", position);
+		}
+		setResult(ChatActivity.RESULT_CODE_FORWARD, i);
 		finish();
 	}
 }

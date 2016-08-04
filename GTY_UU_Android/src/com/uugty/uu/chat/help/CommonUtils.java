@@ -13,9 +13,11 @@
  */
 package com.uugty.uu.chat.help;
 
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningTaskInfo;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import com.easemob.chat.EMMessage;
 import com.easemob.chat.TextMessageBody;
@@ -23,11 +25,7 @@ import com.easemob.util.EMLog;
 import com.uugty.uu.R;
 import com.uugty.uu.entity.Constant;
 
-import android.app.ActivityManager;
-import android.app.ActivityManager.RunningTaskInfo;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import java.util.List;
 
 public class CommonUtils {
 	private static final String TAG = "CommonUtils";
@@ -104,9 +102,12 @@ public class CommonUtils {
 					&& message.getStringAttribute(Constant.UUCHAT_RED_MESSAGE,
 							null) != null) {
 				digest = "发来一个红包";
-			} else if(message.getStringAttribute(Constant.MESSAGE_ATTR_CUSTOMER, null)!=null){
-				digest = "发来一个旅行定制";
-			}else {
+			} else if(message.getStringAttribute(Constant.MESSAGE_ATTR_CUSTOMER, null)!=null) {
+				 digest = "发来一个旅行定制";
+
+			 }else if(message.getStringAttribute(Constant.UUCHAT_ROADLINEID, null)!=null){
+				 digest = "分享了一条路线";
+			 }else {
 				TextMessageBody txtBody = (TextMessageBody) message.getBody();
 				digest =txtBody.getMessage();
 			}

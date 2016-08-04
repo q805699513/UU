@@ -183,7 +183,7 @@
         <activity
             android:name=".uuchat.ContextMenu"
             android:screenOrientation="portrait"
-            android:theme="@style/clipDialog_Style" >
+            android:theme="@style/PhoneDialog" >
         </activity>
         <!-- 主界面 -->
         <activity

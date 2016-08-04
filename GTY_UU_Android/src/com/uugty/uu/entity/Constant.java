@@ -13,5 +13,6 @@ public class Constant {
 	public static final String UUCHAT_ROADTITLE = "road_title";
 	public static final String UUCHAT_ROADPRICE = "road_price";
 	public static final String UUCHAT_ROADIMG = "road_img";
+	public static final String UUCHAT_ROADLINEID = "road_id";
 
 }

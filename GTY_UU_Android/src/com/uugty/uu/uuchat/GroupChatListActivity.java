@@ -53,6 +53,12 @@ public class GroupChatListActivity extends BaseActivity implements
 	private GroupChatListViewAdapter adapter;
 	private List<GroupChat> groupList;
 
+	//分享路线
+	private String roadLineId;
+	private String roadLineImg;
+	private String roadLineTitle;
+	private String roadLinePrice;
+
 	@Override
 	protected int getContentLayout() {
 		// TODO Auto-generated method stub
@@ -62,6 +68,12 @@ public class GroupChatListActivity extends BaseActivity implements
 	@Override
 	protected void initGui() {
 		// TODO Auto-generated method stub
+		if (null != getIntent()) {
+			roadLineId = getIntent().getStringExtra("roadlineId");
+			roadLineImg = getIntent().getStringExtra("roadlineImg");
+			roadLineTitle = getIntent().getStringExtra("roadlineTitle");
+			roadLinePrice = getIntent().getStringExtra("roadlinePrice");
+		}
 		groupTitle = (TopBackView) findViewById(R.id.group_chat_title);
 		groupTitle.setTitle("群聊");
 		noDataLin = (LinearLayout) findViewById(R.id.guide_chate_no_data_lin);
@@ -92,10 +104,23 @@ public class GroupChatListActivity extends BaseActivity implements
 				intent.putExtra("chatType", ChatActivity.CHATTYPE_GROUP);
 				intent.putExtra("userId", groupList.get(position)
 						.getGroupEasemobID());
+				if(null != roadLineId) {
+					intent.putExtra("toFrom", "friendShare");
+					intent.putExtra("roadlineId", roadLineId);
+					intent.putExtra("roadlineImg", roadLineImg);
+					intent.putExtra("roadlineTitle", roadLineTitle);
+					intent.putExtra("roadlinePrice", roadLinePrice);
+				}
 				startActivity(intent);
 			}
 
 		});
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		roadLineId = null;
 	}
 
 	@Override

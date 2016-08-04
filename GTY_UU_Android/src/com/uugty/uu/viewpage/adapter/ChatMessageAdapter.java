@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.os.Handler;
 import android.text.Spannable;
 import android.text.TextUtils;
@@ -46,10 +47,12 @@ import com.easemob.chat.TextMessageBody;
 import com.easemob.chat.VoiceMessageBody;
 import com.easemob.exceptions.EaseMobException;
 import com.easemob.util.DateUtils;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.uugty.uu.R;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.chat.help.SmileUtils;
 import com.uugty.uu.chat.help.VoicePlayClickListener;
+import com.uugty.uu.com.find.FindTestViewPagerActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -105,6 +108,8 @@ public class ChatMessageAdapter extends BaseAdapter {
 	private static final int MESSAGE_TYPE_RECV_IMAGE = 7;
 	private static final int MESSAGE_TYPE_SENT_CUSTOMER = 8;
 	private static final int MESSAGE_TYPE_RECV_CUSTOMER = 9;
+	private static final int MESSAGE_TYPE_SENT_ROADSHARE = 8;
+	private static final int MESSAGE_TYPE_RECV_ROADSHARE = 9;
 
 	public static final String IMAGE_DIR = "chat/image/";
 	private Map<String, Timer> timers = new Hashtable<String, Timer>();
@@ -244,6 +249,7 @@ public class ChatMessageAdapter extends BaseAdapter {
 
 			} else if(message.getStringAttribute(Constant.UUCHAT_ROADTITLE, null)!=null
 					&& message.getStringAttribute(Constant.UUCHAT_ROADPRICE, null)!=null
+					&& message.getStringAttribute(Constant.UUCHAT_ROADIMG, null)!=null
 					&& message.getStringAttribute(Constant.UUCHAT_ROADIMG, null)!=null){
 				view = message.direct == EMMessage.Direct.RECEIVE ? inflater
 						.inflate(R.layout.uuchat_shareroad_left, null)
@@ -292,6 +298,10 @@ public class ChatMessageAdapter extends BaseAdapter {
 			if (message.getStringAttribute(Constant.MESSAGE_ATTR_CUSTOMER, null)!=null) {
 				return message.direct == EMMessage.Direct.RECEIVE ? MESSAGE_TYPE_RECV_CUSTOMER
 						: MESSAGE_TYPE_SENT_CUSTOMER;
+			}
+			if(message.getStringAttribute(Constant.UUCHAT_ROADLINEID, null)!=null){
+				return message.direct == EMMessage.Direct.RECEIVE ? MESSAGE_TYPE_RECV_ROADSHARE
+						: MESSAGE_TYPE_SENT_ROADSHARE;
 			}
 			return message.direct == EMMessage.Direct.RECEIVE ? MESSAGE_TYPE_RECV_TXT
 					: MESSAGE_TYPE_SENT_TXT;
@@ -354,6 +364,17 @@ public class ChatMessageAdapter extends BaseAdapter {
 							.findViewById(R.id.red_price_layout);
 					holder.txt_content = (TextView) convertView
 							.findViewById(R.id.txt_red_message);
+				}
+				//路线分享
+				if(message.getStringAttribute(Constant.UUCHAT_ROADLINEID, null)!=null){
+					holder.customRel = (RelativeLayout) convertView
+							.findViewById(R.id.uucht_shareroad_rel);
+					holder.roadImg = (SimpleDraweeView) convertView
+							.findViewById(R.id.road_image);
+					holder.roadTitle = (TextView) convertView
+							.findViewById(R.id.chat_road_txt);
+					holder.roadPrice = (TextView) convertView
+							.findViewById(R.id.chat_road_price);
 				}
 				//定制
 				if (message.getStringAttribute(Constant.MESSAGE_ATTR_CUSTOMER, null)!=null) {
@@ -458,8 +479,10 @@ public class ChatMessageAdapter extends BaseAdapter {
 					&& message.getStringAttribute(Constant.UUCHAT_RED_MESSAGE,
 							null) != null) {
 				handleRedMessage(message, holder, position);
-			} else if(message.getStringAttribute(Constant.MESSAGE_ATTR_CUSTOMER, null)!=null){
+			} else if(null != message.getStringAttribute(Constant.MESSAGE_ATTR_CUSTOMER, null)){
 				handleCustomMessage(message, holder, position);
+			}else if(null != message.getStringAttribute(Constant.UUCHAT_ROADLINEID, null)){
+				handleShareMessage(message, holder, position);
 			}
 			else {
 				handleTextMessage(message, holder, position);
@@ -675,6 +698,79 @@ public class ChatMessageAdapter extends BaseAdapter {
 		}
 	}
 
+	//分享路线
+	private void handleShareMessage(final EMMessage message, ViewHolder holder,
+									 final int position) {
+		TextMessageBody txtBody = (TextMessageBody) message.getBody();
+		String roadprice =txtBody.getMessage().substring(
+				txtBody.getMessage().lastIndexOf(",") + 1);
+		String messagePrice = txtBody.getMessage().substring(0,
+				txtBody.getMessage().lastIndexOf("," + roadprice));
+		String roadTitle = messagePrice.substring(messagePrice
+				.lastIndexOf(",") + 1);
+		String customDestination = messagePrice.substring(0,
+				messagePrice.lastIndexOf("," + roadTitle));
+		String roadImg = customDestination.substring(customDestination
+				.lastIndexOf(",") + 1);
+
+		holder.roadPrice.setText("￥"+roadprice);
+		holder.roadTitle.setText(roadTitle);
+		holder.roadImg.setImageURI(Uri.parse(APPRestClient.SERVER_IP
+				+ "images/roadlineDescribe/"
+				+ roadImg));
+		holder.customRel.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				try {
+					String roadId= message.getStringAttribute("road_id");
+					Intent intent = new Intent();
+					intent.putExtra("roadId", roadId);
+					intent.setClass(activity, FindTestViewPagerActivity.class);
+					activity.startActivity(intent);
+				} catch (EaseMobException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+
+			}
+		});
+
+		holder.customRel.setOnLongClickListener(new OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(activity, ContextMenu.class);
+				intent.putExtra("position", position);
+				intent.putExtra("type", 1001);
+				activity.startActivityForResult(intent,
+						ChatActivity.REQUEST_CODE_CONTEXT_MENU);
+				return true;
+			}
+		});
+
+		if (message.direct == EMMessage.Direct.SEND) {
+			switch (message.status) {
+				case SUCCESS: // 发送成功
+					holder.pb.setVisibility(View.GONE);
+					holder.staus_iv.setVisibility(View.GONE);
+					break;
+				case FAIL: // 发送失败
+					holder.pb.setVisibility(View.GONE);
+					holder.staus_iv.setVisibility(View.VISIBLE);
+					break;
+				case INPROGRESS: // 发送中
+					holder.pb.setVisibility(View.VISIBLE);
+					holder.staus_iv.setVisibility(View.GONE);
+					break;
+				default:
+					// 发送消息
+					sendMsgInBackground(message, holder);
+			}
+		}
+	}
 	
 	private void handleCustomMessage(final EMMessage message, ViewHolder holder,
 			final int position) {
@@ -718,6 +814,7 @@ public class ChatMessageAdapter extends BaseAdapter {
 				public boolean onLongClick(View v) {
 					Intent intent = new Intent();
 					intent.setClass(activity, ContextMenu.class);
+					intent.putExtra("isShare","true");
 					intent.putExtra("position", position);
 					intent.putExtra("type", 1001);
 					activity.startActivityForResult(intent,
@@ -1647,6 +1744,9 @@ public class ChatMessageAdapter extends BaseAdapter {
 		TextView tv_ack;
 		TextView tv_delivered;
 		RelativeLayout customRel;
+		SimpleDraweeView roadImg;
+		TextView roadTitle;
+		TextView roadPrice;
 	}
 	
 	private int getScreenWidth() {  

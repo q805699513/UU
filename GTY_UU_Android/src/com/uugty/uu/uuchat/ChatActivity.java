@@ -170,6 +170,12 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 	private GroupListener groupListener;
 	private static List<String> ratiolist = new ArrayList<String>();
 
+	//分享路线
+	private String roadLineId;
+	private String roadLineImg;
+	private String roadLineTitle;
+	private String roadLinePrice;
+
 	@Override
 	protected int getContentLayout() {
 		// TODO Auto-generated method stub
@@ -396,6 +402,20 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 				String red_ID = getIntent().getStringExtra("red_id");
 				sendRedHot(price, red_message, red_ID);
 			}
+
+			if(null != toFrom && toFrom.equals("friendShare")){
+				if (btnContainer.getVisibility() == View.VISIBLE) {
+					btnContainer.setVisibility(View.GONE);
+				}
+				toChatavatar = getIntent().getStringExtra("avatar");
+
+				roadLineId = getIntent().getStringExtra("roadlineId");
+				roadLineImg = getIntent().getStringExtra("roadlineImg");
+				roadLineTitle = getIntent().getStringExtra("roadlineTitle");
+				roadLinePrice = getIntent().getStringExtra("roadlinePrice");
+
+				sendRoadShare(roadLineId,roadLineImg,roadLineTitle,roadLinePrice);
+			}
 			if (toChatUserId.equals("admin")) {
 				bottomLin.setVisibility(View.GONE);
 				if ("noMessage".equals(getIntent().getStringExtra("noMessage"))) {
@@ -418,6 +438,20 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
 			if (chatType == CHATTYPE_GROUP) {
 				onGroupViewCreation();
+				String toFrom = getIntent().getStringExtra("toFrom");
+				if(null != toFrom && toFrom.equals("friendShare")){
+					if (btnContainer.getVisibility() == View.VISIBLE) {
+						btnContainer.setVisibility(View.GONE);
+					}
+					toChatavatar = getIntent().getStringExtra("avatar");
+
+					roadLineId = getIntent().getStringExtra("roadlineId");
+					roadLineImg = getIntent().getStringExtra("roadlineImg");
+					roadLineTitle = getIntent().getStringExtra("roadlineTitle");
+					roadLinePrice = getIntent().getStringExtra("roadlinePrice");
+
+					sendRoadShare(roadLineId,roadLineImg,roadLineTitle,roadLinePrice);
+				}
 			}
 		}
 
@@ -705,6 +739,9 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 				Intent intent = new Intent(this, ChatFriendsActivity.class);
 				intent.putExtra("forward_msg_id", forwardMsg.getMsgId());
 				intent.putExtra("toForm", "ChatActivity");
+				if("true".equals(data.getStringExtra("isShare"))){
+					intent.putExtra("isShare","true");
+				}
 				startActivity(intent);
 
 				break;
@@ -760,6 +797,19 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
 				sendCustom(customId, customDestination, customBudget,
 						customMark);
+
+			}else if(forward_msg.getStringAttribute(Constant.UUCHAT_ROADLINEID,
+					null) != null){
+				String roadId = forward_msg.getStringAttribute(
+						Constant.UUCHAT_ROADLINEID, "");
+				String roadTitle = forward_msg.getStringAttribute(
+						Constant.UUCHAT_ROADTITLE, "");
+				String roadImg = forward_msg.getStringAttribute(
+						Constant.UUCHAT_ROADIMG, "");
+				String roadPrice = forward_msg.getStringAttribute(
+						Constant.UUCHAT_ROADPRICE, "");
+
+				sendRoadShare(roadId,roadImg,roadTitle,roadPrice);
 			} else {
 				String content = ((TextMessageBody) forward_msg.getBody())
 						.getMessage();
@@ -1097,6 +1147,43 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 		// 设置发送接收人
 		redMessage.setReceipt(toChatUserId);
 		conviercoin.addMessage(redMessage);
+		try {
+			EMContactManager.getInstance().addContact(toChatUserId, "");
+		} catch (EaseMobException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	};
+
+	// 路线分享
+	public void sendRoadShare(String roadid, String roadimg, String roadtitle,String roadprice) {
+
+		EMConversation conviercoin = EMChatManager.getInstance()
+				.getConversation(toChatUserId);
+		// 消息体
+		EMMessage shareMessage = EMMessage.createSendMessage(EMMessage.Type.TXT);
+		// 如果是群聊，设置chattype,默认是单聊
+		if (chatType == CHATTYPE_GROUP) {
+			shareMessage.setChatType(ChatType.GroupChat);
+		} else if (chatType == CHATTYPE_CHATROOM) {
+			shareMessage.setChatType(ChatType.ChatRoom);
+		}
+		TextMessageBody txtBody = new TextMessageBody(roadid + "," + roadimg
+				+ "," + roadtitle +"," + roadprice);
+		shareMessage.addBody(txtBody);
+		// 添加自定义消息扩展类型
+		shareMessage.setAttribute("road_id", roadid);
+		shareMessage.setAttribute("road_img", roadimg);
+		shareMessage.setAttribute("road_title", roadtitle);
+		shareMessage.setAttribute("road_price", roadprice);
+		shareMessage.setAttribute("nick", MyApplication.getInstance()
+				.getUserInfo().getOBJECT().getUserName());
+		shareMessage.setAttribute("avatar",MyApplication.getInstance()
+				.getUserInfo().getOBJECT().getUserAvatar());
+		// 设置发送接收人
+		shareMessage.setReceipt(toChatUserId);
+		conviercoin.addMessage(shareMessage);
 		try {
 			EMContactManager.getInstance().addContact(toChatUserId, "");
 		} catch (EaseMobException e) {

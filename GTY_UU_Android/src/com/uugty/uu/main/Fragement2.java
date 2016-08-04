@@ -696,6 +696,10 @@ public class Fragement2 extends Fragment {
 			} else if (message.getStringAttribute(
 					Constant.MESSAGE_ATTR_CUSTOMER, null) != null) {
 				digest = "发来一个旅行定制";
+
+			}else if(message.getStringAttribute(
+					Constant.UUCHAT_ROADLINEID, null) != null){
+				digest = "分享了一条路线";
 			} else {
 				TextMessageBody txtBody = (TextMessageBody) message.getBody();
 				digest = txtBody.getMessage();

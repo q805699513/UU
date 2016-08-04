@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
@@ -29,6 +31,8 @@ import com.uugty.uu.entity.RoadLineEntity;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.map.PublishServicesActivity;
 import com.uugty.uu.util.LogUtils;
+import com.uugty.uu.uuchat.ChatFriendsActivity;
+import com.uugty.uu.uuchat.GroupChatListActivity;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -280,6 +284,35 @@ public class ShopLeftPopupWindow extends PopupWindow implements PlatformActionLi
 		oks.setCallback(this);
 		// 此处为本demo关键为一键分享折子定义分享回调函数 shareContentCustomuzeCallback
 		// 自定义平台可以通过判断不同的平台来实现不同平台间的不同操作
+		Bitmap enableLogo = BitmapFactory.decodeResource(context.getResources(), R.drawable.lzh_uu_firend);
+		String label = "UU好友";
+		OnClickListener listener = new OnClickListener() {
+			public void onClick(View v) {
+				Intent i = new Intent();
+				i.putExtra("roadlineId",entity.getRoadlineId());
+				i.putExtra("roadlineImg",entity.getRoadlineBackground());
+				i.putExtra("roadlineTitle",entity.getRoadlineTitle());
+				i.putExtra("roadlinePrice",entity.getRoadlinePrice());
+				i.setClass(context,ChatFriendsActivity.class);
+				context.startActivity(i);
+			}
+		};
+
+		Bitmap enableLogo1 = BitmapFactory.decodeResource(context.getResources(), R.drawable.lzh_uu_group);
+		String label1 = "UU群";
+		OnClickListener listener1 = new OnClickListener() {
+			public void onClick(View v) {
+				Intent i = new Intent();
+				i.putExtra("roadlineId",entity.getRoadlineId());
+				i.putExtra("roadlineImg",entity.getRoadlineBackground());
+				i.putExtra("roadlineTitle",entity.getRoadlineTitle());
+				i.putExtra("roadlinePrice",entity.getRoadlinePrice());
+				i.setClass(context, GroupChatListActivity.class);
+				context.startActivity(i);
+			}
+		};
+		oks.setCustomerLogo(enableLogo,null,label,listener);
+		oks.setCustomerLogo(enableLogo1,null,label1,listener1);
 		oks.setShareContentCustomizeCallback(new ShareContentCustomizeCallback() {
 			// 自定义分享的回调想要函数
 			@Override

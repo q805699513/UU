@@ -63,6 +63,8 @@ import com.uugty.uu.order.UUPayActivity;
 import com.uugty.uu.person.PersonCenterActivity;
 import com.uugty.uu.util.LogUtils;
 import com.uugty.uu.uuchat.ChatActivity;
+import com.uugty.uu.uuchat.ChatFriendsActivity;
+import com.uugty.uu.uuchat.GroupChatListActivity;
 import com.uugty.uu.viewpage.adapter.MoreListAdapter;
 import com.uugty.uu.viewpage.adapter.TabFragmentPagerAdapter;
 
@@ -95,6 +97,7 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 	private PagerScrollView mScrollView;
 	private ArrayList<TextView> arryTextView;
 	private String roadId;
+	private String roadUserId;//聊天分享的人
 	private MoreListAdapter adapter;
 	private ListViewForScrollView more_listview;
 	private String shareUrl, wxShareUrl, collectId;// 分享路径 0--未收藏
@@ -151,6 +154,7 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 		init();//线路说明内容
 		roadId = getIntent().getStringExtra("roadId");
 		find_back = (LinearLayout) findViewById(R.id.tabar_back);
+		roadUserId = getIntent().getStringExtra("roadUserId");
 		mScrollView = (PagerScrollView) findViewById(R.id.activity_find_route_display_scrollview);
 		more_listview = (ListViewForScrollView) findViewById(R.id.find_route_display_more_route_list);
 		shareLin = (LinearLayout) findViewById(R.id.find_title_share_lin);
@@ -275,8 +279,8 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 			}
 			break;
 		case R.id.tabar_back:
-			finish();
-			find_back.setClickable(false);
+				finish();
+				find_back.setClickable(false);
 			break;
 		case R.id.find_detail_about_more_line:
 			intent.putExtra("userId", detailUserId);
@@ -982,7 +986,13 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 		String label = "UU好友";
 		OnClickListener listener = new OnClickListener() {
 			public void onClick(View v) {
-
+				Intent i = new Intent();
+				i.putExtra("roadlineId",roadId);
+				i.putExtra("roadlineImg",roadDetailResult.getRoadlineBackground());
+				i.putExtra("roadlineTitle",roadDetailResult.getRoadlineTitle());
+				i.putExtra("roadlinePrice",roadDetailResult.getRoadlinePrice());
+				i.setClass(FindTestViewPagerActivity.this,ChatFriendsActivity.class);
+				startActivity(i);
 			}
 		};
 
@@ -990,7 +1000,13 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 		String label1 = "UU群";
 		OnClickListener listener1 = new OnClickListener() {
 			public void onClick(View v) {
-
+				Intent i = new Intent();
+				i.putExtra("roadlineId",roadId);
+				i.putExtra("roadlineImg",roadDetailResult.getRoadlineBackground());
+				i.putExtra("roadlineTitle",roadDetailResult.getRoadlineTitle());
+				i.putExtra("roadlinePrice",roadDetailResult.getRoadlinePrice());
+				i.setClass(FindTestViewPagerActivity.this, GroupChatListActivity.class);
+				startActivity(i);
 			}
 		};
 		oks.setCustomerLogo(enableLogo,null,label,listener);

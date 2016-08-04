@@ -53,6 +53,12 @@ public class ChatFriendsActivity extends BaseActivity implements
 	private String toForm, forward_msg_id;
 	private SpotsDialog loadingDialog;
 
+	//分享路线
+	private String roadLineId;
+	private String roadLineImg;
+	private String roadLineTitle;
+	private String roadLinePrice;
+
 
 	@Override
 	protected int getContentLayout() {
@@ -65,6 +71,10 @@ public class ChatFriendsActivity extends BaseActivity implements
 		if (null != getIntent()) {
 			toForm = getIntent().getStringExtra("toForm");
 			forward_msg_id = getIntent().getStringExtra("forward_msg_id");
+			roadLineId = getIntent().getStringExtra("roadlineId");
+			roadLineImg = getIntent().getStringExtra("roadlineImg");
+			roadLineTitle = getIntent().getStringExtra("roadlineTitle");
+			roadLinePrice = getIntent().getStringExtra("roadlinePrice");
 		}
 		topTitle = (TopBackView) findViewById(R.id.chat_friends_title);
 		topTitle.setTitle("我的好友");
@@ -95,7 +105,7 @@ public class ChatFriendsActivity extends BaseActivity implements
 					builder.setPositiveButton("确定",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
-										int which) {
+													int which) {
 									dialog.dismiss();
 									ChatActivity.activityInstance.finish();
 									forwardInfor(new Intent(),
@@ -109,7 +119,7 @@ public class ChatFriendsActivity extends BaseActivity implements
 							"取消",
 							new android.content.DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
-										int which) {
+													int which) {
 									dialog.dismiss();
 								}
 							});
@@ -123,6 +133,13 @@ public class ChatFriendsActivity extends BaseActivity implements
 							.getUserAvatar());
 					intent.putExtra("userName", lsitmessage.get(position)
 							.getUserName());
+					if(null != roadLineId) {
+						intent.putExtra("toFrom", "friendShare");
+						intent.putExtra("roadlineId", roadLineId);
+						intent.putExtra("roadlineImg", roadLineImg);
+						intent.putExtra("roadlineTitle", roadLineTitle);
+						intent.putExtra("roadlinePrice", roadLinePrice);
+					}
 					intent.setClass(ChatFriendsActivity.this,
 							ChatActivity.class);
 					startActivity(intent);
@@ -163,6 +180,13 @@ public class ChatFriendsActivity extends BaseActivity implements
 	protected void forwardInfor(Intent intent, String userId, String forwar_id) {
 		// TODO Auto-generated method stub
 		intent.putExtra("userId", userId);
+		if("true".equals(getIntent().getStringExtra("isShare"))){
+			intent.putExtra("toFrom","friendShare");
+			intent.putExtra("roadlineId",roadLineId);
+			intent.putExtra("roadlineImg",roadLineImg);
+			intent.putExtra("roadlineTitle",roadLineTitle);
+			intent.putExtra("roadlinePrice",roadLinePrice);
+		}
 		intent.putExtra("forward_msg_id", forward_msg_id);
 		intent.setClass(ChatFriendsActivity.this, ChatActivity.class);
 		startActivity(intent);
