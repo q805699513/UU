@@ -31,19 +31,14 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.MD5;
-import com.uugty.uu.common.util.SignUtils;
 import com.uugty.uu.entity.ParentIdEntity;
 import com.uugty.uu.entity.PayResult;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.entity.VipAlipayEntity;
-import com.uugty.uu.entity.VipWxpayEntity;
+import com.uugty.uu.entity.WXPayEntity;
 
 import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -55,14 +50,8 @@ public class VipPayActivity extends BaseActivity implements OnClickListener {
 	private String tradeNo,telNo;
 	private SimpleDraweeView headImage;
 	private PayReq request;
-	public static final String PARTNER = "2088801318643909";
-	public static final String SELLER = "2316986924@qq.com";
 	final IWXAPI msgApi = WXAPIFactory.createWXAPI(this, null);
 	private static final String APP_ID = "wx7f1866a885330eb2";
-	// 商户私钥，pkcs8格式
-	public static final String RSA_PRIVATE = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAOcBJTtH7ux3e4QDXECgUv2Qb+hmyaRmv8z1XRRzwRCSO42+AfLHcbCFNL1/sO3TE/ADnPbTBMW+m13c7mA/VF8LcN/8SZkp8P8g0Bw0CVUjh/qEdY6PTK/CnACY2rsJBxtr2cvRaMhv4LdYNrkp8c3AOxn8Ofn1H1oX47+0cdt5AgMBAAECgYEA0j1qoz9epfxAf++HAJJptbjFAOC72FJjcahGJJ0NM4XDicdKgqkeQaeaTnVuk6St2p2PN9zp1Qca5Bx1H0fEAllzfyG4e1+1DPIUirA/1UuMHwrqIia3EHyVIQFJt/xUWlZzcNVxCLQrgqYYvmQjLIPLP/0trKw1ujiCUSQrULkCQQD/tseLtC3AXtuSBfqF5c57bv9FDptsR/8dsnQEhmHZRhs46U4dC2U+1MQnpgwvkOcKJeVh0kXNnh9+fBMoWzAjAkEA50NKa0fKOu6prXZbcm9ZqX2eEp1OuWVU9dFlRYaEKpOJg3DgR3gQ24PWwK8lj97RGepfUuKD7hW4p2lmoO2xswJAD7ZwfoIcyZRKk6dwZGfhjy4b22dxX27xGycK//gt7Qbkx1N2rEw19W1nfDQ0zXtu5u27MY6VIXRU5RXEq5cm1wJAYJlkCYHYQFuWtqU8t4U5j6mwEJhy3NAt9+w6gBsbM+mixCuvE0tcx0S/vIasivcIoumaXbXOY/HgytUlEE2ZLwJBAJ4xqGXGq4YnhUtpmACryFUhjeetUFrPN3dQ9fC+XMr37mSsAHnWm8SAlJXYAtF8K8Z8zmndvKZb6V/eGBie8Ck=";
-	// 支付宝公钥
-	public static final String RSA_PUBLIC = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
 	Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
@@ -209,10 +198,8 @@ public class VipPayActivity extends BaseActivity implements OnClickListener {
 						this) {
 					@Override
 					public void onSuccess(VipAlipayEntity result) {
-						if (null != result.getOBJECT().getOrderNo()) {
-							tradeNo = result.getOBJECT().getOrderNo();
-							// 调起支付宝
-							alipay();
+						if(result.getOBJECT().getPayInfo() != null){
+							alipay(result.getOBJECT().getPayInfo());
 						}
 					}
 
@@ -256,15 +243,15 @@ public class VipPayActivity extends BaseActivity implements OnClickListener {
 		params.add("userTel", telNo);
 		APPRestClient.post(this, APPRestClient.HTTPS_BASE_URL
 				+ ServiceCode.APP_WX_JOIN_FEE, params, true,
-				new APPResponseHandler<VipWxpayEntity>(VipWxpayEntity.class,
+				new APPResponseHandler<WXPayEntity>(WXPayEntity.class,
 						this) {
 					@Override
-					public void onSuccess(VipWxpayEntity result) {
+					public void onSuccess(WXPayEntity result) {
 						if (null != result.getOBJECT().getOut_trade_no()) {
 							tradeNo = result.getOBJECT().getPrepay_id();
 							// 调起微信
 							request = new PayReq();
-							genPayReq(tradeNo);
+							genPayReq(result);
 							Message message = new Message();
 							message.what = 4;
 							handler.sendMessage(message);
@@ -362,22 +349,7 @@ public class VipPayActivity extends BaseActivity implements OnClickListener {
 
 	}
 
-	public void alipay() {
-		// 订单
-		String orderInfo = getOrderInfo();
-
-		// 对订单做RSA 签名
-		String sign = sign(orderInfo);
-		try {
-			// 仅需对sign 做URL编码
-			sign = URLEncoder.encode(sign, "UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-
-		// 完整的符合支付宝参数规范的订单信息
-		final String payInfo = orderInfo + "&sign=\"" + sign + "\"&"
-				+ getSignType();
+	public void alipay(final String payInfo) {
 
 		Runnable payRunnable = new Runnable() {
 
@@ -400,79 +372,14 @@ public class VipPayActivity extends BaseActivity implements OnClickListener {
 		payThread.start();
 	}
 
-	public String getOrderInfo() {
-		// 签约合作者身份ID
-		String orderInfo = "partner=" + "\"" + PARTNER + "\"";
-
-		// 签约卖家支付宝账号
-		orderInfo += "&seller_id=" + "\"" + SELLER + "\"";
-
-		// 商户网站唯一订单号
-		orderInfo += "&out_trade_no=" + "\"" + tradeNo + "\"";
-
-		// 商品名称
-		orderInfo += "&subject=" + "\"" + "vip支付" + "\"";
-
-		// 商品详情
-		orderInfo += "&body=" + "\"" + "vip支付" + "\"";
-
-		// 商品金额
-		orderInfo += "&total_fee=" + "\"" + "199" + "\"";
-
-		// 服务器异步通知页面路径
-		orderInfo += "&notify_url=" + "\"" + APPRestClient.BASE_URL
-				+ "alipay_notify_url.jsp" + "\"";
-
-		// 服务接口名称， 固定值
-		orderInfo += "&service=\"mobile.securitypay.pay\"";
-		// 支付类型， 固定值
-		orderInfo += "&payment_type=\"1\"";
-
-		// 参数编码， 固定值
-		orderInfo += "&_input_charset=\"utf-8\"";
-
-		// 设置未付款交易的超时时间
-		// 默认30分钟，一旦超时，该笔交易就会自动被关闭。
-		// 取值范围：1m～15d。
-		// m-分钟，h-小时，d-天，1c-当天（无论交易何时创建，都在0点关闭）。
-		// 该参数数值不接受小数点，如1.5h，可转换为90m。
-		orderInfo += "&it_b_pay=\"15d\"";
-
-		// extern_token为经过快登授权获取到的alipay_open_id,带上此参数用户将使用授权的账户进行支付
-		// orderInfo += "&extern_token=" + "\"" + extern_token + "\"";
-
-		// 支付宝处理完请求后，当前页面跳转到商户指定页面的路径，可空
-		orderInfo += "&return_url=\"m.alipay.com\"";
-
-		// 调用银行卡支付，需配置此参数，参与签名， 固定值 （需要签约《无线银行卡快捷支付》才能使用）
-		// orderInfo += "&paymethod=\"expressGateway\"";
-
-		return orderInfo;
-	}
-
-	public String sign(String content) {
-		return SignUtils.sign(content, RSA_PRIVATE);
-	}
-
-	public String getSignType() {
-		return "sign_type=\"RSA\"";
-	}
-
-	private void genPayReq(String prepay_id) {
+	private void genPayReq(WXPayEntity result) {
 		request.appId = APP_ID;
-		request.partnerId = "1260208801";
-		request.prepayId = prepay_id;
-		request.packageValue = "Sign=WXPay";
-		request.nonceStr = genNonceStr();
-		request.timeStamp = String.valueOf(genTimeStamp());
-		List<NameValuePair> signParams = new LinkedList<NameValuePair>();
-		signParams.add(new BasicNameValuePair("appid", request.appId));
-		signParams.add(new BasicNameValuePair("noncestr", request.nonceStr));
-		signParams.add(new BasicNameValuePair("package", request.packageValue));
-		signParams.add(new BasicNameValuePair("partnerid", request.partnerId));
-		signParams.add(new BasicNameValuePair("prepayid", request.prepayId));
-		signParams.add(new BasicNameValuePair("timestamp", request.timeStamp));
-		request.sign = genAppSign(signParams);
+		request.partnerId = result.getOBJECT().getMch_id();
+		request.prepayId = result.getOBJECT().getPrepay_id();
+		request.packageValue = result.getOBJECT().getPackages();
+		request.nonceStr = result.getOBJECT().getNonce_str();
+		request.timeStamp = result.getOBJECT().getTimeStamp();
+		request.sign = result.getOBJECT().getSign();
 
 	}
 

@@ -327,9 +327,9 @@ public class WithdrawcashActivity extends BaseActivity implements
 					@Override
 					public void onSuccess(UserPurseEntity result) {
 						if (result != null) {
-							with_Draw_Money.setText(result.getOBJECT()
-									.getWithDrawMoney() + "元");
-							moneyNoEdit.setHint("输入金额请小于"
+							with_Draw_Money.setText("￥"+result.getOBJECT()
+									.getWithDrawMoney());
+							moneyNoEdit.setHint("提现金额应小于"
 									+ result.getOBJECT().getWithDrawMoney()
 									+ "元");
 							can_money = result.getOBJECT().getWithDrawMoney();

@@ -9,6 +9,16 @@ public class VipAlipayEntity {
 		private String orderNo;
 		private String orderId;
 
+		public String getPayInfo() {
+			return payInfo;
+		}
+
+		public void setPayInfo(String payInfo) {
+			this.payInfo = payInfo;
+		}
+
+		private String payInfo;
+
 		public String getOrderNo() {
 			return orderNo;
 		}

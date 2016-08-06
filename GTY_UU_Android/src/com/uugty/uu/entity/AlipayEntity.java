@@ -9,6 +9,16 @@ public class AlipayEntity {
 		private String outTradeNo;
 		private String gratutiyId;
 
+		public String getPayInfo() {
+			return payInfo;
+		}
+
+		public void setPayInfo(String payInfo) {
+			this.payInfo = payInfo;
+		}
+
+		private String payInfo;
+
 		public String getOutTradeNo() {
 			return outTradeNo;
 		}

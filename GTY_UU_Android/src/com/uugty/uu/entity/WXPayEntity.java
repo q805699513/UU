@@ -17,6 +17,26 @@ public class WXPayEntity {
 		private String nonce_str;
 		private String sign;
 		private String result_code;
+
+		public String getPackages() {
+			return packages;
+		}
+
+		public void setPackages(String packages) {
+			this.packages = packages;
+		}
+
+		private String packages;
+
+		public String getTimeStamp() {
+			return timestamp;
+		}
+
+		public void setTimeStamp(String timeStamp) {
+			this.timestamp = timeStamp;
+		}
+
+		private String timestamp;
 		private String return_msg;
 		private String gratutiyId;
 		private String trade_type;
