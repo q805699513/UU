@@ -37,12 +37,17 @@
             android:text="提现"
             android:textColor="@color/black"
             android:textSize="18sp" />
-        <View 
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#e5e5e5"
-            android:layout_alignParentBottom="true"
-            />
+
+		<TextView
+			android:id="@+id/withdraw_detail"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:layout_marginRight="13dp"
+			android:text="提现说明"
+			android:textColor="@color/black"
+			android:textSize="15sp" />
     </RelativeLayout>
 	<RelativeLayout
 	    android:background="#ffffff"
@@ -57,8 +62,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+			android:textSize="15sp"
             android:text="可提现金额"
-            android:textColor="#565a5c" />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/with_Draw_Money"
@@ -66,22 +72,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:text="800元"
+            android:text="￥800"
             android:textSize="20sp"
             android:textColor="#00a1d9" />
     </RelativeLayout>
-      <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:background="#e5e5e5" />
 	
     <RelativeLayout
         android:background="#ffffff"
         android:id="@+id/widthdraw_cash_way_rel"
+		android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="76dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp" >
 
@@ -100,7 +101,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:src="@drawable/person_compile_enter"
-            android:textColor="#98999a" />
+			/>
 
         <TextView
             android:id="@+id/widthdraw_cash_card_no"
@@ -131,8 +132,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="金额(￥)"
-            android:textColor="#565a5c" />
+            android:text="提现金额"
+            android:textColor="#000000" />
 
         <EditText
             android:id="@+id/recharge_price_detail"
