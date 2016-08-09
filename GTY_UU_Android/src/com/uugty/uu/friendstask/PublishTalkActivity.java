@@ -40,7 +40,6 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.SelectPictureActivity;
 import com.uugty.uu.common.myview.TopBackView;
 import com.uugty.uu.common.photoview.ImagePagerActivity;
-import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.CacheFileUtil;
 import com.uugty.uu.common.util.DateUtil;
 import com.uugty.uu.entity.BaseEntity;
@@ -90,7 +89,6 @@ public class PublishTalkActivity extends BaseActivity implements
 
 	@Override
 	protected int getContentLayout() {
-		// TODO Auto-generated method stub
 		return R.layout.publishtalkactivity_layout;
 	}
 
@@ -306,7 +304,7 @@ public class PublishTalkActivity extends BaseActivity implements
 						});			
 				builder1.create().show();
 			}else{
-			if (!publish_content_edt.getText().toString().equals("")) {
+			if (!publish_content_edt.getText().toString().equals("") && publish_content_edt.getText().toString().trim().length() > 0) {
 				saidContent = publish_content_edt.getText().toString();// 内容
 
 				if (!current_position.getText().toString().equals("显示地理位置")) { // 位置

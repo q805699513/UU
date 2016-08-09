@@ -1,10 +1,5 @@
 package com.uugty.uu.viewpage.adapter;
 
-import java.util.List;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.uugty.uu.R;
-import com.uugty.uu.R.drawable;
-import com.uugty.uu.entity.BoundBankEntity.BankCardInfo;
 import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -13,6 +8,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.uugty.uu.R;
+import com.uugty.uu.R.drawable;
+import com.uugty.uu.entity.BoundBankEntity.BankCardInfo;
+
+import java.util.List;
 
 public class BankCardAdapter extends BaseAdapter {
 
@@ -62,17 +64,17 @@ public class BankCardAdapter extends BaseAdapter {
 			holder = new ViewHolder();
 			convertView = LayoutInflater.from(context).inflate(
 					R.layout.bound_bank_card_item, null);
-			holder.typeImageView = (SimpleDraweeView) convertView
-					.findViewById(R.id.bound_bank_card_item_type_image);
+//			holder.typeImageView = (SimpleDraweeView) convertView
+//					.findViewById(R.id.bound_bank_card_item_type_image);
 
 //			holder.defaultImageView = (SimpleDraweeView) convertView
 //					.findViewById(R.id.bound_bank_card_item_default);
 
-			holder.bankNameTextView = (TextView) convertView
-					.findViewById(R.id.bound_bank_card_item_type);
-			holder.cardNoTextView = (TextView) convertView
-					.findViewById(R.id.bound_bank_card_item_cardno);
-			holder.bound_bank_card_item_rel=(RelativeLayout) convertView.findViewById(R.id.bound_bank_card_item_rel);
+//			holder.bankNameTextView = (TextView) convertView
+//					.findViewById(R.id.bound_bank_card_item_type);
+//			holder.cardNoTextView = (TextView) convertView
+//					.findViewById(R.id.bound_bank_card_item_cardno);
+//			holder.bound_bank_card_item_rel=(RelativeLayout) convertView.findViewById(R.id.bound_bank_card_item_rel);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();

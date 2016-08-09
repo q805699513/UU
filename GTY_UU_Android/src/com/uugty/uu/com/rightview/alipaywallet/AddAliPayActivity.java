@@ -3,7 +3,6 @@ package com.uugty.uu.com.rightview.alipaywallet;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.text.Editable;
 import android.text.Selection;
 import android.text.TextWatcher;
@@ -13,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.com.rightview.WithdrawcashActivity;
@@ -31,11 +29,11 @@ import java.util.List;
 
 public class AddAliPayActivity extends BaseActivity implements OnClickListener {
 
-	private SimpleDraweeView defaultImage;
+//	private SimpleDraweeView defaultImage;
 	private EditText nameEditText, cardNumEditText;
 	private Button commitBtn;
 	private String bankType = "", fromType = "";
-	private LinearLayout defaultLin;
+//	private LinearLayout defaultLin;
 	private int count = 0;
 	private String name = "", cardNo = "";
 	private LinearLayout right_back_add;
@@ -57,8 +55,8 @@ public class AddAliPayActivity extends BaseActivity implements OnClickListener {
 		nameEditText = (EditText) findViewById(R.id.add_bank_card_user_edit);
 		cardNumEditText = (EditText) findViewById(R.id.add_bank_card_num_edit);
 		commitBtn = (Button) findViewById(R.id.add_card_btn);
-		defaultLin = (LinearLayout) findViewById(R.id.add_bank_card_default_lin);
-		defaultImage = (SimpleDraweeView) findViewById(R.id.add_bank_card_default);
+//		defaultLin = (LinearLayout) findViewById(R.id.add_bank_card_default_lin);
+//		defaultImage = (SimpleDraweeView) findViewById(R.id.add_bank_card_default);
 		commitBtn.setEnabled(false);
 		bankCardNumAddSpace(cardNumEditText);
 
@@ -69,7 +67,7 @@ public class AddAliPayActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		right_back_add.setOnClickListener(this);
 		commitBtn.setOnClickListener(this);
-		defaultLin.setOnClickListener(this);
+//		defaultLin.setOnClickListener(this);
 		nameEditText.addTextChangedListener(new TextWatcher() {
 
 			@Override
@@ -175,15 +173,15 @@ public class AddAliPayActivity extends BaseActivity implements OnClickListener {
 				sendRequest();
 			}
 			break;
-		case R.id.add_bank_card_default_lin:
-			count++;
-			if (count % 2 > 0) {
-				defaultImage.setImageURI(Uri.parse("res///"+R.drawable.route_tianxia));
-			} else {
-				defaultImage.setImageURI(Uri.parse("res///"+R.drawable.route_tianxia1));
-			}
-
-			break;
+//		case R.id.add_bank_card_default_lin:
+//			count++;
+//			if (count % 2 > 0) {
+//				defaultImage.setImageURI(Uri.parse("res///"+R.drawable.route_tianxia));
+//			} else {
+//				defaultImage.setImageURI(Uri.parse("res///"+R.drawable.route_tianxia1));
+//			}
+//
+//			break;
 
 		default:
 			break;

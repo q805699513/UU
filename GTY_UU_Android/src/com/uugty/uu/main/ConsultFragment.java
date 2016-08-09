@@ -313,10 +313,11 @@ public class ConsultFragment extends Fragment implements
 	
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
-		city = UUConfig.INSTANCE.getmCtity();
-		if(isFirst != 0||!city.equals("北京")){
+		if (UUConfig.INSTANCE.getmCtity() != null){
+			city = UUConfig.INSTANCE.getmCtity();
+		}
+		if(isFirst != 0|| !"北京".equals(city)){
 			isFirst = 1;
 			onRefresh();
 		}
