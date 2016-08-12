@@ -35,6 +35,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
+import com.uugty.uu.com.find.FindTestViewPagerActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -63,12 +64,12 @@ public class DynamicCommentActivity extends BaseActivity implements
 		OnScrollListener, SwipeRefreshLayout.OnRefreshListener,
 		OnClickListener, OnLayoutChangeListener {
 	private TextView username, dynamic_browse_text, dynamic_content_text,
-			dynamic_createtimes, dynamic_goodtimes_text, dynamic_praise_text,
+			dynamic_createtimes, dynamic_goodtimes_text, dynamic_praise_text,road_title,
 			dynamic_position_item_text;
-	private SimpleDraweeView userheand, dynamic_img_gridview_oneimg;
+	private SimpleDraweeView userheand, dynamic_img_gridview_oneimg,road_img;
 	private RelativeLayout dynamic_report_rel, dynamic_praise_rel,
 			dynamic_position_rel;
-	private LinearLayout dynamic_photo_show;
+	private LinearLayout dynamic_photo_show,share_road;
 	private JoyGridView dynamic_img_grid;
 	private Dynamic dynamic;
 	private String[] arry;
@@ -176,6 +177,12 @@ public class DynamicCommentActivity extends BaseActivity implements
 		mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.dynamic_swipe_container);
 		listView = (ListViewForScrollView) findViewById(R.id.dynamic_comments_listview);
 		dynamic_gridview_title = (JoyGridView) findViewById(R.id.dynamic_gridview_title);
+
+		//分享路线
+		share_road = (LinearLayout) findViewById(R.id.dynamic_road_share_linear);
+		road_img = (SimpleDraweeView) findViewById(R.id.dynamic_road_image);
+		road_title = (TextView) findViewById(R.id.dynamic_road_title);
+
 		ComAdapter = new CommentsAdapter(ctx, list);
 		listView.setAdapter(ComAdapter);
 	}
@@ -544,6 +551,29 @@ public class DynamicCommentActivity extends BaseActivity implements
 					+ R.drawable.no_default_head_img));
 		}
 
+		if(null != dynamic.getShareRoadId()
+				&& !dynamic.getShareRoadId().equals("0")){
+			share_road.setVisibility(View.VISIBLE);
+			if(dynamic.getSaidContent().equals("")){
+				dynamic_content_text.setVisibility(View.GONE);
+			}else{
+				dynamic_content_text.setVisibility(View.VISIBLE);
+			}
+			road_img.setImageURI(Uri.parse(APPRestClient.SERVER_IP+ "images/roadlineDescribe/"
+					+ dynamic.getShareRoadImg()));
+			road_title.setText(dynamic.getShareRoadTitle());
+			share_road.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent i = new Intent();
+					i.putExtra("roadId",dynamic.getShareRoadId());
+					i.setClass(ctx, FindTestViewPagerActivity.class);
+					startActivity(i);
+				}
+			});
+		}else{
+			share_road.setVisibility(View.GONE);
+		}
 		/*
 		 * 图片展示
 		 */

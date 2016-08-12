@@ -58,6 +58,7 @@ import com.uugty.uu.entity.MoreLvEntity.MoreListEntity;
 import com.uugty.uu.entity.RoadEntity;
 import com.uugty.uu.entity.RoadEntity.RoadDetail;
 import com.uugty.uu.entity.Util;
+import com.uugty.uu.friendstask.PublishTalkActivity;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.order.UUPayActivity;
 import com.uugty.uu.person.PersonCenterActivity;
@@ -1009,9 +1010,23 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 				startActivity(i);
 			}
 		};
+
+		Bitmap enableLogo2 = BitmapFactory.decodeResource(getResources(), R.drawable.lzh_shareuu);
+		String label2 = "UU圈";
+		OnClickListener listener2 = new OnClickListener() {
+			public void onClick(View v) {
+				Intent i = new Intent();
+				i.putExtra("roadlineId",roadId);
+				i.putExtra("roadlineImg",roadDetailResult.getRoadlineBackground());
+				i.putExtra("roadlineTitle",roadDetailResult.getRoadlineTitle());
+				i.setClass(FindTestViewPagerActivity.this,PublishTalkActivity.class);
+				startActivity(i);
+			}
+		};
 		oks.setCustomerLogo(enableLogo,null,label,listener);
 		oks.setCustomerLogo(enableLogo1,null,label1,listener1);
-		
+		oks.setCustomerLogo(enableLogo2,null,label2,listener2);
+
 		oks.setShareContentCustomizeCallback(new ShareContentCustomizeCallback() {
 			// 自定义分享的回调想要函数
 			@Override

@@ -18,10 +18,9 @@ dependencies {
     compile('com.android.support:multidex:1.0.1') {
         exclude module: 'support-v4'
     }
-    compile('com.facebook.fresco:drawee:0.11.0')
-            {
-                exclude module: 'support-v4'
-            }
+    compile('com.facebook.fresco:drawee:0.11.0') {
+        exclude module: 'support-v4'
+    }
     compile('com.facebook.fresco:fresco:0.11.0') {
         exclude module: 'support-v4'
     }
@@ -31,8 +30,9 @@ dependencies {
     compile('com.facebook.fresco:imagepipeline:0.11.0') {
         exclude module: 'support-v4'
     }
-    compile 'com.umeng.analytics:analytics:latest.integration'
+    //compile 'com.umeng.analytics:analytics:latest.integration'
     //compile 'com.android.support:support-v4:23.3.0'
+    compile files('libs/umeng-analytics-v5.5.3.jar')
 }
 
 

@@ -29,6 +29,7 @@ import com.uugty.uu.common.share.onekeyshare.OnekeyShare;
 import com.uugty.uu.common.share.onekeyshare.ShareContentCustomizeCallback;
 import com.uugty.uu.entity.RoadLineEntity;
 import com.uugty.uu.entity.Util;
+import com.uugty.uu.friendstask.PublishTalkActivity;
 import com.uugty.uu.map.PublishServicesActivity;
 import com.uugty.uu.util.LogUtils;
 import com.uugty.uu.uuchat.ChatFriendsActivity;
@@ -311,8 +312,21 @@ public class ShopLeftPopupWindow extends PopupWindow implements PlatformActionLi
 				context.startActivity(i);
 			}
 		};
+		Bitmap enableLogo2 = BitmapFactory.decodeResource(context.getResources(), R.drawable.lzh_shareuu);
+		String label2 = "UU圈";
+		OnClickListener listener2 = new OnClickListener() {
+			public void onClick(View v) {
+				Intent i = new Intent();
+				i.putExtra("roadlineId",entity.getRoadlineId());
+				i.putExtra("roadlineImg",entity.getRoadlineBackground());
+				i.putExtra("roadlineTitle",entity.getRoadlineTitle());
+				i.setClass(context,PublishTalkActivity.class);
+				context.startActivity(i);
+			}
+		};
 		oks.setCustomerLogo(enableLogo,null,label,listener);
 		oks.setCustomerLogo(enableLogo1,null,label1,listener1);
+		oks.setCustomerLogo(enableLogo2,null,label2,listener2);
 		oks.setShareContentCustomizeCallback(new ShareContentCustomizeCallback() {
 			// 自定义分享的回调想要函数
 			@Override

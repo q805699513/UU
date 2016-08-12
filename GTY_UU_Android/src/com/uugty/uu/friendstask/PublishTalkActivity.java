@@ -24,6 +24,7 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -87,6 +88,16 @@ public class PublishTalkActivity extends BaseActivity implements
 	private String UserName,UserHead;
 	private SwipeRefreshLayout mSwipeLayout;
 
+	//路线分享
+	private String shareRoadId = ""; //分享的路线ID
+	private String shareRoadTitle = "";//分享的路线标题
+	private String shareRoadImg = "";//分享的路线背景图
+
+	private LinearLayout mGrildLinear;
+	private LinearLayout mShareLinear;
+	private TextView mShareTitle;
+	private SimpleDraweeView mShareImg;
+
 	@Override
 	protected int getContentLayout() {
 		return R.layout.publishtalkactivity_layout;
@@ -113,6 +124,12 @@ public class PublishTalkActivity extends BaseActivity implements
 		publish_content_edt = (EditText) findViewById(R.id.publish_content_edt);
 		publish_send_text = (TextView) findViewById(R.id.publish_send_text);
 		publish_grid = (GridView) findViewById(R.id.publish_grid);
+		//分享
+		mGrildLinear = (LinearLayout) findViewById(R.id.publish_img_linear);
+		mShareLinear = (LinearLayout) findViewById(R.id.road_share_linear);
+		mShareImg  = (SimpleDraweeView) findViewById(R.id.road_image);
+		mShareTitle  = (TextView) findViewById(R.id.road_title);
+
 		adapter = new PublishAdapter(ctx, list);
 		publish_grid.setAdapter(adapter);
 		mSwipeLayout.setColorSchemeResources(R.color.login_text_color,
@@ -212,13 +229,25 @@ public class PublishTalkActivity extends BaseActivity implements
 
 	@Override
 	protected void initData() {
-		// TODO Auto-generated method stub
-		
+		if(null != getIntent()){
+			shareRoadId = getIntent().getStringExtra("roadlineId");
+			shareRoadTitle = getIntent().getStringExtra("roadlineTitle");
+			shareRoadImg = getIntent().getStringExtra("roadlineImg");
+		}
+		if(null != shareRoadId && !shareRoadId.equals("")){
+			mGrildLinear.setVisibility(View.GONE);
+			mShareLinear.setVisibility(View.VISIBLE);
+			mShareImg.setImageURI(Uri.parse(APPRestClient.SERVER_IP + "images/roadlineDescribe/" + shareRoadImg));
+			mShareTitle.setText(shareRoadTitle);
+		}
 	}
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
+		shareRoadId="";
+		shareRoadImg="";
+		shareRoadTitle="";
 		list.clear();
 		ratiolist.clear();
 		finalList.clear();
@@ -330,7 +359,35 @@ public class PublishTalkActivity extends BaseActivity implements
 				}
 				toSendTalk(saidCity, saidContent, saidphoto, ratio);
 			} else {
-				CustomToast.makeText(ctx, 0, "输入不可为空", 500).show();
+				//如果是分享路线的话,输入内容可以为null
+				if(null != shareRoadId && !shareRoadId.equals("")){
+					saidContent = publish_content_edt.getText().toString();// 内容
+
+					if (!current_position.getText().toString().equals("显示地理位置")) { // 位置
+						saidCity = current_position.getText().toString();
+					}
+
+					if (list != null && finalList.size() > 0) { // 图片地址
+						for (int i = 0; i < finalList.size(); i++) {
+							if (i == list.size() - 1) {
+								saidphoto += finalList.get(i);
+							} else {
+								saidphoto += finalList.get(i) + ",";
+
+							}
+						}
+					}
+					for (int i = 0; i < ratiolist.size(); i++) {
+						if (i == ratiolist.size() - 1) {
+							ratio += ratiolist.get(i);
+						} else {
+							ratio += ratiolist.get(i) + ",";
+						}
+					}
+					toSendTalk(saidCity, saidContent, saidphoto, ratio);
+				}else {
+					CustomToast.makeText(ctx, 0, "输入不可为空", 500).show();
+				}
 			}
 			}
 			}
@@ -620,6 +677,9 @@ public class PublishTalkActivity extends BaseActivity implements
 		params.put("saidContent", content);
 		params.put("saidPhoto", photo);
 		params.put("saidPictureRatio", ratio);
+		params.put("shareRoadId",shareRoadId);
+		params.put("shareRoadImg",shareRoadImg);
+		params.put("shareRoadTitle",shareRoadTitle);
 		APPRestClient.post(PublishTalkActivity.this, ServiceCode.SEND_TALK,
 				params, new APPResponseHandler<BaseEntity>(BaseEntity.class,
 						this) {

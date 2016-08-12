@@ -34,6 +34,33 @@ public class DynamicEntity implements Serializable {
 		private String saidIsFreeze;// 是否存在 0 存在 1 未存在
 		private String collectId;// 收藏的ID
 
+		private String shareRoadId; //分享的路线ID
+		private String shareRoadTitle;//分享的路线标题
+		private String shareRoadImg;//分享的路线背景图
+
+		public String getShareRoadTitle() {
+			return shareRoadTitle;
+		}
+
+		public void setShareRoadTitle(String shareRoadTitle) {
+			this.shareRoadTitle = shareRoadTitle;
+		}
+
+		public String getShareRoadId() {
+			return shareRoadId;
+		}
+
+		public void setShareRoadId(String shareRoadId) {
+			this.shareRoadId = shareRoadId;
+		}
+
+		public String getShareRoadImg() {
+			return shareRoadImg;
+		}
+
+		public void setShareRoadImg(String shareRoadImg) {
+			this.shareRoadImg = shareRoadImg;
+		}
 		public String getUserIdValidate() {
 			return userIdValidate;
 		}

@@ -168,7 +168,8 @@ public class ServiceCode {
 	//创建群组
 	public static final String GROUP_CHAT_CREATE="createChatGroup.do";
 	// 发送动态
-	public static final String SEND_TALK="releaseStatus.do";	
+	public static final String SEND_TALK="publishUUDynamic.do";
+//	public static final String SEND_TALK="releaseStatus.do";
 	// 朋友圈
 	public static final String DYNAMIC_DETAILS="dynamicDetails.do";
 	//朋友圈 点赞 

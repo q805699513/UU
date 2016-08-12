@@ -136,13 +136,13 @@
     <orderEntry type="library" exported="" name="ShareSDK-QZone-2.6.6" level="project" />
     <orderEntry type="library" exported="" name="imagepipeline-base-0.11.0" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-Moments-2.6.6" level="project" />
-    <orderEntry type="library" exported="" name="analytics-6.0.1" level="project" />
     <orderEntry type="library" exported="" name="easemobchat_2.2.1" level="project" />
     <orderEntry type="library" exported="" name="alipaySdk-20151112" level="project" />
     <orderEntry type="library" exported="" name="universal-image-loader-1.9.4" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-QQ-2.6.6" level="project" />
     <orderEntry type="library" exported="" name="listviewanimations_lib-core_3.1.0" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="umeng-analytics-v5.5.3" level="project" />
     <orderEntry type="library" exported="" name="MobCommons" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Core-2.6.6" level="project" />
     <orderEntry type="library" exported="" name="org.apache.http.legacy-android-23" level="project" />

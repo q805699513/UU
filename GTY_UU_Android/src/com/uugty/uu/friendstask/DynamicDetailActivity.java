@@ -38,6 +38,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
+import com.uugty.uu.com.find.FindTestViewPagerActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -535,7 +536,14 @@ public class DynamicDetailActivity extends BaseActivity implements
 				holder.dynamic_right_chat_img = (ImageView) view
 						.findViewById(R.id.dynamic_right_chat_img);
 				holder.dynamic_postion_item_lin = (LinearLayout) view
-						.findViewById(R.id.dynamic_postion_item_lin);				
+						.findViewById(R.id.dynamic_postion_item_lin);
+				//分享路线
+				holder.share_road = (LinearLayout) view
+						.findViewById(R.id.dynamic_road_share_linear);
+				holder.road_img = (SimpleDraweeView) view
+						.findViewById(R.id.dynamic_road_image);
+				holder.road_title = (TextView) view
+						.findViewById(R.id.dynamic_road_title);
 				view.setTag(holder);
 			} else {
 				holder = (ViewHolder) view.getTag();
@@ -624,6 +632,31 @@ public class DynamicDetailActivity extends BaseActivity implements
 //				holder.dynamic_praise_text.setText("已赞");
 				holder.dynamic_goodtimes_text.setTextColor(Color
 						.parseColor("#00a1d9"));
+			}
+
+			if(null != ls.get(position).getShareRoadId()
+					&& !ls.get(position).getShareRoadId().equals("0")){
+				holder.share_road.setVisibility(View.VISIBLE);
+				if(ls.get(position).getSaidContent().equals("")){
+					holder.dynamic_content_text.setVisibility(View.GONE);
+				}else{
+					holder.dynamic_content_text.setVisibility(View.VISIBLE);
+				}
+				holder.road_img.setImageURI(Uri.parse(APPRestClient.SERVER_IP+ "images/roadlineDescribe/"
+						+ ls.get(position).getShareRoadImg()));
+				holder.road_title.setText(ls.get(position).getShareRoadTitle());
+				holder.share_road.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						Intent i = new Intent();
+						i.putExtra("roadId",ls.get(position).getShareRoadId());
+						i.setClass(ctx, FindTestViewPagerActivity.class);
+						startActivity(i);
+					}
+				});
+			}else{
+				holder.dynamic_content_text.setVisibility(View.VISIBLE);
+				holder.share_road.setVisibility(View.GONE);
 			}
 
 			if (null != ls.get(position).getUserAvatar() // 用户头像
@@ -957,11 +990,11 @@ public class DynamicDetailActivity extends BaseActivity implements
 			TextView username, dynamic_browse_text, dynamic_content_text,
 					dynamic_createtimes, dynamic_comments_text,
 					dynamic_goodtimes_text, dynamic_praise_text,
-					dynamic_position_item_text;
-			SimpleDraweeView userheand, dynamic_img_gridview_oneimg;
+					dynamic_position_item_text,road_title;
+			SimpleDraweeView userheand, dynamic_img_gridview_oneimg,road_img;
 
 			LinearLayout dynamic_photo_show, dynamic_right_menu_lin,
-					dynamic_delete_rel, dynamic_browse_rel,
+					dynamic_delete_rel, dynamic_browse_rel,share_road,
 					dynamic_friend_comments_lin, dynamic_praise_rel,dynamic_postion_item_lin;
 			JoyGridView dynamic_img_grid;
 			ImageView dynamic_title_V, dynamic_praise_state_img,
