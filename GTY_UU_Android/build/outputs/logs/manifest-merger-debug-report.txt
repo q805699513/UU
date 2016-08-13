@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:2:1-1019:12
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:2:1-1047:12
 	package
 		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:3:5-27
 		INJECTED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml
@@ -184,7 +184,7 @@ ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:77:
 	android:name
 		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:77:22-77
 application
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:80:5-1017:19
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:80:5-1045:19
 MERGED from [:design-release:] /Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/design-release/AndroidManifest.xml:22:5-20
 MERGED from [:appcompat_v7-release:] /Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/AndroidManifest.xml:22:5-20
 	android:label
@@ -350,7 +350,7 @@ ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:183
 	android:screenOrientation
 		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:185:13-49
 	android:theme
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:186:13-52
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:186:13-47
 	android:name
 		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:184:13-47
 activity#com.uugty.uu.main.MainActivity
@@ -1307,191 +1307,231 @@ ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:861
 		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:865:13-54
 	android:name
 		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:862:13-60
-meta-data#UMENG_APPKEY
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:868:9-871:21
-	android:value
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:870:13-53
-	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:869:13-40
-meta-data#UMENG_CHANNEL
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:892:9-895:21
-	android:value
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:894:13-32
-	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:893:13-41
-activity#com.alipay.sdk.app.H5PayActivity
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:913:9-919:20
+activity#com.uugty.uu.com.rightview.alipaywallet.WithDrawDetailActivity
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:869:9-874:20
 	android:screenOrientation
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:917:13-47
-	android:exported
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:916:13-37
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:872:13-49
 	android:windowSoftInputMode
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:918:13-67
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:873:13-52
 	android:configChanges
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:915:13-74
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:871:13-74
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:914:13-60
-activity#cn.jpush.android.ui.PushActivity
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:924:9-934:20
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:870:13-78
+activity#com.uugty.uu.com.rightview.alipaywallet.AddAliPayActivity
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:876:9-881:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:879:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:880:13-52
+	android:configChanges
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:878:13-74
+	android:name
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:877:13-73
+activity#com.uugty.uu.com.rightview.alipaywallet.AddWithDrawActivity
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:883:9-888:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:886:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:887:13-52
+	android:configChanges
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:885:13-74
+	android:name
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:884:13-75
+activity#com.uugty.uu.com.rightview.alipaywallet.VerifyAliPayActivity
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:890:9-895:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:893:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:894:13-52
+	android:configChanges
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:892:13-74
+	android:name
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:891:13-76
+meta-data#UMENG_APPKEY
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:896:9-899:21
+	android:value
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:898:13-53
+	android:name
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:897:13-40
+meta-data#UMENG_CHANNEL
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:920:9-923:21
+	android:value
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:922:13-32
+	android:name
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:921:13-41
+activity#com.alipay.sdk.app.H5PayActivity
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:941:9-947:20
+	android:screenOrientation
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:945:13-47
 	android:exported
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:928:13-37
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:944:13-37
+	android:windowSoftInputMode
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:946:13-67
 	android:configChanges
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:926:13-63
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:943:13-74
+	android:name
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:942:13-60
+activity#cn.jpush.android.ui.PushActivity
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:952:9-962:20
+	android:exported
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:956:13-37
+	android:configChanges
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:954:13-63
 	android:theme
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:927:13-60
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:955:13-60
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:925:13-60
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:953:13-60
 intent-filter#${applicationId}+android.intent.category.DEFAULT+cn.jpush.android.ui.PushActivity
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:929:13-933:29
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:957:13-961:29
 action#cn.jpush.android.ui.PushActivity
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:930:17-75
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:958:17-75
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:930:25-72
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:958:25-72
 category#${applicationId}
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:932:17-61
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:960:17-61
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:932:27-58
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:960:27-58
 		INJECTED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml
 		INJECTED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml
 		INJECTED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml
 		INJECTED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml
 service#cn.jpush.android.service.DownloadService
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:936:9-940:19
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:964:9-968:19
 	android:enabled
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:938:13-35
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:966:13-35
 	android:exported
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:939:13-37
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:967:13-37
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:937:13-68
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:965:13-68
 service#cn.jpush.android.service.PushService
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:945:9-955:19
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:973:9-983:19
 	android:enabled
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:947:13-35
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:975:13-35
 	android:exported
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:948:13-37
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:976:13-37
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:946:13-64
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:974:13-64
 intent-filter#cn.jpush.android.intent.PUSH_TIME+cn.jpush.android.intent.PushService+cn.jpush.android.intent.REGISTER+cn.jpush.android.intent.REPORT
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:949:13-954:29
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:977:13-982:29
 action#cn.jpush.android.intent.REGISTER
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:950:17-75
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:978:17-75
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:950:25-72
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:978:25-72
 action#cn.jpush.android.intent.REPORT
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:951:17-73
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:979:17-73
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:951:25-70
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:979:25-70
 action#cn.jpush.android.intent.PushService
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:952:17-78
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:980:17-78
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:952:25-75
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:980:25-75
 action#cn.jpush.android.intent.PUSH_TIME
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:953:17-76
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:981:17-76
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:953:25-73
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:981:25-73
 service#cn.jpush.android.service.DaemonService
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:959:9-968:19
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:987:9-996:19
 	android:enabled
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:961:13-35
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:989:13-35
 	android:exported
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:962:13-36
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:990:13-36
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:960:13-66
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:988:13-66
 intent-filter#${applicationId}+cn.jpush.android.intent.DaemonService
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:963:13-966:29
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:991:13-994:29
 action#cn.jpush.android.intent.DaemonService
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:964:17-80
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:992:17-80
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:964:25-77
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:992:25-77
 receiver#cn.jpush.android.service.PushReceiver
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:971:9-990:20
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:999:9-1018:20
 	android:enabled
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:973:13-35
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1001:13-35
 	android:exported
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:974:13-37
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1002:13-37
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:972:13-65
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1000:13-65
 intent-filter#${applicationId}+cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:975:13-978:29
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1003:13-1006:29
 	android:priority
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:975:28-51
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1003:28-51
 action#cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:976:17-94
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1004:17-94
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:976:25-91
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1004:25-91
 intent-filter#android.intent.action.USER_PRESENT+android.net.conn.CONNECTIVITY_CHANGE
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:979:13-982:29
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1007:13-1010:29
 action#android.intent.action.USER_PRESENT
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:980:17-77
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1008:17-77
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:980:25-74
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1008:25-74
 action#android.net.conn.CONNECTIVITY_CHANGE
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:981:17-79
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1009:17-79
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:981:25-76
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1009:25-76
 intent-filter#android.intent.action.PACKAGE_ADDED+android.intent.action.PACKAGE_REMOVED
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:984:13-988:29
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1012:13-1016:29
 action#android.intent.action.PACKAGE_ADDED
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:985:17-78
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1013:17-78
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:985:25-75
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1013:25-75
 action#android.intent.action.PACKAGE_REMOVED
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:986:17-80
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1014:17-80
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:986:25-77
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1014:25-77
 receiver#cn.jpush.android.service.AlarmReceiver
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:993:9-99
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1021:9-99
 	android:exported
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:993:73-97
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1021:73-97
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:993:19-72
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1021:19-72
 receiver#com.uugty.uu.push.PushReceiver
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:996:9-1010:20
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1024:9-1038:20
 	android:enabled
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:999:13-35
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1027:13-35
 	android:exported
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:998:13-37
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1026:13-37
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:997:13-58
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1025:13-58
 intent-filter#${applicationId}+cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK+cn.jpush.android.intent.CONNECTION+cn.jpush.android.intent.MESSAGE_RECEIVED+cn.jpush.android.intent.NOTIFICATION_OPENED+cn.jpush.android.intent.NOTIFICATION_RECEIVED+cn.jpush.android.intent.REGISTRATION+cn.jpush.android.intent.UNREGISTRATION
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1000:13-1009:29
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1028:13-1037:29
 action#cn.jpush.android.intent.REGISTRATION
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1001:17-79
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1029:17-79
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1001:25-76
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1029:25-76
 action#cn.jpush.android.intent.UNREGISTRATION
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1002:17-81
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1030:17-81
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1002:25-78
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1030:25-78
 action#cn.jpush.android.intent.MESSAGE_RECEIVED
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1003:17-83
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1031:17-83
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1003:25-80
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1031:25-80
 action#cn.jpush.android.intent.NOTIFICATION_RECEIVED
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1004:17-88
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1032:17-88
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1004:25-85
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1032:25-85
 action#cn.jpush.android.intent.NOTIFICATION_OPENED
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1005:17-86
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1033:17-86
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1005:25-83
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1033:25-83
 action#cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1006:17-91
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1034:17-91
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1006:25-88
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1034:25-88
 action#cn.jpush.android.intent.CONNECTION
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1007:17-77
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1035:17-77
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1007:25-74
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1035:25-74
 meta-data#JPUSH_CHANNEL
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1014:9-84
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1042:9-84
 	android:value
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1014:49-82
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1042:49-82
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1014:20-48
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1042:20-48
 meta-data#JPUSH_APPKEY
-ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1015:9-91
+ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1043:9-91
 	android:value
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1015:48-88
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1043:48-88
 	android:name
-		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1015:20-47
+		ADDED from /Users/libertyair/workspace/UU/GTY_UU_Android/AndroidManifest.xml:1043:20-47

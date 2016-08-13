@@ -28,6 +28,7 @@
             android:id="@+id/iv_imgImg_left"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginRight="12dp"

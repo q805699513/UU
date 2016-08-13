@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
@@ -96,7 +97,11 @@ public class MyPriceActivity extends BaseActivity implements OnClickListener {
 			break;
 		// 提现
 		case R.id.price_withdraw_cash:
-			getCardListRequest();
+			Intent intent = new Intent();
+			intent.setClass(MyPriceActivity.this,
+					WithdrawcashActivity.class);
+			startActivity(intent);
+//			getCardListRequest();
 			break;
 		case R.id.container_more:
 			RightMenuPopupWindow mLifeHallWindow = new RightMenuPopupWindow(
@@ -171,14 +176,14 @@ public class MyPriceActivity extends BaseActivity implements OnClickListener {
 						Intent intent = new Intent();
 						if (result.getLIST().size() > 0) {
 							// 跳转银行卡列表
-							intent.putExtra("type", "cash");
-							intent.setClass(MyPriceActivity.this,
-									BankcardActivity.class);
-						} else {
-							intent.putExtra("type", "cash");
-							intent.setClass(MyPriceActivity.this,
-									ChooseBankActivity.class);
+//							intent.putExtra("type", "cash");
+							intent.putExtra("list","1");
+						}else {
+							intent.putExtra("list","0");
 						}
+
+						intent.setClass(MyPriceActivity.this,
+								WithdrawcashActivity.class);
 						startActivity(intent);
 					}
 

@@ -2,8 +2,6 @@ package com.uugty.uu.entity;
 
 import java.util.List;
 
-import com.uugty.uu.entity.MapUserEntity.MapUser;
-
 public class BoundBankEntity {
 
 	private String MSG;
@@ -18,6 +16,14 @@ public class BoundBankEntity {
 		private String bankCardType; //所属哪行
 		private String bankIsDefault; //是否是默认提现银行卡号 1 是 ，0 否
 		private String bankBoundDate; //银行绑定的日期
+		private String bankOwner;//开户人姓名
+		public String getBankOwner() {
+			return bankOwner;
+		}
+
+		public void setBankOwner(String bankOwner) {
+			this.bankOwner = bankOwner;
+		}
 		public String getBankId() {
 			return bankId;
 		}

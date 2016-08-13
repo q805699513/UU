@@ -274,4 +274,8 @@ public class ServiceCode {
 	public static final String  DELETE_FRIENDS="deleteFriend.do";
 	//删除联系人
 	public static final String DELETE_CONTACT="deleteContact.do";
+	//设置默认提现账号
+	public static final String SET_DEFAULT_ACCOUNT="updateBankIsDefault.do";
+	//修改银行卡
+	public static final String USER_UPDATE_BANK_CARD = "updateBankCard.do";
 }

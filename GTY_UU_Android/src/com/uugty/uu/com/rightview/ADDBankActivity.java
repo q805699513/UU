@@ -2,7 +2,6 @@ package com.uugty.uu.com.rightview;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.text.Editable;
 import android.text.Selection;
 import android.text.TextWatcher;
@@ -18,26 +17,19 @@ import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.dialog.CustomDialog;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.entity.BankCardEntity;
-import com.uugty.uu.entity.BoundBankEntity;
-import com.uugty.uu.entity.BoundBankEntity.BankCardInfo;
-
-import java.util.List;
 
 public class ADDBankActivity extends BaseActivity implements OnClickListener {
 
-//	private SimpleDraweeView defaultImage;
 	private EditText nameEditText, cardNumEditText;
 	private Button commitBtn;
 	private String bankType = "", fromType = "";
-//	private LinearLayout defaultLin;
-	private int count = 0;
 	private String name = "", cardNo = "";
+	private String bankId="";
 	private LinearLayout right_back_add;
-	// 银行卡卡号列表
-	private List<BankCardInfo> arryList;
 
 	protected int getContentLayout() {
 
@@ -49,16 +41,32 @@ public class ADDBankActivity extends BaseActivity implements OnClickListener {
 		if (null != getIntent()) {
 			bankType = getIntent().getStringExtra("bankType");
 			fromType = getIntent().getStringExtra("type");
+			if(null != getIntent().getStringExtra("number")) {
+				name = getIntent().getStringExtra("name");
+				cardNo = getIntent().getStringExtra("number");
+				bankId = getIntent().getStringExtra("bankId");
+			}
 		}
 		right_back_add = (LinearLayout) findViewById(R.id.tabar_back);
 		nameEditText = (EditText) findViewById(R.id.add_bank_card_user_edit);
 		cardNumEditText = (EditText) findViewById(R.id.add_bank_card_num_edit);
 		commitBtn = (Button) findViewById(R.id.add_card_btn);
-//		defaultLin = (LinearLayout) findViewById(R.id.add_bank_card_default_lin);
-//		defaultImage = (SimpleDraweeView) findViewById(R.id.add_bank_card_default);
 		commitBtn.setEnabled(false);
 		bankCardNumAddSpace(cardNumEditText);
+		if(!name.equals("")){
+			nameEditText.setText(name);
+			cardNumEditText.setText(cardNo);
+		}
 
+		if (!name.equals("") && !cardNo.equals("")) {
+			commitBtn
+					.setBackgroundResource(R.drawable.price_drawcash_btn_bg);
+			commitBtn.setEnabled(true);
+		} else {
+			commitBtn
+					.setBackgroundResource(R.drawable.wallet_commit_bg_shape);
+			commitBtn.setEnabled(false);
+		}
 	}
 
 	@Override
@@ -66,21 +74,16 @@ public class ADDBankActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		right_back_add.setOnClickListener(this);
 		commitBtn.setOnClickListener(this);
-//		defaultLin.setOnClickListener(this);
 		nameEditText.addTextChangedListener(new TextWatcher() {
 
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before,
 					int count) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
@@ -105,21 +108,15 @@ public class ADDBankActivity extends BaseActivity implements OnClickListener {
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before,
 					int count) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void afterTextChanged(Editable s) {
-				// TODO Auto-generated method stub
-
 				cardNo = s.toString();
 				if (!name.equals("") && !cardNo.equals("")) {
 					commitBtn
@@ -136,8 +133,6 @@ public class ADDBankActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void initData() {
-		// TODO Auto-generated method stub
-		selectCardNo();
 	}
 
 	@Override
@@ -161,27 +156,36 @@ public class ADDBankActivity extends BaseActivity implements OnClickListener {
 		case R.id.add_card_btn:
 			if (cardNumEditText.getText().toString().trim().length() < 19) {
 				CustomToast.makeText(ctx, 0, "卡号不能少于16位", 300).show();
-			} else if (null != arryList && arryList.size() > 0) {
-				// 对比银行卡号，若相同则提示
-				if (!completeCardNo(cardNumEditText.getText().toString().trim())) {
-					sendRequest();
-				} else {
-					CustomToast.makeText(ctx, 0, "该卡号已经绑定过", 300).show();
-				}
 			} else {
-				sendRequest();
+				CustomDialog.Builder builder1 = new CustomDialog.Builder(
+						ctx);
+				builder1.setMessage("提交前请仔细核对,以免造成不必要的损失.");
+				builder1.setRelationShip(true);
+				builder1.setPositiveButton("确认",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+												int which) {
+								if(!bankId.equals("")){
+									updateRequest();
+								}else {
+									sendRequest();
+								}
+								dialog.dismiss();
+							}
+						});
+
+				builder1.setNegativeButton(
+						"取消",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+												int which) {
+								dialog.dismiss();
+							}
+						});
+
+				builder1.create().show();
 			}
 			break;
-//		case R.id.add_bank_card_default_lin:
-//			count++;
-//			if (count % 2 > 0) {
-//				defaultImage.setImageURI(Uri.parse("res///"+R.drawable.route_tianxia));
-//			} else {
-//				defaultImage.setImageURI(Uri.parse("res///"+R.drawable.route_tianxia1));
-//			}
-//
-//			break;
-
 		default:
 			break;
 		}
@@ -191,16 +195,9 @@ public class ADDBankActivity extends BaseActivity implements OnClickListener {
 		RequestParams params = new RequestParams();
 		params.add("bankCard", cardNumEditText.getText().toString().trim());// 银行卡号
 		params.add("bankCardType", bankType);// 提现银行卡号的所属银行
-		if (count % 2 > 0) {
-			params.add("bankIsDefault", "0");// 是否是默认提现银行卡号 1 是 ，0 否
-		} else {
-			params.add("bankIsDefault", "1");// 是否是默认提现银行卡号 1 是 ，0 否
-		}
-		params.add("bankOwner", nameEditText.getText().toString().trim());// 是否是默认提现银行卡号
-																			// 1
-																			// 是
-																			// ，0
-																			// 否
+
+		params.add("bankIsDefault", "1");// 是否是默认提现银行卡号 1 是 ，0 否
+		params.add("bankOwner", nameEditText.getText().toString().trim());
 		APPRestClient.post(this, APPRestClient.HTTPS_BASE_URL
 				+ ServiceCode.USER_BOUND_BANK_CARD, params, true,
 				new APPResponseHandler<BankCardEntity>(BankCardEntity.class,
@@ -209,22 +206,10 @@ public class ADDBankActivity extends BaseActivity implements OnClickListener {
 					public void onSuccess(BankCardEntity result) {
 						ActivityCollector
 								.removeSpecifiedActivity("com.uugty.uu.com.rightview.ChooseBankActivity");
-						Intent intent = new Intent();
-						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-						if (null != fromType && fromType.equals("cash")) {
-							intent.putExtra("cardId", result.getOBJECT()
-									.getBankId());
-							intent.putExtra("cardNo", cardNumEditText.getText()
-									.toString().trim());
-							intent.putExtra("bankType",
-									chooseBankName(Integer.valueOf(bankType)));
-							intent.setClass(ADDBankActivity.this,
-									WithdrawcashActivity.class);
-							startActivity(intent);
-						}else{
-
+						ActivityCollector
+								.removeSpecifiedActivity("com.uugty.uu.com.rightview.alipaywallet.AddWithDrawActivity");
 							finish();
-						}
+
 					}
 
 					@Override
@@ -258,41 +243,47 @@ public class ADDBankActivity extends BaseActivity implements OnClickListener {
 
 	}
 
-	private void selectCardNo() {
+	private void updateRequest() {
 		RequestParams params = new RequestParams();
-
-		APPRestClient.post(this, ServiceCode.USER_BOUND_BANK_CARDLIST, params,
-				new APPResponseHandler<BoundBankEntity>(BoundBankEntity.class,
+		params.add("bankCard", cardNumEditText.getText().toString().trim());// 银行卡号
+		params.add("bankId",bankId);
+		params.add("bankOwner", nameEditText.getText().toString().trim());
+		APPRestClient.post(this, APPRestClient.HTTPS_BASE_URL
+						+ ServiceCode.USER_UPDATE_BANK_CARD, params, true,
+				new APPResponseHandler<BankCardEntity>(BankCardEntity.class,
 						this) {
 					@Override
-					public void onSuccess(BoundBankEntity result) {
-						if (result.getLIST().size() > 0) {
-							arryList = result.getLIST();
-						}
+					public void onSuccess(BankCardEntity result) {
+						ActivityCollector
+								.removeSpecifiedActivity("com.uugty.uu.com.rightview.ChooseBankActivity");
+						ActivityCollector
+								.removeSpecifiedActivity("com.uugty.uu.com.rightview.alipaywallet.AddWithDrawActivity");
+						finish();
+
 					}
 
 					@Override
 					public void onFailure(int errorCode, String errorMsg) {
 						if (errorCode == 3) {
-							selectCardNo();
+							updateRequest();
 						} else {
-						CustomToast.makeText(ctx, 0, errorMsg, 300).show();
-						if (errorCode == -999) {
-							new AlertDialog.Builder(ADDBankActivity.this)
-									.setTitle("提示")
-									.setMessage("网络拥堵,请稍后重试！")
-									.setPositiveButton(
-											"确定",
-											new DialogInterface.OnClickListener() {
-												@Override
-												public void onClick(
-														DialogInterface dialog,
-														int which) {
-													dialog.dismiss();
-												}
-											}).show();
-						}
-					}}
+							CustomToast.makeText(ctx, 0, errorMsg, 300).show();
+							if (errorCode == -999) {
+								new AlertDialog.Builder(ADDBankActivity.this)
+										.setTitle("提示")
+										.setMessage("网络拥堵,请稍后重试！")
+										.setPositiveButton(
+												"确定",
+												new DialogInterface.OnClickListener() {
+													@Override
+													public void onClick(
+															DialogInterface dialog,
+															int which) {
+														dialog.dismiss();
+													}
+												}).show();
+							}
+						}}
 
 					@Override
 					public void onFinish() {
@@ -324,21 +315,15 @@ public class ADDBankActivity extends BaseActivity implements OnClickListener {
 			name = "中国招商银行";
 			break;
 		case 7:
-			name = "中国广大银行";
+			name = "中国光大银行";
+			break;
+		case 8:
+			name = "支付宝";
 			break;
 		default:
 			break;
 		}
 		return name;
-	}
-
-	public boolean completeCardNo(String cardNo) {
-		for (int i = 0; i < arryList.size(); i++) {
-			if (cardNo.equals(arryList.get(i).getBankCard().trim())) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**

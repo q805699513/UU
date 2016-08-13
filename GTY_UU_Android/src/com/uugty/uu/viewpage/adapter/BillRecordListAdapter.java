@@ -1,6 +1,5 @@
 package com.uugty.uu.viewpage.adapter;
 
-import java.util.List;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.uugty.uu.R;
-import com.uugty.uu.R.drawable;
 import com.uugty.uu.entity.BillRecordEntity.BillRecord;
+
+import java.util.List;
 
 public class BillRecordListAdapter extends BaseAdapter {
 
@@ -84,49 +85,6 @@ public class BillRecordListAdapter extends BaseAdapter {
 		LinearLayout bill_record_list_item_linear;
 	}
 
-	public int chooseImage(String type) {
-		Class<drawable> cls = R.drawable.class;
-		int imageRes = 0;
-		try {
-			if (type.equals("order_wx_send"))
-				imageRes = cls.getDeclaredField("bill_record_payment").getInt(
-						null);
-			if (type.equals("order_purse_send"))
-				imageRes = cls.getDeclaredField("bill_record_payment").getInt(
-						null);
-			if (type.equals("order_receive"))
-				imageRes = cls.getDeclaredField("bill_record_order").getInt(
-						null);
-			if (type.equals("gratuity_wx_send"))
-				imageRes = cls.getDeclaredField("bill_record_tip").getInt(
-						null);
-			if (type.equals("gratuity_purse_send"))
-				imageRes = cls.getDeclaredField("bill_record_tip").getInt(
-						null);
-			if (type.equals("gratuity_receive"))
-				imageRes = cls.getDeclaredField("bill_record_tip").getInt(
-						null);
-			if (type.equals("widthdraw"))
-				imageRes = cls.getDeclaredField("bill_record_drawal").getInt(
-						null);
-			if (type.equals("recharge"))
-				imageRes = cls.getDeclaredField("bill_record_recharge").getInt(
-						null);
-			if (type.equals("drawback_outcome"))
-				imageRes = cls.getDeclaredField("bill_record_refund").getInt(
-						null);
-			if (type.equals("drawback_income"))
-				imageRes = cls.getDeclaredField("bill_record_refund").getInt(
-						null);
-			if (type.equals("penalty"))
-				imageRes = cls.getDeclaredField("bill_record_order").getInt(
-						null);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return imageRes;
-	}
-
 	public String chooseStauts(int num) {
 		String name = "";
 		switch (num) {
@@ -169,7 +127,7 @@ public class BillRecordListAdapter extends BaseAdapter {
 			name = "退款支付";
 		if (type.equals("drawback_income"))
 			name = "退款收入";
-		if (type.equals("penalty "))
+		if (type.equals("penalty"))
 			name = "违约金";
 		return name;
 	}

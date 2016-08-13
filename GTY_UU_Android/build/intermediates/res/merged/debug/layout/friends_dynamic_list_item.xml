@@ -101,7 +101,39 @@
         android:lineSpacingExtra="5dp"
         android:textColor="#666666"
         android:textSize="14sp" />
+    <LinearLayout
+        android:id="@+id/dynamic_road_share_linear"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="18dp"
+        android:background="#f5f5f5"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
 
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dynamic_road_image"
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            fresco:failureImageScaleType="fitCenter"
+            fresco:placeholderImage="@drawable/app_icon"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:viewAspectRatio="1.0" />
+
+        <TextView
+            android:id="@+id/dynamic_road_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="目的地目的地目的地目的地目的地目的地"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/dynamic_photo_show"
         android:layout_width="match_parent"
@@ -110,7 +142,7 @@
         android:layout_marginRight="12dp"
         android:layout_marginTop="12dp"
         android:minHeight="110dp"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/dynamic_img_gridview_oneimg"
@@ -135,6 +167,7 @@
                 android:verticalSpacing="2dp" >
             </com.uugty.uu.common.myview.JoyGridView>
     </LinearLayout>
+
 	<LinearLayout 
 	    android:id="@+id/dynamic_postion_item_lin"
 	    android:layout_width="match_parent"

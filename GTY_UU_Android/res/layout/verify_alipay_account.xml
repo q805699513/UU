@@ -45,6 +45,7 @@
             android:background="@drawable/vip_pay_sucess_image"/>
 
         <TextView
+            android:id="@+id/verify_alipaynumber"
             android:layout_marginLeft="15dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -87,7 +88,6 @@
             android:textColorHint="#e5e5e5"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:numeric="integer"
             android:maxLength="23"
             android:maxLines="1"/>
 

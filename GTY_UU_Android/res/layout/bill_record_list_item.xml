@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:text="充值"
-                android:textColor="#565a5c"
+                android:textColor="#000000"
                 android:textSize="15sp" />
 
             <TextView
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/bill_record_trade"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:text="13:14"
                 android:textColor="#98999a"
                 android:textSize="12sp" />
@@ -51,17 +51,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|right"
                 android:text="100.00"
-                android:textColor="#565a5c"
-                android:textSize="16sp" />
+                android:textColor="#000000"
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/bill_record_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:layout_gravity="center_vertical|right"
                 android:text="100.00"
                 android:textColor="#98999a"
-                android:textSize="14sp" />
+                android:textSize="11sp" />
         </LinearLayout>
     </RelativeLayout>
 

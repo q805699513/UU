@@ -37,12 +37,17 @@
             android:text="提现"
             android:textColor="@color/black"
             android:textSize="18sp" />
-        <View 
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#e5e5e5"
-            android:layout_alignParentBottom="true"
-            />
+
+		<TextView
+			android:id="@+id/withdraw_detail"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:layout_marginRight="13dp"
+			android:text="提现说明"
+			android:textColor="@color/black"
+			android:textSize="15sp" />
     </RelativeLayout>
 	<RelativeLayout
 	    android:background="#ffffff"
@@ -57,8 +62,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+			android:textSize="15sp"
             android:text="可提现金额"
-            android:textColor="#565a5c" />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/with_Draw_Money"
@@ -66,49 +72,101 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:text="800元"
             android:textSize="20sp"
             android:textColor="#00a1d9" />
     </RelativeLayout>
-      <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:background="#e5e5e5" />
 	
     <RelativeLayout
         android:background="#ffffff"
         android:id="@+id/widthdraw_cash_way_rel"
+		android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="76dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp" >
 
-        <TextView
-            android:id="@+id/widthdraw_cash_bank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="支付方式"
-            android:textColor="#565a5c" />
+		<LinearLayout
+			android:id="@+id/linear_account"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:visibility="gone">
 
-        <ImageView
+			<TextView
+				android:id="@+id/bank_type"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="15dp"
+				android:textSize="15sp"
+				android:textColor="#000000"
+				android:text="支付宝"/>
+
+			<TextView
+				android:id="@+id/account_number"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="15dp"
+				android:textSize="15sp"
+				android:textColor="#000000"
+				android:text="123456789"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/linear_noaccount"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:visibility="gone">
+			<ImageView
+				android:id="@+id/withdraw_img"
+				android:layout_width="16dp"
+				android:layout_height="16dp"
+				android:layout_gravity="center"
+				android:layout_marginLeft="29dp"
+				android:src="@drawable/lzh_addwithdraw"/>
+
+			<TextView
+				android:layout_marginLeft="9dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="15dp"
+				android:textColor="#000000"
+				android:text="添加提现账号"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/linear_nodefaultaccount"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true">
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginLeft="29dp"
+				android:src="@drawable/lzh_addwithdraw"/>
+
+			<TextView
+				android:layout_marginLeft="9dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="15dp"
+				android:textColor="#000000"
+				android:text="请选择账号"/>
+
+		</LinearLayout>
+
+		<ImageView
             android:id="@+id/wechat_price_monery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:src="@drawable/person_compile_enter"
-            android:textColor="#98999a" />
+			/>
 
-        <TextView
-            android:id="@+id/widthdraw_cash_card_no"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/wechat_price_monery"
-            android:text="添加支付方式" />
     </RelativeLayout>
 
     <TextView
@@ -131,8 +189,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="金额(￥)"
-            android:textColor="#565a5c" />
+            android:text="提现金额"
+            android:textColor="#000000" />
 
         <EditText
             android:id="@+id/recharge_price_detail"
@@ -170,28 +228,7 @@
         android:text="确定"
         android:textColor="@drawable/wallet_commit_bg_selector"
         android:enabled="false" />
-	<TextView 
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:text="提示："
-	    android:textSize="14sp"
-	    android:textColor="#00a1d9"
-	    android:layout_marginLeft="12dp"
-	    android:layout_marginTop="24dp"
-	    />
-	<TextView 
-	    android:layout_marginBottom="20dp"
-	    android:layout_marginLeft="12dp"
-	    android:layout_marginRight="12dp"
-	    android:layout_marginTop="14dp"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:textColor="#98999a"
-	    android:textSize="12sp"
-	    android:lineSpacingExtra="5dp"
-	    android:text="您的可提现金额可能会小于您的钱包零钱。\n原因如下：\n\n1. 未完成的服务的订单，收入不可提现；\n2. u客发起退款申请的订单，收入不可提现（u客取消退款， 或小u同意退款才能结算并提现）；\n3. 已完成订单，T+1日可发起提现；\n4. 红包收入，T+0可发起提现；\n5. 退款收入，T+0可发起提现。\n\n发起提现后，您在uu客钱包账户绑定的银行卡，将会在三个工作日内收到您提现的款项。如您需要人工帮助请致电400-600-8669转5
-	    "
-	    />
+
 </LinearLayout>
 </ScrollView>
 </LinearLayout>

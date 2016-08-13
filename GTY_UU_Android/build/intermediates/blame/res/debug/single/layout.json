@@ -1,47 +1,47 @@
 [
     {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/uu_forget.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/uu_forget.xml"
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/activity_services_guide.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/activity_services_guide.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/person_info_text.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/person_info_text.xml"
     },
     {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/activity_services_guide.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/activity_services_guide.xml"
-    },
-    {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/activity_chat.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/activity_chat.xml"
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/uu_forget.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/uu_forget.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/person_profession.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/person_profession.xml"
     },
     {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/layout_snackbar.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/design-release/res/layout/layout_snackbar.xml"
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/activity_chat.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/activity_chat.xml"
     },
     {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/fragment_main.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/fragment_main.xml"
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/layout_snackbar.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/design-release/res/layout/layout_snackbar.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/person_language.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/person_language.xml"
     },
     {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/layout/notification_media_cancel_action.xml"
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/fragment_main.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/fragment_main.xml"
+    },
+    {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/fragment_one.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/fragment_one.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/right_pop_bill_detail.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/right_pop_bill_detail.xml"
     },
     {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/fragment_one.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/fragment_one.xml"
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/layout/notification_media_cancel_action.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/map_circul_head_iamge.xml",
@@ -116,12 +116,12 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/right_pop_add.xml"
     },
     {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/design-release/res/layout/design_navigation_menu.xml"
-    },
-    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/layout/abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/design-release/res/layout/design_navigation_menu.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/abc_simple_dropdown_hint.xml",
@@ -300,6 +300,10 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/shop_popup_window.xml"
     },
     {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/add_withdraw_account.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/add_withdraw_account.xml"
+    },
+    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/activity_carrydetail.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/activity_carrydetail.xml"
     },
@@ -396,6 +400,10 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/persondate_photo_item.xml"
     },
     {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/detail_withdrawcash.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/detail_withdrawcash.xml"
+    },
+    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
@@ -458,6 +466,10 @@
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/uu_chatgridimg.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/uu_chatgridimg.xml"
+    },
+    {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/uuchat_shareroad_left.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/uuchat_shareroad_left.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/dropdown_lv_head.xml",
@@ -606,6 +618,10 @@
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/tourist_card_list_item_layout.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/tourist_card_list_item_layout.xml"
+    },
+    {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/verify_alipay_account.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/verify_alipay_account.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/grid_item.xml",
@@ -1148,6 +1164,10 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/home_city_griditem.xml"
     },
     {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/add_alipay_account.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/add_alipay_account.xml"
+    },
+    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/activity_set_help.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/activity_set_help.xml"
     },
@@ -1290,6 +1310,10 @@
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/activity_orderpay.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/activity_orderpay.xml"
+    },
+    {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/uuchat_shareroad_right.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/layout/uuchat_shareroad_right.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/layout/text_circle_iamge.xml",
