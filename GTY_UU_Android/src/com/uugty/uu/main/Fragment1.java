@@ -307,7 +307,7 @@ public class Fragment1 extends Fragment implements
 //		recommendLin.setOnClickListener(this);
 
 		loadData(1);
-		getThemeRecommend();
+//		getThemeRecommend();
 		getPlayAndBuyTag();
 
 	}
@@ -499,6 +499,7 @@ public class Fragment1 extends Fragment implements
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+		getThemeRecommend();
 		if (y > 0) {
 			TranslateAnimation animation = new TranslateAnimation(0, 0, -y, 0);
 			animation.setDuration(200);
@@ -715,7 +716,7 @@ public class Fragment1 extends Fragment implements
 				location_text.setText(themeCity);
 				startId=1;
 				loadData(1);
-				getThemeRecommend();
+//				getThemeRecommend();
 				// adapter.notifyDataSetChanged();
 				mListView.setSelection(0);
 				break;
@@ -779,9 +780,6 @@ class FragmentOneListViewAdapter extends ArrayAdapter {
 					.findViewById(R.id.recmmend_road_title_text);
 			holder.roadOrderNumText = (TextView) convertView
 					.findViewById(R.id.recmmend_road_order_num_text);
-			holder.chuxing = (TextView) convertView
-					.findViewById(R.id.main_text_chuxing);
-			holder.view1 = (View) convertView.findViewById(R.id.main_view_chuxing);
 
 			holder.roadPriceText = (TextView) convertView
 					.findViewById(R.id.recmmend_road_price_text);
@@ -791,8 +789,6 @@ class FragmentOneListViewAdapter extends ArrayAdapter {
 					.findViewById(R.id.recmmend_road_rel);
 			holder.roadLookNumText = (TextView) convertView
 					.findViewById(R.id.recmmend_road_look_num_text);
-			holder.newImageView = (ImageView) convertView
-					.findViewById(R.id.recmmend_road_new_route_image);
 			holder.onlineImageView = (ImageView) convertView
 					.findViewById(R.id.recmmend_road_online_route_image);
 			holder.playLin = (LinearLayout) convertView
@@ -801,6 +797,23 @@ class FragmentOneListViewAdapter extends ArrayAdapter {
 					.findViewById(R.id.recommend_iscollect_img);
 			holder.view = convertView
 					.findViewById(R.id.recmmend_city_empty_view);
+
+			//认证信息
+			holder.consult_person_truename = (TextView) convertView
+					.findViewById(R.id.consult_person_truename);
+			holder.consult_person_education = (TextView) convertView
+					.findViewById(R.id.consult_person_education);
+			holder.consult_person_drive = (TextView) convertView
+					.findViewById(R.id.consult_person_drive);
+			holder.consult_person_guide = (TextView) convertView
+					.findViewById(R.id.consult_person_guide);
+			holder.is_veru = (TextView) convertView.findViewById(R.id.consult_person_veru);
+
+			//浏览出行量
+			holder.new_linear = (LinearLayout) convertView.findViewById(R.id.home_new_linear);
+			holder.look_linear = (LinearLayout) convertView.findViewById(R.id.home_look_linear);
+			holder.travel_linear = (LinearLayout) convertView.findViewById(R.id.home_travel_linear);
+
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -822,9 +835,9 @@ class FragmentOneListViewAdapter extends ArrayAdapter {
 		}
 		if (!TextUtils.isEmpty(ls.get(position).getIsNew())
 				&& ls.get(position).getIsNew().equals("1")) {
-			holder.newImageView.setVisibility(View.VISIBLE);
+			holder.new_linear.setVisibility(View.VISIBLE);
 		} else {
-			holder.newImageView.setVisibility(View.GONE);
+			holder.new_linear.setVisibility(View.GONE);
 		}
 //		holder.recommend_iscollect_img.setVisibility(View.VISIBLE);
 		if (MyApplication.getInstance().isLogin()) {
@@ -853,17 +866,13 @@ class FragmentOneListViewAdapter extends ArrayAdapter {
 		}
 		holder.roadTitleText.setText(ls.get(position).getRoadlineTitle());
 		if("0".equals(ls.get(position).getOrderCount())){
-			holder.chuxing.setVisibility(View.GONE);
-			holder.roadOrderNumText.setVisibility(View.GONE);
-			holder.view1.setVisibility(View.GONE);
+			holder.travel_linear.setVisibility(View.GONE);
 		}else {
-			holder.chuxing.setVisibility(View.VISIBLE);
-			holder.roadOrderNumText.setVisibility(View.VISIBLE);
-			holder.view1.setVisibility(View.VISIBLE);
-			holder.roadOrderNumText.setText(ls.get(position).getOrderCount());
+			holder.travel_linear.setVisibility(View.VISIBLE);
+			holder.roadOrderNumText.setText(ls.get(position).getOrderCount() + "人参加过");
 		}
 		if (!TextUtils.isEmpty(ls.get(position).getLineNum())) {
-			holder.roadLookNumText.setText(ls.get(position).getLineNum());
+			holder.roadLookNumText.setText(ls.get(position).getLineNum() + "人浏览过");
 		} else {
 			holder.roadLookNumText.setText("0");
 		}
@@ -895,12 +904,15 @@ class FragmentOneListViewAdapter extends ArrayAdapter {
 
 	static class ViewHolder {
 		SimpleDraweeView imageView, headImageView, recommend_iscollect_img;
-		ImageView newImageView, onlineImageView;
-		TextView addressText, titleText, roadTitleText, roadOrderNumText,chuxing,
-				roadLookNumText, roadPriceText, played;
+		ImageView onlineImageView;
+		TextView addressText, titleText, roadTitleText, roadOrderNumText,
+				roadLookNumText, roadPriceText, played,consult_person_truename,
+				consult_person_education, consult_person_drive,
+				consult_person_guide,is_veru;
 		RelativeLayout roadRel;
 		LinearLayout playLin;
-		View view,view1;
+		LinearLayout new_linear,look_linear,travel_linear;
+		View view;
 	}
 
 }

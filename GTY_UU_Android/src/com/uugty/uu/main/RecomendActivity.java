@@ -19,6 +19,7 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -286,10 +287,25 @@ public class RecomendActivity extends BaseActivity implements
 					.findViewById(R.id.guide_detail_item_num_text);
 			holder.lookNumText = (TextView) convertView
 					.findViewById(R.id.guide_detail_item_look_num_text);
-			holder.newImageView = (SimpleDraweeView) convertView
-					.findViewById(R.id.guide_detail_new_route_image);
 			holder.onlineImageView = (SimpleDraweeView) convertView
 					.findViewById(R.id.guide_detail_online_route_image);
+
+			//认证信息
+			holder.consult_person_truename = (TextView) convertView
+					.findViewById(R.id.consult_person_truename);
+			holder.consult_person_education = (TextView) convertView
+					.findViewById(R.id.consult_person_education);
+			holder.consult_person_drive = (TextView) convertView
+					.findViewById(R.id.consult_person_drive);
+			holder.consult_person_guide = (TextView) convertView
+					.findViewById(R.id.consult_person_guide);
+			holder.is_veru = (TextView) convertView.findViewById(R.id.consult_person_veru);
+
+			//浏览出行量
+			holder.new_linear = (LinearLayout) convertView.findViewById(R.id.home_new_linear);
+			holder.look_linear = (LinearLayout) convertView.findViewById(R.id.home_look_linear);
+			holder.travel_linear = (LinearLayout) convertView.findViewById(R.id.home_travel_linear);
+
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -313,9 +329,9 @@ public class RecomendActivity extends BaseActivity implements
 		holder.priceText.setText(ls.get(position).getRoadlinePrice());
 		if (!TextUtils.isEmpty(ls.get(position).getIsNew())
 				&& ls.get(position).getIsNew().equals("1")) {
-			holder.newImageView.setVisibility(View.VISIBLE);
+			holder.new_linear.setVisibility(View.VISIBLE);
 		} else {
-			holder.newImageView.setVisibility(View.GONE);
+			holder.new_linear.setVisibility(View.GONE);
 		}
 		if (!TextUtils.isEmpty(ls.get(position).getIsOnline())
 				&& ls.get(position).getIsOnline().equals("1")) {
@@ -324,10 +340,14 @@ public class RecomendActivity extends BaseActivity implements
 			holder.onlineImageView.setVisibility(View.GONE);
 		}
 		holder.titleText.setText(ls.get(position).getRoadlineTitle());
-		holder.orderNumText.setText(ls.get(position).getOrderCount());
-		if (null != ls.get(position).getLineNum()
-				&& !ls.get(position).getLineNum().equals("")) {
-			holder.lookNumText.setText(ls.get(position).getLineNum());
+		if("0".equals(ls.get(position).getOrderCount())){
+			holder.travel_linear.setVisibility(View.GONE);
+		}else {
+			holder.travel_linear.setVisibility(View.VISIBLE);
+			holder.orderNumText.setText(ls.get(position).getOrderCount() + "人参加过");
+		}
+		if (!TextUtils.isEmpty(ls.get(position).getLineNum())) {
+			holder.lookNumText.setText(ls.get(position).getLineNum() + "人浏览过");
 		} else {
 			holder.lookNumText.setText("0");
 		}
@@ -343,8 +363,11 @@ public class RecomendActivity extends BaseActivity implements
 	}
 
 	static class ViewHolder {
-		SimpleDraweeView imageView, newImageView, onlineImageView, headImage;
-		TextView priceText, titleText, orderNumText, lookNumText;
+		SimpleDraweeView imageView, onlineImageView, headImage;
+		TextView priceText, titleText, orderNumText, lookNumText,consult_person_truename,
+				consult_person_education, consult_person_drive,
+				consult_person_guide,is_veru;
+		LinearLayout new_linear,look_linear,travel_linear;
 	}
 
 }
