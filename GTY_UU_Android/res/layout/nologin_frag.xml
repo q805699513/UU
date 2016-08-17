@@ -252,65 +252,72 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
-                <RelativeLayout
+                <LinearLayout
                     android:id="@+id/my_routeline"
+                    android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" >
+                    android:layout_height="match_parent" >
 
                     <ImageView
                         android:id="@+id/route_left_img"
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="12dp"
                         android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/route_left_text"
-                        android:src="@drawable/release" />
+                        android:src="@drawable/lzh_wodeshop" />
 
                     <TextView
                         android:id="@+id/route_left_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="48dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_gravity="center"
                         android:text="我的小店"
                         android:textColor="#000000"
                         android:textSize="15sp" />
-                </RelativeLayout>
+                </LinearLayout>
 
-                <TextView
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="14dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:text="|"-->
+                    <!--android:textColor="#e5e5e5" />-->
+                <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="14dp"
-                    android:layout_gravity="center"
-                    android:text="|"
-                    android:textColor="#e5e5e5" />
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="12dp"
+                    android:src="@drawable/person_compile_enter" />
 
-                <RelativeLayout
-                    android:id="@+id/release_route_line"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" >
 
-                    <ImageView
-                        android:id="@+id/route_right_img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="48dp"
-                        android:layout_marginRight="10dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/release_route_img" />
+                <!--<RelativeLayout-->
+                    <!--android:id="@+id/release_route_line"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1" >-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toRightOf="@+id/route_right_img"
-                        android:text="发布服务"
-                        android:textColor="#000000"
-                        android:textSize="15sp" />
-                </RelativeLayout>
+                    <!--<ImageView-->
+                        <!--android:id="@+id/route_right_img"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="48dp"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:scaleType="fitXY"-->
+                        <!--android:src="@drawable/release_route_img" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_toRightOf="@+id/route_right_img"-->
+                        <!--android:text="发布服务"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="15sp" />-->
+                <!--</RelativeLayout>-->
             </LinearLayout>
 
             <View

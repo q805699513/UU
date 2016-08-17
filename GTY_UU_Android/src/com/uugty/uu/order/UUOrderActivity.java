@@ -1,8 +1,5 @@
 package com.uugty.uu.order;
 
-import com.uugty.uu.R;
-import com.uugty.uu.base.BaseActivity;
-import com.uugty.uu.common.util.ScreenUtils;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -16,8 +13,18 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
+
+import com.uugty.uu.R;
+import com.uugty.uu.base.BaseActivity;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
+import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.util.ScreenUtils;
+import com.uugty.uu.common.util.SharedPreferenceUtil;
+import com.uugty.uu.entity.OrderDiscountNumEntity;
 
 public class UUOrderActivity extends BaseActivity implements
 		OnCheckedChangeListener, OnClickListener {
@@ -37,6 +44,7 @@ public class UUOrderActivity extends BaseActivity implements
 	private String frag = "1", getid;
 	private TextView order_my_buy, order_my_receive;
 	private String role;
+	private TextView finish_text,carry_text,confirm_text,after_text;
 
 	public String getRole() {
 		return role;
@@ -56,6 +64,12 @@ public class UUOrderActivity extends BaseActivity implements
 	protected void initGui() {
 		getid = getIntent().getStringExtra("from");
 		width = ScreenUtils.getScreenWidth(this);
+		carry_text = (TextView) findViewById(R.id.order_list_ongoing_hint);
+		finish_text = (TextView) findViewById(R.id.order_list_complete_hint);
+		confirm_text = (TextView) findViewById(R.id.order_list_Confirm_hint);
+		after_text = (TextView) findViewById(R.id.order_list_Aftermarket_hint);
+
+
 		order_list_Confirm = (RadioButton) findViewById(R.id.order_list_Confirm);
 		order_list_Failure = (RadioButton) findViewById(R.id.order_list_Failure);
 		order_list_Aftermarket = (RadioButton) findViewById(R.id.order_list_Aftermarket);
@@ -68,8 +82,10 @@ public class UUOrderActivity extends BaseActivity implements
 		group = (RadioGroup) findViewById(R.id.group);
 		backView = (LinearLayout) findViewById(R.id.tabar_back);
 		if (getid.equals("receive")) {
+			SharedPreferenceUtil.getInstance(ctx).setString("showReceiverHint","0");
 			myreceive();
 		} else {
+			SharedPreferenceUtil.getInstance(ctx).setString("showBuyHint","0");
 			mybought();
 		}
 		/*
@@ -111,8 +127,81 @@ public class UUOrderActivity extends BaseActivity implements
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+		sendHintRequest();
 	}
 
+	private void sendHintRequest() {
+		RequestParams params = new RequestParams();
+		APPRestClient.post(this, ServiceCode.ORDER_DISCOUNT_NUM, params,
+				new APPResponseHandler<OrderDiscountNumEntity>(
+						OrderDiscountNumEntity.class, this) {
+					@Override
+					public void onSuccess(OrderDiscountNumEntity result) {
+						if(result.getOBJECT() != null){
+							if("1".equals(getRole())) {
+								if (result.getOBJECT().getUkCreateNum() > 0) {
+									carry_text.setText(String.valueOf(result.getOBJECT().getUkCreateNum()));
+									carry_text.setVisibility(View.VISIBLE);
+								} else {
+									carry_text.setVisibility(View.GONE);
+								}
+								if (result.getOBJECT().getUkPaymentNum() > 0) {
+									finish_text.setText(String.valueOf(result.getOBJECT().getUkPaymentNum()));
+									finish_text.setVisibility(View.VISIBLE);
+								} else {
+									finish_text.setVisibility(View.GONE);
+								}
+								if (result.getOBJECT().getUkAgreeNum() > 0) {
+									confirm_text.setText(String.valueOf(result.getOBJECT().getUkAgreeNum()));
+									confirm_text.setVisibility(View.VISIBLE);
+								} else {
+									confirm_text.setVisibility(View.GONE);
+								}
+								if (result.getOBJECT().getUkDrawbackNum() > 0) {
+									after_text.setText(String.valueOf(result.getOBJECT().getUkDrawbackNum()));
+									after_text.setVisibility(View.VISIBLE);
+								} else {
+									after_text.setVisibility(View.GONE);
+								}
+							}else if("2".equals(getRole())){
+								if (result.getOBJECT().getXiaouCreateNum() > 0) {
+									carry_text.setText(String.valueOf(result.getOBJECT().getXiaouCreateNum()));
+									carry_text.setVisibility(View.VISIBLE);
+								} else {
+									carry_text.setVisibility(View.GONE);
+								}
+								if (result.getOBJECT().getXiaouPaymentNum() > 0) {
+									finish_text.setText(String.valueOf(result.getOBJECT().getXiaouPaymentNum()));
+									finish_text.setVisibility(View.VISIBLE);
+								} else {
+									finish_text.setVisibility(View.GONE);
+								}
+								if (result.getOBJECT().getXiaouAgreeNum() > 0) {
+									confirm_text.setText(String.valueOf(result.getOBJECT().getXiaouAgreeNum()));
+									confirm_text.setVisibility(View.VISIBLE);
+								} else {
+									confirm_text.setVisibility(View.GONE);
+								}
+								if (result.getOBJECT().getXiaouDrawbackNum() > 0) {
+									after_text.setText(String.valueOf(result.getOBJECT().getXiaouDrawbackNum()));
+									after_text.setVisibility(View.VISIBLE);
+								} else {
+									after_text.setVisibility(View.GONE);
+								}
+							}
+
+						}
+					}
+
+					@Override
+					public void onFailure(int errorCode, String errorMsg) {
+					}
+
+					@Override
+					public void onFinish() {
+					}
+				});
+	}
 	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
 		FragmentTransaction transaction = getSupportFragmentManager()
@@ -323,6 +412,7 @@ public class UUOrderActivity extends BaseActivity implements
 			break;
 		case R.id.order_my_receive:
 			myreceive();
+			sendHintRequest();
 			if (frag.equals("1")) {
 				Message msg = new Message();
 				msg.what = 11;
@@ -347,6 +437,7 @@ public class UUOrderActivity extends BaseActivity implements
 			break;
 		case R.id.order_my_buy:
 			mybought();
+			sendHintRequest();
 			if (frag.equals("1")) {
 				Message msg = new Message();
 				msg.what = 11;

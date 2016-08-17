@@ -24,10 +24,11 @@ public class APPRestClient {
 	private static final String LOG_TAG = "APPRestClient";
 
 	//线上测试环境
-	public static String SERVER_IP = "http://www.uugty.com:100/";
-	public static String BASE_URL ="http://www.uugty.com:7777/uuapplication/";
-	public static String HTTPS_BASE_URL ="http://www.uugty.com:7777/uuapplication/security/";
+//	public static String SERVER_IP = "http://www.uugty.com:100/";
+//	public static String BASE_URL ="http://www.uugty.com:7777/uuapplication/";
+//	public static String HTTPS_BASE_URL ="http://www.uugty.com:7777/uuapplication/security/";
 	//本地测试环境
+//	public static String SERVER_IP = "http://www.uugty.com:100/";
 //	public static String BASE_URL ="http://192.168.1.75:8080/uuapplication/";
 //	public static String HTTPS_BASE_URL ="http://192.168.1.75:8080/uuapplication/security/";
 	//123环境
@@ -36,12 +37,10 @@ public class APPRestClient {
 //	public static String HTTPS_BASE_URL ="http://192.168.1.123:8090/uuapplication/security/";
 	//https
 	//上线环境
-//	public static String HTTPS_BASE_URL = "https://www.uugty.com:8443/uuapplication/security/";
-//	public static String SERVER_IP = "http://www.uugty.com:100/";
-//	public static String BASE_URL = "http://www.uugty.com:8090/uuapplication/";
-	
-//	public static String HTTPS_BASE_URL ="https://192.168.1.123:8443/uuapplication/security/";
-//	public static String HTTPS_BASE_URL ="http://www.uugty.com:8090/uuapplication/security/";
+	public static String HTTPS_BASE_URL = "https://www.uugty.com:8443/uuapplication/security/";
+	public static String SERVER_IP = "http://www.uugty.com:100/";
+	public static String BASE_URL = "http://www.uugty.com:8090/uuapplication/";
+
 
 	private static AsyncHttpClient client = new AsyncHttpClient(true, 8090,
 			8443);

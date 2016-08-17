@@ -760,9 +760,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
 				final UUlogin mobileObjectRcvd = (UUlogin) msg.getData()
 						.getSerializable("LoginData");
 				SharedPreferenceUtil.getInstance(ctx).setString("userName",
-						mobileObjectRcvd.getOBJECT().getUserTel());
+						user_naem);
 				SharedPreferenceUtil.getInstance(ctx).setString("userPwd",
-						mobileObjectRcvd.getOBJECT().getUserPassword());
+						Md5Util.MD5(user_pwd));
 				MyApplication.getInstance().setLogin(true);
 				MyApplication.getInstance().setUserInfo(mobileObjectRcvd);
 				if (DemoHXSDKHelper.getInstance().isLogined()) {

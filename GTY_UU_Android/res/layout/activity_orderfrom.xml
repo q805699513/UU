@@ -64,6 +64,19 @@
             android:text="待付款"
             android:textColor="#000000" />
 
+            <TextView
+                android:id="@+id/order_list_ongoing_hint"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="-10dp"
+                android:layout_marginLeft="-18dp"
+                android:background="@drawable/uu_content_image"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                android:visibility="invisible" />
+
+
         <RadioButton
             android:id="@+id/order_list_complete"
             android:layout_width="0dp"
@@ -73,6 +86,17 @@
             android:gravity="center"
             android:text="待接受"
             android:textColor="#000000" />
+        <TextView
+            android:id="@+id/order_list_complete_hint"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginLeft="-18dp"
+            android:background="@drawable/uu_content_image"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="9sp"
+            android:visibility="invisible" />
           <RadioButton
             android:id="@+id/order_list_Confirm"
             android:layout_width="0dp"
@@ -82,6 +106,17 @@
             android:gravity="center"
             android:text="已确认"
             android:textColor="#000000" />
+        <TextView
+            android:id="@+id/order_list_Confirm_hint"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginLeft="-18dp"
+            android:background="@drawable/uu_content_image"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="9sp"
+            android:visibility="invisible" />
         <RadioButton
             android:id="@+id/order_list_Aftermarket"
             android:layout_width="0dp"
@@ -91,6 +126,17 @@
             android:gravity="center"
             android:text="售后"
             android:textColor="#000000" />
+        <TextView
+            android:id="@+id/order_list_Aftermarket_hint"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginLeft="-25dp"
+            android:background="@drawable/uu_content_image"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="9sp"
+            android:visibility="invisible" />
          <RadioButton
             android:id="@+id/order_list_Failure"
             android:layout_width="0dp"

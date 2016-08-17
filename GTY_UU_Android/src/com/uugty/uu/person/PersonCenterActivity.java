@@ -181,8 +181,8 @@ public class PersonCenterActivity extends BaseActivity implements
 					user_name, avatar, "0", differentiate);
 		}
 		fragmentList.add(btFragment);
-		fragmentList.add(secondFragment);
 		fragmentList.add(thirdFragment);
+		fragmentList.add(secondFragment);
 
 		mPagerAdapter = new PersonCenterPagerAdapter(
 				getSupportFragmentManager(), fragmentList);

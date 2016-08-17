@@ -1,8 +1,5 @@
 package com.uugty.uu.map;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
@@ -21,6 +18,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.LocationManagerProxy;
@@ -37,6 +36,10 @@ import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.EmojiEdite;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LocationActivity extends BaseActivity implements
 		AMapLocationListener, OnScrollListener, OnClickListener {
@@ -188,7 +191,7 @@ public class LocationActivity extends BaseActivity implements
 				searchNearPoi();
 		} else {
 			locationCity.setText("定位失败");
-			CustomToast.makeText(LocationActivity.this, "定位失败,请手动输入地址", 500)
+			CustomToast.makeText(LocationActivity.this, "定位失败,请手动输入地址", Toast.LENGTH_LONG)
 					.show();
 		}
 	}

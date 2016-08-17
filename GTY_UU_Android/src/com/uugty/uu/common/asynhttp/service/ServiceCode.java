@@ -278,4 +278,6 @@ public class ServiceCode {
 	public static final String SET_DEFAULT_ACCOUNT="updateBankIsDefault.do";
 	//修改银行卡
 	public static final String USER_UPDATE_BANK_CARD = "updateBankCard.do";
+	//订单和代金券数量提示接口
+	public static final String ORDER_DISCOUNT_NUM = "queryOrderDiscountNum.do";
 }

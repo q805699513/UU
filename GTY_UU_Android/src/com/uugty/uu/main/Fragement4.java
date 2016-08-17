@@ -44,6 +44,7 @@ import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.discount.c.MyDiscountActivity;
 import com.uugty.uu.entity.AddJpushId;
 import com.uugty.uu.entity.BaseEntity;
+import com.uugty.uu.entity.OrderDiscountNumEntity;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.entity.VipEntity;
 import com.uugty.uu.friendstask.DynamicDetailActivity;
@@ -54,6 +55,7 @@ import com.uugty.uu.map.OpenShopActivity;
 import com.uugty.uu.map.PublishServicesActivity;
 import com.uugty.uu.modeal.UUlogin;
 import com.uugty.uu.order.UUOrderActivity;
+import com.uugty.uu.person.PersonCenterActivity;
 import com.uugty.uu.person.PersonCompileActivity;
 import com.uugty.uu.setup.ContactUsActivity;
 import com.uugty.uu.setup.FeedbookActivity;
@@ -80,7 +82,7 @@ import cn.jpush.android.api.JPushInterface;
 public class Fragement4 extends Fragment implements OnClickListener {
 
 	private Context context;
-	private LinearLayout nologin_lin, login_line;
+	private LinearLayout nologin_lin, login_line,my_route;
 	private View rootview;
 	private CirculHeadImage userimg, login_person_circul_imageview;
 	private UserLineTextAndImage route, help, about, feedback, my_buy,
@@ -90,14 +92,16 @@ public class Fragement4 extends Fragment implements OnClickListener {
 	public static IWXAPI WXapi;
 	private static final String APP_ID = "wx7f1866a885330eb2";
 	private SpotsDialog loadingDialog;
-	private RelativeLayout release_route_line, login_person_rel,
-			nologin_person_rel, my_route, my_setting;
+	private RelativeLayout login_person_rel,
+			nologin_person_rel, my_setting;
 	private TextView username, userwork, setting_route_line;
 	private TextView isVer;//是否为认证小u
 	private ImageView usersex;
 	private boolean wxchatFlag = false;// 点击微信登录标志
 	// 经纬度
 	private Double geoLat, geoLng;
+	//消息提示
+	private String mOrderBuyNum = "",mOrderReceiverNum = "",mDiscountNum = "";
 
 	@Override
 	@Nullable
@@ -132,13 +136,13 @@ public class Fragement4 extends Fragment implements OnClickListener {
 				.findViewById(R.id.login_person_rel);
 		login_person_circul_imageview = (CirculHeadImage) rootview
 				.findViewById(R.id.login_person_circul_imageview);
-		release_route_line = (RelativeLayout) rootview
-				.findViewById(R.id.release_route_line);
+//		release_route_line = (RelativeLayout) rootview
+//				.findViewById(R.id.release_route_line);
 		username = (TextView) rootview.findViewById(R.id.login_user_name);
 		isVer = (TextView) rootview.findViewById(R.id.login_user_name_ver);
 		userwork = (TextView) rootview.findViewById(R.id.login_user_work);
 		usersex = (ImageView) rootview.findViewById(R.id.login_user_sex);
-		my_route = (RelativeLayout) rootview.findViewById(R.id.my_routeline);
+		my_route = (LinearLayout) rootview.findViewById(R.id.my_routeline);
 		my_buy = (UserLineTextAndImage) rootview
 				.findViewById(R.id.my_buy_order);
 		my_buy.linesl();
@@ -220,7 +224,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 		my_setting.setOnClickListener(this);
 		nologin_person_rel.setOnClickListener(this);
 		login_person_rel.setOnClickListener(this);
-		release_route_line.setOnClickListener(this);
+//		release_route_line.setOnClickListener(this);
 		setting_route_line.setOnClickListener(this);
 		my_discount_ticket.setOnClickListener(this);
 
@@ -328,6 +332,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+		sendHintRequest();
 		if (MyApplication.getInstance().isLogin()) {
 			nologin_lin.setVisibility(View.GONE);
 			login_line.setVisibility(View.VISIBLE);
@@ -421,7 +426,8 @@ public class Fragement4 extends Fragment implements OnClickListener {
 			break;
 		case R.id.login_person_rel:
 			if (MyApplication.getInstance().isLogin()) {
-				intent.setClass(context, PersonCompileActivity.class);
+				intent.putExtra("detailUserId", MyApplication.getInstance().getUserInfo().getOBJECT().getUserId());
+				intent.setClass(context, PersonCenterActivity.class);
 				context.startActivity(intent);
 			} else {
 				// 先登录
@@ -431,9 +437,9 @@ public class Fragement4 extends Fragment implements OnClickListener {
 				context.startActivity(intent);
 			}
 			break;
-		case R.id.release_route_line:
-			setPermissionRequest();
-			break;
+//		case R.id.release_route_line:
+//			setPermissionRequest();
+//			break;
 		case R.id.my_buy_order:
 			if (MyApplication.getInstance().isLogin()) {
 				intent.putExtra("from", "buy");
@@ -479,7 +485,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 			} else {
 				// 先登录
 				intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-				intent.putExtra("topage", MyPriceActivity.class.getName());
+				intent.putExtra("topage", MyDiscountActivity.class.getName());
 				intent.setClass(context, LoginActivity.class);
 				context.startActivity(intent);
 			}
@@ -547,6 +553,75 @@ public class Fragement4 extends Fragment implements OnClickListener {
 
 	}
 
+	private void sendHintRequest() {
+		RequestParams params = new RequestParams();
+		APPRestClient.post(context, ServiceCode.ORDER_DISCOUNT_NUM, params,
+				new APPResponseHandler<OrderDiscountNumEntity>(
+						OrderDiscountNumEntity.class, context) {
+					@Override
+					public void onSuccess(OrderDiscountNumEntity result) {
+						if(result.getOBJECT() != null){
+							if(!"0".equals(result.getOBJECT().getOrderBuyNum())) {
+								if ("".equals(mOrderBuyNum)) {
+									mOrderBuyNum = result.getOBJECT().getOrderBuyNum();
+									my_buy.isShowOrigin();
+								} else {
+									if(Integer.valueOf(mOrderBuyNum) < Integer.valueOf(result.getOBJECT().getOrderBuyNum())){
+										SharedPreferenceUtil.getInstance(context).setString("showBuyHint","1");
+										mOrderBuyNum = result.getOBJECT().getOrderBuyNum();
+										my_buy.isShowOrigin();
+									}
+								}
+								if("0".equals(SharedPreferenceUtil.getInstance(context).getString("showBuyHint",""))){
+									my_buy.offShowOrigin();
+								}
+							}
+
+							if(!"0".equals(result.getOBJECT().getOrderReceiverNum())) {
+								if ("".equals(mOrderReceiverNum) || Integer.valueOf(mOrderReceiverNum) < Integer.valueOf(result.getOBJECT().getOrderReceiverNum())) {
+									mOrderReceiverNum = result.getOBJECT().getOrderReceiverNum();
+									my_receive.isShowOrigin();
+								} else {
+									if(Integer.valueOf(mOrderReceiverNum) < Integer.valueOf(result.getOBJECT().getOrderReceiverNum())){
+										SharedPreferenceUtil.getInstance(context).setString("showReceiverHint","1");
+										mOrderReceiverNum = result.getOBJECT().getOrderBuyNum();
+										my_receive.isShowOrigin();
+									}
+								}
+								if("0".equals(SharedPreferenceUtil.getInstance(context).getString("showReceiverHint",""))){
+									my_receive.offShowOrigin();
+								}
+							}
+
+							if(!"0".equals(result.getOBJECT().getDiscountNum())) {
+								my_discount_ticket.setRightText(result.getOBJECT().getDiscountNum() + "张");
+								if ("".equals(mDiscountNum) || Integer.valueOf(mDiscountNum) < Integer.valueOf(result.getOBJECT().getDiscountNum())) {
+									mDiscountNum = result.getOBJECT().getDiscountNum();
+									my_discount_ticket.isShowOrigin();
+								} else {
+									if(Integer.valueOf(mDiscountNum) < Integer.valueOf(result.getOBJECT().getDiscountNum())){
+										SharedPreferenceUtil.getInstance(context).setString("showDiscountHint","1");
+										mDiscountNum = result.getOBJECT().getOrderBuyNum();
+										my_discount_ticket.isShowOrigin();
+									}
+								}
+								if("0".equals(SharedPreferenceUtil.getInstance(context).getString("showDiscountHint",""))){
+									my_discount_ticket.offShowOrigin();
+								}
+							}
+
+						}
+					}
+
+					@Override
+					public void onFailure(int errorCode, String errorMsg) {
+					}
+
+					@Override
+					public void onFinish() {
+					}
+				});
+	}
 
 	private void pushJpushId() {
 		RequestParams params = new RequestParams();

@@ -1,15 +1,15 @@
 package com.uugty.uu.viewpage.adapter;
 
-import java.util.ArrayList;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.view.ViewGroup;
 
 import com.uugty.uu.mhvp.core.magic.viewpager.InnerScrollerContainer;
 import com.uugty.uu.mhvp.core.magic.viewpager.OuterPagerAdapter;
 import com.uugty.uu.mhvp.core.magic.viewpager.OuterScroller;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.view.ViewGroup;
+import java.util.ArrayList;
 
 
 public class PersonCenterPagerAdapter extends FragmentPagerAdapter implements OuterPagerAdapter{
@@ -45,7 +45,7 @@ public class PersonCenterPagerAdapter extends FragmentPagerAdapter implements Ou
         this.list = list;
     }
 
-    protected CharSequence[] mTitles = {"我的小店", "关于我", "uu圈"/*, "page 4", "page 5", "page 6"*/};
+    protected CharSequence[] mTitles = {"我的小店", "uu圈", "关于我"/*, "page 4", "page 5", "page 6"*/};
 
     @Override
     public CharSequence getPageTitle(int position) {

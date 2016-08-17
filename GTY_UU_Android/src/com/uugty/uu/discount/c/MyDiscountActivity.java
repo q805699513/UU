@@ -1,18 +1,9 @@
 package com.uugty.uu.discount.c;
 
-import com.uugty.uu.R;
-import com.uugty.uu.base.BaseActivity;
-import com.uugty.uu.common.util.ScreenUtils;
-import com.uugty.uu.discount.v.AlreadyExpiredFragment;
-import com.uugty.uu.discount.v.AlreadyUseFragment;
-import com.uugty.uu.discount.v.WaitReceiveFragment;
-import com.uugty.uu.discount.v.WaitUseFragment;
-
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -20,8 +11,17 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
+
+import com.uugty.uu.R;
+import com.uugty.uu.base.BaseActivity;
+import com.uugty.uu.common.util.ScreenUtils;
+import com.uugty.uu.common.util.SharedPreferenceUtil;
+import com.uugty.uu.discount.v.AlreadyExpiredFragment;
+import com.uugty.uu.discount.v.AlreadyUseFragment;
+import com.uugty.uu.discount.v.WaitReceiveFragment;
+import com.uugty.uu.discount.v.WaitUseFragment;
 
 public class MyDiscountActivity extends BaseActivity implements
 		OnCheckedChangeListener, OnClickListener {
@@ -72,6 +72,7 @@ public class MyDiscountActivity extends BaseActivity implements
 
 	@Override
 	protected void initData() {
+		SharedPreferenceUtil.getInstance(ctx).setString("showDiscountHint","0");
 		
 		new Handler().postDelayed(new Runnable() {
 

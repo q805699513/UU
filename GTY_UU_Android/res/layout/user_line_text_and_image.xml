@@ -33,18 +33,28 @@
             android:textSize="15sp"
             />
 
+		<TextView
+			android:layout_toLeftOf="@+id/user_line_text_and_image_rigth_text"
+			android:id="@+id/user_line_text_and_image_rigth_text_dian"
+			android:layout_width="5dp"
+			android:layout_height="5dp"
+			android:layout_centerVertical="true"
+			android:layout_marginRight="4dp"
+			android:background="@drawable/find_sed"
+			android:visibility="gone"
+			/>
         <TextView
             android:layout_toLeftOf="@+id/user_line_text_and_image_rigth_image"
             android:id="@+id/user_line_text_and_image_rigth_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:textColor="#00a1d9"
+            android:textColor="#666666"
             android:singleLine="true"
             android:maxEms="12"
             android:ellipsize="end"
             android:textSize="14sp"
-            android:layout_marginRight="14dp" />
+            android:layout_marginRight="13dp" />
         <ImageView
             android:layout_marginRight="12dp"
             android:id="@+id/user_line_text_and_image_rigth_image"

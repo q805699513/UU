@@ -1,9 +1,7 @@
 package com.uugty.uu.common.myview;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +17,7 @@ public class UserLineTextAndImage extends RelativeLayout {
 	private TextView leftTextView, rightTextView;
 	private ImageView leftImageView;
 	private View line_long,line_short;
+	private TextView mOrigin;//小原点
 
 	public UserLineTextAndImage(Context context) {
 		super(context);
@@ -47,6 +46,7 @@ public class UserLineTextAndImage extends RelativeLayout {
 				.findViewById(R.id.user_line_text_and_image_left_text);
 		rightTextView = (TextView) view
 				.findViewById(R.id.user_line_text_and_image_rigth_text);
+		mOrigin = (TextView) view.findViewById(R.id.user_line_text_and_image_rigth_text_dian);
 		leftImageView = (ImageView) view
 				.findViewById(R.id.user_line_text_and_image_left_img);
 	}
@@ -61,7 +61,15 @@ public class UserLineTextAndImage extends RelativeLayout {
 		line_long.setVisibility(View.GONE);
 		line_short.setVisibility(View.VISIBLE);
 	}
-	//设置内容
+	//设置显示小原点
+	public void isShowOrigin(){
+		mOrigin.setVisibility(View.VISIBLE);
+	}
+	//设置不显示小原点
+	public void offShowOrigin(){
+		mOrigin.setVisibility(View.GONE);
+	}
+	//设置右内容
 	public void setRightText(String text){
 		rightTextView.setText(text);
 	}
