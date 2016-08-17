@@ -1,10 +1,6 @@
 package com.uugty.uu.main;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.net.Uri;
-import android.webkit.DownloadListener;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -38,7 +34,7 @@ public class RecomendWebActivity extends BaseActivity{
 		webview = (WebView) findViewById(R.id.recomend_webview);
 		webview.getSettings().setJavaScriptEnabled(true); 
 	    webview.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-	    webview.setWebViewClient(new HelloWebViewClient ());  
+	    webview.setWebViewClient(new HelloWebViewClient ());
 	    webview.loadUrl(roadlineThemeUrl); 
         //设置Web视图  
 	}
@@ -55,7 +51,21 @@ public class RecomendWebActivity extends BaseActivity{
 		
 	}
 
-	 //Web视图  
+	@Override
+	protected void onPause() {
+		super.onPause();
+	}
+
+	@Override
+
+	protected void onDestroy() {
+		webview.destroy();
+		webview = null;
+		super.onDestroy();
+
+	}
+
+	//Web视图
     private class HelloWebViewClient extends WebViewClient {  
         @Override 
         public boolean shouldOverrideUrlLoading(WebView view, String url) {  
