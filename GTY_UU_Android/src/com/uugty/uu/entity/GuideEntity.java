@@ -26,7 +26,42 @@ public class GuideEntity implements Serializable{
 		private String isOnline;//是否在线1为是，0为否
 		private String collectId;//是否收藏 0为否
 		private String userIdValidate;//身份证是否验证
-		
+		private String userTourValidate;// 导游证是否验证	2
+		private String userCertificateValidate;// 学位证是否验证	2
+		private String userCarValidate; // 驾驶证是否验证 2
+		private String userIsPromoter;//是否支付199 1为支付
+
+		public String getUserTourValidate() {
+			return userTourValidate;
+		}
+
+		public void setUserTourValidate(String userTourValidate) {
+			this.userTourValidate = userTourValidate;
+		}
+
+		public String getUserCertificateValidate() {
+			return userCertificateValidate;
+		}
+
+		public void setUserCertificateValidate(String userCertificateValidate) {
+			this.userCertificateValidate = userCertificateValidate;
+		}
+
+		public String getUserCarValidate() {
+			return userCarValidate;
+		}
+
+		public void setUserCarValidate(String userCarValidate) {
+			this.userCarValidate = userCarValidate;
+		}
+
+		public String getUserIsPromoter() {
+			return userIsPromoter;
+		}
+
+		public void setUserIsPromoter(String userIsPromoter) {
+			this.userIsPromoter = userIsPromoter;
+		}
 
 		public String getUserIdValidate() {
 			return userIdValidate;

@@ -311,6 +311,36 @@ public class RecomendActivity extends BaseActivity implements
 			holder = (ViewHolder) convertView.getTag();
 		}
 
+		//是否会员
+		if (ls.get(position).getUserIsPromoter().equals("1")) {
+			holder.is_veru.setVisibility(View.VISIBLE);
+		} else {
+			holder.is_veru.setVisibility(View.GONE);
+		}
+		// 实名
+		if (ls.get(position).getUserIdValidate().equals("2")) {
+			holder.consult_person_truename.setVisibility(View.VISIBLE);
+		} else {
+			holder.consult_person_truename.setVisibility(View.GONE);
+		}
+		// 导游
+		if (ls.get(position).getUserTourValidate().equals("2")) {
+			holder.consult_person_guide.setVisibility(View.VISIBLE);
+		} else {
+			holder.consult_person_guide.setVisibility(View.GONE);
+		}
+		// 驾驶
+		if (ls.get(position).getUserCarValidate().equals("2")) {
+			holder.consult_person_drive.setVisibility(View.VISIBLE);
+		} else {
+			holder.consult_person_drive.setVisibility(View.GONE);
+		}
+		// 学历
+		if (ls.get(position).getUserCertificateValidate().equals("2")) {
+			holder.consult_person_education.setVisibility(View.VISIBLE);
+		} else {
+			holder.consult_person_education.setVisibility(View.GONE);
+		}
 		if (!ls.get(position).getRoadlineBackground().equals("")) {
 			if (ls.get(position).getRoadlineBackground().contains("images")) {
 				holder.imageView.setImageURI(Uri.parse(APPRestClient.SERVER_IP

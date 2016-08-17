@@ -62,16 +62,21 @@ public class BillRecordListAdapter extends BaseAdapter {
 		}
 		holder.bill_record_list_item_linear.setBackgroundResource(R.drawable.list_item_bg);
 
-
-		if (list.get(position).getRecordType().equals("1")) {
-			holder.tradeText.setText(chooseBankName(list.get(position)
-					.getRecordType())
-					+ "-"
-					+ list.get(position).getRoadlineTitle());
-		} else {
-			holder.tradeText.setText(chooseBankName(list.get(position)
-					.getRecordType()));
+		if("order_wx_send".equals(list.get(position).getRecordType())
+				|| "order_purse_send".equals(list.get(position).getRecordType())
+				|| "order_receive".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText(list.get(position).getRoadlineTitle());
 		}
+
+//		if (list.get(position).getRecordType().equals("1")) {
+//			holder.tradeText.setText(chooseBankName(list.get(position)
+//					.getRecordType())
+//					+ "-"
+//					+ list.get(position).getRoadlineTitle());
+//		} else {
+//			holder.tradeText.setText(chooseBankName(list.get(position)
+//					.getRecordType()));
+//		}
 
 		holder.timeTextView.setText(list.get(position).getRecordTradeDate());
 		holder.priceTextView.setText(list.get(position).getRecordTradeMoney());
