@@ -64,23 +64,134 @@ public class BillRecordListAdapter extends BaseAdapter {
 
 		if("order_wx_send".equals(list.get(position).getRecordType())
 				|| "order_purse_send".equals(list.get(position).getRecordType())
-				|| "order_receive".equals(list.get(position).getRecordType())){
-			holder.tradeText.setText(list.get(position).getRoadlineTitle());
+				|| "order_wxpublic_send".equals(list.get(position).getRecordType())
+				|| "order_wxqrcode_send".equals(list.get(position).getRecordType())
+				|| "order_ali_send".equals(list.get(position).getRecordType())){
+			if(!"".equals(list.get(position).getRoadlineTitle())) {
+				holder.tradeText.setText(list.get(position).getRoadlineTitle());
+			}else{
+				holder.tradeText.setText("开通UU客会员");
+			}
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.realblack));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
 		}
 
-//		if (list.get(position).getRecordType().equals("1")) {
-//			holder.tradeText.setText(chooseBankName(list.get(position)
-//					.getRecordType())
-//					+ "-"
-//					+ list.get(position).getRoadlineTitle());
-//		} else {
-//			holder.tradeText.setText(chooseBankName(list.get(position)
-//					.getRecordType()));
-//		}
+		if("order_cancel".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText(list.get(position).getRoadlineTitle());
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.realblack));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+		if("order_receive".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText(list.get(position).getRoadlineTitle());
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.login_text_color));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+		if("gratuity_wx_send".equals(list.get(position).getRecordType())
+				|| "gratuity_purse_send".equals(list.get(position).getRecordType())
+				|| "gratuity_ali_send".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText("红包支付");
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.realblack));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+
+		if("gratuity_receive".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText("红包接收");
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.login_text_color));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+
+		if("gratuity_receiver_reject".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText("红包接收过期");
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.realblack));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+
+		if("gratuity_sender_reject".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText("红包发送过期退回");
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.login_text_color));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+
+		if("widthdraw".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText("提现");
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.realblack));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+
+		if("wx_recharge".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText("微信充值");
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.login_text_color));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+
+		if("ali_recharge".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText("支付宝充值");
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.login_text_color));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+
+		if("penalty".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText("违约金");
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.realblack));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+
+		if("beneficiary".equals(list.get(position).getRecordType())){
+			holder.tradeText.setText("三级分销奖励");
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.login_text_color));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+
+		if("drawback_outcome".equals(list.get(position).getRecordType())){
+			if(!"".equals(list.get(position).getRoadlineTitle())) {
+				holder.tradeText.setText(list.get(position).getRoadlineTitle());
+			}else{
+				holder.tradeText.setText("退款支付");
+			}
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.realblack));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+
+		if("drawback_income".equals(list.get(position).getRecordType())){
+			if(!"".equals(list.get(position).getRoadlineTitle())) {
+				holder.tradeText.setText(list.get(position).getRoadlineTitle());
+			}else{
+				holder.tradeText.setText("退款收入");
+			}
+			holder.priceTextView.setTextColor(context.getResources().getColor(
+					R.color.login_text_color));
+			holder.priceTextView.setText( "￥" +list.get(position).getRecordTradeMoney());
+			holder.statusTextView.setText(chooseStauts(position,Integer.valueOf(list.get(position).getRecordStatus())));
+		}
+
 
 		holder.timeTextView.setText(list.get(position).getRecordTradeDate());
-		holder.priceTextView.setText(list.get(position).getRecordTradeMoney());
-		holder.statusTextView.setText(chooseStauts(Integer.valueOf(list.get(position).getRecordStatus())));
 		return convertView;
 	}
 
@@ -90,20 +201,61 @@ public class BillRecordListAdapter extends BaseAdapter {
 		LinearLayout bill_record_list_item_linear;
 	}
 
-	public String chooseStauts(int num) {
+	public String chooseStauts(int position,int num) {
 		String name = "";
 		switch (num) {
 		case 1:
-			name = "进行中";
+			holder.statusTextView.setTextColor(context.getResources().getColor(
+					R.color.order_status_text_color));
+			if("drawback_outcome".equals(list.get(position).getRecordType())
+					||"drawback_income".equals(list.get(position).getRecordType())){
+				name = "退款中";
+
+			}else if("order_wx_send".equals(list.get(position).getRecordType())
+					|| "order_purse_send".equals(list.get(position).getRecordType())
+					|| "order_wxpublic_send".equals(list.get(position).getRecordType())
+					|| "order_wxqrcode_send".equals(list.get(position).getRecordType())
+					|| "order_ali_send".equals(list.get(position).getRecordType())){
+				name = "等待付款";
+			}else {
+				name = "进行中";
+			}
 			break;
 		case 2:
-			name = "成功";
+			holder.statusTextView.setTextColor(context.getResources().getColor(
+					R.color.login_hint_color));
+			if("drawback_outcome".equals(list.get(position).getRecordType())
+					||"drawback_income".equals(list.get(position).getRecordType())){
+				name = "退款成功";
+
+			}else{
+				name = "支付成功";
+			}
+
 			break;
 		case 3:
-			name = "关闭";
+			holder.statusTextView.setTextColor(context.getResources().getColor(
+					R.color.login_hint_color));
+			if("drawback_outcome".equals(list.get(position).getRecordType())
+					||"drawback_income".equals(list.get(position).getRecordType())){
+				name = "退款关闭";
+
+			}else{
+				name = "交易关闭";
+			}
+
 			break;
 		case 4:
-			name = "取消";
+			holder.statusTextView.setTextColor(context.getResources().getColor(
+					R.color.login_hint_color));
+			if("drawback_outcome".equals(list.get(position).getRecordType())
+					||"drawback_income".equals(list.get(position).getRecordType())){
+				name = "退款取消";
+
+			}else{
+				name = "交易取消";
+			}
+
 			break;
 		default:
 			break;

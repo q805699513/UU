@@ -16,12 +16,12 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/text_login_background.xml"
     },
     {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/boder_solid_send.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/boder_solid_send.xml"
-    },
-    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/text_login_wechat_press_background.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/text_login_wechat_press_background.xml"
+    },
+    {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/boder_solid_send.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/boder_solid_send.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/wallet_commit_bg_selector.xml",
@@ -32,12 +32,12 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/progress_bar_states.xml"
     },
     {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/actionsheet_bottom_selector.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/actionsheet_bottom_selector.xml"
-    },
-    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/bg_edittext.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/bg_edittext.xml"
+    },
+    {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/actionsheet_bottom_selector.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/actionsheet_bottom_selector.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/bg_edittext_focused.xml",
@@ -76,12 +76,12 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/brand_tag_point_white_bg.png"
     },
     {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/circle_white_shape.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/circle_white_shape.xml"
-    },
-    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/chat_voice_bg.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/chat_voice_bg.xml"
+    },
+    {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/circle_white_shape.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/circle_white_shape.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/actionsheet_single_selector.xml",

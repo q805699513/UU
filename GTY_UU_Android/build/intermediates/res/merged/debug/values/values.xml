@@ -97,6 +97,7 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
+    <color name="realblack">#000000</color>
     <color name="red">#FF0000</color>
     <color name="regist_notxt">#a5e3f8</color>
     <color name="regist_txt">#00a1d9</color>

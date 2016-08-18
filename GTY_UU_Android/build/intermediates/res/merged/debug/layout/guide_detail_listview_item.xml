@@ -18,113 +18,236 @@
             fresco:placeholderImage="@drawable/default_image"
             fresco:placeholderImageScaleType="fitCenter" />
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/guide_detail_new_route_image"
-            android:layout_width="57dp"
-            android:layout_height="20dp"
-            android:alpha="0.8"
-            fresco:placeholderImage="@drawable/recmmend_road_new_route_image"
-            fresco:placeholderImageScaleType="fitCenter" />
-        <ImageView
-            android:visibility="gone"
-            android:layout_gravity="right|top"
-            android:layout_marginTop="13dp"
-            android:layout_marginRight="13dp"
-            android:id="@+id/find_route_display_route_collect_image"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/home_page_default_collect_img" />
+        <!--<com.facebook.drawee.view.SimpleDraweeView-->
+            <!--android:id="@+id/guide_detail_new_route_image"-->
+            <!--android:layout_width="57dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:alpha="0.8"-->
+            <!--fresco:placeholderImage="@drawable/recmmend_road_new_route_image"-->
+            <!--fresco:placeholderImageScaleType="fitCenter" />-->
+        <!--<ImageView-->
+            <!--android:visibility="gone"-->
+            <!--android:layout_gravity="right|top"-->
+            <!--android:layout_marginTop="13dp"-->
+            <!--android:layout_marginRight="13dp"-->
+            <!--android:id="@+id/find_route_display_route_collect_image"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:src="@drawable/home_page_default_collect_img" />-->
     </FrameLayout>
 
     <RelativeLayout
         android:id="@+id/recmmend_road_rel"
         android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:layout_marginLeft="15dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="12dp"
         android:layout_marginRight="15dp"
-        android:orientation="vertical" >
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/guide_detail_title_lin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal" >
-
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/guide_detail_online_route_image"
-                android:layout_width="31dp"
-                android:layout_height="14dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="6dp"
-                fresco:placeholderImage="@drawable/recmmend_road_online_route_image" />
-
-            <TextView
-                android:id="@+id/guide_detail_item_title"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/guide_detail_title_lin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:ellipsize="end"
-                android:maxEms="13"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="@color/base_text_color"
-                android:textSize="14sp" />
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal" >
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/guide_detail_online_route_image"
+                    android:layout_width="31dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="6dp"
+                    fresco:placeholderImage="@drawable/recmmend_road_online_route_image" />
+
+                <TextView
+                    android:id="@+id/guide_detail_item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ellipsize="end"
+                    android:maxEms="13"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/base_text_color"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentLeft="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/consult_person_truename"
+                    android:layout_width="30dp"
+                    android:layout_height="13dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/lzh_realname" />
+
+                <TextView
+                    android:id="@+id/consult_person_education"
+                    android:layout_width="30dp"
+                    android:layout_height="13dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/lzh_academic" />
+
+                <TextView
+                    android:id="@+id/consult_person_drive"
+                    android:layout_width="30dp"
+                    android:layout_height="13dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/lzh_drive"/>
+
+                <TextView
+                    android:id="@+id/consult_person_guide"
+                    android:layout_width="30dp"
+                    android:layout_height="13dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/lzh_guide"/>
+
+                <TextView
+                    android:id="@+id/consult_person_veru"
+                    android:layout_width="36dp"
+                    android:layout_height="13dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/lzh_veru"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/home_new_linear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/lzh_zuixing"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="8dp"
+                        android:text="最新上线"
+                        android:textColor="#98999a"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/home_look_linear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/lzh_liulang"/>
+
+                    <TextView
+                        android:id="@+id/guide_detail_item_look_num_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="8dp"
+                        android:text="浏览过"
+                        android:textColor="#98999a"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/home_travel_linear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/lzh_chuxing"/>
+
+                    <TextView
+                        android:id="@+id/guide_detail_item_num_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="8dp"
+                        android:text="参加过"
+                        android:textColor="#98999a"
+                        android:textSize="10sp"
+                        />
+
+                </LinearLayout>
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/guide_detail_title_lin"-->
+                <!--android:layout_marginBottom="13dp"-->
+                <!--android:layout_marginTop="7dp"-->
+                <!--android:gravity="center"-->
+                <!--android:orientation="horizontal" >-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="出行"-->
+                    <!--android:textColor="@color/login_hint_color"-->
+                    <!--android:textSize="13sp" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/guide_detail_item_num_text"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="6dp"-->
+                    <!--android:textColor="@color/login_hint_color"-->
+                    <!--android:textSize="13sp" />-->
+
+                <!--<View-->
+                    <!--android:layout_width="2dp"-->
+                    <!--android:layout_height="2dp"-->
+                    <!--android:layout_marginLeft="11dp"-->
+                    <!--android:background="@color/login_hint_color" />-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="11dp"-->
+                    <!--android:text="浏览"-->
+                    <!--android:textColor="@color/login_hint_color"-->
+                    <!--android:textSize="13sp" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/guide_detail_item_look_num_text"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="6dp"-->
+                    <!--android:textColor="@color/login_hint_color"-->
+                    <!--android:textSize="13sp" />-->
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/guide_detail_title_lin"
-            android:layout_marginBottom="13dp"
-            android:layout_marginTop="7dp"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="出行"
-                android:textColor="@color/login_hint_color"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/guide_detail_item_num_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:textColor="@color/login_hint_color"
-                android:textSize="13sp" />
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="2dp"
-                android:layout_marginLeft="11dp"
-                android:background="@color/login_hint_color" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="11dp"
-                android:text="浏览"
-                android:textColor="@color/login_hint_color"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/guide_detail_item_look_num_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:textColor="@color/login_hint_color"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_marginTop="35dp"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="10dp"
             android:layout_marginRight="5dp"
             android:orientation="horizontal" >
 
@@ -149,7 +272,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="-90dp" >
+        android:layout_marginTop="-95dp" >
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/guide_detail_item_headImage"
