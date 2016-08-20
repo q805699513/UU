@@ -325,7 +325,7 @@ public class SellFragment extends Fragment implements
 					public void onSuccess(VipEntity result) {
 						if (null != result.getOBJECT()) {
 							if (result.getOBJECT().getUserIsPromoter()
-									.equals("1")) {
+									.equals("1") || !result.getOBJECT().getRoadlineId().equals("0")) {
 								isVip = true;
 							} else {
 								mListView.removeHeaderView(headerView);

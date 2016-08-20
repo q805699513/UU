@@ -17,6 +17,7 @@ import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.entity.TouristEntity;
 import com.uugty.uu.entity.TouristEntity.Tourist;
+import com.uugty.uu.login.AgreementWebActivity;
 import com.uugty.uu.order.UUPayActivity;
 
 import java.util.ArrayList;
@@ -33,8 +34,8 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 	private List<String> contactId = new ArrayList<String>(); //联系人数据
 	private PersonAdapter adapter;
 	private RelativeLayout mInsureRelative;//选择保险类型
-	private String type="0";//返回选择的保险类型
-	private String alltype="0";//返回选择的保险类型
+	private String type="";//返回选择的保险类型
+	private String alltype="";//返回选择的保险类型
 	private String where;//订单详情页面只负责展示
 
 	@Override
@@ -52,6 +53,16 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 		mInsureRelative = (RelativeLayout) findViewById(R.id.insure_selected_relative);
 		mListView=(ListView) findViewById(R.id.person_card_list);
 
+		mHelpText.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// 跳转到webView
+				Intent intent = new Intent();
+				intent.putExtra("agreement", "insure");
+				intent.setClass(InsureActivity.this, AgreementWebActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override
@@ -65,7 +76,8 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 				mHelpText.setVisibility(View.INVISIBLE);
 				mInsureRelative.setClickable(false);
 			}
-			if(null != getIntent().getStringExtra("type") && !"".equals(getIntent().getStringExtra("type"))){
+			if(null != getIntent().getStringExtra("type")
+					&& "0".equals(getIntent().getStringExtra("type"))){
 				alltype = getIntent().getStringExtra("type");
 				if(alltype.contains("1")){
 					mInsureType.setText("￥5/天");
@@ -74,10 +86,11 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 				}else if(alltype.contains("3")){
 					mInsureType.setText("￥15/天");
 				}else{
-					mInsureType.setText(" ");
+					mInsureType.setText("去选择");
 				}
 			}
 		}
+
 		adapter=new PersonAdapter(ctx, list);
 		mListView.setAdapter(adapter);
 	}
@@ -101,6 +114,7 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 				break;
 		case R.id.tourist_list_confirm:
 			String allId = "";
+			alltype = "";
 			contactId.clear();
 			for (int i = 0; i < list.size(); i++) {
 				if(list.get(i).getContactStatus().equals("1")){
@@ -145,6 +159,8 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 						mInsureType.setText("￥10/天");
 					} else if ("3".equals(type)) {
 						mInsureType.setText("￥15/天");
+					}else{
+						mInsureType.setText("去选择");
 					}
 				}else{
 					mInsureType.setText("去选择");

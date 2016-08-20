@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
@@ -29,6 +30,7 @@ public class BankcardActivity extends BaseActivity implements OnClickListener{
 	private LinearLayout add_bank;
 	private ListView mListView;
 	private BankCardAdapter adapter;
+	private TextView mConfirm;
 	private List<BankCardInfo> arryList;
 	private String fromType = "";
 
@@ -43,6 +45,7 @@ public class BankcardActivity extends BaseActivity implements OnClickListener{
 			fromType = getIntent().getStringExtra("type");
 		}
 		back = (LinearLayout) findViewById(R.id.tabar_back);
+		mConfirm = (TextView) findViewById(R.id.confirm);
 		add_bank = (LinearLayout) findViewById(R.id.container_bill_add);
 		mListView = (ListView) findViewById(R.id.bank_card_list);
 		arryList = new ArrayList<BankCardInfo>();
@@ -55,6 +58,7 @@ public class BankcardActivity extends BaseActivity implements OnClickListener{
 
 		back.setOnClickListener(this);
 		add_bank.setOnClickListener(this);
+		mConfirm.setOnClickListener(this);
 	}
 
 	@Override
@@ -82,15 +86,19 @@ public class BankcardActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void onNoDoubleClick(View v) {
 		switch (v.getId()) {
-		case R.id.tabar_back:
-			finish();
-			back.setClickable(false);
-			break;
-		case R.id.container_bill_add:
-			Intent intent = new Intent();
-			intent.setClass(this, AddWithDrawActivity.class);
-			startActivity(intent);			
-			break;
+			case R.id.tabar_back:
+				finish();
+				back.setClickable(false);
+				break;
+			case R.id.container_bill_add:
+				Intent intent = new Intent();
+				intent.setClass(this, AddWithDrawActivity.class);
+				startActivity(intent);
+				break;
+			case R.id.confirm:
+				finish();
+				break;
+
 		default:
 			break;
 		}

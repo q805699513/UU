@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="银行卡"
+        android:text="账户管理"
         android:gravity="center"
         android:textColor="#565a5c"
         android:layout_marginTop="14dp"

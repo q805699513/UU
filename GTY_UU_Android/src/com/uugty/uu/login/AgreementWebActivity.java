@@ -74,6 +74,10 @@ public class AgreementWebActivity extends BaseActivity{
 		}else if(null != agreement && agreement.equals("generalize")){
 			topBack.setTitle("推广员帮助");
 			webview.loadUrl("http://1.lukai1990.sinaapp.com/help2/html/help.html?case=8&v=1"); 
+		}else if(null != agreement && agreement.equals("insure")){
+			topBack.setTitle("保险说明");
+			webview.loadUrl("http://www.uugty.com/uuapplication/wxprojectbendi/html/instructions_android.html");
+
 		}
         
        

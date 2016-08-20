@@ -18,6 +18,7 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -29,9 +30,11 @@ import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.common.myview.WaveView;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.entity.MoreLvEntity;
 import com.uugty.uu.entity.MoreLvEntity.MoreListEntity;
+import com.uugty.uu.map.PublishServicesActivity;
 import com.uugty.uu.mhvp.core.magic.viewpager.AbsBaseFragment;
 import com.uugty.uu.mhvp.core.magic.viewpager.InnerListView;
 import com.uugty.uu.mhvp.core.magic.viewpager.InnerScroller;
@@ -47,6 +50,8 @@ public class PersonDateFragment_MyLines extends AbsBaseFragment implements
 	private String userId, avatar;
 	private PersonDateDetailAdapter adapter;
 	private int startId = 1;// 起始页页
+	private WaveView waveView;
+	private Button btn;
 	private List<MoreListEntity> homePageList = new ArrayList<MoreListEntity>();
 
 	static PersonDateFragment_MyLines newInstance(String userId, String avatar) {
@@ -93,6 +98,8 @@ public class PersonDateFragment_MyLines extends AbsBaseFragment implements
 		super.onActivityCreated(savedInstanceState);
 		mListView = (InnerListView) view
 				.findViewById(R.id.persondate_myself_lines);
+		waveView = (WaveView) view.findViewById(R.id.my_services_no_data_rel);
+		btn = (Button) view.findViewById(R.id.my_services_no_data_release_btn);
 		mListView.setDividerHeight(0);
 		mListView.register2Outer(mOuterScroller, mIndex);
 		adapter = new PersonDateDetailAdapter(homePageList, getActivity(),
@@ -104,6 +111,17 @@ public class PersonDateFragment_MyLines extends AbsBaseFragment implements
 			sendRequestMoreLine(1);
 		}
 
+		btn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				ActivityCollector
+						.removeSpecifiedActivity("com.uugty.uu.person.PersonCenterActivity");
+				Intent intent = new Intent();
+				intent.setClass(getActivity(),
+						PublishServicesActivity.class);
+				startActivity(intent);
+			}
+		});
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -146,6 +164,14 @@ public class PersonDateFragment_MyLines extends AbsBaseFragment implements
 					homePageList.addAll(result);
 					break;
 				}
+				if(homePageList.size()>0){
+					mListView.setVisibility(View.VISIBLE);
+					waveView.setVisibility(View.GONE);
+
+				}else{
+					mListView.setVisibility(View.GONE);
+					waveView.setVisibility(View.VISIBLE);
+				}
 				adapter.notifyDataSetChanged();
 
 			}
@@ -162,12 +188,13 @@ public class PersonDateFragment_MyLines extends AbsBaseFragment implements
 						MoreLvEntity.class, getActivity()) {
 					@Override
 					public void onSuccess(MoreLvEntity result) {
-						Message msg = Message.obtain();
-						msg.what = what;
-						Bundle b = new Bundle();
-						b.putSerializable("morelist", result);
-						msg.setData(b);
-						handler.sendMessage(msg);
+
+							Message msg = Message.obtain();
+							msg.what = what;
+							Bundle b = new Bundle();
+							b.putSerializable("morelist", result);
+							msg.setData(b);
+							handler.sendMessage(msg);
 					}
 
 					@Override

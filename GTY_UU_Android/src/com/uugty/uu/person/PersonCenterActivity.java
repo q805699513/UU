@@ -63,6 +63,7 @@ public class PersonCenterActivity extends BaseActivity implements
 	private ImageView mGuide;//导游证
 	private ImageView mDriver;//驾驶证
 	private String verU,realName,academic,guide,driver;
+	private String roadNum;//是否发不过路线
 
 	@Override
 	protected int getContentLayout() {
@@ -180,7 +181,15 @@ public class PersonCenterActivity extends BaseActivity implements
 			thirdFragment = PersonDateFragment_Myuu.newInstance(detailUserId,
 					user_name, avatar, "0", differentiate);
 		}
-		fragmentList.add(btFragment);
+		if(!"".equals(roadNum)){
+			fragmentList.add(btFragment);
+		}else{
+			if(MyApplication.getInstance().getUserInfo().getOBJECT().getUserId().equals(detailUserId)
+					&& null != verU && verU.equals("1")){
+				fragmentList.add(btFragment);
+			}
+		}
+
 		fragmentList.add(thirdFragment);
 		fragmentList.add(secondFragment);
 
@@ -340,16 +349,29 @@ public class PersonCenterActivity extends BaseActivity implements
 	}
 
 	private void addFriendsRequest() {
+		String post="";
 		RequestParams params = new RequestParams();
 		params.add("friendId", detailUserId);
-		APPRestClient.post(this, ServiceCode.ADD_FRIENDS, params,
+		if("关注".equals(persondate_addfriend_text.getText().toString())){
+			post = ServiceCode.ADD_FRIENDS;
+		}else{
+			post = ServiceCode.DELETE_FRIENDS;
+		}
+		APPRestClient.post(this, post, params,
 				new APPResponseHandler<BaseEntity>(BaseEntity.class, this) {
 					@Override
 					public void onSuccess(BaseEntity result) {
-						CustomToast.makeText(ctx, 0, "关注成功", 300).show();
-						addFriendsLin.setEnabled(false);
-						persondate_addfriend_text.setText("已关注");
-						addFrindsImage.setVisibility(View.GONE);
+						if("关注".equals(persondate_addfriend_text.getText().toString())){
+							CustomToast.makeText(ctx, 0, "关注成功", 300).show();
+							persondate_addfriend_text.setText("取消关注");
+							addFrindsImage.setVisibility(View.GONE);
+						}else{
+							CustomToast.makeText(ctx, 0, "取消成功", 300).show();
+							persondate_addfriend_text.setText("关注");
+							addFrindsImage.setVisibility(View.VISIBLE);
+						}
+
+
 					}
 
 					@Override
@@ -423,13 +445,14 @@ public class PersonCenterActivity extends BaseActivity implements
 				avatar = userInfo.getOBJECT().getUserAvatar();
 				userDescription = userInfo.getOBJECT().getUserDescription();
 				user_name = userInfo.getOBJECT().getUserName();
-				
+
+				roadNum = userInfo.getOBJECT().getRoadlineId();//是否发布过路线
 				verU = userInfo.getOBJECT().getUserIsPromoter();//是否为会员
 				realName = userInfo.getOBJECT().getUserIdValidate();//身份证是否验证
 				academic = userInfo.getOBJECT().getUserCertificateValidate();//学历证是否验证
 				guide = userInfo.getOBJECT().getUserTourValidate();//导游证是否验证
 				driver = userInfo.getOBJECT().getUserCarValidate();//驾驶证是否验证
-				
+
 				if(null != verU && verU.equals("1")){
 					mVerU.setVisibility(View.VISIBLE);
 				}else{
@@ -502,8 +525,7 @@ public class PersonCenterActivity extends BaseActivity implements
 					for (int i = 0; i < result.getLIST().size(); i++) {
 						if (result.getLIST().get(i).getUserId()
 								.equals(detailUserId)) {
-							addFriendsLin.setEnabled(false);
-							persondate_addfriend_text.setText("已关注");
+							persondate_addfriend_text.setText("取消关注");
 							addFrindsImage.setVisibility(View.GONE);
 							break;
 						}

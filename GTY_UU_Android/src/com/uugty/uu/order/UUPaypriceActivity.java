@@ -675,6 +675,19 @@ public class UUPaypriceActivity extends BaseActivity implements
 		builder.setTitle("确认");
 		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
+
+				if("若取消本次支付，可在我的订单里继续完成支付。".equals(dialogMsg)){
+					ActivityCollector
+							.removeSpecifiedActivity("com.uugty.guide.order.UUPayActivity");
+					ActivityCollector
+							.removeSpecifiedActivity("com.uugty.guide.order.UUOrederPayActivity");
+					ActivityCollector
+							.removeSpecifiedActivity("com.uugty.guide.order.UUPaypriceActivity");
+					Intent intent = new Intent();
+					intent.putExtra("from", "priceDetail");
+					intent.setClass(UUPaypriceActivity.this, UUOrderActivity.class);
+					startActivity(intent);
+				}
 				dialog.dismiss();
 				finish();
 			}

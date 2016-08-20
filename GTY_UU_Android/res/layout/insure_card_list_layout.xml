@@ -70,12 +70,11 @@
 			<TextView
 				android:id="@+id/order_write_insure"
 				android:layout_marginLeft="5dp"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
+				android:layout_width="20dp"
+				android:layout_height="20dp"
 				android:layout_toRightOf="@+id/order_write_insure_txt"
 				android:layout_centerVertical="true"
-				android:gravity="center"
-				android:background="@drawable/lzh_contact"/>
+				android:background="@drawable/lzh_insurehelp"/>
 
 			<TextView
 				android:id="@+id/insure_txt"
@@ -85,7 +84,7 @@
 				android:layout_height="wrap_content"
 				android:layout_toLeftOf="@+id/image_view"
 				android:layout_centerVertical="true"
-
+				android:text="去选择"
 				android:gravity="center"
 				android:textColor="#f15353"
 				android:textSize="15sp"/>

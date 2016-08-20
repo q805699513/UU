@@ -210,7 +210,15 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 			public void onClick(View v) {
 				Intent i = new Intent();
 				if(null !=mTouristList && mTouristList.size() > 0){
+					for(int a= 0 ; a< mTouristList.size();a++){
 
+						if(!mInsureContactId.contains(mTouristList.get(a).getContactId())) {
+							mTouristList.get(a).setContactStatus("0");
+						}else{
+							mTouristList.get(a).setContactStatus("1");
+						}
+
+					}
 					i.putExtra("list",(Serializable)mTouristList);
 					i.putExtra("type",mInsureType);
 					i.setClass(UUPayActivity.this, InsureActivity.class);
@@ -520,9 +528,11 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 			case 1000:
 				float price;
 				mInsureNum = data.getStringExtra("num");
-				mInsureType = data.getStringExtra("type");
 				mInsureContactId = data.getStringExtra("allId");
-				if(null != mInsureType && !"".equals(mInsureType)) {
+				if(null != data.getStringExtra("type")
+						&& !"".equals(data.getStringExtra("type"))
+						&& !"0".equals(data.getStringExtra("type"))) {
+					mInsureType = data.getStringExtra("type");
 					if (mInsureType.contains("1")) {
 						mInsureDetail.setText("￥5/天 x " + mInsureNum + "人");
 						mTotalInsure = Integer.parseInt(mInsureNum) * 5;
@@ -538,6 +548,8 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 						mTotalInsure = Integer.parseInt(mInsureNum) * 15;
 						price = allPrice + mTotalInsure;
 						mPayPriceButton.setText("" + price);
+					}else{
+						mInsureDetail.setText("选择保险类型");
 					}
 				}else{
 					mInsureDetail.setText("选择保险类型");
@@ -554,6 +566,15 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 				contactId=data.getStringExtra("allId");
 				mContactName = data.getStringExtra("name");
 				mTouristList = (List<TouristEntity.Tourist>) data.getSerializableExtra("list");
+				for(int a= 0 ; a< mTouristList.size();a++){
+					if ("1".equals(mTouristList.get(a).getContactStatus())) {
+						if(!mInsureContactId.contains(mTouristList.get(a).getContactId())) {
+							mTouristList.get(a).setContactStatus("0");
+						}else{
+							mTouristList.get(a).setContactStatus("1");
+						}
+					}
+				}
 				if(null !=mTouristList && mTouristList.size() > 0){
 					mTouristLinear.setVisibility(View.GONE);
 					mTouristListLinear.setVisibility(View.VISIBLE);

@@ -79,12 +79,14 @@ public class ListViewAdapter extends BaseAdapter {
 					R.layout.activity_carrydetail, null);
 			holder.imageView = (SimpleDraweeView) convertView
 					.findViewById(R.id.order_image);
-			holder.order_nums_text = (TextView) convertView
-					.findViewById(R.id.order_num);
+//			holder.order_nums_text = (TextView) convertView
+//					.findViewById(R.id.order_num);
 			holder.title = (TextView) convertView
 					.findViewById(R.id.order_time);
-			holder.roadPrice = (TextView) convertView
-					.findViewById(R.id.order_city);
+			holder.orderYear = (TextView) convertView
+					.findViewById(R.id.order_date);
+//			holder.roadPrice = (TextView) convertView
+//					.findViewById(R.id.order_city);
 			holder.orderDate = (TextView) convertView.findViewById(R.id.order_date_sum);
 			holder.statusTextView = (TextView) convertView
 					.findViewById(R.id.order_state);
@@ -104,8 +106,8 @@ public class ListViewAdapter extends BaseAdapter {
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		holder.order_nums_text.setText("x" + list.get(position).getOrderTravelNumber());
-		
+//		holder.order_nums_text.setText("x" + list.get(position).getOrderTravelNumber());
+		holder.orderYear.setText(list.get(position).getOrderTime().substring(0,10) + " 日出行");
 		holder.orderDate.setText("共" + list.get(position).getRoadlineDays() +"天");
 		holder.activity_carrydetail_linearla
 				.setBackgroundResource(R.drawable.list_item_bg);
@@ -119,17 +121,17 @@ public class ListViewAdapter extends BaseAdapter {
 				&& !list.get(position).getOrderTitle().equals("")) {
 			holder.title.setText(list.get(position).getOrderTitle());
 		}
-		holder.roadPrice
-				.setText("￥"+ Float.parseFloat(list.get(position).getOrderPrice().substring(0,list.get(position).getOrderPrice().indexOf("."))));
+//		holder.roadPrice
+//				.setText("￥"+ Float.parseFloat(list.get(position).getOrderPrice().substring(0,list.get(position).getOrderPrice().indexOf("."))));
 
 		holder.statusTextView.setText(transOrderStatus(list.get(position)
 				.getOrderStatus()));
 
 		if(!TextUtils.isEmpty(list.get(position).getOrderTravelNumber())&&!TextUtils.isEmpty(list.get(position).getOrderPrice())){
 			if("0.0".equals(list.get(position).getOrderCouponMoney())){
-				holder.priceTextView.setText("实付:￥" + Integer.parseInt(list.get(position).getOrderTravelNumber())*Float.parseFloat(list.get(position).getOrderPrice().substring(0,list.get(position).getOrderPrice().indexOf("."))));
+				holder.priceTextView.setText("合计:  ￥" + Integer.parseInt(list.get(position).getOrderTravelNumber())*Float.parseFloat(list.get(position).getOrderPrice().substring(0,list.get(position).getOrderPrice().indexOf("."))));
 			}else{
-				holder.priceTextView.setText("实付:￥"
+				holder.priceTextView.setText("合计:  ￥"
 						+ (Integer.parseInt(list.get(position).getOrderTravelNumber())
 								* Float.parseFloat(list.get(position).getOrderPrice())
 								- Float.parseFloat(list.get(position).getOrderCouponMoney()))
@@ -838,7 +840,7 @@ public class ListViewAdapter extends BaseAdapter {
 
 	private static class ViewHolder {
 		SimpleDraweeView imageView;
-		TextView title,statusTextView,priceTextView, evaluateTextView,order_nums_text,roadPrice,orderDate;
+		TextView title,statusTextView,priceTextView, evaluateTextView,orderDate,orderYear;
 		TextView txt_pay, txt_chat, txt_cancle;
 		LinearLayout activity_carrydetail_linearla;
 	}

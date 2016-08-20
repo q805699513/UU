@@ -664,8 +664,8 @@ public class StopFragment extends Fragment implements
 									new DialogInterface.OnClickListener() {
 										public void onClick(DialogInterface dialog,
 															int which) {
-											if (routeList1.get(position)
-													.getRoadlineStatus().equals("edit")) {
+											if ("edit".equals(routeList1.get(position)
+													.getRoadlineStatus())) {
 												// 删除数据库
 												roadLineService.deleteData(routeList1
 														.get(position).getRoadlineId());

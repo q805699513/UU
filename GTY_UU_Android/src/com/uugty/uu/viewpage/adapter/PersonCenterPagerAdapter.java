@@ -17,7 +17,8 @@ public class PersonCenterPagerAdapter extends FragmentPagerAdapter implements Ou
 
     /****    OuterPagerAdapter methods   ****/
     private OuterScroller mOuterScroller;
-    private ArrayList<Fragment> list;  
+    private ArrayList<Fragment> list;
+    protected CharSequence[] mTitles ;
 
     @Override
     public void setOuterScroller(OuterScroller outerScroller) {
@@ -43,9 +44,13 @@ public class PersonCenterPagerAdapter extends FragmentPagerAdapter implements Ou
     public PersonCenterPagerAdapter(FragmentManager fm,ArrayList<Fragment> list) {
         super(fm);
         this.list = list;
+        if(list.size() == 2){
+            this.mTitles = new CharSequence[]{"uu圈", "关于我"/*, "page 4", "page 5", "page 6"*/};
+        }else{
+            this.mTitles = new CharSequence[]{"我的小店", "uu圈", "关于我"/*, "page 4", "page 5", "page 6"*/};
+        }
     }
 
-    protected CharSequence[] mTitles = {"我的小店", "uu圈", "关于我"/*, "page 4", "page 5", "page 6"*/};
 
     @Override
     public CharSequence getPageTitle(int position) {

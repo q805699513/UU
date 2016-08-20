@@ -219,7 +219,13 @@ public class UUOrederPayActivity extends BaseActivity implements
 			public void onClick(View v) {
 				Intent i = new Intent();
 				if(null !=mTouristList && mTouristList.size() > 0){
-
+					for(int a= 0 ; a< mTouristList.size();a++){
+						if(!mInsureContactId.contains(mTouristList.get(a).getContactId())) {
+							mTouristList.get(a).setContactStatus("0");
+						}else{
+							mTouristList.get(a).setContactStatus("1");
+						}
+					}
 					i.putExtra("list",(Serializable)mTouristList);
 					i.putExtra("type",mInsureType);
 					i.setClass(UUOrederPayActivity.this, InsureActivity.class);
@@ -428,6 +434,9 @@ public class UUOrederPayActivity extends BaseActivity implements
 									if ("2".equals(result.getLIST().get(i).getInsuranceStatus())) {
 										++mInsureReturn;
 									}
+									if(!"0".equals(result.getLIST().get(i).getInsuranceType())){
+										mInsureType = result.getLIST().get(i).getInsuranceType();
+									}
 									TouristEntity entity = new TouristEntity();
 									TouristEntity.Tourist tour = entity.new Tourist();
 									tour.setContactIDCard(result.getLIST().get(i).getContactIDCard());
@@ -442,7 +451,7 @@ public class UUOrederPayActivity extends BaseActivity implements
 									mTouristAdapter = new OrderTouristAdapter(ctx,mTouristList);
 									mTouristListView.setAdapter(mTouristAdapter);
 								}
-								mInsureType = result.getLIST().get(0).getInsuranceType();
+
 								if (mInsureType.contains("1")) {
 									mInsureDetail.setText("￥5/天 x " + String.valueOf(mInsureReturn) + "人");
 								} else if (mInsureType.contains("2")) {
@@ -767,6 +776,15 @@ public class UUOrederPayActivity extends BaseActivity implements
 					mTouristListLinear.setVisibility(View.VISIBLE);
 					mTouristAdapter = new OrderTouristAdapter(ctx,mTouristList);
 					mTouristListView.setAdapter(mTouristAdapter);
+					for(int a= 0 ; a< mTouristList.size();a++){
+						if ("1".equals(mTouristList.get(a).getContactStatus())) {
+							if(!mInsureContactId.contains(mTouristList.get(a).getContactId())) {
+								mTouristList.get(a).setContactStatus("0");
+							}else{
+								mTouristList.get(a).setContactStatus("1");
+							}
+						}
+					}
 				}
 				break;
 			case REQUEST_SEL:

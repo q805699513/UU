@@ -36,6 +36,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.uugty.uu.R;
 import com.uugty.uu.base.application.MyApplication;
+import com.uugty.uu.com.find.FindTestViewPagerActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -516,10 +517,43 @@ public class PersonDateFragment_Myuu extends AbsBaseFragment implements
 						.findViewById(R.id.dynamic_right_chat_img);
 				holder.dynamic_postion_item_lin = (LinearLayout) view
 						.findViewById(R.id.dynamic_postion_item_lin);
+
+				//分享路线
+				holder.share_road = (LinearLayout) view
+						.findViewById(R.id.dynamic_road_share_linear);
+				holder.road_img = (SimpleDraweeView) view
+						.findViewById(R.id.dynamic_road_image);
+				holder.road_title = (TextView) view
+						.findViewById(R.id.dynamic_road_title);
 				view.setTag(holder);
 			} else {
 				holder = (ViewHolder) view.getTag();
-			}			
+			}
+
+			if(null != ls.get(position).getShareRoadId()
+					&& !ls.get(position).getShareRoadId().equals("0")){
+				holder.share_road.setVisibility(View.VISIBLE);
+				if(ls.get(position).getSaidContent().equals("")){
+					holder.dynamic_content_text.setVisibility(View.GONE);
+				}else{
+					holder.dynamic_content_text.setVisibility(View.VISIBLE);
+				}
+				holder.road_img.setImageURI(Uri.parse(APPRestClient.SERVER_IP+ "images/roadlineDescribe/"
+						+ ls.get(position).getShareRoadImg()));
+				holder.road_title.setText(ls.get(position).getShareRoadTitle());
+				holder.share_road.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						Intent i = new Intent();
+						i.putExtra("roadId",ls.get(position).getShareRoadId());
+						i.setClass(context, FindTestViewPagerActivity.class);
+						startActivity(i);
+					}
+				});
+			}else{
+				holder.share_road.setVisibility(View.GONE);
+				holder.dynamic_content_text.setVisibility(View.VISIBLE);
+			}
 			// 聊天 or 删除
 			if (MyApplication.getInstance().isLogin()) {
 				if (ls.get(position)
@@ -928,13 +962,13 @@ public class PersonDateFragment_Myuu extends AbsBaseFragment implements
 			TextView username, dynamic_browse_text, dynamic_content_text,
 					dynamic_createtimes, dynamic_comments_text,
 					dynamic_goodtimes_text, dynamic_praise_text,
-					dynamic_position_item_text;
-			SimpleDraweeView userheand, dynamic_img_gridview_oneimg;
+					dynamic_position_item_text,road_title;
+			SimpleDraweeView userheand, dynamic_img_gridview_oneimg,road_img;
 
 			LinearLayout dynamic_photo_show, dynamic_right_menu_lin,
 					dynamic_delete_rel, dynamic_browse_rel,
 					dynamic_friend_comments_lin, dynamic_praise_rel,
-					dynamic_postion_item_lin;
+					dynamic_postion_item_lin,share_road;
 			JoyGridView dynamic_img_grid;
 			ImageView dynamic_title_V, dynamic_praise_state_img,
 					right_report_pupuwindow, dynamic_right_chat_img,

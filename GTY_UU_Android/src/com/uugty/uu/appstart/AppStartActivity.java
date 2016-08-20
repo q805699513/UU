@@ -13,6 +13,10 @@ import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -155,6 +159,18 @@ public class AppStartActivity extends BaseActivity implements
 				"appversion", MyApplication.getInstance().getApp_version());
 	}
 
+	public void setAnimation(final ImageView view){
+		AnimationSet set = new AnimationSet(true);
+		AlphaAnimation alphaAnim = new AlphaAnimation(1.0f, 0.9f);
+		set.addAnimation(alphaAnim);
+		ScaleAnimation scaleAnim = new ScaleAnimation(1.0f, 1.02f, 1.0f, 1.02f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 1.0f);
+		set.setFillAfter(true);
+		set.setDuration(1800);
+		set.addAnimation(scaleAnim);
+
+		view.startAnimation(set);
+	}
+
 	@Override
 	protected void initAction() {
 //		MobclickAgent.updateOnlineConfig(this);
@@ -221,6 +237,12 @@ public class AppStartActivity extends BaseActivity implements
 									APPRestClient.SERVER_IP
 											+ result.getOBJECT().getBootImage(),
 									startImageView,options);
+							new Handler().postDelayed(new Runnable() {
+								@Override
+								public void run() {
+									setAnimation(startImageView);
+								}
+							},100);
 						}
 						
 					}

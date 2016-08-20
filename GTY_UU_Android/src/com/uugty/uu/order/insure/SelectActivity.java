@@ -20,7 +20,7 @@ public class SelectActivity extends BaseActivity{
 	
 	private Button mButton;//确定
 	private Drawable noclick,click;
-	private String mType;//保险类型
+	private String mType = "";//保险类型
 	private LinearLayout mInsureLinear1;
 	private LinearLayout mInsureLinear2;
 	private LinearLayout mInsureLinear3;
@@ -124,7 +124,7 @@ public class SelectActivity extends BaseActivity{
 				clearClick();
 				if(linear4 == 0){
 					linear4 = 1;
-					mType = "4";
+					mType = "0";
 					mInsureImg4.setBackgroundDrawable(click);
 				}else{
 					linear4 = 0;
