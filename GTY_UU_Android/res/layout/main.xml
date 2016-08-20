@@ -80,7 +80,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_gravity="center_horizontal|bottom"
 			        android:layout_marginBottom="6dp"
-			        android:text="向导"
+			        android:text="UU圈"
 			        android:textColor="#98999a"
 			        android:textSize="10sp" />
 			</LinearLayout>
@@ -108,7 +108,8 @@
                     android:layout_marginBottom="6dp"
                     android:text="发布"
                     android:textColor="#98999a"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    />
             </LinearLayout>
 			
             <LinearLayout

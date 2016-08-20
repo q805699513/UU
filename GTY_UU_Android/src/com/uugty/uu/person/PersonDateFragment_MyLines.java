@@ -374,12 +374,6 @@ class PersonDateDetailAdapter extends BaseAdapter {
 		} else {
 			holder.lookNumText.setText("0");
 		}
-		if (null != ls.get(position).getLineNum()
-				&& !ls.get(position).getLineNum().equals("")) {
-			holder.lookNumText.setText(ls.get(position).getLineNum());
-		} else {
-			holder.lookNumText.setText("0");
-		}
 		if (null != title && !title.equals("")) {
 			holder.headImage.setImageURI(Uri.parse(APPRestClient.SERVER_IP
 					+ title));

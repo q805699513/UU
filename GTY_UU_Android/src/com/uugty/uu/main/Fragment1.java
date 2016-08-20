@@ -201,7 +201,6 @@ public class Fragment1 extends Fragment implements
 					startActivity(intent);
 				}else{
 					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-//					intent.putExtra("topage", ConsultFragment.class.getName());
 					intent.setClass(context, LoginActivity.class);
 					startActivity(intent);
 				}

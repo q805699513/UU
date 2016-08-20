@@ -46,6 +46,7 @@ import com.uugty.uu.common.util.DateUtil;
 import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.login.AgreementWebActivity;
 import com.uugty.uu.login.LoginActivity;
+import com.uugty.uu.main.MainActivity;
 import com.uugty.uu.map.PhoneDialog;
 import com.uugty.uu.person.PersonCompileActivity;
 import com.uugty.uu.person.PersonInfoTextActivity;
@@ -698,7 +699,7 @@ public class PublishTalkActivity extends BaseActivity implements
 										Intent intent = new Intent();
 										intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 										intent.putExtra("publish", "publish");
-										intent.setClass(PublishTalkActivity.this, FriendsDynamicActivity.class);
+										intent.setClass(PublishTalkActivity.this, MainActivity.class);
 										startActivity(intent);
 										list.clear();
 										ratiolist.clear();

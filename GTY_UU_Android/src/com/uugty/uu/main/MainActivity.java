@@ -39,6 +39,7 @@ import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.AutoLogin;
 import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.entity.TestEntity;
+import com.uugty.uu.friendstask.FriendsDynamicFragment;
 import com.uugty.uu.login.LoginActivity;
 import com.uugty.uu.main.popwindow.MoreWindow;
 import com.uugty.uu.util.UUConfig;
@@ -56,7 +57,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 	private Fragement4 fragment4;
 	private Fragment1 fragment1;
 	private Fragement2 fragment2;
-	private ConsultFragment lablefragment;
+	private FriendsDynamicFragment lablefragment;
 	private String toPage = "";
 	private String fromPage = "";
 	private String city=""; //城市
@@ -382,7 +383,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 			radio_textview4.setTextColor(Color.parseColor("#98999a"));
 			
 			if (lablefragment == null) {
-				lablefragment = new ConsultFragment();
+				lablefragment = new FriendsDynamicFragment();
 				transaction.add(R.id.home_layout, lablefragment);
 			} else {
 				transaction.show(lablefragment);

@@ -165,7 +165,7 @@ public class AppStartActivity extends BaseActivity implements
 		set.addAnimation(alphaAnim);
 		ScaleAnimation scaleAnim = new ScaleAnimation(1.0f, 1.02f, 1.0f, 1.02f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 1.0f);
 		set.setFillAfter(true);
-		set.setDuration(1800);
+		set.setDuration(2000);
 		set.addAnimation(scaleAnim);
 
 		view.startAnimation(set);

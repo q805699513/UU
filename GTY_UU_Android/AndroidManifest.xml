@@ -677,7 +677,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".friendstask.FriendsDynamicActivity"
+            android:name=".friendstask.FriendsDynamicFragment"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" >

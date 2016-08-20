@@ -49,7 +49,7 @@ import com.uugty.uu.entity.DynamicEntity.Dynamic;
 import com.uugty.uu.entity.UpVoteEntity;
 import com.uugty.uu.friendstask.DynamicCommentActivity;
 import com.uugty.uu.friendstask.DynamicDetailActivity;
-import com.uugty.uu.friendstask.FriendsDynamicActivity;
+import com.uugty.uu.friendstask.FriendsDynamicFragment;
 import com.uugty.uu.login.LoginActivity;
 
 import java.util.ArrayList;
@@ -174,7 +174,7 @@ public class InvitationCollectFragment extends Fragment implements
 		switch (v.getId()) {
 		case R.id.service_collect_no_data_btn:
 			Intent intent = new Intent();
-			intent.setClass(getActivity(), FriendsDynamicActivity.class);
+			intent.setClass(getActivity(), FriendsDynamicFragment.class);
 			startActivity(intent);
 			break;
 
