@@ -195,7 +195,7 @@
         <EditText
             android:id="@+id/recharge_price_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/right_txt_name"
             android:background="@null"
@@ -206,7 +206,6 @@
             android:maxLength="8" 
             android:textColor="#666666"
             android:textColorHint="#98999a"
-            android:layout_marginRight="20dp"
             />
     </RelativeLayout>
 

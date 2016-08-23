@@ -804,7 +804,7 @@ public class Fragment1 extends Fragment implements
 		fraction = space / (adViewHeight - titleViewHeight);
 		if (fraction < 0f) fraction = 0f;
 		if (fraction > 1f) fraction = 1f;
-		titleRelative.setAlpha(1f);
+//		titleRelative.setAlpha(1f);
 
 		if (fraction >= 1f) {
 			Drawable img = res
