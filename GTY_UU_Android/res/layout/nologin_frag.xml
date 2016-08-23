@@ -218,6 +218,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:text="快来完善个人描述吧～"
                             android:textColor="#666666"
                             android:textSize="13sp" />
 

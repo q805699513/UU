@@ -287,7 +287,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 			userwork.setText(MyApplication.getInstance().getUserInfo()
 					.getOBJECT().getUserWork());
 		} else {
-			userwork.setText("他还没有填写");
+			userwork.setText("快来完善个人描述吧～");
 		}
 		if (!MyApplication.getInstance().getUserInfo().getOBJECT().getUserSex()
 				.equals("")

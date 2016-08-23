@@ -77,7 +77,7 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 				mInsureRelative.setClickable(false);
 			}
 			if(null != getIntent().getStringExtra("type")
-					&& "0".equals(getIntent().getStringExtra("type"))){
+					&& !"0".equals(getIntent().getStringExtra("type"))){
 				alltype = getIntent().getStringExtra("type");
 				if(alltype.contains("1")){
 					mInsureType.setText("￥5/天");
