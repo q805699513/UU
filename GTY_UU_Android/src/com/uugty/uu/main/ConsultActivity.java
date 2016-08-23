@@ -15,7 +15,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
@@ -30,10 +29,8 @@ import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.entity.ConsultEntity;
 import com.uugty.uu.entity.ConsultEntity.Consult;
-import com.uugty.uu.friendstask.FriendsDynamicFragment;
 import com.uugty.uu.guide.LeadPageActivity;
 import com.uugty.uu.login.LoginActivity;
-import com.uugty.uu.util.UUConfig;
 import com.uugty.uu.uuchat.ChatActivity;
 
 import java.util.ArrayList;
@@ -45,12 +42,11 @@ public class ConsultActivity extends BaseActivity implements
 
 	private List<Consult> list = new ArrayList<Consult>();
 	private ListView mListView;
-	private TextView mFriend;
 	private int startId = 1;// 起始页页
 	private SwipeRefreshLayout mSwipeLayout;
 	private ConsultAdapter adapter;
 	private String city = "北京";
-	private ImageView MapImageView;
+	private ImageView MapImageView,backImg;
 	private int isFirst=0;//是否第一次加载
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -88,9 +84,12 @@ public class ConsultActivity extends BaseActivity implements
 	@Override
 	protected void initGui() {
 		// TODO Auto-generated method stub
+		if (null != getIntent().getStringExtra("city")) {
+			city = getIntent().getStringExtra("city");
+		}
 		mListView = (ListView) findViewById(R.id.consult_listview);
 		MapImageView=(ImageView) findViewById(R.id.consult_test);
-		mFriend = (TextView) findViewById(R.id.consult_friend);
+		backImg = (ImageView) findViewById(R.id.consult_back);
 		mSwipeLayout = (SwipeRefreshLayout) findViewById(R.id.consult_swipe_container);
 		adapter = new ConsultAdapter(this, list);
 		mListView.setAdapter(adapter);
@@ -118,7 +117,13 @@ public class ConsultActivity extends BaseActivity implements
 							LeadPageActivity.class);
 					startActivity(intent);
 					SharedPreferenceUtil.getInstance(this).setInt("myconsult", 1);
-				} 
+				}
+		backImg.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
 		
 		MapImageView.setOnClickListener(new OnClickListener() {
 			
@@ -137,16 +142,7 @@ public class ConsultActivity extends BaseActivity implements
 				
 			}
 		});
-		
-		mFriend.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent();
-				intent.setClass(ConsultActivity.this, FriendsDynamicFragment.class);
-				startActivity(intent);
-			}
-		});
+
 		mListView.setOnItemClickListener(this);
 		mSwipeLayout.setOnRefreshListener(this);
 		mSwipeLayout.setColorSchemeResources(R.color.login_text_color,
@@ -291,13 +287,6 @@ public class ConsultActivity extends BaseActivity implements
 	@Override
 	public void onResume() {
 		super.onResume();
-		if (UUConfig.INSTANCE.getmCtity() != null){
-			city = UUConfig.INSTANCE.getmCtity();
-		}
-		if(isFirst != 0|| !"北京".equals(city)){
-			isFirst = 1;
-			onRefresh();
-		}
 	}
 
 	@Override

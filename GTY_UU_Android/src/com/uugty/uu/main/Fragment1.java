@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,6 +25,7 @@ import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -41,11 +44,14 @@ import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.dialog.CustomDialog;
 import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.common.myview.ListViewForScrollView;
 import com.uugty.uu.common.myview.ScrollViewUITools;
 import com.uugty.uu.common.myview.SearchPopuWindow;
 import com.uugty.uu.common.myview.SlideShowView;
 import com.uugty.uu.common.util.ActivityCollector;
+import com.uugty.uu.entity.ConsultEntity;
 import com.uugty.uu.entity.GuideEntity;
 import com.uugty.uu.entity.GuideEntity.GuideDetail;
 import com.uugty.uu.entity.HomePageRecommendEntity;
@@ -53,8 +59,12 @@ import com.uugty.uu.entity.HomePageRecommendEntity.HomePageRecommend;
 import com.uugty.uu.entity.HomeTagEntity;
 import com.uugty.uu.entity.HomeTagEntity.Tags.PlayAndBuy;
 import com.uugty.uu.login.LoginActivity;
+import com.uugty.uu.util.ColorUtil;
+import com.uugty.uu.util.DensityUtil;
 import com.uugty.uu.util.UUConfig;
+import com.uugty.uu.uuchat.ChatActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +72,7 @@ public class Fragment1 extends Fragment implements
 		SwipeRefreshLayout.OnRefreshListener, OnItemClickListener,
 		OnScrollListener, OnClickListener {
 	private TextView location_text, search_text;
-	private View rootView;// 缓存Fragment view
+	private View rootView,bootomLine;// 缓存Fragment view
 	// private ListView lv;
 	private List<GuideDetail> homePageList = new ArrayList<GuideDetail>();
 	private FragmentOneListViewAdapter adapter;
@@ -77,7 +87,8 @@ public class Fragment1 extends Fragment implements
 	private List<HomePageRecommend> recommendList;
 	private List<PlayAndBuy> mPlayList;
 	private List<PlayAndBuy> mBuyList;
-	private LinearLayout horizontalLin, release_lin, fatherLin,mHomePlayLin,mHomeBuyLin;
+	private LinearLayout horizontalLin,mHomePlayLin,mHomeBuyLin, release_lin;
+	private FrameLayout fatherLin;
 	private String themeCity = "北京";
 	private String cityType = "1";//1是国内 2是国外
 	private HorizontalScrollView horizontalScrollView;
@@ -86,6 +97,23 @@ public class Fragment1 extends Fragment implements
 	private LinearLayout mHomeHeadLayout;//推荐景区去处
 	private float y = 0;
 	private TextView footMoreText,headMoreText;
+	private int adViewHeight; // 广告视图的高度
+	private int adViewTopSpace; // 广告视图距离顶部的距离
+	private int titleViewHeight = 50; // 标题栏的高度
+	private boolean isScrollIdle = true; // ListView是否在滑动
+	private RelativeLayout titleRelative;
+	private View itemHeaderAdView; // 从ListView获取的广告子View
+	private ImageView mLocationImg,mNearImg;
+	//向导咨询
+	private ListViewForScrollView mGuideListView;
+	private TextView mGuideMore;
+	private ConsultAdapter mGuideAdapter;
+	private LinearLayout mGuideLinear;
+	private List<ConsultEntity.Consult> guidelist = new ArrayList<ConsultEntity.Consult>();
+	//国外
+	private RelativeLayout mOutChinaRelative;
+	private TextView mOutChinaArea;
+	private TextView mOutChinaTime;
 
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -115,6 +143,18 @@ public class Fragment1 extends Fragment implements
 		};
 	};
 
+	private Handler handlerGuide = new Handler() {
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+				case 1:
+					mGuideAdapter = new ConsultAdapter(context,guidelist);
+					mGuideListView.setAdapter(mGuideAdapter);
+					break;
+
+			}
+		};
+	};
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -138,7 +178,7 @@ public class Fragment1 extends Fragment implements
 		location_text = (TextView) rootView.findViewById(R.id.location_text);
 		location_linear = (RelativeLayout) rootView
 				.findViewById(R.id.location_linear);
-		fatherLin = (LinearLayout) rootView.findViewById(R.id.fatherLin);
+		fatherLin = (FrameLayout) rootView.findViewById(R.id.fatherLin);
 		location_linear.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -150,6 +190,11 @@ public class Fragment1 extends Fragment implements
 				startActivityForResult(intent, 1000);
 			}
 		});
+
+		bootomLine = (View) rootView.findViewById(R.id.home_bootom_line);
+		mLocationImg = (ImageView) rootView.findViewById(R.id.home_head_img);
+		mNearImg = (ImageView) rootView.findViewById(R.id.home_head_img_near);
+		titleRelative = (RelativeLayout) rootView.findViewById(R.id.title_relative);
 		search_text = (TextView) rootView
 				.findViewById(R.id.home_page_search_text);
 		release_lin = (LinearLayout) rootView
@@ -210,10 +255,12 @@ public class Fragment1 extends Fragment implements
 		// list header
 		View headerView = LayoutInflater.from(context).inflate(
 				R.layout.home_page_listview_header_view, null);
-		homeSlideShowView = (SlideShowView) headerView
-				.findViewById(R.id.home_page_slideview);
 		horizontalLin = (LinearLayout) headerView
 				.findViewById(R.id.home_page_horizontal_lin);
+		mGuideListView = (ListViewForScrollView) headerView.findViewById(R.id.home_consult_listview);
+		mGuideMore = (TextView)headerView.findViewById(R.id.home_guide_more);
+		mGuideLinear = (LinearLayout) headerView.findViewById(R.id.home_guide_layout);
+
 		mHomeHeadLayout = (LinearLayout) headerView.findViewById(R.id.home_head_layout);
 		horizontalScrollView = (HorizontalScrollView) headerView
 				.findViewById(R.id.home_page_horizontal_scrollview);
@@ -265,6 +312,28 @@ public class Fragment1 extends Fragment implements
 				startActivity(intent);
 			}
 		});
+		mGuideMore.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.putExtra("city", themeCity);
+				intent.setClass(context, ConsultActivity.class);
+				startActivity(intent);
+			}
+		});
+		//广告栏
+		View headerAd = LayoutInflater.from(context).inflate(
+				R.layout.header_ad_layout, null);
+		homeSlideShowView = (SlideShowView) headerAd
+				.findViewById(R.id.home_page_slideview);
+		mOutChinaRelative = (RelativeLayout) headerAd
+				.findViewById(R.id.home_outchina_relative);
+		mOutChinaArea = (TextView) headerAd
+				.findViewById(R.id.home_outchina_text);
+		mOutChinaTime = (TextView) headerAd
+				.findViewById(R.id.home_outchina_time);
+
+		mListView.addHeaderView(headerAd);
 		mListView.addHeaderView(headerView);
 		mListView.addFooterView(footView, null, false);
 		adapter = new FragmentOneListViewAdapter(getActivity(), homePageList);
@@ -300,6 +369,43 @@ public class Fragment1 extends Fragment implements
 		});
 		homeSlideShowView.setSwipeRefreshLayout(mSwipeLayout);
 
+		mGuideListView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Intent mintent = new Intent();
+				// 聊天
+				if (MyApplication.getInstance().isLogin()) {
+					if (MyApplication.getInstance().getUserInfo().getOBJECT()
+							.getUserId().equals(guidelist.get(position).getUserId())) {
+						CustomDialog.Builder builder = new CustomDialog.Builder(
+								context);
+						builder.setMessage("这是你自己");
+						builder.setTitle("提示");
+						builder.setPositiveButton("确定",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog,
+														int which) {
+										dialog.dismiss();
+									}
+								});
+						builder.create().show();
+					} else {
+						mintent.putExtra("userId", guidelist.get(position).getUserId());
+						mintent.putExtra("avatar", guidelist.get(position).getUserAvatar());
+						mintent.putExtra("userName", guidelist.get(position).getUserName());
+						mintent.setClass(context, ChatActivity.class);
+						startActivity(mintent);
+					}
+				} else {
+					// 先登录
+					mintent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+					mintent.putExtra("topage", ConsultActivity.class.getName());
+					mintent.setClass(context, LoginActivity.class);
+					startActivity(mintent);
+
+				}
+			}
+		});
 //		consultationLin.setOnClickListener(this);
 //		customizLin.setOnClickListener(this);
 //		serviceLin.setOnClickListener(this);
@@ -470,7 +576,7 @@ public class Fragment1 extends Fragment implements
 			long id) {
 		Intent intent = new Intent();
 		try {
-				intent.putExtra("roadId", homePageList.get(position - 1)
+				intent.putExtra("roadId", homePageList.get(position - 2)
 						.getRoadlineId());
 				/*Bundle bundle = new Bundle();
 				bundle.putString("linenum", homePageList.get(position - 1)
@@ -486,6 +592,62 @@ public class Fragment1 extends Fragment implements
 
 	}
 
+	public void getGuideList(){
+		RequestParams params = new RequestParams();
+		params.add("userCity", themeCity); // 城市
+		params.add("currentPage", "1"); // 当前页数
+		params.add("pageSize", "3"); // pageSize
+		APPRestClient
+				.post(context, ServiceCode.QUERY_CONSULT_USERLIST, params,
+						new APPResponseHandler<ConsultEntity>(
+								ConsultEntity.class, context) {
+							@Override
+							public void onSuccess(ConsultEntity result) {
+								if (null != result.getLIST()
+										&& result.getLIST().size() > 0) {
+									mGuideLinear.setVisibility(View.VISIBLE);
+									guidelist = result.getLIST();
+									Message msg = Message.obtain();
+									msg.what = 1;
+									handlerGuide.sendMessage(msg);
+								}else{
+									mGuideLinear.setVisibility(View.GONE);
+								}
+
+							}
+
+							@Override
+							public void onFailure(int errorCode, String errorMsg) {
+								if (errorCode == 3) {
+									getGuideList();
+								} else {
+									CustomToast.makeText(context, 0, errorMsg, 300)
+											.show();
+									if (errorCode == -999) {
+										new AlertDialog.Builder(
+												context)
+												.setTitle("提示")
+												.setMessage("网络拥堵,请稍后重试！")
+												.setPositiveButton(
+														"确定",
+														new DialogInterface.OnClickListener() {
+															@Override
+															public void onClick(
+																	DialogInterface dialog,
+																	int which) {
+																dialog.dismiss();
+															}
+														}).show();
+									}
+								}
+							}
+
+							@Override
+							public void onFinish() {
+							}
+						});
+	}
+
 	@Override
 	public void onPause(){
 		super.onPause();
@@ -499,6 +661,7 @@ public class Fragment1 extends Fragment implements
 		// TODO Auto-generated method stub
 		super.onResume();
 		getThemeRecommend();
+		getGuideList();
 		if (y > 0) {
 			TranslateAnimation animation = new TranslateAnimation(0, 0, -y, 0);
 			animation.setDuration(200);
@@ -581,6 +744,7 @@ public class Fragment1 extends Fragment implements
 
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
+		isScrollIdle = (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE);
 		switch (scrollState) {
 		case OnScrollListener.SCROLL_STATE_IDLE:
 			break;
@@ -596,10 +760,20 @@ public class Fragment1 extends Fragment implements
 	public void onScroll(AbsListView view, int firstVisibleItem,
 			int visibleItemCount, int totalItemCount) {
 		// TODO Auto-generated method stub
+		if (isScrollIdle && adViewTopSpace < 0) return;
 		/*
 		 * mListView.onScroll(view, firstVisibleItem, visibleItemCount,
 		 * totalItemCount);
 		 */
+		// 获取广告头部View、自身的高度、距离顶部的高度
+		if (itemHeaderAdView == null) {
+			itemHeaderAdView = mListView.getChildAt(0-firstVisibleItem);
+		}
+		if (itemHeaderAdView != null) {
+			adViewTopSpace = DensityUtil.px2dip(context, itemHeaderAdView.getTop());
+			adViewHeight = DensityUtil.px2dip(context, itemHeaderAdView.getHeight());
+		}
+
 		if (startId > 1) {
 			if (firstVisibleItem == (startId - 1) * 5) {
 				startId++;
@@ -611,8 +785,53 @@ public class Fragment1 extends Fragment implements
 				}
 			}
 		}
+		// 处理标题栏颜色渐变
+		handleTitleBarColorEvaluate();
 	}
 
+	// 处理标题栏颜色渐变
+	private void handleTitleBarColorEvaluate() {
+		float fraction;
+		Resources res = this.getResources();
+		if (adViewTopSpace > 0) {
+			fraction = 1f - adViewTopSpace * 1f / 60;
+			if (fraction < 0f) fraction = 0f;
+			titleRelative.setAlpha(fraction);
+			return ;
+		}
+
+		float space = Math.abs(adViewTopSpace) * 1f;
+		fraction = space / (adViewHeight - titleViewHeight);
+		if (fraction < 0f) fraction = 0f;
+		if (fraction > 1f) fraction = 1f;
+		titleRelative.setAlpha(1f);
+
+		if (fraction >= 1f) {
+			Drawable img = res
+					.getDrawable(R.drawable.location_city_search_img);
+			img.setBounds(0, 0, img.getIntrinsicWidth(),img.getIntrinsicHeight());
+			location_text.setTextColor(context.getResources().getColor(R.color.login_hint_color));
+			search_text.setTextColor(context.getResources().getColor(R.color.login_hint_color));
+			mLocationImg.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.home_top_bottom));
+			mNearImg.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.home_top_right));
+			search_text.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.order_drawbakc_text_bg_shape));
+			search_text.setCompoundDrawables(img, null, null,null);
+			bootomLine.setVisibility(View.VISIBLE);
+			titleRelative.setBackgroundColor(context.getResources().getColor(R.color.white));
+		} else {
+			Drawable img = res
+					.getDrawable(R.drawable.lzh_serach);
+			bootomLine.setVisibility(View.GONE);
+			img.setBounds(0, 0, img.getIntrinsicWidth(),img.getIntrinsicHeight());
+			search_text.setCompoundDrawables(img, null, null,null);
+			mLocationImg.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.lzh_location));
+			mNearImg.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.lzh_near));
+			location_text.setTextColor(context.getResources().getColor(R.color.white));
+			search_text.setTextColor(context.getResources().getColor(R.color.white));
+			search_text.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.order_drawbakc_text_bg_shape_2));
+			titleRelative.setBackgroundColor(ColorUtil.getNewColorByStartEndColor(context, fraction, R.color.transparent, R.color.white));
+		}
+	}
 	private int dp2px(int dp) {
 		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
 				getResources().getDisplayMetrics());
@@ -713,6 +932,19 @@ public class Fragment1 extends Fragment implements
 				themeCity = data.getStringExtra("themeCity");
 				cityType = data.getStringExtra("areaType");
 				location_text.setText(themeCity);
+				if("2".equals(cityType)){
+					homeSlideShowView.setVisibility(View.GONE);
+					mOutChinaRelative.setVisibility(View.VISIBLE);
+					mOutChinaArea.setText(themeCity);
+					long currentTime = System.currentTimeMillis();
+					//大写E：表示星期几；大写S：表示毫秒；小写a：表示上下午
+					//大写HH：表示24小时制，小写表示12制
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd E a");
+					mOutChinaTime.setText(sdf.format(currentTime));
+				}else{
+					homeSlideShowView.setVisibility(View.VISIBLE);
+					mOutChinaRelative.setVisibility(View.GONE);
+				}
 				startId=1;
 				loadData(1);
 //				getThemeRecommend();

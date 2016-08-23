@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fatherLin"
     android:layout_width="match_parent"
@@ -7,13 +7,26 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical" >
 
-    <FrameLayout
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
         android:layout_width="match_parent"
-        android:layout_height="50dp" >
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/home_page_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#00000000"
+            android:dividerHeight="0dip"
+            android:scrollbars="none"
+            android:visibility="invisible" >
+        </ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
         <RelativeLayout
             android:id="@+id/title_relative"
             android:layout_width="match_parent"
+            android:background="@drawable/lzh_homebackground"
             android:layout_height="50dp">
             <RelativeLayout
                 android:id="@+id/location_linear"
@@ -30,16 +43,17 @@
                     android:gravity="center_vertical"
                     android:maxLength="3"
                     android:text="北京"
-                    android:textColor="#9b9b9b"
+                    android:textColor="#ffffff"
                     android:textSize="17sp" />
 
                 <ImageView
+                    android:id="@+id/home_head_img"
                     android:layout_width="12dp"
                     android:layout_height="7dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="5dp"
                     android:layout_toRightOf="@+id/location_text"
-                    android:background="@drawable/home_top_bottom" />
+                    android:background="@drawable/lzh_location" />
             </RelativeLayout>
 
             <TextView
@@ -50,11 +64,11 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="42dp"
                 android:layout_toRightOf="@+id/location_linear"
-                android:background="@drawable/order_drawbakc_text_bg_shape"
+                android:background="@drawable/order_drawbakc_text_bg_shape_2"
                 android:paddingLeft="8dp"
-                android:drawableLeft="@drawable/sousuo"
+                android:drawableLeft="@drawable/lzh_serach"
                 android:gravity="center"
-                android:text="搜索目的地、玩法、景区"
+                android:text="更多旅行目的地请直接搜索"
                 android:textColor="#ffffff"
                 android:textSize="13sp" />
 
@@ -68,34 +82,19 @@
                 android:paddingRight="13dp" >
 
                 <ImageView
+                    android:id="@+id/home_head_img_near"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/home_top_right" />
+                    android:background="@drawable/lzh_near" />
             </LinearLayout>
 
             <View
+                android:id="@+id/home_bootom_line"
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:layout_alignParentBottom="true"
+                android:visibility="gone"
                 android:background="#e5e5e5" />
         </RelativeLayout>
-    </FrameLayout>
 
-
-        <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/swipe_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <ListView
-                android:id="@+id/home_page_listview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="#00000000"
-                android:dividerHeight="0dip"  
-                android:scrollbars="none"
-                android:visibility="invisible" >
-            </ListView>
-        </android.support.v4.widget.SwipeRefreshLayout>
-
-</LinearLayout>
+</FrameLayout>

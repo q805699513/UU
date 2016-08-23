@@ -2,14 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     android:orientation="vertical" >
 
-    <!-- 主题图片 -->
-
-    <com.uugty.uu.common.myview.SlideShowView
-        android:id="@+id/home_page_slideview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,16 +14,18 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="12dp"
-	        android:layout_marginBottom="6dp"
+	        android:layout_marginBottom="8dp"
 	        android:layout_marginTop="6dp"
+            android:drawableLeft="@drawable/lzh_homeplay"
+            android:drawablePadding="5dp"
 	        android:text="当地人带你玩"
-	        android:textColor="#98999a"
+	        android:textColor="#f15353"
 	        android:textSize="10sp" />
 
     	<HorizontalScrollView
             android:id="@+id/home_page_play_scrollview"
             android:layout_width="match_parent"
-            android:layout_height="68dp"
+            android:layout_height="72dp"
             android:scrollbars="none" >
 
             <LinearLayout
@@ -42,16 +39,18 @@
     	<TextView
     	    android:layout_width="wrap_content"
     	    android:layout_height="wrap_content"
-    	    android:layout_marginBottom="6dp"
+    	    android:layout_marginBottom="8dp"
     	    android:layout_marginLeft="12dp"
+            android:drawableLeft="@drawable/lzh_homebuy"
     	    android:text="当地人代购"
-    	    android:textColor="#98999a"
+            android:drawablePadding="5dp"
+    	    android:textColor="#00a1d9"
     	    android:textSize="10sp" />
 
     	<HorizontalScrollView
             android:id="@+id/home_page_buy_scrollview"
             android:layout_width="match_parent"
-            android:layout_height="68dp"
+            android:layout_height="72dp"
             android:scrollbars="none" >
 
             <LinearLayout
@@ -127,38 +126,127 @@
         </HorizontalScrollView>
     </LinearLayout>
 
-    <View
+
+    <LinearLayout
+        android:id="@+id/home_guide_layout"
         android:layout_width="match_parent"
-        android:layout_height="11dp"
-        android:background="#F5F5F5" />
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="向导咨询"
+                android:textColor="#000000"
+                android:textSize="13sp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="9dp"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="11dp"
+                android:layout_marginTop="10dp"
+                android:background="#e5e5e5"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="精选离你最近的小u"
+                android:textColor="#98999a"
+                android:textSize="10sp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="9dp"/>
+
+            <TextView
+                android:id="@+id/home_guide_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更多"
+                android:textColor="#00a1d9"
+                android:textSize="12sp"
+                android:drawableRight="@drawable/home_more_img"
+                android:drawablePadding="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="12dp"/>
+
+        </LinearLayout>
+
+        <com.uugty.uu.common.myview.ListViewForScrollView
+            android:id="@+id/home_consult_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#e5e5e5"
+            android:dividerHeight="0px"
+            android:scrollbars="none">
+
+        </com.uugty.uu.common.myview.ListViewForScrollView>
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
         android:paddingRight="12dp"
-        android:paddingEnd="12dp"
-        android:paddingLeft="0dp"
-        android:paddingStart="0dp" >
+        android:paddingTop="10dp" >
 
          <RelativeLayout 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical">
-          
-            <TextView 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="人气推荐"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:layout_marginLeft="12dp"
-                android:gravity="left"
-                />
+
+             <LinearLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:layout_gravity="center_vertical">
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="人气推荐"
+                     android:textColor="#000000"
+                     android:textSize="13sp"
+                     android:layout_marginTop="7dp"
+                     android:layout_marginLeft="12dp"
+                     android:layout_marginRight="9dp"/>
+
+                 <View
+                     android:layout_width="1dp"
+                     android:layout_height="11dp"
+                     android:layout_marginTop="10dp"
+                     android:background="#e5e5e5"/>
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="用心推荐，优质体验"
+                     android:textColor="#98999a"
+                     android:textSize="10sp"
+                     android:layout_marginTop="7dp"
+                     android:layout_marginLeft="8dp"
+                     android:layout_marginRight="9dp"/>
+
+
+
+             </LinearLayout>
 
             <TextView 
                 android:id="@+id/home_page_horizontal_more_text"
@@ -166,8 +254,9 @@
                 android:layout_height="wrap_content"
                 android:text="更多"
                 android:textColor="#00a1d9"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:drawableRight="@drawable/home_more_img"
+                android:layout_marginTop="7dp"
                 android:drawablePadding="6dp"
                 android:layout_alignParentRight="true"/>
         </RelativeLayout>

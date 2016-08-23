@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="我的小店页面全新升级,UI更美观"
+                android:text="路线支持分享到uu好友,群组,uu圈,赶紧体验吧"
                 android:textColor="#98999a"
                 android:textSize="12sp"/>
 
@@ -85,7 +85,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="服务管理可视化操作,使用更方便"
+                android:text="首页调整,订单代金券消息提示,向导咨询/uu圈交友更方便"
                 android:textColor="#98999a"
                 android:textSize="12sp"/>
 
@@ -108,7 +108,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="修复若干BUG,体验更舒心"
+                android:text="路线提供保险服务,提现绑定支付宝,安全快捷"
                 android:textColor="#98999a"
                 android:textSize="12sp"/>
 

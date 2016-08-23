@@ -95,7 +95,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 	private RelativeLayout login_person_rel,
 			nologin_person_rel, my_setting;
 	private TextView username, userwork, setting_route_line;
-	private TextView isVer;//是否为认证小u
+	private ImageView isVer;//是否为认证小u
 	private ImageView usersex;
 	private boolean wxchatFlag = false;// 点击微信登录标志
 	// 经纬度
@@ -139,7 +139,7 @@ public class Fragement4 extends Fragment implements OnClickListener {
 //		release_route_line = (RelativeLayout) rootview
 //				.findViewById(R.id.release_route_line);
 		username = (TextView) rootview.findViewById(R.id.login_user_name);
-		isVer = (TextView) rootview.findViewById(R.id.login_user_name_ver);
+		isVer = (ImageView) rootview.findViewById(R.id.login_user_name_ver);
 		userwork = (TextView) rootview.findViewById(R.id.login_user_work);
 		usersex = (ImageView) rootview.findViewById(R.id.login_user_sex);
 		my_route = (LinearLayout) rootview.findViewById(R.id.my_routeline);

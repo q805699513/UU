@@ -61,6 +61,7 @@ class ConsultAdapter extends BaseAdapter {
             holder = new ViewHolder();
             view = layoutInflater.inflate(
                     R.layout.consult_list_item_layout, null);
+            holder.baseline = (View) view.findViewById(R.id.base_line);
             holder.consult_person_avatar = (SimpleDraweeView) view
                     .findViewById(R.id.consult_person_avatar);
             holder.consult_person_name = (TextView) view
@@ -111,6 +112,9 @@ class ConsultAdapter extends BaseAdapter {
         } else {
             holder.consult_person_avatar.setImageURI(Uri.parse("res:///"
                     + R.drawable.no_default_head_img));
+        }
+        if(position == 0){
+            holder.baseline.setVisibility(View.GONE);
         }
         // 灰色阴影
         if (ls.get(position).getIsOnline().equals("1")) {
@@ -219,6 +223,7 @@ class ConsultAdapter extends BaseAdapter {
         private View consult_line;
         private ImageView consult_upstate_img;
         private TextView consult_tag_lin;
+        private View baseline;
     }
 
 }
