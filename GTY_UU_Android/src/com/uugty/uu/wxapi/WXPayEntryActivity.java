@@ -18,6 +18,7 @@ import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.map.VipPayActivity;
 import com.uugty.uu.map.VipPaySucessActivity;
+import com.uugty.uu.order.UUPaypriceActivity;
 import com.uugty.uu.uuchat.ChatActivity;
 import com.uugty.uu.uuchat.UUChatPaypriceActivity;
 
@@ -159,7 +160,7 @@ public class WXPayEntryActivity extends BaseActivity implements
 				} else if (Util.paySuccessPage.equals("uuCaht")) {
 					intent.putExtra("pageFlag", Util.pageFlag);
 					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-					intent.setClass(this, UUChatPaypriceActivity.class);
+					intent.setClass(this, UUPaypriceActivity.class);
 					startActivity(intent);
 					finish();
 				} else if (Util.paySuccessPage.equals("uutip")) {
@@ -194,7 +195,7 @@ public class WXPayEntryActivity extends BaseActivity implements
 				if (Util.paySuccessPage.equals("uuCaht")) {
 					intent.putExtra("pageFlag", Util.pageFlag);
 					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-					intent.setClass(this, UUChatPaypriceActivity.class);
+					intent.setClass(this, UUPaypriceActivity.class);
 				}
 				if (Util.paySuccessPage.equals("uutip")) {
 					intent.putExtra("pageFlag", Util.pageFlag);

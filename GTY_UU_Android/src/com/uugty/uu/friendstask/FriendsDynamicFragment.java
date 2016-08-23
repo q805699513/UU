@@ -72,6 +72,7 @@ public class FriendsDynamicFragment extends Fragment implements
 	private FriendsAdapter adapter; // 论坛 list
 	private List<Dynamic> list = new ArrayList<Dynamic>();
 	private TextView Dynamic_release_text;
+	private LinearLayout dynamic_back;
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
 			DynamicEntity entity = (DynamicEntity) msg.getData()
@@ -130,7 +131,10 @@ public class FriendsDynamicFragment extends Fragment implements
 	protected void initGui() {
 		mSwipeLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.dynamic_swipe_container);
 		Dynamic_release_text = (TextView) rootview.findViewById(R.id.Dynamic_release_text);
+		Dynamic_release_text.setVisibility(View.VISIBLE);
 		mListView = (ListView) rootview.findViewById(R.id.dynamic_listview);
+		dynamic_back = (LinearLayout) rootview.findViewById(R.id.tabar_back);
+		dynamic_back.setVisibility(View.GONE);
 		// list footer
 		TextView footView = new TextView(context);
 		android.widget.AbsListView.LayoutParams params = new android.widget.AbsListView.LayoutParams(

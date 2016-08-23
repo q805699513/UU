@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -20,13 +19,13 @@ import android.widget.TextView;
 import com.easemob.chat.EMChatManager;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.uugty.uu.R;
+import com.uugty.uu.appstart.UpgradeDialogActivity;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
-import com.uugty.uu.common.dialog.AppVersionCheckDialog;
 import com.uugty.uu.common.dialog.CustomDialog;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.UISwitchButton;
@@ -354,35 +353,40 @@ public class PersonSetupActivity extends BaseActivity implements OnClickListener
 				CustomToast.makeText(this, 0, "已是最新版本", 200).show();
 			} else if ("1".equals(versionCheckVo.getOBJECT().getSTRATERY())) {// 可更新
 				Log.i(TAG, "---------有可更新版本........");
-				AppVersionCheckDialog.Builder builder2 = new AppVersionCheckDialog.Builder(ctx);
-				builder2.setTitle("发现新版本("+versionCheckVo.getOBJECT()
-						.getCURRVERSION()+")");
-				builder2.setMessage("UU客APP"+versionCheckVo.getOBJECT()
-						.getCURRVERSION()+"发布啦，诚邀您快来体验!");
-				builder2.setPositiveButton("安装",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int which) {
-								// 打开浏览器下载
-								Intent intent = new Intent();
-								intent.setAction("android.intent.action.VIEW");
-								Uri content_url = Uri.parse(versionCheckVo
-										.getOBJECT().getREDIRECTLOCATION());
-								intent.setData(content_url);
-								startActivity(intent);
-								exit();
-							}
-						});
-
-				builder2.setNegativeButton("取消",
-						new android.content.DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int which) {
-								dialog.dismiss();
-							}
-						});
-
-				builder2.create().show();
+				Intent i = new Intent();
+				i.putExtra("url",versionCheckVo.getOBJECT().getREDIRECTLOCATION());
+				i.setClass(PersonSetupActivity
+						.this,UpgradeDialogActivity.class);
+				startActivityForResult(i,1);
+//				AppVersionCheckDialog.Builder builder2 = new AppVersionCheckDialog.Builder(ctx);
+//				builder2.setTitle("发现新版本("+versionCheckVo.getOBJECT()
+//						.getCURRVERSION()+")");
+//				builder2.setMessage("UU客APP"+versionCheckVo.getOBJECT()
+//						.getCURRVERSION()+"发布啦，诚邀您快来体验!");
+//				builder2.setPositiveButton("安装",
+//						new DialogInterface.OnClickListener() {
+//							public void onClick(DialogInterface dialog,
+//									int which) {
+//								// 打开浏览器下载
+//								Intent intent = new Intent();
+//								intent.setAction("android.intent.action.VIEW");
+//								Uri content_url = Uri.parse(versionCheckVo
+//										.getOBJECT().getREDIRECTLOCATION());
+//								intent.setData(content_url);
+//								startActivity(intent);
+//								exit();
+//							}
+//						});
+//
+//				builder2.setNegativeButton("取消",
+//						new android.content.DialogInterface.OnClickListener() {
+//							public void onClick(DialogInterface dialog,
+//									int which) {
+//								dialog.dismiss();
+//							}
+//						});
+//
+//				builder2.create().show();
 			} else if ("2".equals(versionCheckVo.getOBJECT().getSTRATERY())) {// 强制升级
 				Log.i(TAG, "---------客户端版本太老，强制升级........");
 				
