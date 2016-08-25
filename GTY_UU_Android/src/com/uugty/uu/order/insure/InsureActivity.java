@@ -76,15 +76,19 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 				mHelpText.setVisibility(View.INVISIBLE);
 				mInsureRelative.setClickable(false);
 			}
+			alltype = getIntent().getStringExtra("type");
 			if(null != getIntent().getStringExtra("type")
-					&& !"0".equals(getIntent().getStringExtra("type"))){
-				alltype = getIntent().getStringExtra("type");
+					&& !"0".equals(getIntent().getStringExtra("type"))
+					&& !"".equals(getIntent().getStringExtra("type"))){
 				if(alltype.contains("1")){
 					mInsureType.setText("￥5/天");
+					type = "1";
 				}else if(alltype.contains("2")){
 					mInsureType.setText("￥10/天");
+					type = "2";
 				}else if(alltype.contains("3")){
 					mInsureType.setText("￥15/天");
+					type = "3";
 				}else{
 					mInsureType.setText("去选择");
 				}
@@ -151,7 +155,7 @@ public class InsureActivity extends BaseActivity implements OnClickListener{
 		if(resultCode==RESULT_OK){
 			switch (requestCode) {
 			case 1:
-				type = data.getStringExtra("type");
+				type = data.getStringExtra("insuretype");
 				if(null != type) {
 					if ("1".equals(type)) {
 						mInsureType.setText("￥5/天");

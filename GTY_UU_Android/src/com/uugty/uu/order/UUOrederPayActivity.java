@@ -62,7 +62,7 @@ public class UUOrederPayActivity extends BaseActivity implements
 	private ImageView reserve_add;//数量增加
 	private TextView startTimeTextView;//出行时间
 	private LinearLayout mDiscountRelative;//代金券布局
-	private String mDiscountMoney;//代金券金额
+	private String mDiscountMoney = "0";//代金券金额
 	private TextView mDiscountRec;//代金券数额
 	private TextView mDiscountTv;//领取代金券
 	private TextView uu_tourist_names;//出行人
@@ -674,8 +674,8 @@ public class UUOrederPayActivity extends BaseActivity implements
 							.setImageResource(R.drawable.chat_costom_minus);
 				}
 			}
-			allPrice=""+Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)+mTotalInsure;
-			mOrderPrie.setText("￥"+allPrice);
+			allPrice=""+(Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)- Float.parseFloat(mDiscountMoney)+mTotalInsure);
+//			mOrderPrie.setText("￥"+allPrice);
 			mPayPriceButton.setText(allPrice);
 			break;
 		case R.id.reserve_add:
@@ -686,8 +686,8 @@ public class UUOrederPayActivity extends BaseActivity implements
 						.setImageResource(R.drawable.chat_costom_minus_enable);
 			}
 			
-			allPrice=""+Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)+mTotalInsure;
-			mOrderPrie.setText("￥"+allPrice);
+			allPrice=""+(Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)- Float.parseFloat(mDiscountMoney)+mTotalInsure);
+//			mOrderPrie.setText("￥"+allPrice);
 			mPayPriceButton.setText(allPrice);
 			break;
 		default:
@@ -742,7 +742,11 @@ public class UUOrederPayActivity extends BaseActivity implements
 					mInsureNum = data.getStringExtra("num");
 					mInsureType = data.getStringExtra("type");
 					mInsureContactId = data.getStringExtra("allId");
-					if(null != mInsureType && !"".equals(mInsureType)) {
+
+					if(null != mInsureType && !"".equals(mInsureType) && !"0".equals(mInsureType)) {
+						if(mTotalInsure > 0){
+							allPrice=""+(Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)- Float.parseFloat(mDiscountMoney));
+						}
 						if (mInsureType.contains("1")) {
 							mInsureDetail.setText("￥5/天 x " + mInsureNum + "人");
 							mTotalInsure = Integer.parseInt(mInsureNum) * 5;
@@ -758,6 +762,9 @@ public class UUOrederPayActivity extends BaseActivity implements
 						price = Float.parseFloat(allPrice) + mTotalInsure;
 						mPayPriceButton.setText(""+price);
 					}else{
+						mTotalInsure = 0;
+						allPrice=""+(Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)- Float.parseFloat(mDiscountMoney));
+						mPayPriceButton.setText(allPrice);
 						mInsureDetail.setText("选择保险类型");
 					}
 

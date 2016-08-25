@@ -137,7 +137,7 @@ public class SelectActivity extends BaseActivity{
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent();
-				intent.putExtra("type", mType);
+				intent.putExtra("insuretype", mType);
 				setResult(RESULT_OK,intent);
 				finish();
 			}

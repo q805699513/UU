@@ -533,6 +533,9 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 						&& !"".equals(data.getStringExtra("type"))
 						&& !"0".equals(data.getStringExtra("type"))) {
 					mInsureType = data.getStringExtra("type");
+					if(mTotalInsure > 0){
+						allPrice = Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)- Float.parseFloat(mDiscountMoney);
+					}
 					if (mInsureType.contains("1")) {
 						mInsureDetail.setText("￥5/天 x " + mInsureNum + "人");
 						mTotalInsure = Integer.parseInt(mInsureNum) * 5;
@@ -552,6 +555,9 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 						mInsureDetail.setText("选择保险类型");
 					}
 				}else{
+					mTotalInsure = 0;
+					allPrice = Float.parseFloat(routePrice)*Float.parseFloat(reserve_nums)- Float.parseFloat(mDiscountMoney);
+					mPayPriceButton.setText("" + allPrice);
 					mInsureDetail.setText("选择保险类型");
 				}
 

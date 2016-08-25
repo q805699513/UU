@@ -227,6 +227,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 			}
 		}, 800);
         if(null!=publish&&publish.equals("publish")){
+			mapRel.performClick();
         	lablefragment.onRefresh();
         }
 		if (null != toPage && toPage.equals("order")) {

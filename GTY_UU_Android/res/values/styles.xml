@@ -147,7 +147,6 @@
     <style name="PhoneDialog" parent="Theme.AppCompat.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:background">#ffffffff</item>
         <item name="android:windowBackground">@drawable/phone_dialog_bg_shape</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
