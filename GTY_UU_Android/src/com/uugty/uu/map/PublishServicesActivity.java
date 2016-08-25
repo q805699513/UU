@@ -66,6 +66,7 @@ import com.uugty.uu.guide.ServicesGuideActivity;
 import com.uugty.uu.loaderimg.PhoneimageActivity;
 import com.uugty.uu.login.AgreementWebActivity;
 import com.uugty.uu.map.PublishServicesActivity.PublishAdapter.ViewHolder;
+import com.uugty.uu.map.citypickerview.widget.CityPickerView;
 import com.uugty.uu.person.CutPicturceActivity;
 import com.uugty.uu.shop.ShopControlActivity;
 
@@ -125,8 +126,10 @@ public class PublishServicesActivity extends BaseActivity implements
 	private List<PlayAndBuy> mBuyList;//代购标签
 	
 	private boolean isPlay = true;//是否选中带你玩标签，默认选中
-	
-	
+
+	private CityPickerView cityPickerView;//城市选择
+
+
 
 	@Override
 	protected int getContentLayout() {
@@ -173,6 +176,28 @@ public class PublishServicesActivity extends BaseActivity implements
 	@Override
 	protected void initAction() {
 		// TODO Auto-generated method stub
+
+		addressTextView.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				cityPickerView = new CityPickerView(PublishServicesActivity.this);
+				cityPickerView.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
+					@Override
+					public void onSelected(String... citySelected) {
+						//省份
+						//城市
+						addressTextView.setText(citySelected[0] + citySelected[1] + citySelected[2]);
+
+					}
+				});
+				cityPickerView.setTextColor(Color.BLACK);//新增文字颜色修改
+				cityPickerView.setTextSize(25);//新增文字大小修改
+				cityPickerView.setVisibleItems(5);//新增滚轮内容可见数量
+				cityPickerView.setIsCyclic(false);//滚轮是否循环滚动
+				cityPickerView.show();
+
+			}
+		});
 		back.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
