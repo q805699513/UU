@@ -51,8 +51,8 @@ public class WheelView extends View {
     /**
      * 滚轮从上到下背景逐渐变淡，到中间，逆反改变
      */
-    private int[] SHADOWS_COLORS = new int[]{0xefE9E9E9,
-            0xcfE9E9E9, 0x3fE9E9E9};
+    private int[] SHADOWS_COLORS = new int[]{0xefffffff,
+            0xcfffffff, 0x3fffffff};
 
     /**
      * Top and bottom items offset (to hide that)
@@ -522,7 +522,7 @@ public class WheelView extends View {
             bottomShadow = new GradientDrawable(Orientation.BOTTOM_TOP, SHADOWS_COLORS);
         }
 
-        setBackgroundResource(wheelBackground);
+        setBackgroundResource(R.color.white);
     }
 
     /**

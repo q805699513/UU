@@ -26,4 +26,5 @@ public enum UUConfig {
 	public  void setCityJson(String cityJson) {
 		this.cityJson = cityJson;
 	}
+
 }

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="appcompat_v7-release-">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/jars/libs/android-support-v7-appcompat.jar!/" />
+      <root url="file://$PROJECT_DIR$/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res" />
+      <root url="jar://$PROJECT_DIR$/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/jars/libs/android-support-v4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

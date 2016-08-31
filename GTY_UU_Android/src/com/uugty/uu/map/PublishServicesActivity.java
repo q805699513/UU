@@ -9,8 +9,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Location;
 import android.media.ExifInterface;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
@@ -32,6 +34,11 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationListener;
+import com.amap.api.location.LocationManagerProxy;
+import com.amap.api.location.LocationProviderProxy;
+import com.amap.api.services.core.LatLonPoint;
 import com.google.gson.Gson;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.uugty.uu.R;
@@ -84,7 +91,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class PublishServicesActivity extends BaseActivity implements
-		OnClickListener, OnTakePhotoListener, OnChangeTimeListener {
+		OnClickListener, OnTakePhotoListener, OnChangeTimeListener,AMapLocationListener {
 
 	private ImageView back;
 	private LinearLayout bgdefaultLin, bgLin, addressLin, imageLin;
@@ -130,6 +137,11 @@ public class PublishServicesActivity extends BaseActivity implements
 	private CityPickerView cityPickerView;//城市选择
 
 
+	//高德定位服务
+	private LatLonPoint locationLat; // 当前位置坐标
+	// 定位
+	private LocationManagerProxy mLocationManagerProxy;
+	private String type = "1" ;//1代表发布的为国内路线,2代表发布的为国外路线
 
 	@Override
 	protected int getContentLayout() {
@@ -186,7 +198,21 @@ public class PublishServicesActivity extends BaseActivity implements
 					public void onSelected(String... citySelected) {
 						//省份
 						//城市
-						addressTextView.setText(citySelected[0] + citySelected[1] + citySelected[2]);
+						if("海外".equals(citySelected[0])){
+							addressTextView.setText(citySelected[1]);
+							servicesAddress = citySelected[1];
+						}else{
+							addressTextView.setText(citySelected[0] + citySelected[1] + citySelected[2]);
+							servicesAddress = citySelected[0] +","+ citySelected[1] +","+ citySelected[2];
+						}
+						if("海外".equals(citySelected[0])
+								|| "台湾".equals(citySelected[0])
+								|| "澳门特别行政区".equals(citySelected[0])
+								|| "香港特别行政区".equals(citySelected[0])){
+							type = "2";
+						}else {
+							type = "1";
+						}
 
 					}
 				});
@@ -352,12 +378,13 @@ public class PublishServicesActivity extends BaseActivity implements
 			builder2.create().show();
 			break;
 		case R.id.publish_services_address_lin:// 地点
-			Intent intent = new Intent();
-			if (!TextUtils.isEmpty(addressTextView.getText().toString())) {
-				intent.putExtra("address", addressTextView.getText().toString());
-			}
-			intent.setClass(this, LocationActivity.class);
-			startActivityForResult(intent, 103);
+			initLocation();//开始定位
+//			Intent intent = new Intent();
+//			if (!TextUtils.isEmpty(addressTextView.getText().toString())) {
+//				intent.putExtra("address", addressTextView.getText().toString());
+//			}
+//			intent.setClass(this, LocationActivity.class);
+//			startActivityForResult(intent, 103);
 			break;
 		case R.id.publish_services_add_image_btn:
 			if (imageLin.getChildCount() < 20) {
@@ -520,10 +547,10 @@ public class PublishServicesActivity extends BaseActivity implements
 				MyApplication.getInstance().setKilled(true);
 				handler.sendMessage(handler.obtainMessage(3, Util.pturePath));
 				break;
-			case 103:
-				servicesAddress = data.getStringExtra("address");
-				addressTextView.setText(servicesAddress);
-				break;
+//			case 103:
+//				servicesAddress = data.getStringExtra("address");
+//				addressTextView.setText(servicesAddress);
+//				break;
 			default:
 				break;
 			}
@@ -649,7 +676,7 @@ public class PublishServicesActivity extends BaseActivity implements
 								+ bgPicPaht, backgroudCrameImage);
 				titleEdit.setText(servicesTitle);
 				priceEdit.setText(servicesPrice);
-				addressTextView.setText(servicesAddress);
+				addressTextView.setText(servicesAddress.replace(",",""));
 				if(routeMarkLs.size() != 0) {
 					for (int i = 0; i < routeMarkLs.size(); i++) {
 						RoadLine roadLine = routeMarkLs.get(i);
@@ -874,6 +901,7 @@ public class PublishServicesActivity extends BaseActivity implements
 		commitBtn.setEnabled(false);
 		RequestParams params = new RequestParams();
 		params.put("key", json);
+		params.put("type",type);
 		APPRestClient.post(PublishServicesActivity.this, ServiceCode.ROAD_LINE,
 				params, new APPResponseHandler<BaseEntity>(BaseEntity.class,
 						this) {
@@ -1007,6 +1035,63 @@ public class PublishServicesActivity extends BaseActivity implements
 
 	}
 
+	/**
+	 * 初始化定?
+	 */
+	private void initLocation() {
+
+		mLocationManagerProxy = LocationManagerProxy.getInstance(this);
+
+		// 此方法为每隔固定时间会发起一次定位请求，为了减少电量消耗或网络流量消耗，
+		// 注意设置合适的定位时间的间隔，并且在合适时间调用removeUpdates()方法来取消定位请?
+		// 在定位结束后，在合适的生命周期调用destroy()方法
+		// 其中如果间隔时间??1，则定位只定一?
+		mLocationManagerProxy.requestLocationData(
+				LocationProviderProxy.AMapNetwork, -1, 15, this);
+
+		mLocationManagerProxy.setGpsEnable(false);
+	}
+
+	/**
+	 * 定位成功后回调函?
+	 */
+	@Override
+	public void onLocationChanged(AMapLocation amapLocation) {
+		if (amapLocation != null
+				&& amapLocation.getAMapException().getErrorCode() == 0) {
+			// 获取位置信息
+			addressTextView.setText(amapLocation.getProvince() + amapLocation.getCity()+ amapLocation.getDistrict());
+			servicesAddress = amapLocation.getProvince() + "," + amapLocation.getCity() + "," +amapLocation.getDistrict();
+			locationLat = new LatLonPoint(amapLocation.getLatitude(),
+					amapLocation.getLongitude());
+		} else {
+			addressTextView.setText("定位失败,请选择");
+		}
+	}
+
+	@Override
+	public void onLocationChanged(Location location) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onProviderEnabled(String provider) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onProviderDisabled(String provider) {
+		// TODO Auto-generated method stub
+
+	}
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
@@ -1133,6 +1218,7 @@ public class PublishServicesActivity extends BaseActivity implements
 		commitBtn.setEnabled(false);
 		RequestParams params = new RequestParams();
 		params.put("key", json);
+		params.put("type",type);
 		APPRestClient.post(PublishServicesActivity.this,
 				ServiceCode.ROAD_LINE_MODIFY, params,
 				new APPResponseHandler<BaseEntity>(BaseEntity.class, this) {

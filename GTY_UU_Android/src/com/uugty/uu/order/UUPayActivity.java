@@ -1,9 +1,9 @@
 package com.uugty.uu.order;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Handler;
 import android.text.InputType;
 import android.view.View;
@@ -35,16 +35,18 @@ import com.uugty.uu.discount.c.MyDiscountActivity;
 import com.uugty.uu.discount.m.DiscountListItem;
 import com.uugty.uu.discount.m.DiscountListItem.DiscountEntity;
 import com.uugty.uu.entity.TouristEntity;
-import com.uugty.uu.main.OrderDateActivty;
 import com.uugty.uu.order.insure.InsureActivity;
 import com.uugty.uu.order.insure.OrderTouristAdapter;
 import com.uugty.uu.person.TouristListActivity;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@SuppressLint("SimpleDateFormat")
 public class UUPayActivity extends BaseActivity implements OnClickListener {
 	private TopBackView topBack;
 	private TextView dateTextView, activity_payprice_guide_title,uu_tourist_number,uu_pay_price_num;
@@ -98,12 +100,16 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 	public final static int REQUEST_NUM = 101;
 	public final static int REQUEST_SEL = 1;
 
+	private String inday="",outday="";//出行和结束时间
+	private SimpleDateFormat simpleDateFormat;
+
 	protected int getContentLayout() {
 		// TODO Auto-generated method stub
 		return R.layout.activity_paypricea;// 订单填写页面
 
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void initGui() {
 		// TODO Auto-generated method stub
@@ -444,6 +450,7 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onResume();
 		payConfirmBtn.setEnabled(true);
+
 	}
 
 	@Override
@@ -489,7 +496,10 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 		Intent toIntent = new Intent();
 		switch (v.getId()) {
 		case R.id.activity_paypricea_select_time:
-			toIntent.setClass(this, OrderDateActivty.class);
+
+			toIntent.putExtra("dateIn",inday);
+			toIntent.putExtra("dateOut",outday);
+			toIntent.setClass(UUPayActivity.this, DatePickActivity.class);
 			startActivityForResult(toIntent, REQUEST_CHOOSE_DATE);
 			break;
 		default:
@@ -563,9 +573,22 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 
 				break;
 			case REQUEST_CHOOSE_DATE:
-				String chooseDate = data.getStringExtra("choose_date");
-				dateTextView.setText(chooseDate);
-				dateTextView.setTextColor(Color.parseColor("#000000"));
+//				String chooseDate = data.getStringExtra("choose_date");
+//				dateTextView.setText(chooseDate);
+//				dateTextView.setTextColor(Color.parseColor("#000000"));
+				simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+				inday = data.getStringExtra("dateIn");
+				outday = data.getStringExtra("dateOut");
+				if(!"".equals(inday) && !"".equals(outday)){
+					long days = 0;
+					try {
+						days = ((simpleDateFormat.parse(outday).getTime()-simpleDateFormat.parse(inday).getTime())/86400000) + 1;
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+					dateTextView.setText(inday + " - " + outday + " 共" + days+ "天");
+				}
+
 				break;
 			case REQUEST_NUM:
 				toursit_nums=data.getStringExtra("num");

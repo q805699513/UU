@@ -30,7 +30,8 @@
         </com.uugty.uu.common.myview.CirculHeadImage>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginLeft="17sp"
@@ -55,13 +56,46 @@
                 android:textSize="13sp"/>
 
         </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="13dp">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="个人主页"
+                android:textColor="#666666"
+                android:textSize="13sp"
+                android:drawablePadding="8dp"
+                android:drawableRight="@drawable/person_compile_enter"
+                android:gravity="center_vertical"/>
+            
+            
+        </LinearLayout>
 
     </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textColor="#f15353"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="13dp"
+            android:drawableRight="@drawable/person_compile_enter"
+            android:textSize="11sp"
+            android:text="立即完善个人信息!可提升服务排名,并有机会获赠代金券."/>
+        
+    </LinearLayout>
 
     <LinearLayout
         android:background="@color/white"
-        android:layout_marginTop="11dp"
         android:layout_width="match_parent"
         android:layout_height="166dp"
         android:orientation="vertical">
@@ -286,6 +320,39 @@
                 android:textSize="12sp"
                 android:layout_gravity="center"/>
         </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/my_shop_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="46dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:layout_gravity="center"
+                android:src="@drawable/lzh_fuwuguanli"
+                android:layout_marginTop="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="批发市场"
+                android:textColor="#98999a"
+                android:textSize="12sp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 

@@ -96,6 +96,9 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="7a3b045f3cf8b3f332401e51f309d202" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCkSWsbaRsw0n6sUYKcuP16EjAZdwCiL7M"/>
         <!-- 启动界面 -->
         <activity
             android:name=".appstart.AppStartActivity"
@@ -891,6 +894,13 @@
         <!-- 向导咨询 -->
         <activity
             android:name=".main.ConsultActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 向导咨询 -->
+        <activity
+            android:name=".order.DatePickActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >

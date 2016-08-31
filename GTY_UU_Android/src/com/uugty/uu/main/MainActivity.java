@@ -440,6 +440,9 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 		// TODO Auto-generated method stub
 		super.onPause();
 		// home_shop_rb.performClick();
+		if(publish != null){
+			publish = "";
+		}
 	}
 
 	/**

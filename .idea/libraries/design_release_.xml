@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="design-release-">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/GTY_UU_Android/build/intermediates/exploded-aar/design-release/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GTY_UU_Android/build/intermediates/exploded-aar/design-release/jars/libs/android-support-design.jar!/" />
+      <root url="file://$PROJECT_DIR$/GTY_UU_Android/build/intermediates/exploded-aar/design-release/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -83,4 +83,5 @@
         <attr name="title_text_size" format="dimension"></attr><!--标题的文字大小-->
         <attr name="title_action_size" format="dimension"></attr><!--确认和取消的文字大小-->
     </declare-styleable>
+
 </resources>

@@ -19,7 +19,6 @@
       <district name="西城区" zipcode="100000" />
       <district name="宣武区" zipcode="100000" />
       <district name="延庆县" zipcode="100000" />
-      <district name="其他区" zipcode="100000" />
     </city>
   </province>
   <province name="天津">
