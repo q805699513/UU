@@ -261,8 +261,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="47dp"
-                android:layout_height="47dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/lzh_fuwuguanli"
                 android:layout_marginTop="16dp"/>
@@ -283,8 +283,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="47dp"
-                android:layout_height="47dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/lzh_fenxian"
                 android:layout_marginTop="16dp"/>
@@ -307,8 +307,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="47dp"
-                android:layout_height="47dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/lzh_woshixiaou"/>
@@ -323,6 +323,13 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_height="1px"
+        android:background="#e5e5e5"
+        />
     <LinearLayout
         android:background="@color/white"
         android:layout_width="match_parent"
@@ -331,16 +338,16 @@
 
         <LinearLayout
             android:id="@+id/my_shop_guide"
-            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="46dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="47dp"
-                android:layout_height="47dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/lzh_fuwuguanli"
+                android:src="@drawable/lzh_pifashichang"
                 android:layout_marginTop="16dp"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -352,6 +359,50 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/lzh_fenxian"
+                android:layout_marginTop="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分享赚钱"
+                android:textColor="#98999a"
+                android:textSize="12sp"
+                android:layout_gravity="center"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/lzh_woshixiaou"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我是小u"
+                android:textColor="#98999a"
+                android:textSize="12sp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
 
 
     </LinearLayout>

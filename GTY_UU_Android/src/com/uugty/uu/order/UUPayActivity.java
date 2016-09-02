@@ -577,9 +577,9 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 //				dateTextView.setText(chooseDate);
 //				dateTextView.setTextColor(Color.parseColor("#000000"));
 				simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
-				inday = data.getStringExtra("dateIn");
-				outday = data.getStringExtra("dateOut");
-				if(!"".equals(inday) && !"".equals(outday)){
+				if(!"".equals(data.getStringExtra("dateIn")) && !"".equals(data.getStringExtra("dateOut"))){
+					inday = data.getStringExtra("dateIn");
+					outday = data.getStringExtra("dateOut");
 					long days = 0;
 					try {
 						days = ((simpleDateFormat.parse(outday).getTime()-simpleDateFormat.parse(inday).getTime())/86400000) + 1;

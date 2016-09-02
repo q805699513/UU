@@ -3,23 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/tabs_area"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
+    android:layout_height="41dp"
     android:orientation="vertical">
 
     <com.uugty.uu.mhvp.core.magic.viewpager.PagerSlidingTabStrip
-        android:id="@+id/tabs"
+        android:id="@+id/guide_tab"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:pstsIndicatorColor="#00A1D9"
         app:pstsTextAllCaps="false"
         app:pstsIndicatorHeight="2dp"
-        app:pstsShouldExpand="true"/>
-    
-   <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#e5e5e5" />
+        app:SelectedTabTextColor="#00a1d9"
+        app:pstsUnderlineColor="#e5e5e5"
+        app:pstsUnderlineHeight="1px"
+        app:pstsShouldExpand="false"/>
+
    <!--  <ImageView
         android:layout_width="48dp"
         android:layout_height="match_parent"

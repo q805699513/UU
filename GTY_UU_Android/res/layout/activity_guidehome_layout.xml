@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/guide_title"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+        <LinearLayout
+            android:id="@+id/location_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="13dp" >
+
+            <TextView
+                android:id="@+id/location_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:maxLength="3"
+                android:text="北京"
+                android:textColor="#000000"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/home_head_img"
+                android:layout_gravity="center"
+                android:layout_width="12dp"
+                android:layout_height="7dp"
+                android:layout_marginLeft="9dp"
+                android:background="@drawable/home_top_bottom" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/home_page_search_text"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/order_drawbakc_text_bg_shape"
+            android:paddingLeft="8dp"
+            android:drawableLeft="@drawable/location_city_search_img"
+            android:gravity="center_vertical"
+            android:drawablePadding="10dp"
+            android:text="搜索关键词,查找你想要的"
+            android:textColor="#98999a"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:id="@+id/home_page_release_lin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="11dp"
+            android:paddingRight="15dp" >
+
+            <TextView
+                android:id="@+id/home_head_img_near"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="关闭"
+                android:textSize="15sp"
+                android:textColor="#F15353"/>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:id="@+id/home_bootom_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="#e5e5e5" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/guide_parent">
+
+    </LinearLayout>
+
+</LinearLayout>

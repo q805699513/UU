@@ -20,11 +20,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- *
- * @author baiyuliang
- *
- */
+
 @SuppressLint("SimpleDateFormat")
 public class DatePickActivity extends BaseActivity implements OnDaySelectListener{
     LinearLayout ll;
@@ -116,10 +112,12 @@ public class DatePickActivity extends BaseActivity implements OnDaySelectListene
         if(!"".equals(sp_inday)){
             c1.viewIn.setBackgroundColor(Color.WHITE);
             ((TextView) c1.viewIn.findViewById(R.id.tv_calendar_day)).setTextColor(Color.parseColor("#666666"));
+            ((TextView) c1.viewIn.findViewById(R.id.tv_calendar_day)).setBackgroundDrawable(getResources().getDrawable(R.color.white));
             ((TextView) c1.viewIn.findViewById(R.id.tv_calendar)).setText("");
         }
         if(!"".equals(sp_outday)){
             c1.viewOut.setBackgroundColor(Color.WHITE);
+            ((TextView) c1.viewOut.findViewById(R.id.tv_calendar_day)).setBackgroundDrawable(getResources().getDrawable(R.color.white));
             ((TextView) c1.viewOut.findViewById(R.id.tv_calendar_day)).setTextColor(Color.parseColor("#666666"));
             ((TextView) c1.viewOut.findViewById(R.id.tv_calendar)).setText("");
         }
@@ -130,15 +128,17 @@ public class DatePickActivity extends BaseActivity implements OnDaySelectListene
         }
         TextView textDayView=(TextView) view.findViewById(R.id.tv_calendar_day);
         TextView textView=(TextView) view.findViewById(R.id.tv_calendar);
-        view.setBackgroundColor(Color.parseColor("#00A1D9"));
+//        view.setBackgroundColor(Color.parseColor("#00A1D9"));
         textDayView.setTextColor(Color.WHITE);
         if(null==inday||inday.equals("")){
+            textDayView.setBackgroundDrawable(getResources().getDrawable(R.drawable.loading_dialog_bg));
             textDayView.setText(dateDay);
             textView.setText("出行");
             inday=date;
         }else{
             if(inday.equals(date)){
-                view.setBackgroundColor(Color.WHITE);
+//                view.setBackgroundColor(Color.WHITE);
+                textDayView.setBackgroundDrawable(getResources().getDrawable(R.color.white));
                 textDayView.setText(dateDay);
                 textDayView.setTextColor(Color.parseColor("#666666"));
                 textView.setText("");
@@ -154,6 +154,7 @@ public class DatePickActivity extends BaseActivity implements OnDaySelectListene
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+                textDayView.setBackgroundDrawable(getResources().getDrawable(R.drawable.loading_dialog_bg));
                 textDayView.setText(dateDay);
                 textView.setText("结束");
                 outday=date;

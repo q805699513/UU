@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.uugty.uu"
     android:versionCode="22"
-    android:versionName="1.8.4" >
+    android:versionName="1.8.4">
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -84,6 +85,7 @@
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:largeHeap="true"
+        tools:replace="android:allowBackup"
         android:theme="@style/AppTheme" >
 
         <!-- 设置环信应用的appkey -->
@@ -898,9 +900,16 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
         </activity>
-        <!-- 向导咨询 -->
+        <!-- 日期选择 -->
         <activity
             android:name=".order.DatePickActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 批发市场 -->
+        <activity
+            android:name=".shop.guide.activity.GuideHomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
@@ -1053,7 +1062,6 @@
         <!-- Required  . Enable it you can get statistics data with channel -->
         <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
         <meta-data android:name="JPUSH_APPKEY" android:value="bcc9e090e6484fcdf5a4e1cc" /> <!--  </>值来自开发者平台取得的AppKey-->
-
     </application>
 
 </manifest>

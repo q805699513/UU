@@ -54,7 +54,7 @@ public class PersonDateFragment_MyLines extends AbsBaseFragment implements
 	private Button btn;
 	private List<MoreListEntity> homePageList = new ArrayList<MoreListEntity>();
 
-	static PersonDateFragment_MyLines newInstance(String userId, String avatar) {
+	public static PersonDateFragment_MyLines newInstance(String userId, String avatar) {
 		PersonDateFragment_MyLines newFragment = new PersonDateFragment_MyLines();
 		Bundle bundle = new Bundle();
 		bundle.putString("detailUserId", userId);

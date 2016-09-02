@@ -3,4 +3,13 @@
     <item type="id" name="scrollview"/>
     <item type="id" name="id_for_empty_content"/>
     <item type="id" name="id_for_auto_completion_content"/>
+    <item name="empty_view" type="id"/>
+    <item name="error_view" type="id"/>
+    <item name="loading_view" type="id"/>
+    <!--<item name="content_view" type="id"/>-->
+    <item name="no_network_view" type="id"/>
+
+    <item name="empty_retry_view" type="id"/>
+    <item name="error_retry_view" type="id"/>
+    <item name="no_network_retry_view" type="id"/>
 </resources>

@@ -34,6 +34,7 @@ import com.uugty.uu.entity.SellEntity;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.map.OpenShopActivity;
 import com.uugty.uu.map.PublishServicesActivity;
+import com.uugty.uu.shop.guide.activity.GuideHomeActivity;
 import com.uugty.uu.util.LogUtils;
 
 import java.net.HttpURLConnection;
@@ -50,6 +51,7 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 	private LinearLayout mServiceControl;//服务管理
 	private LinearLayout mShare;//分享赚钱
 	private LinearLayout mIsU;//我是小u
+	private LinearLayout mGuideShop;//批发市场
     private TopBackView titleView;
 	private CirculHeadImage mHeadImg;//用户头像
 	private TextView mName;//用户名称
@@ -84,6 +86,7 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 		mServiceControl = (LinearLayout) findViewById(R.id.my_shop_service_control);
 		mShare = (LinearLayout) findViewById(R.id.my_shop_share);
 		mIsU = (LinearLayout) findViewById(R.id.my_shop_isu);
+		mGuideShop = (LinearLayout) findViewById(R.id.my_shop_guide);
 		mHeadImg = (CirculHeadImage) findViewById(R.id.my_shop_headImg);
 		mName = (TextView) findViewById(R.id.my_shop_name);
 		mId	= (TextView) findViewById(R.id.my_shop_id);
@@ -100,6 +103,7 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 		mServiceControl.setOnClickListener(this);
 		mShare.setOnClickListener(this);
 		mIsU.setOnClickListener(this);
+		mGuideShop.setOnClickListener(this);
 		mPublishService.setOnClickListener(this);
 		if(count == 0) {
 			SharedPreferenceUtil.getInstance(ctx).setInt("MyShop", 1);
@@ -239,6 +243,10 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 				break;
 			case R.id.my_shop_isu:
 				i.setClass(this,MyIsUuActivity.class);
+				startActivity(i);
+				break;
+			case R.id.my_shop_guide:
+				i.setClass(this,GuideHomeActivity.class);
 				startActivity(i);
 				break;
 			default:

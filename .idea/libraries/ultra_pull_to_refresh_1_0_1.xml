@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="ultra-pull-to-refresh-1.0.1">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/GTY_UU_Android/build/intermediates/exploded-aar/cn.finalteam.loadingviewfinal/ultra-pull-to-refresh/1.0.1/res" />
+      <root url="jar://$PROJECT_DIR$/GTY_UU_Android/build/intermediates/exploded-aar/cn.finalteam.loadingviewfinal/ultra-pull-to-refresh/1.0.1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.finalteam.loadingviewfinal/ultra-pull-to-refresh/1.0.1/6a67396342532bb0579e45d62f1a785b281b6ce4/ultra-pull-to-refresh-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

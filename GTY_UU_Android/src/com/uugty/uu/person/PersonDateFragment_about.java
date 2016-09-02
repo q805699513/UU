@@ -1,8 +1,5 @@
 package com.uugty.uu.person;
 
-import com.uugty.uu.R;
-import com.uugty.uu.mhvp.core.magic.viewpager.AbsBaseFragment;
-import com.uugty.uu.mhvp.core.magic.viewpager.InnerScrollView;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -12,12 +9,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.uugty.uu.R;
+import com.uugty.uu.mhvp.core.magic.viewpager.AbsBaseFragment;
+import com.uugty.uu.mhvp.core.magic.viewpager.InnerScrollView;
+
 public class PersonDateFragment_about extends AbsBaseFragment {
 	private View view;
 	private String userDescription;
 	protected InnerScrollView mScrollView;
 
-	static PersonDateFragment_about newInstance(String userDescription) {
+	public static PersonDateFragment_about newInstance(String userDescription) {
 		PersonDateFragment_about newFragment = new PersonDateFragment_about();
 		Bundle bundle = new Bundle();
 		bundle.putString("userDescription", userDescription);

@@ -501,12 +501,12 @@ public class FindTestViewPagerActivity extends BaseActivity implements
 	 */
 	public void InitViewPager() {
 
-		mPager.setOffscreenPageLimit(1);
 		btFragment = FindViewFragment_play.newInstance(roadId);
 		//合并说明和玩法板块
 //		secondFragment = FindViewFragment_explain.newInstance(roadId);
 		thirdFragment = FindViewFragment_comments.newInstance(detailUserId);
 
+		mPager.setOffscreenPageLimit(1);
 		fragmentList.add(btFragment);
 		fragmentList.add(thirdFragment);
 //		fragmentList.add(secondFragment);

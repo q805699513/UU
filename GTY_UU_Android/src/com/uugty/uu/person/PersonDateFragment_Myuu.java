@@ -101,9 +101,9 @@ public class PersonDateFragment_Myuu extends AbsBaseFragment implements
 		};
 	};
 
-	static PersonDateFragment_Myuu newInstance(String Muserid,
-			String Musername, String Museravatar, String MdynamicType,
-			String Mdifferentiate) {
+	public static PersonDateFragment_Myuu newInstance(String Muserid,
+													  String Musername, String Museravatar, String MdynamicType,
+													  String Mdifferentiate) {
 		PersonDateFragment_Myuu newFragment = new PersonDateFragment_Myuu();
 		Bundle bundle = new Bundle();
 		bundle.putString("userid", Muserid);

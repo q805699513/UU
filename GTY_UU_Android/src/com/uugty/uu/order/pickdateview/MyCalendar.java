@@ -230,19 +230,22 @@ public class MyCalendar extends LinearLayout {
                  }
                  if((date[0]+"-"+day).equals(nowday)){
                  	holder.tvDay.setTextColor(Color.parseColor("#00A1D9"));
+                     holder.tvDay.setBackgroundDrawable(context.getResources().getDrawable(R.color.white));
                  	holder.tvDay.setTextSize(15);
                  	holder.tvDay.setText("今天");
                  }
                  if(!"".equals(inday)&&(date[0]+"-"+day).equals(inday)){
-                	 convertView.setBackgroundColor(Color.parseColor("#00A1D9"));
+//                	 convertView.setBackgroundColor(Color.parseColor("#00A1D9"));
                 	 holder.tvDay.setTextColor(Color.WHITE);
+                     holder.tvDay.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.loading_dialog_bg));
                 	 holder.tvDay.setText(date[1]);
                 	 holder.tv.setText("出行");
                 	 viewIn=convertView;
                 	 positionIn=date[1];
                  }
                  if(!"".equals(outday)&&(date[0]+"-"+day).equals(outday)){
-                	 convertView.setBackgroundColor(Color.parseColor("#00A1D9"));
+//                	 convertView.setBackgroundColor(Color.parseColor("#00A1D9"));
+                     holder.tvDay.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.loading_dialog_bg));
                 	 holder.tvDay.setTextColor(Color.WHITE);
                 	 holder.tvDay.setText(date[1]);
                 	 holder.tv.setText("结束");

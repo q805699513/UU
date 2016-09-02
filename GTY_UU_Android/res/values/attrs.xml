@@ -71,6 +71,10 @@
         <attr name="pstsTabBackground" format="reference" />
         <attr name="pstsShouldExpand" format="boolean" />
         <attr name="pstsTextAllCaps" format="boolean" />
+        <attr name="TabTextSize"   format="dimension" />
+        <attr name="TabTextColor"  format="color" />
+        <attr name="SelectedTabTextSize"   format="dimension" />
+        <attr name="SelectedTabTextColor" format="color" />
     </declare-styleable>
 
     <declare-styleable name="CityPickerView">
@@ -82,6 +86,14 @@
         <attr name="wheel_text_size" format="dimension"></attr><!--滚轮里面内容的文字大小-->
         <attr name="title_text_size" format="dimension"></attr><!--标题的文字大小-->
         <attr name="title_action_size" format="dimension"></attr><!--确认和取消的文字大小-->
+    </declare-styleable>
+
+    <declare-styleable name="MultipleStatusView">
+        <attr name="loadingView" format="reference"/>
+        <attr name="errorView" format="reference"/>
+        <attr name="emptyView" format="reference"/>
+        <attr name="noNetworkView" format="reference"/>
+        <attr name="MultipContentView" format="reference"/>
     </declare-styleable>
 
 </resources>
