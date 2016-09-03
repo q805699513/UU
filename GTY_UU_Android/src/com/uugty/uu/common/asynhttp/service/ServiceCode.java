@@ -280,4 +280,11 @@ public class ServiceCode {
 	public static final String USER_UPDATE_BANK_CARD = "updateBankCard.do";
 	//订单和代金券数量提示接口
 	public static final String ORDER_DISCOUNT_NUM = "queryOrderDiscountNum.do";
+
+
+	//导游圈接口
+	public static final String GUIDE_THEME = "themeDetailsByUU.do";
+	public static final String GUIDE_CITY="queryProvince.do";
+
+
 }

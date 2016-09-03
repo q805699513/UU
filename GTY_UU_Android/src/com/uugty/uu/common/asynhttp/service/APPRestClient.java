@@ -23,6 +23,8 @@ import org.apache.http.protocol.HTTP;
 public class APPRestClient {
 	private static final String LOG_TAG = "APPRestClient";
 
+	//导游圈
+	public static String GUIDE_URL ="http://youxiangxi.com:9090/guide/";
 	//线上测试环境
 	public static String SERVER_IP = "http://www.uugty.com:100/";
 	public static String BASE_URL ="http://www.uugty.com:7777/uuapplication/";
@@ -86,6 +88,15 @@ public class APPRestClient {
 			RequestParams params, AsyncHttpResponseHandler responseHandler) {
 
 		client.post(context, getAbsoluteUrl(relativeUrl), params,
+				responseHandler);
+
+	}
+
+	//导游圈网络接口
+	public static void postGuide(Context context, String relativeUrl,
+							RequestParams params, AsyncHttpResponseHandler responseHandler) {
+
+		client.post(context, getGuideAbsoluteUrl(relativeUrl), params,
 				responseHandler);
 
 	}
@@ -162,6 +173,10 @@ public class APPRestClient {
 
 	private static String getAbsoluteUrl(String relativeUrl) {
 		return BASE_URL + relativeUrl;
+	}
+
+	private static String getGuideAbsoluteUrl(String relativeUrl) {
+		return GUIDE_URL + relativeUrl;
 	}
 
 	/**

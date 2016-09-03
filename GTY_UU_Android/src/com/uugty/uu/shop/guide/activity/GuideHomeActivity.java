@@ -26,7 +26,6 @@ import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.SearchPopuWindow;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.entity.HomePageRecommendEntity;
-import com.uugty.uu.main.HomeCityListActivity;
 import com.uugty.uu.mhvp.core.magic.viewpager.MagicHeaderUtils;
 import com.uugty.uu.mhvp.core.magic.viewpager.MagicHeaderViewPager;
 import com.uugty.uu.mhvp.core.magic.viewpager.PagerSlidingTabStrip;
@@ -57,8 +56,10 @@ public class GuideHomeActivity extends BaseActivity implements
 	private GuideHeaderAdView mHeadView;//广告头
 	private ArrayList<Fragment> fragmentList = new ArrayList<Fragment>();
 	private ArrayList<String> mTitleList = new ArrayList<String>();
+	//脑残逻辑(接口前三个为广告栏,之后的为主题)而定义的数组
+	private ArrayList<HomePageRecommendEntity.HomePageRecommend> mThemeIdList = new ArrayList<HomePageRecommendEntity.HomePageRecommend>();
 	private List<HomePageRecommendEntity.HomePageRecommend> recommendList = new ArrayList<HomePageRecommendEntity.HomePageRecommend>();//请求返回的list
-	private String themeCity = "北京";//默认城市
+	private String themeCity = "北京市";//默认城市
 
 	@Override
 	protected int getContentLayout() {
@@ -106,10 +107,8 @@ public class GuideHomeActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Intent intent = new Intent();
-				intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-				intent.setClass(GuideHomeActivity.this, HomeCityListActivity.class);
+				intent.setClass(GuideHomeActivity.this, CityLocationActivity.class);
 				startActivityForResult(intent, 1000);
 			}
 		});
@@ -180,6 +179,7 @@ public class GuideHomeActivity extends BaseActivity implements
 				Bundle bundle = new Bundle();
 				bundle.putString("theme", mTitleList.get(i));
 				bundle.putString("city",themeCity);
+				bundle.putString("themeId",mThemeIdList.get(i).getRoadlineThemeId());
 				fragment.setArguments(bundle);
 				fragmentList.add(fragment);
 			}
@@ -192,7 +192,7 @@ public class GuideHomeActivity extends BaseActivity implements
 
 		RequestParams params = new RequestParams();
 		params.add("roadlineThemeArea", themeCity); // 地点
-		APPRestClient.post(this, ServiceCode.HOME_PAGE_RECOMMEND, params,
+		APPRestClient.postGuide(this, ServiceCode.HOME_PAGE_RECOMMEND, params,
 				new APPResponseHandler<HomePageRecommendEntity>(
 						HomePageRecommendEntity.class, this) {
 					@Override
@@ -205,11 +205,16 @@ public class GuideHomeActivity extends BaseActivity implements
 							if(mTitleList.size() > 0){
 								mTitleList.clear();
 							}
+							if(mThemeIdList.size() > 0){
+								mThemeIdList.clear();
+							}
 							mTitleList.add("推荐");//推荐是固定的,放在第一个mTitleList.add(0,"推荐"),arraylist不建议做插入操作
+							mThemeIdList.add(result.getLIST().get(0));//为了和推荐对齐,随便加的一个值
 							for(int i=0 ;i <result.getLIST().size() ;i++){
 								//前三个为广告,之后的为主题标签
 								if(i > 2) {
 									mTitleList.add(result.getLIST().get(i).getRoadlineThemeTitle());
+									mThemeIdList.add(result.getLIST().get(i));
 								}else{
 									recommendList.add(result.getLIST().get(i));
 								}
@@ -264,6 +269,7 @@ public class GuideHomeActivity extends BaseActivity implements
 				case 1000:
 					themeCity = data.getStringExtra("themeCity");
 					location_text.setText(themeCity);
+					getThemeRecommend();
 					break;
 			}
 		}
