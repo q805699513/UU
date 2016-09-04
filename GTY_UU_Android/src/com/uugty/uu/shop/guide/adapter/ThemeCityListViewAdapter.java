@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.nhaarman.listviewanimations.ArrayAdapter;
 import com.uugty.uu.R;
-import com.uugty.uu.entity.ThemeCityEntity;
+import com.uugty.uu.shop.guide.Model.ThemeCityEntity;
 
 import java.util.List;
 

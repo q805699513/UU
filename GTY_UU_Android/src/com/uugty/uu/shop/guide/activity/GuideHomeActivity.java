@@ -183,9 +183,11 @@ public class GuideHomeActivity extends BaseActivity implements
 				fragment.setArguments(bundle);
 				fragmentList.add(fragment);
 			}
+			mTabPagerAdapter = new GuideThemePagerAdapter(getSupportFragmentManager(), fragmentList,mTitleList);
+			mMagicHeaderViewPager.setPagerAdapter(mTabPagerAdapter);
+		} else{
+			mTabPagerAdapter.notifyDataSetChanged();
 		}
-		mTabPagerAdapter = new GuideThemePagerAdapter(getSupportFragmentManager(), fragmentList,mTitleList);
-		mMagicHeaderViewPager.setPagerAdapter(mTabPagerAdapter);
 	}
 
 	private void getThemeRecommend() {

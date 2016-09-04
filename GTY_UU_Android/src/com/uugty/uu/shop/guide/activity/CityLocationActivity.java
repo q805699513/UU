@@ -16,8 +16,8 @@ import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.TopBackView;
-import com.uugty.uu.entity.ThemeCityEntity;
-import com.uugty.uu.entity.ThemeCityEntity.ThemeCity;
+import com.uugty.uu.shop.guide.Model.ThemeCityEntity;
+import com.uugty.uu.shop.guide.Model.ThemeCityEntity.ThemeCity;
 import com.uugty.uu.shop.guide.adapter.ThemeCityListViewAdapter;
 
 import java.util.ArrayList;
