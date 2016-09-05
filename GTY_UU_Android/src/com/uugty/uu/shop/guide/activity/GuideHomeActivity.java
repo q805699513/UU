@@ -69,7 +69,10 @@ public class GuideHomeActivity extends BaseActivity implements
 	@Override
 	protected void initGui() {
 		ButterKnife.bind(this);
-
+		if(getIntent().getStringExtra("themeCity") != null){
+			themeCity = getIntent().getStringExtra("themeCity");
+			location_text.setText(themeCity);
+		}
 		mMagicHeaderViewPager = new MagicHeaderViewPager(this) {
 			@Override
 			protected void initTabsArea(LinearLayout container) {
@@ -109,7 +112,8 @@ public class GuideHomeActivity extends BaseActivity implements
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.setClass(GuideHomeActivity.this, CityLocationActivity.class);
-				startActivityForResult(intent, 1000);
+				startActivity(intent);
+				finish();
 			}
 		});
 		search_text.setOnClickListener(new OnClickListener() {
@@ -150,7 +154,7 @@ public class GuideHomeActivity extends BaseActivity implements
 
 	@Override
 	protected void initData() {
-		getThemeRecommend();
+
 	}
 
 	@Override
@@ -161,6 +165,7 @@ public class GuideHomeActivity extends BaseActivity implements
 	@Override
 	protected void onResume() {
 		super.onResume();
+		getThemeRecommend();
 	}
 
 	@Override
@@ -185,8 +190,6 @@ public class GuideHomeActivity extends BaseActivity implements
 			}
 			mTabPagerAdapter = new GuideThemePagerAdapter(getSupportFragmentManager(), fragmentList,mTitleList);
 			mMagicHeaderViewPager.setPagerAdapter(mTabPagerAdapter);
-		} else{
-			mTabPagerAdapter.notifyDataSetChanged();
 		}
 	}
 
@@ -260,21 +263,5 @@ public class GuideHomeActivity extends BaseActivity implements
 					public void onFinish() {
 					}
 				});
-	}
-
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
-		super.onActivityResult(requestCode, resultCode, data);
-		if (resultCode == -1) {
-			switch (requestCode) {
-				case 1000:
-					themeCity = data.getStringExtra("themeCity");
-					location_text.setText(themeCity);
-					getThemeRecommend();
-					break;
-			}
-		}
-
 	}
 }

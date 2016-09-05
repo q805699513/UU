@@ -16,6 +16,7 @@ import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.myview.TopBackView;
+import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.shop.guide.Model.ThemeCityEntity;
 import com.uugty.uu.shop.guide.Model.ThemeCityEntity.ThemeCity;
 import com.uugty.uu.shop.guide.adapter.ThemeCityListViewAdapter;
@@ -51,9 +52,11 @@ public class CityLocationActivity extends BaseActivity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
+				ActivityCollector.removeSpecifiedActivity("com.uugty.uu.shop.guide.GuideHomeActivity");
 				Intent intent = new Intent();
 				intent.putExtra("themeCity", themeCityList.get(position).getRoadlineThemeArea());
-                setResult(RESULT_OK, intent);
+				intent.setClass(CityLocationActivity.this,GuideHomeActivity.class);
+                startActivity(intent);
                 finish();
 			}
 		});

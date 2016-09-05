@@ -9,7 +9,6 @@ import android.os.Message;
 import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 
@@ -23,11 +22,12 @@ import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.util.ActivityCollector;
-import com.uugty.uu.mhvp.core.magic.viewpager.AbsBaseFragment;
+import com.uugty.uu.entity.Constant;
 import com.uugty.uu.mhvp.core.magic.viewpager.InnerListView;
 import com.uugty.uu.mhvp.core.magic.viewpager.InnerScroller;
 import com.uugty.uu.shop.guide.Model.GuideEntity;
 import com.uugty.uu.shop.guide.adapter.GuideShowAdapter;
+import com.uugty.uu.shop.guide.base.BaseLazyFragment;
 import com.uugty.uu.shop.guide.view.MultipleStatusView;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ import butterknife.ButterKnife;
 /**
  * 通用的Fragment
  */
-public class CommondFragment extends AbsBaseFragment implements AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
+public class CommondFragment extends BaseLazyFragment implements AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
 
     @Bind(R.id.multiplestatusview)
     MultipleStatusView multiplestatusview;
@@ -91,22 +91,12 @@ public class CommondFragment extends AbsBaseFragment implements AdapterView.OnIt
     };
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onCreateViewLazy(Bundle savedInstanceState) {
+        super.onCreateViewLazy(savedInstanceState);
+        setContentView(R.layout.fragment_commond);
+        ButterKnife.bind(this, getContentView());
 
-        if (view == null) {
-            view = LayoutInflater.from(getActivity()).inflate(
-                    R.layout.fragment_commond, null);
-        }
-        ButterKnife.bind(this, view);
-        // 缓存的rootView需要判断是否已经被加过parent，
-        // 如果有parent需要从parent删除，要不然会发生这个rootview已经有parent的错误。
-        ViewGroup parent = (ViewGroup) view.getParent();
-        if (parent != null) {
-            parent.removeView(view);
-        }
-
-        return view;
+        initView();
     }
 
     @Override
@@ -114,9 +104,7 @@ public class CommondFragment extends AbsBaseFragment implements AdapterView.OnIt
         return mListView;
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void initView(){
         //获取标题分类
         mTheme = getArguments().getString("theme");
         mThemeCity = getArguments().getString("city");
@@ -180,18 +168,17 @@ public class CommondFragment extends AbsBaseFragment implements AdapterView.OnIt
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
+    protected void onDestroyViewLazy() {
+        super.onDestroyViewLazy();
         ButterKnife.unbind(this);
     }
-
     private void loadThemeData(final int what) {
         // 显示等待层
         RequestParams params = new RequestParams();
         params.add("roadlineThemeId", mThemeId); // 当前页数
         params.add("roadlineThemeArea",mThemeCity);
         params.add("currentPage", String.valueOf(startId)); // 当前页数
-        params.add("pageSize", "5"); // pageSize
+        params.add("pageSize", "10"); // pageSize
 
         APPRestClient.postGuide(getActivity(), ServiceCode.GUIDE_THEME, params,
                 new APPResponseHandler<GuideEntity>(GuideEntity.class, getActivity()) {
@@ -248,7 +235,7 @@ public class CommondFragment extends AbsBaseFragment implements AdapterView.OnIt
         params.add("markSearchType", "goal_title");
         params.add("markTitle", mThemeCity); // pageSize
         params.add("currentPage", String.valueOf(startId)); // 当前页数
-        params.add("pageSize", "5"); // pageSize
+        params.add("pageSize", "10"); // pageSize
         params.add("isOnline", ""); // 性别
         params.add("userSex", ""); // 性别
         params.add("userTourValidate", ""); // 用户的旅游证
