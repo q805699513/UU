@@ -1,4 +1,4 @@
-package com.uugty.uu.com.find;
+package com.uugty.uu.shop.guide.fragment;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -30,15 +30,15 @@ import com.uugty.uu.entity.RoadLine;
 
 import java.util.List;
 
-public class FindViewFragment_play extends Fragment {
+public class FindViewFragment_guide_play extends Fragment {
 	private ListView find_listview;
 	private FindListAdapter findadapter;
 	private View view;
 	private String roadId;
 	private RoadEntity roadEntity;
-	
-	public static FindViewFragment_play newInstance(String roadId) {
-		FindViewFragment_play newFragment = new FindViewFragment_play();
+
+	public static FindViewFragment_guide_play newInstance(String roadId) {
+		FindViewFragment_guide_play newFragment = new FindViewFragment_guide_play();
 		Bundle bundle = new Bundle();
 		bundle.putString("roadId", roadId);
 		newFragment.setArguments(bundle);
@@ -82,12 +82,12 @@ public class FindViewFragment_play extends Fragment {
 		}
 
 	}
-	
+
 	private void sendRequest() {
 
 		RequestParams params = new RequestParams();
 		params.add("roadlineId", roadId);// 路线Id
-		APPRestClient.post(getActivity(), ServiceCode.ROAD_LINE_DETAIL_MESSAGE,
+		APPRestClient.postGuide(getActivity(), ServiceCode.ROAD_LINE_DETAIL_MESSAGE,
 				params, new APPResponseHandler<RoadEntity>(RoadEntity.class,
 						getActivity()) {
 					@Override
@@ -112,7 +112,7 @@ public class FindViewFragment_play extends Fragment {
 						if (errorCode == -999) {
 							new AlertDialog.Builder(getActivity())
 									.setTitle("提示")
-									.setMessage("网络拥堵,请稍后重试！")
+									.setMessage("服务器连接失败！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -152,7 +152,6 @@ public class FindViewFragment_play extends Fragment {
 			}
 		};
 	};
-	
 
 	class FindListAdapter extends BaseAdapter {
 		// private ViewManger viewmanger;
@@ -191,8 +190,8 @@ public class FindViewFragment_play extends Fragment {
 			ViewHolder holder;
 			if (view == null) {
 				holder = new ViewHolder();
-				view = LayoutInflater.from(getActivity()).inflate(
-						R.layout.find_route_display_paly,null);
+				view = LayoutInflater.from(context).inflate(
+						R.layout.find_route_display_paly, null);
 				holder.imageView = (SimpleDraweeView) view
 						.findViewById(R.id.find_route_display_paly_image);
 				holder.dayText = (TextView) view

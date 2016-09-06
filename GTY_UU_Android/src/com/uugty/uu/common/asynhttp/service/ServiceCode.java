@@ -283,8 +283,14 @@ public class ServiceCode {
 
 
 	//导游圈接口
+	//广告栏
 	public static final String GUIDE_THEME = "themeDetailsByUU.do";
+	//开通省份
 	public static final String GUIDE_CITY="queryProvince.do";
+	//库存查询
+	public static final String CATEGORY_COUNT = "queryRoadlineCount.do";
+	//导游圈下单
+	public static final String ORDER_RESERVATION_GUIDE="placeOrderGuide.do";
 
 
 }

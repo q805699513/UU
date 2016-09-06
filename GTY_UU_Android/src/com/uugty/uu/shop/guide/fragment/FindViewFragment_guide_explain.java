@@ -1,4 +1,4 @@
-package com.uugty.uu.com.find;
+package com.uugty.uu.shop.guide.fragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -21,8 +21,9 @@ import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.entity.RoadEntity;
 import com.uugty.uu.entity.RoadEntity.RoadDetail;
+import com.uugty.uu.com.find.FindViewFragment_explain;
 
-public class FindViewFragment_explain extends Fragment {
+public class FindViewFragment_guide_explain extends Fragment {
 	private View view;
 	private TextView roadContentTextView;
 	private RoadDetail roadDetailResult;
@@ -41,8 +42,8 @@ public class FindViewFragment_explain extends Fragment {
 	private String roadId;
 	private RoadEntity roadEntity;
 
-	public static FindViewFragment_explain newInstance(String roadId) {
-		FindViewFragment_explain newFragment = new FindViewFragment_explain();
+	public static FindViewFragment_guide_explain newInstance(String roadId) {
+		FindViewFragment_guide_explain newFragment = new FindViewFragment_guide_explain();
 		Bundle bundle = new Bundle();
 		bundle.putString("roadId", roadId);
 		newFragment.setArguments(bundle);
@@ -153,7 +154,7 @@ public class FindViewFragment_explain extends Fragment {
 										.getRoadlineSpecialMark());
 						findview_fragment_explain_roadlinePrice
 								.setText(roadEntityResult.getOBJECT()
-										.getRoadlinePrice());
+										.getRoadlinePrice() + "（仅针对旅游同行内部价）");
 						findview_fragment_explain_roadlineFeeContains
 								.setText(roadEntityResult.getOBJECT()
 										.getRoadlineFeeContains());
@@ -173,7 +174,7 @@ public class FindViewFragment_explain extends Fragment {
 								.setVisibility(View.GONE);
 						findview_fragment_explain_roadlinePrice
 								.setText(roadEntityResult.getOBJECT()
-										.getRoadlinePrice());
+										.getRoadlinePrice() + "（仅针对旅游同行内部价）");
 						if (roadEntityResult.getOBJECT()
 								.getRoadlineFeeContains().equals("")) {
 							findview_fragment_explain_roadlineFeeContains_text.setVisibility(View.GONE);
@@ -214,7 +215,7 @@ public class FindViewFragment_explain extends Fragment {
 
 		RequestParams params = new RequestParams();
 		params.add("roadlineId", roadId);// 路线Id
-		APPRestClient.post(getActivity(), ServiceCode.ROAD_LINE_DETAIL_MESSAGE,
+		APPRestClient.postGuide(getActivity(), ServiceCode.ROAD_LINE_DETAIL_MESSAGE,
 				params, new APPResponseHandler<RoadEntity>(RoadEntity.class,
 						getActivity()) {
 					@Override
@@ -237,7 +238,7 @@ public class FindViewFragment_explain extends Fragment {
 						if (errorCode == -999) {
 							new AlertDialog.Builder(getActivity())
 									.setTitle("提示")
-									.setMessage("网络拥堵,请稍后重试！")
+									.setMessage("服务器连接失败！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {

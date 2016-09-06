@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -31,6 +32,7 @@ import com.uugty.uu.mhvp.core.magic.viewpager.MagicHeaderViewPager;
 import com.uugty.uu.mhvp.core.magic.viewpager.PagerSlidingTabStrip;
 import com.uugty.uu.shop.guide.adapter.GuideThemePagerAdapter;
 import com.uugty.uu.shop.guide.fragment.CommondFragment;
+import com.uugty.uu.shop.guide.fragment.RecommendFragment;
 import com.uugty.uu.shop.guide.view.GuideHeaderAdView;
 
 import java.util.ArrayList;
@@ -113,7 +115,12 @@ public class GuideHomeActivity extends BaseActivity implements
 				Intent intent = new Intent();
 				intent.setClass(GuideHomeActivity.this, CityLocationActivity.class);
 				startActivity(intent);
-				finish();
+				new Handler().postDelayed(new Runnable() {
+					public void run() {
+						// 显示dialog
+						finish();
+					}
+				}, 800);
 			}
 		});
 		search_text.setOnClickListener(new OnClickListener() {
@@ -178,8 +185,13 @@ public class GuideHomeActivity extends BaseActivity implements
 
 	public void initViewPager() {
 		if (fragmentList.size() == 0) {
+			RecommendFragment reFragment = new RecommendFragment();
+			Bundle reBundle = new Bundle();
+			reBundle.putString("city",themeCity);
+			reFragment.setArguments(reBundle);
+			fragmentList.add(reFragment);
 			//循环创建fragment
-			for (int i = 0; i < mTitleList.size(); i++) {
+			for (int i = 1; i < mTitleList.size(); i++) {
 				CommondFragment fragment = new CommondFragment();//根据不同标签加载数据
 				Bundle bundle = new Bundle();
 				bundle.putString("theme", mTitleList.get(i));

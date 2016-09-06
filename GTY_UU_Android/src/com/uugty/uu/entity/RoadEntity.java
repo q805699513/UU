@@ -1,9 +1,9 @@
 package com.uugty.uu.entity;
 
+import com.uugty.uu.entity.HomeTagEntity.Tags.PlayAndBuy;
+
 import java.io.Serializable;
 import java.util.List;
-
-import com.uugty.uu.entity.HomeTagEntity.Tags.PlayAndBuy;
 
 public class RoadEntity implements Serializable{
 
@@ -56,6 +56,16 @@ public class RoadEntity implements Serializable{
 		private List<RoadLine> roadlineDescribes;
 		private List<PlayAndBuy> tags;
 		private String userTel;//用户电话号码
+
+		public String getRoadlineMarketPrice() {
+			return roadlineMarketPrice;
+		}
+
+		public void setRoadlineMarketPrice(String roadlineMarketPrice) {
+			this.roadlineMarketPrice = roadlineMarketPrice;
+		}
+
+		private String roadlineMarketPrice;//市场价
 		
 		public String getRoadlineInfo() {
 			return roadlineInfo;

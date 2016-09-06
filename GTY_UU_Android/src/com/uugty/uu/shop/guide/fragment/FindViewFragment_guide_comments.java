@@ -1,4 +1,4 @@
-package com.uugty.uu.com.find;
+package com.uugty.uu.shop.guide.fragment;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -32,7 +32,7 @@ import com.uugty.uu.entity.UserCommentEntity.UserCommentList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindViewFragment_comments extends Fragment {
+public class FindViewFragment_guide_comments extends Fragment {
 	private TextView serviceTitle, freshTitle, costTitle;
 	private ListView listView;
 	private CommentAdapter adapter;
@@ -43,8 +43,8 @@ public class FindViewFragment_comments extends Fragment {
 	private RelativeLayout totalLin;
 	private UserCommentEntity commentEntity;
 
-	public static FindViewFragment_comments newInstance(String roadId) {
-		FindViewFragment_comments newFragment = new FindViewFragment_comments();
+	public static FindViewFragment_guide_comments newInstance(String roadId) {
+		FindViewFragment_guide_comments newFragment = new FindViewFragment_guide_comments();
 		Bundle bundle = new Bundle();
 		bundle.putString("roadId", roadId);
 		newFragment.setArguments(bundle);
@@ -118,7 +118,7 @@ public class FindViewFragment_comments extends Fragment {
 	private void sendRequest() {
 		RequestParams params = new RequestParams();
 		params.add("userId", userId);
-		APPRestClient.post(getActivity(), ServiceCode.USER_COMMENT_LIST,
+		APPRestClient.postGuide(getActivity(), ServiceCode.USER_COMMENT_LIST,
 				params, new APPResponseHandler<UserCommentEntity>(
 						UserCommentEntity.class, getActivity()) {
 					@Override
@@ -142,7 +142,7 @@ public class FindViewFragment_comments extends Fragment {
 						if (errorCode == -999) {
 							new AlertDialog.Builder(getActivity())
 									.setTitle("提示")
-									.setMessage("网络拥堵,请稍后重试！")
+									.setMessage("服务器连接失败！")
 									.setPositiveButton(
 											"确定",
 											new DialogInterface.OnClickListener() {
@@ -251,112 +251,111 @@ public class FindViewFragment_comments extends Fragment {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			// TODO Auto-generated method stub
-			ViewManger viewmanger;
+			ViewHolder ViewHolder;
 			if (convertView == null) {
-				viewmanger = new ViewManger();
-				convertView = LayoutInflater.from(getActivity()).inflate(
-						R.layout.user_comment_listview_item,null);
-				viewmanger.headImage = (SimpleDraweeView) convertView
+				ViewHolder = new ViewHolder();
+				convertView = LayoutInflater.from(getActivity()).inflate(R.layout.user_comment_listview_item, parent,false);
+				ViewHolder.headImage = (SimpleDraweeView) convertView
 						.findViewById(R.id.user_comment_list_item_head);
-				viewmanger.nameText = (TextView) convertView
+				ViewHolder.nameText = (TextView) convertView
 						.findViewById(R.id.user_comment_list_item_name);
-				viewmanger.timeText = (TextView) convertView
+				ViewHolder.timeText = (TextView) convertView
 						.findViewById(R.id.user_comment_list_item_time);
-				viewmanger.ratinBar = (RatingBar) convertView
+				ViewHolder.ratinBar = (RatingBar) convertView
 						.findViewById(R.id.user_comment_list_item_ratingbar);
-				viewmanger.contentText = (TextView) convertView
+				ViewHolder.contentText = (TextView) convertView
 						.findViewById(R.id.user_comment_list_item_content);
-				viewmanger.iamgesLin = (LinearLayout) convertView
+				ViewHolder.iamgesLin = (LinearLayout) convertView
 						.findViewById(R.id.user_comment_list_iamges_lin);
-				viewmanger.evaluaeOneImage = (SimpleDraweeView) convertView
+				ViewHolder.evaluaeOneImage = (SimpleDraweeView) convertView
 						.findViewById(R.id.user_comment_list_item_evaluae_one);
-				viewmanger.evaluaeTwoImage = (SimpleDraweeView) convertView
+				ViewHolder.evaluaeTwoImage = (SimpleDraweeView) convertView
 						.findViewById(R.id.user_comment_list_item_evaluae_two);
-				viewmanger.evaluaeThreeImage = (SimpleDraweeView) convertView
+				ViewHolder.evaluaeThreeImage = (SimpleDraweeView) convertView
 						.findViewById(R.id.user_comment_list_item_evaluae_three);
-				viewmanger.evaluaeFourImage = (SimpleDraweeView) convertView
+				ViewHolder.evaluaeFourImage = (SimpleDraweeView) convertView
 						.findViewById(R.id.user_comment_list_item_evaluae_four);
 
-				convertView.setTag(viewmanger);
+				convertView.setTag(ViewHolder);
 			} else {
-				viewmanger = (ViewManger) convertView.getTag();
+				ViewHolder = (ViewHolder) convertView.getTag();
 			}
 			if (!list.get(position).getUserAvatar().equals("")) {
-				viewmanger.headImage.setImageURI(Uri
+				ViewHolder.headImage.setImageURI(Uri
 						.parse(APPRestClient.SERVER_IP
 								+ list.get(position).getUserAvatar()));
 			} else {
-				viewmanger.headImage.setImageURI(Uri.parse("res///"
+				ViewHolder.headImage.setImageURI(Uri.parse("res///"
 						+ R.drawable.no_default_head_img));
 			}
-			viewmanger.nameText.setText(list.get(position).getUserName());
-			viewmanger.timeText.setText(list.get(position).getCommentDate());
-			viewmanger.ratinBar.setRating(Float.valueOf(list.get(position)
+			ViewHolder.nameText.setText(list.get(position).getUserName());
+			ViewHolder.timeText.setText(list.get(position).getCommentDate());
+			ViewHolder.ratinBar.setRating(Float.valueOf(list.get(position)
 					.getTotalIndex()));
 			if (list.get(position).getCommentContent().equals("")) {
-				viewmanger.contentText.setVisibility(View.GONE);
+				ViewHolder.contentText.setVisibility(View.GONE);
 			} else {
-				viewmanger.contentText.setText(list.get(position)
+				ViewHolder.contentText.setText(list.get(position)
 						.getCommentContent());
 			}
 			if (list.get(position).getCommentImages().equals("")) {
-				viewmanger.iamgesLin.setVisibility(View.GONE);
+				ViewHolder.iamgesLin.setVisibility(View.GONE);
 			} else {
 				// 截取字符串
 				String[] images = list.get(position).getCommentImages()
 						.split(",");
-				viewmanger.iamgesLin.setVisibility(View.VISIBLE);
+				ViewHolder.iamgesLin.setVisibility(View.VISIBLE);
 				// 此处代码写烂了
 				if (images.length == 1) {
-					viewmanger.evaluaeOneImage.setVisibility(View.VISIBLE);
-					viewmanger.evaluaeOneImage.setImageURI(Uri
+					ViewHolder.evaluaeOneImage.setVisibility(View.VISIBLE);
+					ViewHolder.evaluaeOneImage.setImageURI(Uri
 							.parse(APPRestClient.SERVER_IP + images[0]));
-					viewmanger.evaluaeTwoImage.setVisibility(View.GONE);
-					viewmanger.evaluaeThreeImage.setVisibility(View.GONE);
-					viewmanger.evaluaeFourImage.setVisibility(View.GONE);
+					ViewHolder.evaluaeTwoImage.setVisibility(View.GONE);
+					ViewHolder.evaluaeThreeImage.setVisibility(View.GONE);
+					ViewHolder.evaluaeFourImage.setVisibility(View.GONE);
 				}
 				if (images.length == 2) {
-					viewmanger.evaluaeOneImage.setVisibility(View.VISIBLE);
-					viewmanger.evaluaeTwoImage.setVisibility(View.VISIBLE);
-					viewmanger.evaluaeOneImage.setImageURI(Uri
+					ViewHolder.evaluaeOneImage.setVisibility(View.VISIBLE);
+					ViewHolder.evaluaeTwoImage.setVisibility(View.VISIBLE);
+					ViewHolder.evaluaeOneImage.setImageURI(Uri
 							.parse(APPRestClient.SERVER_IP + images[0]));
-					viewmanger.evaluaeTwoImage.setImageURI(Uri
+					ViewHolder.evaluaeTwoImage.setImageURI(Uri
 							.parse(APPRestClient.SERVER_IP + images[1]));
-					viewmanger.evaluaeThreeImage.setVisibility(View.GONE);
-					viewmanger.evaluaeFourImage.setVisibility(View.GONE);
+					ViewHolder.evaluaeThreeImage.setVisibility(View.GONE);
+					ViewHolder.evaluaeFourImage.setVisibility(View.GONE);
 				}
 				if (images.length == 3) {
-					viewmanger.evaluaeOneImage.setVisibility(View.VISIBLE);
-					viewmanger.evaluaeTwoImage.setVisibility(View.VISIBLE);
-					viewmanger.evaluaeThreeImage.setVisibility(View.VISIBLE);
-					viewmanger.evaluaeOneImage.setImageURI(Uri
+					ViewHolder.evaluaeOneImage.setVisibility(View.VISIBLE);
+					ViewHolder.evaluaeTwoImage.setVisibility(View.VISIBLE);
+					ViewHolder.evaluaeThreeImage.setVisibility(View.VISIBLE);
+					ViewHolder.evaluaeOneImage.setImageURI(Uri
 							.parse(APPRestClient.SERVER_IP + images[0]));
-					viewmanger.evaluaeTwoImage.setImageURI(Uri
+					ViewHolder.evaluaeTwoImage.setImageURI(Uri
 							.parse(APPRestClient.SERVER_IP + images[1]));
-					viewmanger.evaluaeThreeImage.setImageURI(Uri
+					ViewHolder.evaluaeThreeImage.setImageURI(Uri
 							.parse(APPRestClient.SERVER_IP + images[2]));
-					viewmanger.evaluaeFourImage.setVisibility(View.GONE);
+					ViewHolder.evaluaeFourImage.setVisibility(View.GONE);
 				}
 				if (images.length == 4) {
-					viewmanger.evaluaeOneImage.setVisibility(View.VISIBLE);
-					viewmanger.evaluaeTwoImage.setVisibility(View.VISIBLE);
-					viewmanger.evaluaeThreeImage.setVisibility(View.VISIBLE);
-					viewmanger.evaluaeFourImage.setVisibility(View.VISIBLE);
-					viewmanger.evaluaeOneImage.setImageURI(Uri
+					ViewHolder.evaluaeOneImage.setVisibility(View.VISIBLE);
+					ViewHolder.evaluaeTwoImage.setVisibility(View.VISIBLE);
+					ViewHolder.evaluaeThreeImage.setVisibility(View.VISIBLE);
+					ViewHolder.evaluaeFourImage.setVisibility(View.VISIBLE);
+					ViewHolder.evaluaeOneImage.setImageURI(Uri
 							.parse(APPRestClient.SERVER_IP + images[0]));
-					viewmanger.evaluaeTwoImage.setImageURI(Uri
+					ViewHolder.evaluaeTwoImage.setImageURI(Uri
 							.parse(APPRestClient.SERVER_IP + images[1]));
-					viewmanger.evaluaeThreeImage.setImageURI(Uri
+					ViewHolder.evaluaeThreeImage.setImageURI(Uri
 							.parse(APPRestClient.SERVER_IP + images[2]));
-					viewmanger.evaluaeFourImage.setImageURI(Uri
+					ViewHolder.evaluaeFourImage.setImageURI(Uri
 							.parse(APPRestClient.SERVER_IP + images[3]));
 
 				}
 				/*
-				 * viewmanger.evaluaeOneImage.setVisibility(View.GONE);
-				 * viewmanger.evaluaeTwoImage.setVisibility(View.GONE);
-				 * viewmanger.evaluaeThreeImage.setVisibility(View.GONE);
-				 * viewmanger.evaluaeFourImage.setVisibility(View.GONE);
+				 * ViewHolder.evaluaeOneImage.setVisibility(View.GONE);
+				 * ViewHolder.evaluaeTwoImage.setVisibility(View.GONE);
+				 * ViewHolder.evaluaeThreeImage.setVisibility(View.GONE);
+				 * ViewHolder.evaluaeFourImage.setVisibility(View.GONE);
 				 */
 			}
 			return convertView;
@@ -372,7 +371,7 @@ public class FindViewFragment_comments extends Fragment {
 			return false;
 		}
 
-		class ViewManger {
+		class ViewHolder {
 			SimpleDraweeView headImage, evaluaeOneImage, evaluaeTwoImage,
 					evaluaeThreeImage, evaluaeFourImage;
 			TextView nameText, timeText, contentText;

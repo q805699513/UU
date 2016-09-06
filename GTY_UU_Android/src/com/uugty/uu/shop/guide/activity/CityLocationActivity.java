@@ -3,6 +3,7 @@ package com.uugty.uu.shop.guide.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -57,7 +58,12 @@ public class CityLocationActivity extends BaseActivity {
 				intent.putExtra("themeCity", themeCityList.get(position).getRoadlineThemeArea());
 				intent.setClass(CityLocationActivity.this,GuideHomeActivity.class);
                 startActivity(intent);
-                finish();
+				new Handler().postDelayed(new Runnable() {
+					public void run() {
+						// 显示dialog
+						finish();
+					}
+				}, 800);
 			}
 		});
 	}

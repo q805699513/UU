@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
 /**
  * 通用的Fragment
  */
-public class CommondFragment extends AbsBaseFragment implements InnerListView.OnItemClickListener, InnerListView.OnScrollListener {
+public class RecommendFragment extends AbsBaseFragment implements InnerListView.OnItemClickListener, InnerListView.OnScrollListener {
 
     @Bind(R.id.multiplestatusview)
     MultipleStatusView multiplestatusview;
@@ -44,8 +44,6 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
     InnerListView mListView;
     private View view;
     private GuideShowAdapter adapter;
-    private String mTheme;
-    private String mThemeId;
     private static final int INITIAL_DELAY_MILLIS = 500;
     private List<GuideEntity.GuideDetail> homePageList = new ArrayList<GuideEntity.GuideDetail>();
     private String mThemeCity;
@@ -62,7 +60,7 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
 //                        homePageList.clear();
 //                        homePageList.addAll(result);
 //                        startId++;
-//                        loadThemeData(2);
+//                        loadHomeData(2);
 //                        break;
 //                    case 2:
 //                        homePageList.addAll(result);
@@ -103,7 +101,6 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
         initView();
 
     }
-
     @Override
     public InnerScroller getInnerScroller() {
         return mListView;
@@ -111,9 +108,7 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
 
     public void initView(){
         //获取标题分类
-        mTheme = getArguments().getString("theme");
         mThemeCity = getArguments().getString("city");
-        mThemeId = getArguments().getString("themeId");
         mListView.setDividerHeight(0);
         mListView.register2Outer(mOuterScroller, mIndex);
         adapter = new GuideShowAdapter(getActivity(), homePageList);
@@ -127,7 +122,7 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
         mListView.setAdapter(swingBottomInAnimationAdapter);
         mListView.setOnItemClickListener(this);
         mListView.setOnScrollListener(this);
-        loadThemeData(1);
+        loadHomeData(1);
 
     }
 
@@ -166,67 +161,66 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
      */
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
         if (startId > 1) {
             if (firstVisibleItem == (startId - 1) * 5) {
                 startId++;
-                loadThemeData(2);
+                loadHomeData(2);
             }
         }
     }
 
-    private void loadThemeData(final int what) {
-        // 显示等待层
+
+    private void loadHomeData(final int what) {
         RequestParams params = new RequestParams();
-        params.add("roadlineThemeId", mThemeId); // 当前页数
-        params.add("roadlineThemeArea",mThemeCity);
+        params.add("markSearchType", "goal_title");
+        params.add("markTitle", mThemeCity); // pageSize
         params.add("currentPage", String.valueOf(startId)); // 当前页数
         params.add("pageSize", "5"); // pageSize
+        params.add("isOnline", ""); // 性别
+        params.add("userSex", ""); // 性别
+        params.add("userTourValidate", ""); // 用户的旅游证
+        params.add("userCarValidate", ""); // 用户的车
+        params.add("sort", ""); // 排序
+        params.add("city",mThemeCity);
+        params.add("markContent", mThemeCity); // 城市
 
-        APPRestClient.postGuide(getActivity(), ServiceCode.GUIDE_THEME, params,
-                new APPResponseHandler<GuideEntity>(GuideEntity.class, getActivity()) {
+        APPRestClient.postGuide(getActivity(), ServiceCode.ROAD_LINE_SEARCH, params,
+                new APPResponseHandler<GuideEntity>(GuideEntity.class,
+                        getActivity()) {
                     @Override
                     public void onSuccess(GuideEntity result) {
-						/*
-						 * Message msg = handler.obtainMessage(); msg.what =
-						 * what; msg.obj = result.getLIST();
-						 * handler.sendMessage(msg);
-						 */
-                        if (null != result.getLIST()
-                                && result.getLIST().size() > 0) {
-//                            Message msg = Message.obtain();
-//                            msg.what = what;
-//                            Bundle b = new Bundle();
-//                            b.putSerializable("homePageEntity", result);
-//                            msg.setData(b);
-//                            handler.sendMessage(msg);
-                            homePageList.addAll(result.getLIST());
-                            adapter.notifyDataSetChanged();
-                        }
+//                        Message msg = Message.obtain();
+//                        msg.what = what;
+//                        Bundle b = new Bundle();
+//                        b.putSerializable("homePageEntity", result);
+//                        msg.setData(b);
+//                        handler.sendMessage(msg);
+                        homePageList.addAll(result.getLIST());
+                        adapter.notifyDataSetChanged();
 
                     }
 
                     @Override
                     public void onFailure(int errorCode, String errorMsg) {
-                        if (errorCode == 3) {
-                            loadThemeData(what);
-                        } else {
-                            CustomToast.makeText(getActivity(), 0, errorMsg, 300).show();
-                            if (errorCode == -999) {
-                                new AlertDialog.Builder(getActivity())
-                                        .setTitle("提示")
-                                        .setMessage("服务器连接失败！")
-                                        .setPositiveButton(
-                                                "确定",
-                                                new DialogInterface.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(
-                                                            DialogInterface dialog,
-                                                            int which) {
-                                                        dialog.dismiss();
-                                                    }
-                                                }).show();
-                            }
-                        }}
+                        CustomToast.makeText(getActivity(), 0, errorMsg, 300)
+                                .show();
+                        if (errorCode == -999) {
+                            new AlertDialog.Builder(getActivity())
+                                    .setTitle("提示")
+                                    .setMessage("网络拥堵,请稍后重试！")
+                                    .setPositiveButton(
+                                            "确定",
+                                            new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(
+                                                        DialogInterface dialog,
+                                                        int which) {
+                                                    dialog.dismiss();
+                                                }
+                                            }).show();
+                        }
+                    }
 
                     @Override
                     public void onFinish() {

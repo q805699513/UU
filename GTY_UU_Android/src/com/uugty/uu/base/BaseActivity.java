@@ -20,7 +20,6 @@ import android.view.WindowManager;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
-import com.uugty.uu.R;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.com.helper.HXSDKHelper;
 import com.uugty.uu.common.asynhttp.RequestParams;
@@ -185,7 +184,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		overridePendingTransition(R.anim.slide_left_out, R.anim.slide_right_out);
+//		overridePendingTransition(R.anim.slide_left_out, R.anim.slide_right_out);
 		// 杀掉请求进程
 		APPRestClient.cancelRequests(ctx);
 		ActivityCollector.removeActivity(this);
