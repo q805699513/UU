@@ -32,6 +32,10 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/progress_bar_states.xml"
     },
     {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/custom_dialog_bg_shape.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/custom_dialog_bg_shape.xml"
+    },
+    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/actionsheet_bottom_selector.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/actionsheet_bottom_selector.xml"
     },
@@ -76,12 +80,16 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/brand_tag_point_white_bg.png"
     },
     {
-        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/circle_white_shape.xml",
-        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/circle_white_shape.xml"
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/xml_round_orange_grey_sel.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/xml_round_orange_grey_sel.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/chat_voice_bg.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/chat_voice_bg.xml"
+    },
+    {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/circle_white_shape.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/circle_white_shape.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/actionsheet_single_selector.xml",
@@ -300,6 +308,10 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/exploded-aar/appcompat_v7-release/res/drawable/abc_btn_borderless_material.xml"
     },
     {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/wheel_bg.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/wheel_bg.xml"
+    },
+    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/text_view_backboard.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/text_view_backboard.xml"
     },
@@ -366,6 +378,10 @@
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/circle_shape.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/circle_shape.xml"
+    },
+    {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/order_drawbakc_text_bg_shape_2.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/order_drawbakc_text_bg_shape_2.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/chut_left.9.png",
@@ -448,6 +464,10 @@
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/service_radius.xml"
     },
     {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/wheel_val.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/wheel_val.xml"
+    },
+    {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/classic_platform_corners_bg.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/classic_platform_corners_bg.xml"
     },
@@ -490,6 +510,10 @@
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/textcolor_selector.xml",
         "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/textcolor_selector.xml"
+    },
+    {
+        "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/pickdate_month_bg_shape.xml",
+        "source": "/Users/libertyair/workspace/UU/GTY_UU_Android/res/drawable/pickdate_month_bg_shape.xml"
     },
     {
         "merged": "/Users/libertyair/workspace/UU/GTY_UU_Android/build/intermediates/res/merged/debug/drawable/back_title_img.xml",

@@ -97,6 +97,7 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
+    <color name="province_line_border">#e5e5e5</color>
     <color name="realblack">#000000</color>
     <color name="red">#FF0000</color>
     <color name="regist_notxt">#a5e3f8</color>
@@ -139,6 +140,7 @@
     <declare-styleable name="AppBarLayout"><attr name="elevation"/><attr name="android:background"/></declare-styleable>
     <declare-styleable name="AppBarLayout_LayoutParams"><attr name="layout_scrollFlags"><flag name="scroll" value="0x1"/><flag name="exitUntilCollapsed" value="0x2"/><flag name="enterAlways" value="0x4"/><flag name="enterAlwaysCollapsed" value="0x8"/></attr><attr format="reference" name="layout_scrollInterpolator"/></declare-styleable>
     <declare-styleable name="AppCompatTextView"><attr format="reference|boolean" name="textAllCaps"/><attr name="android:textAppearance"/></declare-styleable>
+    <declare-styleable name="CityPickerView"><attr format="color" name="title_background"/><attr format="color" name="text_confirm_color"/><attr format="color" name="text_cancel_color"/><attr format="color" name="wheel_color"/><attr format="color" name="wheel_text_color"/><attr format="dimension" name="wheel_text_size"/><attr format="dimension" name="title_text_size"/><attr format="dimension" name="title_action_size"/></declare-styleable>
     <declare-styleable name="CollapsingAppBarLayout_LayoutParams"><attr name="layout_collapseMode"><enum name="none" value="0"/><enum name="pin" value="1"/><enum name="parallax" value="2"/></attr><attr format="float" name="layout_collapseParallaxMultiplier"/></declare-styleable>
     <declare-styleable name="CollapsingToolbarLayout"><attr format="dimension" name="expandedTitleMargin"/><attr format="dimension" name="expandedTitleMarginStart"/><attr format="dimension" name="expandedTitleMarginTop"/><attr format="dimension" name="expandedTitleMarginEnd"/><attr format="dimension" name="expandedTitleMarginBottom"/><attr format="reference" name="expandedTitleTextAppearance"/><attr format="reference" name="collapsedTitleTextAppearance"/><attr format="color" name="contentScrim"/><attr format="color" name="statusBarScrim"/><attr format="reference" name="toolbarId"/></declare-styleable>
     <declare-styleable name="CoordinatorLayout"><attr format="reference" name="keylines"/><attr format="reference" name="statusBarBackground"/></declare-styleable>
@@ -152,10 +154,13 @@
     <declare-styleable name="MenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
     <declare-styleable name="MenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="showAsAction"><flag name="never" value="0"/><flag name="ifRoom" value="1"/><flag name="always" value="2"/><flag name="withText" value="4"/><flag name="collapseActionView" value="8"/></attr><attr format="reference" name="actionLayout"/><attr format="string" name="actionViewClass"/><attr format="string" name="actionProviderClass"/></declare-styleable>
     <declare-styleable name="MenuView"><attr name="android:itemTextAppearance"/><attr name="android:horizontalDivider"/><attr name="android:verticalDivider"/><attr name="android:headerBackground"/><attr name="android:itemBackground"/><attr name="android:windowAnimationStyle"/><attr name="android:itemIconDisabledAlpha"/><attr format="boolean" name="preserveIconSpacing"/></declare-styleable>
+    <declare-styleable name="MultipleStatusView"><attr format="reference" name="loadingView"/><attr format="reference" name="errorView"/><attr format="reference" name="emptyView"/><attr format="reference" name="noNetworkView"/><attr format="reference" name="MultipContentView"/></declare-styleable>
     <declare-styleable name="NavigationView"><attr name="android:background"/><attr name="android:fitsSystemWindows"/><attr name="android:maxWidth"/><attr name="elevation"/><attr format="reference" name="menu"/><attr format="color" name="itemIconTint"/><attr format="color" name="itemTextColor"/><attr format="reference" name="itemBackground"/><attr format="reference" name="headerLayout"/></declare-styleable>
-    <declare-styleable name="PagerSlidingTabStrip"><attr format="color" name="pstsIndicatorColor"/><attr format="color" name="pstsUnderlineColor"/><attr format="reference" name="pstsTabSelectedBackground"/><attr format="reference" name="pstsTabSelectedFirstBackground"/><attr format="reference" name="pstsTabSelectedLastBackground"/><attr format="reference" name="pstsTabDefaultBackground"/><attr format="color" name="pstsDividerColor"/><attr format="dimension" name="pstsDividerWidth"/><attr format="dimension" name="pstsIndicatorHeight"/><attr format="dimension" name="pstsUnderlineHeight"/><attr format="dimension" name="pstsDividerPadding"/><attr format="dimension" name="pstsTabPaddingLeftRight"/><attr format="dimension" name="pstsScrollOffset"/><attr format="reference" name="pstsTabBackground"/><attr format="boolean" name="pstsShouldExpand"/><attr format="boolean" name="pstsTextAllCaps"/></declare-styleable>
+    <declare-styleable name="PagerSlidingTabStrip"><attr format="color" name="pstsIndicatorColor"/><attr format="color" name="pstsUnderlineColor"/><attr format="reference" name="pstsTabSelectedBackground"/><attr format="reference" name="pstsTabSelectedFirstBackground"/><attr format="reference" name="pstsTabSelectedLastBackground"/><attr format="reference" name="pstsTabDefaultBackground"/><attr format="color" name="pstsDividerColor"/><attr format="dimension" name="pstsDividerWidth"/><attr format="dimension" name="pstsIndicatorHeight"/><attr format="dimension" name="pstsUnderlineHeight"/><attr format="dimension" name="pstsDividerPadding"/><attr format="dimension" name="pstsTabPaddingLeftRight"/><attr format="dimension" name="pstsScrollOffset"/><attr format="reference" name="pstsTabBackground"/><attr format="boolean" name="pstsShouldExpand"/><attr format="boolean" name="pstsTextAllCaps"/><attr format="dimension" name="TabTextSize"/><attr format="color" name="TabTextColor"/><attr format="dimension" name="SelectedTabTextSize"/><attr format="color" name="SelectedTabTextColor"/></declare-styleable>
     <declare-styleable name="PopupWindow"><attr format="boolean" name="overlapAnchor"/><attr name="android:popupBackground"/></declare-styleable>
     <declare-styleable name="PopupWindowBackgroundState"><attr format="boolean" name="state_above_anchor"/></declare-styleable>
+    <declare-styleable name="PtrClassicHeader"><attr format="integer" name="ptr_rotate_ani_time"/></declare-styleable>
+    <declare-styleable name="PtrFrameLayout"><attr format="reference" name="ptr_header"/><attr format="reference" name="ptr_content"/><attr format="float" name="ptr_resistance"/><attr format="float" name="ptr_ratio_of_header_height_to_refresh"/><attr format="integer" name="ptr_duration_to_close"/><attr format="integer" name="ptr_duration_to_close_header"/><attr format="boolean" name="ptr_pull_to_fresh"/><attr format="boolean" name="ptr_keep_header_when_refresh"/></declare-styleable>
     <declare-styleable name="PullToZoomView"><attr format="reference" name="headerView"/><attr format="reference" name="contentView"/><attr format="reference" name="zoomView"/><attr format="boolean" name="isHeaderParallax"/></declare-styleable>
     <declare-styleable name="ScrimInsetsFrameLayout"><attr format="color|reference" name="insetForeground"/></declare-styleable>
     <declare-styleable name="ScrollingViewBehavior_Params"><attr format="dimension" name="behavior_overlapTop"/></declare-styleable>
@@ -310,9 +315,16 @@
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
+    <item name="empty_retry_view" type="id"/>
+    <item name="empty_view" type="id"/>
+    <item name="error_retry_view" type="id"/>
+    <item name="error_view" type="id"/>
     <item name="home" type="id"/>
     <item name="id_for_auto_completion_content" type="id"/>
     <item name="id_for_empty_content" type="id"/>
+    <item name="loading_view" type="id"/>
+    <item name="no_network_retry_view" type="id"/>
+    <item name="no_network_view" type="id"/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="scrollview" type="id"/>
@@ -360,12 +372,23 @@
             </string>
     <string name="camera_cancel">取消</string>
     <string name="connect_failuer_toast">请检查网络或稍后再试</string>
+    <string name="cube_ptr_hours_ago"> 小时之前</string>
+    <string name="cube_ptr_last_update">上次更新: </string>
+    <string name="cube_ptr_minutes_ago"> 分钟之前</string>
+    <string name="cube_ptr_pull_down">下拉</string>
+    <string name="cube_ptr_pull_down_to_refresh">下拉刷新</string>
+    <string name="cube_ptr_refresh_complete">更新完成.</string>
+    <string name="cube_ptr_refreshing">加载中...</string>
+    <string name="cube_ptr_release_to_refresh">释放刷新</string>
+    <string name="cube_ptr_seconds_ago"> 秒之前</string>
     <string name="d">图片描述</string>
     <string name="desc_shrinkup">收起</string>
     <string name="desc_spread">显示更多</string>
     <string name="drawcas_description">您的可提现金额可能会小于您的钱包零钱.\n原因如下:\n\n1.未完成的服务的订单,收入不可提现;\n2.u客发起退款申请的订单,收入不可提现（u客取消退款,或小u同意退款才能结算并提现）;\n3.已完成订单,T+1日可发起提现;\n4.红包收入,T+0可发起提现;\n5.退款收入,T+0可发起提现.\n\n发起提现后,您在uu客钱包账户绑定的银行卡,将会在三个工作日内收到您提现的款项.如您需要人工帮助请致电400-600-8669转5
 </string>
+    <string name="empty_view_hint">暂无数据</string>
     <string name="error_send_invalid_content">你发送了不合法的消息内容</string>
+    <string name="error_view_hint">加载失败</string>
     <string name="file">[文件]</string>
     <string name="friday">五</string>
     <string name="hello_world">Hello world!</string>
@@ -450,6 +473,7 @@ function login(form){
     <string name="move_up_to_cancel">    滑动取消发送    </string>
     <string name="no_data">暂无数据</string>
     <string name="no_more_messages">没有更多的消息了</string>
+    <string name="no_network_view_hint">网络异常</string>
     <string name="ok">确定</string>
     <string name="phone_content">10张照片</string>
     <string name="picture">[图片]</string>
@@ -693,6 +717,10 @@ function login(form){
     </style>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
     <style name="AnimationFade">
@@ -1715,6 +1743,15 @@ function login(form){
         <item name="android:backgroundDimAmount">0.7</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+    <style name="MultipleStatusView"/>
+    <style name="MultipleStatusView.Content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textColor">#a9b7b7</item>
+        <item name="android:textSize">16sp</item>
+    </style>
     <style name="MyDialogStyle">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowFrame">@null</item>
@@ -1744,8 +1781,7 @@ function login(form){
     <style name="PhoneDialog" parent="Theme.AppCompat.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:background">#ffffffff</item>
-        <item name="android:windowBackground">@drawable/phone_dialog_bg_shape</item>
+        <item name="android:windowBackground">@drawable/custom_dialog_bg_shape</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
         <item name="windowActionBar">false</item>

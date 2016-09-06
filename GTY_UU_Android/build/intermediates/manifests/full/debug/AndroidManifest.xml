@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.uugty.uu"
-    android:versionCode="21"
-    android:versionName="1.8.3" >
+    android:versionCode="22"
+    android:versionName="1.8.4" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -81,6 +81,7 @@
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:largeHeap="true"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme" >
 
         <!-- 设置环信应用的appkey -->
@@ -93,6 +94,9 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="7a3b045f3cf8b3f332401e51f309d202" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCkSWsbaRsw0n6sUYKcuP16EjAZdwCiL7M" />
         <!-- 启动界面 -->
         <activity
             android:name="com.uugty.uu.appstart.AppStartActivity"
@@ -673,12 +677,6 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.uugty.uu.friendstask.FriendsDynamicActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
             android:name="com.uugty.uu.friendstask.CurrentPosActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait" >
@@ -889,6 +887,55 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
         </activity>
+        <!-- 向导咨询 -->
+        <activity
+            android:name="com.uugty.uu.main.ConsultActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 日期选择 -->
+        <activity
+            android:name="com.uugty.uu.order.DatePickActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 批发市场 -->
+        <activity
+            android:name="com.uugty.uu.shop.guide.activity.GuideHomeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 城市 -->
+        <activity
+            android:name="com.uugty.uu.shop.guide.activity.CityLocationActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 导游圈订单填写 -->
+        <activity
+            android:name="com.uugty.uu.shop.guide.activity.GuidePayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 导游圈路线展示 -->
+        <activity
+            android:name="com.uugty.uu.shop.guide.activity.RoadDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 导游圈订单详情 -->
+        <activity
+            android:name="com.uugty.uu.shop.guide.activity.GuideOrderPayDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
 
         <meta-data
             android:name="UMENG_APPKEY"
@@ -1024,7 +1071,6 @@
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="bcc9e090e6484fcdf5a4e1cc" /> <!-- </>值来自开发者平台取得的AppKey -->
-
     </application>
 
 </manifest>

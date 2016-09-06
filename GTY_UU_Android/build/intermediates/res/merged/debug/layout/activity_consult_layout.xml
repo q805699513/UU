@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -9,12 +10,21 @@
         android:layout_height="50dp" >
 
         <ImageView
-            android:id="@+id/consult_test"
+            android:id="@+id/consult_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="12dp"
+            android:src="@drawable/phone_back" />
+
+        <ImageView
+            android:id="@+id/consult_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
             android:src="@drawable/map_selector_bg" />
 
         <TextView
@@ -33,18 +43,6 @@
             android:layout_alignParentBottom="true"
             android:background="#e5e5e5" />
 
-        <TextView
-            android:id="@+id/consult_friend"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignBaseline="@+id/textView1"
-            android:layout_alignParentRight="true"
-            android:layout_toRightOf="@+id/textView1"
-            android:gravity="right|center_vertical"
-            android:paddingRight="12dp"
-            android:text="uu圈"
-            android:textColor="#00a1d9"
-            android:textSize="15sp" />
 
     </RelativeLayout>
 
@@ -58,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="#e5e5e5"
-            android:dividerHeight="1px"
+            android:dividerHeight="0px"
             android:scrollbars="none">
         </ListView>
     </android.support.v4.widget.SwipeRefreshLayout>

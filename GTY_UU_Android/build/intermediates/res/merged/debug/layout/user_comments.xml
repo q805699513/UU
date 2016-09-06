@@ -59,7 +59,7 @@
     <LinearLayout
         android:id="@+id/user_comment_no_data_lin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center|center"
         android:background="@drawable/corners_linear_bottom"
         android:gravity="center"

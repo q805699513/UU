@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingBottom="13dp"
-    android:background="@drawable/phone_dialog_bg_shape" >
+    android:background="@drawable/custom_dialog_bg_shape" >
 
     <ImageView
         android:id="@+id/leadPages_img"
