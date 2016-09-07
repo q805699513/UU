@@ -30,6 +30,7 @@ import com.uugty.uu.entity.OrderListItem.ItemEntity;
 import com.uugty.uu.evaluate.EvaluateActivity;
 import com.uugty.uu.order.ApplyRefundActivity;
 import com.uugty.uu.order.UUOrederPayActivity;
+import com.uugty.uu.shop.guide.activity.GuideOrederPayActivity;
 import com.uugty.uu.uuchat.ChatActivity;
 
 import java.util.List;
@@ -111,8 +112,8 @@ public class ListViewAdapter extends BaseAdapter {
 		holder.orderDate.setText("共" + list.get(position).getRoadlineDays() +"天");
 		holder.activity_carrydetail_linearla
 				.setBackgroundResource(R.drawable.list_item_bg);
-		if (list.get(position).getUserAvatar() != null
-				&& !list.get(position).getUserAvatar().equals("")) {
+		if (list.get(position).getRoadlineBackGround() != null
+				&& !list.get(position).getRoadlineBackGround().equals("")) {
 			holder.imageView.setImageURI(Uri.parse(APPRestClient.SERVER_IP
 					+ "images/roadlineDescribe/"
 					+ list.get(position).getRoadlineBackGround()));
@@ -121,6 +122,9 @@ public class ListViewAdapter extends BaseAdapter {
 				&& !list.get(position).getOrderTitle().equals("")) {
 			holder.title.setText(list.get(position).getOrderTitle());
 		}
+//		if("2".equals(list.get(position).getOrderType())){
+//			holder.title.setText("折扣商品");
+//		}
 //		holder.roadPrice
 //				.setText("￥"+ Float.parseFloat(list.get(position).getOrderPrice().substring(0,list.get(position).getOrderPrice().indexOf("."))));
 
@@ -195,10 +199,14 @@ public class ListViewAdapter extends BaseAdapter {
 				 * .getOrderTime().substring(0, 10)))
 				 */
 				holder.evaluateTextView.setVisibility(View.VISIBLE);
-				holder.txt_cancle.setVisibility(View.VISIBLE);
 				holder.txt_pay.setVisibility(View.VISIBLE);
 				holder.txt_chat.setVisibility(View.VISIBLE);
-				holder.txt_cancle.setText("申请退款");
+				if("2".equals(list.get(position).getOrderType())){
+					holder.txt_cancle.setVisibility(View.INVISIBLE);
+				}else{
+					holder.txt_cancle.setVisibility(View.VISIBLE);
+					holder.txt_cancle.setText("申请退款");
+				}
 				holder.txt_pay.setText("旅行完成");
 				if (list.get(position).getIsEval().equals("0")) {
 					holder.evaluateTextView.setText("评价");
@@ -491,7 +499,11 @@ public class ListViewAdapter extends BaseAdapter {
 						Intent intent = new Intent();
 						intent.putExtra("orderId", list.get(position)
 								.getOrderId());
-						intent.setClass(context, UUOrederPayActivity.class);
+						if("2".equals(list.get(position).getOrderType())) {
+							intent.setClass(context, GuideOrederPayActivity.class);
+						}else{
+							intent.setClass(context, UUOrederPayActivity.class);
+						}
 						context.startActivity(intent);
 					}
 					if (list.get(position).getOrderStatus()

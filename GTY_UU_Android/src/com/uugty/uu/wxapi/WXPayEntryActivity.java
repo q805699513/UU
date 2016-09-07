@@ -3,6 +3,7 @@ package com.uugty.uu.wxapi;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
+
 import com.tencent.mm.sdk.constants.ConstantsAPI;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
@@ -19,6 +20,7 @@ import com.uugty.uu.entity.Util;
 import com.uugty.uu.map.VipPayActivity;
 import com.uugty.uu.map.VipPaySucessActivity;
 import com.uugty.uu.order.UUPaypriceActivity;
+import com.uugty.uu.shop.guide.activity.GuidePaypriceActivity;
 import com.uugty.uu.uuchat.ChatActivity;
 import com.uugty.uu.uuchat.UUChatPaypriceActivity;
 
@@ -103,6 +105,17 @@ public class WXPayEntryActivity extends BaseActivity implements
 					intent.putExtra("payType", "2");
 					intent.setClass(this, PriceDetailActivity.class);
 				}
+
+				if (Util.paySuccessPage.equals("GuideChat")) {
+					ActivityCollector
+							.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuidePayActivity");
+					ActivityCollector
+							.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuideOrederPayActivity");
+					intent.putExtra("price", Util.rechargeAmout);
+					intent.putExtra("payType", "2");
+					intent.setClass(this, PriceDetailActivity.class);
+				}
+
 				if (Util.paySuccessPage.equals("uutip")) {
 					ActivityCollector
 							.removeSpecifiedActivity("com.uugty.uu.uuchat.UUTipActivity");
@@ -155,6 +168,13 @@ public class WXPayEntryActivity extends BaseActivity implements
 				if (Util.paySuccessPage.equals("recharge")) {
 					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 					intent.setClass(this, RechargeActivity.class);
+					startActivity(intent);
+					finish();
+
+				} else if(Util.paySuccessPage.equals("GuideChat")){
+					intent.putExtra("pageFlag", Util.pageFlag);
+					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+					intent.setClass(this, GuidePaypriceActivity.class);
 					startActivity(intent);
 					finish();
 				} else if (Util.paySuccessPage.equals("uuCaht")) {

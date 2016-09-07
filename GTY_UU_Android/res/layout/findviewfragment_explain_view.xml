@@ -220,6 +220,7 @@
                 android:layout_marginLeft="17dp"
                 android:layout_marginRight="17dp"
                 android:layout_marginTop="12dp"
+                android:layout_marginBottom="21dp"
                 android:text="旅行线路-阿斯顿法师-阿士大夫撒地方"
                 android:textColor="#000000"
                 android:textSize="14sp" />
@@ -229,7 +230,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="17dp"
-                android:layout_marginTop="21dp"
                 android:text="费用包含"
                 android:textColor="#000000"
                 android:textSize="14sp" />
@@ -292,7 +292,7 @@
                 android:layout_marginRight="17dp"
                 android:layout_marginTop="17dp"
                 android:textColor="#666666"
-                android:text="1、用户在支付订单而当地向导小u没有接受订单之前，退订订单全额退款给用户。"
+                android:text="1、用户支付订单后因特殊情况可申请取消订单并退款，退订订单全额退款给用户。"
                 android:textSize="14sp" />
               <TextView
                 android:layout_width="match_parent"
@@ -302,7 +302,7 @@
                 android:layout_marginRight="17dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#666666"
-                android:text="2.当行程已经开始用户由于某些原因需要退订，需要与当地向导小u协商并未确定退款比例，如果用户单方面的违约，当地向导小u将会收到全部费用。"
+                android:text="2、部分特殊订单取消需收取少量手续费，客服电话:400-600-8669。"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

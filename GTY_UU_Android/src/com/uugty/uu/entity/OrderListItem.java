@@ -25,9 +25,16 @@ public class OrderListItem {
 		private String orderTravelNumber; //预定人数
 		private String orderCouponMoney;//代金券金额
 		private String roadlineTitle;//路线标题
-		
+		private String orderType;//区分是否导游圈路线
 
-	    
+
+		public String getOrderType() {
+			return orderType;
+		}
+
+		public void setOrderType(String orderType) {
+			this.orderType = orderType;
+		}
 
 		public String getOrderTravelNumber() {
 			return orderTravelNumber;

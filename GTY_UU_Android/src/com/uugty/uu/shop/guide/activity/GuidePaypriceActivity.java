@@ -42,7 +42,6 @@ import com.uugty.uu.entity.AlipayEntity;
 import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.OrderEntity;
 import com.uugty.uu.entity.PayResult;
-import com.uugty.uu.entity.TipPacketEntity;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.entity.WXPayEntity;
 import com.uugty.uu.login.LoginActivity;
@@ -51,7 +50,6 @@ import com.uugty.uu.order.UUPaypriceActivity;
 import com.uugty.uu.password.view.GridPasswordView;
 import com.uugty.uu.password.view.GridPasswordView.OnPasswordChangedListener;
 import com.uugty.uu.util.Md5Util;
-import com.uugty.uu.uuchat.ChatActivity;
 
 public class GuidePaypriceActivity extends BaseActivity implements
 		OnClickListener,OnPasswordChangedListener {
@@ -73,10 +71,8 @@ public class GuidePaypriceActivity extends BaseActivity implements
 			toReceive_userId;
 	private RelativeLayout walletRel, weChatRel, alipayRel;
 	final IWXAPI msgApi = WXAPIFactory.createWXAPI(this, null);
-	private static final String APP_ID = "wx65aced6f03b1cffe";
+	private static final String APP_ID = "wx7f1866a885330eb2";
 	private PayReq request;
-	private String red_id;
-	private String str;
 	private SpotsDialog loadingDialog;
 	private GridPasswordView pwdEdit;
 	private ImageView mImageIV;//线路图片
@@ -110,49 +106,6 @@ public class GuidePaypriceActivity extends BaseActivity implements
 		public void handleMessage(Message msg) {
 			Intent intent = new Intent();
 			switch (msg.what) {
-			case 1:
-				// 这里传小费跟留言
-				ActivityCollector
-						.removeSpecifiedActivity("com.uugty.uu.uuchat.UUTipActivity");
-				intent.putExtra("price", intent_content);
-				intent.putExtra("message", intent_message);
-				intent.putExtra("red_id", red_id);
-				intent.putExtra("avatar", toReceive_avatar);
-				intent.putExtra("userName", toReceive_username);
-				intent.putExtra("userId", toReceive_userId);
-				intent.putExtra("toFrom", "UUChatOKActivity");
-				intent.setClass(GuidePaypriceActivity.this, ChatActivity.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-				startActivity(intent);
-				dialog.dismiss();
-				break;
-			case 6:
-				// 这里传小费跟留言
-				ActivityCollector
-						.removeSpecifiedActivity("com.uugty.uu.uuchat.UUChatCommonActivity");
-				intent.putExtra("price", intent_content);
-				intent.putExtra("message", intent_message);
-				intent.putExtra("red_id", red_id);
-				intent.putExtra("avatar", toReceive_avatar);
-				intent.putExtra("userName", toReceive_username);
-				intent.putExtra("userId", toReceive_userId);
-				intent.putExtra("toFrom", "UUChatOKActivity");
-				intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-				intent.setClass(GuidePaypriceActivity.this, ChatActivity.class);
-				startActivity(intent);
-				dialog.dismiss();
-				break;
-			case 8:
-				msgApi.registerApp(APP_ID);
-				msgApi.sendReq(request);
-				Util.paySuccessPage = "uutip";
-				break;
-			case 9:
-				msgApi.registerApp(APP_ID);
-				msgApi.sendReq(request);
-
-				Util.paySuccessPage = "uucom";
-				break;
 			case 2:
 				Bundle bundle = msg.getData();
 				String bundleText = bundle.getString("msg");
@@ -175,11 +128,11 @@ public class GuidePaypriceActivity extends BaseActivity implements
 				break;
 			case 3:
 				ActivityCollector
-						.removeSpecifiedActivity("com.uugty.uu.order.UUPayActivity");
+						.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuidePayActivity");
 				ActivityCollector
-						.removeSpecifiedActivity("com.uugty.uu.order.UUOrederPayActivity");
+						.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuideOrederPayActivity");
 				ActivityCollector
-						.removeSpecifiedActivity("com.uugty.uu.order.UUPaypriceActivity");
+						.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuidePaypriceActivity");
 				Bundle resultbundle = msg.getData();
 				String price = resultbundle.getString("price");
 				String payType = resultbundle.getString("payType");
@@ -193,7 +146,7 @@ public class GuidePaypriceActivity extends BaseActivity implements
 			case 4:
 				msgApi.registerApp(APP_ID);
 				msgApi.sendReq(request);
-				Util.paySuccessPage = "uuCaht";
+				Util.paySuccessPage = "GuideChat";
 				break;
 			case 5:
 				CustomToast.makeText(GuidePaypriceActivity.this, 0,
@@ -212,37 +165,17 @@ public class GuidePaypriceActivity extends BaseActivity implements
 				// 判断resultStatus 为“9000”则代表支付成功，具体状态码代表含义可参考接口文档
 				if (TextUtils.equals(resultStatus, "9000")) {
 					if (Util.pageFlag != null
-							&& Util.pageFlag.equals("UUPayActivity")) {
+							&& Util.pageFlag.equals("GuidePayActivity")) {
 						ActivityCollector
-								.removeSpecifiedActivity("com.uugty.uu.order.UUPayActivity");
+								.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuidePayActivity");
 						ActivityCollector
-								.removeSpecifiedActivity("com.uugty.uu.order.UUOrederPayActivity");
+								.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuideOrederPayActivity");
 						ActivityCollector
-								.removeSpecifiedActivity("com.uugty.uu.order.UUPaypriceActivity");
+								.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuidePaypriceActivity");
 						intent.putExtra("price", intent_content);
 						intent.putExtra("payType", "3");
 						intent.setClass(GuidePaypriceActivity.this,
 								PriceDetailActivity.class);
-						startActivity(intent);
-					} else {
-						if (Util.pageFlag != null
-								&& Util.pageFlag.equals("UUTipActivity")) {
-							ActivityCollector
-									.removeSpecifiedActivity("com.uugty.uu.uuchat.UUTipActivity");
-						} else if (Util.pageFlag != null
-								&& Util.pageFlag.equals("UUChatCommonActivity")) {
-							ActivityCollector
-									.removeSpecifiedActivity("com.uugty.uu.uuchat.UUChatCommonActivity");
-						}
-						intent.putExtra("price", intent_content);
-						intent.putExtra("message", intent_message);
-						intent.putExtra("red_id", red_id);
-						intent.putExtra("avatar", toReceive_avatar);
-						intent.putExtra("userName", toReceive_username);
-						intent.putExtra("userId", toReceive_userId);
-						intent.putExtra("toFrom", "UUChatOKActivity");
-						intent.setClass(GuidePaypriceActivity.this,
-								ChatActivity.class);
 						startActivity(intent);
 					}
 
@@ -307,31 +240,7 @@ public class GuidePaypriceActivity extends BaseActivity implements
 
 		if (getIntent() != null) {
 			Util.pageFlag = getIntent().getStringExtra("pageFlag");
-			if (Util.pageFlag != null && Util.pageFlag.equals("UUTipActivity")) {
-				dialogMsg = "你确定要取消本次支付吗?";
-				intent_content = getIntent().getStringExtra("price");
-				intent_message = getIntent().getStringExtra("message");
-				toReceive_avatar = getIntent().getStringExtra("avatar");
-				toReceive_username = getIntent().getStringExtra("userName");
-				toReceive_userId = getIntent().getStringExtra("chat_id");
-				Util.toReceive_avatar = toReceive_avatar;
-				Util.toReceive_userName = toReceive_username;
-				Util.toReceive_userId = toReceive_userId;
-
-			}
-			if (Util.pageFlag != null
-					&& Util.pageFlag.equals("UUChatCommonActivity")) {
-				dialogMsg = "你确定要取消本次支付吗?";
-				intent_content = getIntent().getStringExtra("price");
-				intent_message = getIntent().getStringExtra("message");
-				toReceive_avatar = getIntent().getStringExtra("avatar");
-				toReceive_username = getIntent().getStringExtra("userName");
-				toReceive_userId = getIntent().getStringExtra("chat_id");
-				Util.toReceive_avatar = toReceive_avatar;
-				Util.toReceive_userName = toReceive_username;
-				Util.toReceive_userId = toReceive_userId;
-			}
-			if (Util.pageFlag != null && Util.pageFlag.equals("UUPayActivity")) {
+			if (Util.pageFlag != null && Util.pageFlag.equals("GuidePayActivity")) {
 				dialogMsg = "若取消本次支付，可在我的订单里继续完成支付。";
 				intent_content = getIntent().getStringExtra("price");
 				intent_orderId = getIntent().getStringExtra("orderId");
@@ -444,7 +353,9 @@ public class GuidePaypriceActivity extends BaseActivity implements
 						params.add("visitorContent", mVisitorContent);
 						params.add("couponUserId", mUserId);
 						params.add("couponId", mId);
-						APPRestClient.postGuide(GuidePaypriceActivity.this,
+						params.add("orderInsuranceType","");
+						params.add("insuranceContactId","");
+						APPRestClient.post(GuidePaypriceActivity.this,
 								ServiceCode.ORDER_RESERVATION_GUIDE, params,
 								new APPResponseHandler<OrderEntity>(
 										OrderEntity.class, GuidePaypriceActivity.this) {
@@ -523,7 +434,7 @@ public class GuidePaypriceActivity extends BaseActivity implements
 				}
 			}else{
 				intent.putExtra("topage",
-						UUPaypriceActivity.class.getName());
+						GuidePaypriceActivity.class.getName());
 				intent.setClass(GuidePaypriceActivity.this, LoginActivity.class);
 				startActivity(intent);
 			}
@@ -541,14 +452,7 @@ public class GuidePaypriceActivity extends BaseActivity implements
 		if(type == 3){
 			Util.titleName = "支付宝支付";
 			if (Util.pageFlag != null
-					&& Util.pageFlag.equals("UUChatCommonActivity")) {
-				// 调用接口
-				getRechargeId();
-			} else if (Util.pageFlag != null
-					&& Util.pageFlag.equals("UUTipActivity")) {
-				getRechargeId();
-			} else if (Util.pageFlag != null
-					&& Util.pageFlag.equals("UUPayActivity")) {
+					&& Util.pageFlag.equals("GuidePayActivity")) {
 
 				sendOrderTourAlipayment();
 			}
@@ -571,79 +475,6 @@ public class GuidePaypriceActivity extends BaseActivity implements
 				.getColor(R.color.base_text_color));
 		layout_three.setTextColor(getResources().getColor(
 				R.color.base_text_color));
-	}
-
-	private void getRechargeId() {
-		// TODO Auto-generated method stub
-		str = getIntent().getStringExtra("chat_id");
-		RequestParams params = new RequestParams();
-		params.add("gratuityReceiverUserId", str);
-		params.add("gratuityReceiverGroupId", "");
-		params.add("gratuityCount", "1");
-		params.add("gratuityEveryMoney", intent_content);
-		params.add("gratuityMark", intent_message);
-		if (Util.pageFlag != null && Util.pageFlag.equals("UUTipActivity")) {
-			params.add("gratuityType", "2");
-		} else if (Util.pageFlag != null
-				&& Util.pageFlag.equals("UUChatCommonActivity")) {
-			params.add("gratuityType", "1");
-		}
-
-		APPRestClient.post(this, APPRestClient.HTTPS_BASE_URL
-				+ ServiceCode.ALIPAY_GRATUITY_RESERVATIONS, params, true,
-				new APPResponseHandler<AlipayEntity>(AlipayEntity.class, this) {
-					@Override
-					public void onSuccess(AlipayEntity result) {
-						if (!TextUtils.isEmpty(result.getOBJECT()
-								.getOutTradeNo())) {
-							intent_no = result.getOBJECT().getOutTradeNo();
-							red_id = result.getOBJECT().getGratutiyId();
-							if (Util.pageFlag != null
-									&& Util.pageFlag.equals("UUTipActivity")) {
-								if(result.getOBJECT().getPayInfo() != null) {
-									pay(result.getOBJECT().getPayInfo());
-								}
-							} else {
-								if(result.getOBJECT().getPayInfo() != null) {
-									pay(result.getOBJECT().getPayInfo());
-								}
-							}
-							mPayButtonBtn.setClickable(true);
-						}
-					}
-
-					@Override
-					public void onFailure(int errorCode, String errorMsg) {
-						if (errorCode == 3) {
-							getRechargeId();
-						} else {
-						CustomToast.makeText(ctx, 0, errorMsg, 300).show();
-						if (errorCode == -999) {
-							new AlertDialog.Builder(GuidePaypriceActivity.this)
-									.setTitle("提示")
-									.setMessage("服务器连接失败！")
-									.setPositiveButton(
-											"确定",
-											new DialogInterface.OnClickListener() {
-												@Override
-												public void onClick(
-														DialogInterface dialog,
-														int which) {
-													dialog.dismiss();
-												}
-											}).show();
-						} else {
-							Message message = new Message();
-							message.what = 5;
-							handler.sendMessage(message);
-						}
-					}}
-
-					@Override
-					public void onFinish() {
-
-					}
-				});
 	}
 
 	private void sendOrderTourAlipayment() {
@@ -684,11 +515,11 @@ public class GuidePaypriceActivity extends BaseActivity implements
 
 				if("若取消本次支付，可在我的订单里继续完成支付。".equals(dialogMsg)){
 					ActivityCollector
-							.removeSpecifiedActivity("com.uugty.uu.order.UUPayActivity");
+							.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuidePayActivity");
 					ActivityCollector
-							.removeSpecifiedActivity("com.uugty.uu.order.UUOrederPayActivity");
+							.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuideOrederPayActivity");
 					ActivityCollector
-							.removeSpecifiedActivity("com.uugty.uu.order.UUPaypriceActivity");
+							.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuidePaypriceActivity");
 					Intent intent = new Intent();
 					intent.putExtra("from", "priceDetail");
 					intent.setClass(GuidePaypriceActivity.this, UUOrderActivity.class);
@@ -759,135 +590,7 @@ public class GuidePaypriceActivity extends BaseActivity implements
 	public void onInputFinish(final String password) {
 		// TODO Auto-generated method stub
 
-
-		if (Util.pageFlag != null && Util.pageFlag.equals("UUTipActivity")) {
-			str = getIntent().getStringExtra("chat_id");
-
-			RequestParams params = new RequestParams();
-			params.add("gratuityReceiverUserId", str);
-			params.add("gratuityReceiverGroupId", "");
-			params.add("gratuityCount", "1");
-			params.add("gratuityEveryMoney", intent_content);
-			params.add("gratuityMark", intent_message);
-			params.add("gratuityType", "2");
-			params.add("UserPayPassword", Md5Util.MD5(password));
-			APPRestClient.post(this, APPRestClient.HTTPS_BASE_URL
-					+ ServiceCode.ORDER_PURSE_PAYMENT, params, true,
-					new APPResponseHandler<TipPacketEntity>(
-							TipPacketEntity.class, this) {
-						@Override
-						public void onSuccess(TipPacketEntity result) {
-							red_id = result.getOBJECT().getGratuityId();
-							Message message = new Message();
-							message.what = 1;
-							handler.sendMessage(message);
-						}
-
-						@Override
-						public void onFailure(int errorCode, String errorMsg) {
-							if (errorCode == 3) {
-								onInputFinish(password);
-							} else {
-							CustomToast.makeText(ctx, 0, errorMsg, 300).show();
-							pwdEdit.clearPassword();
-							if (errorCode == -999) {
-								new AlertDialog.Builder(
-										GuidePaypriceActivity.this)
-										.setTitle("提示")
-										.setMessage("服务器连接失败！")
-										.setPositiveButton(
-												"确定",
-												new DialogInterface.OnClickListener() {
-													@Override
-													public void onClick(
-															DialogInterface dialog,
-															int which) {
-														dialog.dismiss();
-													}
-												}).show();
-							} else {
-								// 弹出错误信息
-								String reutnMsg = errorMsg;
-								Message message = new Message();
-								message.what = 2;
-								Bundle bundle = new Bundle();
-								bundle.putString("msg", reutnMsg);
-								message.setData(bundle);
-								handler.sendMessage(message);
-							}
-						}
-						}
-						@Override
-						public void onFinish() {
-
-						}
-					});
-		}
-
-		if (Util.pageFlag != null
-				&& Util.pageFlag.equals("UUChatCommonActivity")) {
-			str = getIntent().getStringExtra("chat_id");
-			RequestParams params = new RequestParams();
-			params.add("gratuityReceiverUserId", str);
-			params.add("gratuityReceiverGroupId", "");
-			params.add("gratuityCount", "1");
-			params.add("gratuityEveryMoney", intent_content);
-			params.add("gratuityMark", intent_message);
-			params.add("gratuityType", "1");
-			params.add("UserPayPassword", Md5Util.MD5(password));
-			APPRestClient.post(this, APPRestClient.HTTPS_BASE_URL
-					+ ServiceCode.ORDER_PURSE_PAYMENT, params, true,
-					new APPResponseHandler<TipPacketEntity>(
-							TipPacketEntity.class, this) {
-						@Override
-						public void onSuccess(TipPacketEntity result) {
-							red_id = result.getOBJECT().getGratuityId();
-							Message message = new Message();
-							message.what = 6;
-							handler.sendMessage(message);
-						}
-
-						@Override
-						public void onFailure(int errorCode, String errorMsg) {
-							if (errorCode == 3) {
-								onInputFinish(password);
-							} else {
-							CustomToast.makeText(ctx, 0, errorMsg, 300).show();
-							if (errorCode == -999) {
-								new AlertDialog.Builder(
-										GuidePaypriceActivity.this)
-										.setTitle("提示")
-										.setMessage("服务器连接失败！")
-										.setPositiveButton(
-												"确定",
-												new DialogInterface.OnClickListener() {
-													@Override
-													public void onClick(
-															DialogInterface dialog,
-															int which) {
-														dialog.dismiss();
-													}
-												}).show();
-							} else {
-								// 弹出错误信息
-								String reutnMsg = errorMsg;
-								Message message = new Message();
-								message.what = 2;
-								Bundle bundle = new Bundle();
-								bundle.putString("msg", reutnMsg);
-								message.setData(bundle);
-								handler.sendMessage(message);
-							}
-						}}
-
-						@Override
-						public void onFinish() {
-
-						}
-					});
-		}
-		if (Util.pageFlag != null && Util.pageFlag.equals("UUPayActivity")) {
-			str = getIntent().getStringExtra("chat_id");
+		if (Util.pageFlag != null && Util.pageFlag.equals("GuidePayActivity")) {
 			RequestParams params = new RequestParams();
 			params.add("orderId", intent_orderId);
 			params.add("UserPayPassword", Md5Util.MD5(password));
@@ -960,7 +663,7 @@ public class GuidePaypriceActivity extends BaseActivity implements
 	 * 获取prepayid
 	 */
 	public void getPrepayId() {
-		if (Util.pageFlag != null && Util.pageFlag.equals("UUPayActivity")) {
+		if (Util.pageFlag != null && Util.pageFlag.equals("GuidePayActivity")) {
 			RequestParams params = new RequestParams();
 			params.add("orderId", intent_orderId);
 			APPRestClient
@@ -1022,147 +725,6 @@ public class GuidePaypriceActivity extends BaseActivity implements
 
 								}
 							});
-		}
-		if (Util.pageFlag != null
-				&& Util.pageFlag.equals("UUChatCommonActivity")) {
-			str = getIntent().getStringExtra("chat_id");
-			RequestParams params = new RequestParams();
-			params.add("gratuityReceiverUserId", str);
-			params.add("gratuityCount", "1");
-			params.add("gratuityEveryMoney", intent_content);
-			params.add("gratuityMark", intent_message);
-			params.add("gratuityType", "1");
-			APPRestClient
-					.post(this, APPRestClient.HTTPS_BASE_URL
-							+ ServiceCode.WX_ORD_PRICE, params, true,
-							new APPResponseHandler<WXPayEntity>(
-									WXPayEntity.class, this) {
-								@Override
-								public void onSuccess(WXPayEntity result) {
-									// TODO Auto-generated method stub
-									red_id = result.getOBJECT().getGratutiyId();
-									Util.rechargeAmout = intent_content;
-									Util.red_id = result.getOBJECT()
-											.getGratutiyId();
-									Util.red_message = intent_message;
-									Util.tradeNo = result.getOBJECT()
-											.getOut_trade_no();
-									request = new PayReq();
-									genPayReq(result);
-									Message message = new Message();
-									message.what = 8;
-									handler.sendMessage(message);
-								}
-
-								@Override
-								public void onFailure(int errorCode,
-										String errorMsg) {
-									
-									// TODO Auto-generated method stub
-									CustomToast.makeText(ctx, 0, errorMsg, 300)
-											.show();
-									if (errorCode == 3) {
-										getPrepayId();
-									} else {
-									if (errorCode == -999) {
-										new AlertDialog.Builder(
-												GuidePaypriceActivity.this)
-												.setTitle("提示")
-												.setMessage("服务器连接失败！")
-												.setPositiveButton(
-														"确定",
-														new DialogInterface.OnClickListener() {
-															@Override
-															public void onClick(
-																	DialogInterface dialog,
-																	int which) {
-																dialog.dismiss();
-															}
-														}).show();
-									} else {
-										// 弹出错误信息
-										String reutnMsg = errorMsg;
-										Message message = new Message();
-										message.what = 2;
-										Bundle bundle = new Bundle();
-										bundle.putString("msg", reutnMsg);
-										message.setData(bundle);
-										handler.sendMessage(message);
-									}
-								}}
-
-							});
-
-		}
-		if (Util.pageFlag != null && Util.pageFlag.equals("UUTipActivity")) {
-			str = getIntent().getStringExtra("chat_id");
-			RequestParams params = new RequestParams();
-			params.add("gratuityReceiverUserId", str);
-			params.add("gratuityCount", "1");
-			params.add("gratuityEveryMoney", intent_content);
-			params.add("gratuityMark", intent_message);
-			params.add("gratuityType", "2");
-			APPRestClient
-					.post(this, APPRestClient.HTTPS_BASE_URL
-							+ ServiceCode.WX_ORD_PRICE, params, true,
-							new APPResponseHandler<WXPayEntity>(
-									WXPayEntity.class, this) {
-								@Override
-								public void onSuccess(WXPayEntity result) {
-									// TODO Auto-generated method stub
-									red_id = result.getOBJECT().getGratutiyId();
-									Util.rechargeAmout = intent_content;
-									Util.red_id = result.getOBJECT()
-											.getGratutiyId();
-									Util.red_message = intent_message;
-									Util.tradeNo = result.getOBJECT()
-											.getOut_trade_no();
-									request = new PayReq();
-									genPayReq(result);
-									Message message = new Message();
-									message.what = 9;
-									handler.sendMessage(message);
-
-								}
-
-								@Override
-								public void onFailure(int errorCode,
-										String errorMsg) {
-									// TODO Auto-generated method stub
-									CustomToast.makeText(ctx, 0, errorMsg, 300)
-											.show();
-									if (errorCode == 3) {
-										getPrepayId();
-									} else {
-									if (errorCode == -999) {
-										new AlertDialog.Builder(
-												GuidePaypriceActivity.this)
-												.setTitle("提示")
-												.setMessage("服务器连接失败！")
-												.setPositiveButton(
-														"确定",
-														new DialogInterface.OnClickListener() {
-															@Override
-															public void onClick(
-																	DialogInterface dialog,
-																	int which) {
-																dialog.dismiss();
-															}
-														}).show();
-									} else {
-										// 弹出错误信息
-										String reutnMsg = errorMsg;
-										Message message = new Message();
-										message.what = 2;
-										Bundle bundle = new Bundle();
-										bundle.putString("msg", reutnMsg);
-										message.setData(bundle);
-										handler.sendMessage(message);
-									}
-								}}
-
-							});
-
 		}
 	}
 

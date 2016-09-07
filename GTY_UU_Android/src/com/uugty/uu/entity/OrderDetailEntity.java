@@ -123,7 +123,15 @@ public class OrderDetailEntity {
 		private String orderCouponMoney;//代金券金额
 		private String couponUserId;//用户和代金券关联表主键id
 		private String couponId;// 代金券主键
+		private String orderType;
 
+		public String getOrderType() {
+			return orderType;
+		}
+
+		public void setOrderType(String orderType) {
+			this.orderType = orderType;
+		}
 		
 		
 		public String getContactNum() {

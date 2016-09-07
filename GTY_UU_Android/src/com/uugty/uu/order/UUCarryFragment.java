@@ -35,6 +35,7 @@ import com.uugty.uu.entity.OrderListItem;
 import com.uugty.uu.entity.OrderListItem.ItemEntity;
 import com.uugty.uu.main.MainActivity;
 import com.uugty.uu.person.PersonCompileActivity;
+import com.uugty.uu.shop.guide.activity.GuideOrederPayActivity;
 import com.uugty.uu.viewpage.adapter.ListViewAdapter;
 
 import java.util.ArrayList;
@@ -287,7 +288,11 @@ public class UUCarryFragment extends Fragment implements
 			if (list.get(position).getOrderStatus().equals("order_create")
 					&& ((UUOrderActivity)getActivity()).getRole().equals("1")) {
 				intent.putExtra("orderId", orderId);
-				intent.setClass(getActivity(), UUOrederPayActivity.class);
+				if("2".equals(list.get(position).getOrderType())) {
+					intent.setClass(getActivity(), GuideOrederPayActivity.class);
+				}else{
+					intent.setClass(getActivity(), UUOrederPayActivity.class);
+				}
 			} else if (list.get(position).getOrderStatus()
 					.equals("order_drawback")
 					&& ((UUOrderActivity)getActivity()).getRole().equals("2")) {

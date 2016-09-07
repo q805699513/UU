@@ -942,6 +942,20 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
         </activity>
+        <!-- 导游圈订单修改 -->
+        <activity
+            android:name=".shop.guide.activity.GuideOrederPayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 导游圈订单支付 -->
+        <activity
+            android:name=".shop.guide.activity.GuidePaypriceActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="55c96bd5e0f55ac696001f3e" >

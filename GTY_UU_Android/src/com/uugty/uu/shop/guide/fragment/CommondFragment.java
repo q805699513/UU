@@ -25,6 +25,7 @@ import com.uugty.uu.mhvp.core.magic.viewpager.InnerScroller;
 import com.uugty.uu.shop.guide.Model.GuideEntity;
 import com.uugty.uu.shop.guide.activity.RoadDetailActivity;
 import com.uugty.uu.shop.guide.adapter.GuideShowAdapter;
+import com.uugty.uu.shop.guide.utils.NetConnectedUtils;
 import com.uugty.uu.shop.guide.view.MultipleStatusView;
 
 import java.util.ArrayList;
@@ -50,32 +51,6 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
     private List<GuideEntity.GuideDetail> homePageList = new ArrayList<GuideEntity.GuideDetail>();
     private String mThemeCity;
     private int startId = 1;// 起始页页
-
-//    private Handler handler = new Handler() {
-//        public void handleMessage(Message msg) {
-//            GuideEntity entity = (GuideEntity) msg.getData().getSerializable(
-//                    "homePageEntity");
-//            if (entity != null) {
-//                List<GuideEntity.GuideDetail> result = (List<GuideEntity.GuideDetail>) entity.getLIST();
-//                switch (msg.what) {
-//                    case 1:
-//                        homePageList.clear();
-//                        homePageList.addAll(result);
-//                        startId++;
-//                        loadThemeData(2);
-//                        break;
-//                    case 2:
-//                        homePageList.addAll(result);
-//                        break;
-//                }
-//                adapter.notifyDataSetChanged();
-//            } else {
-//                homePageList.clear();
-//                adapter.notifyDataSetChanged();
-//            }
-//
-//        };
-//    };
 
     @Override
     @Nullable
@@ -116,21 +91,36 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
         mThemeId = getArguments().getString("themeId");
         mListView.setDividerHeight(0);
         mListView.register2Outer(mOuterScroller, mIndex);
-        adapter = new GuideShowAdapter(getActivity(), homePageList);
-        SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(
-                adapter);
-        swingBottomInAnimationAdapter.setAbsListView(mListView);
-        assert swingBottomInAnimationAdapter.getViewAnimator() != null;
-        swingBottomInAnimationAdapter.getViewAnimator().setInitialDelayMillis(
-                INITIAL_DELAY_MILLIS);
-
-        mListView.setAdapter(swingBottomInAnimationAdapter);
+        //点击重试
+        multiplestatusview.setOnRetryClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //加载数据
+                if("推荐".equals(mTheme)) {
+                    loadHomeData(1);
+                }else{
+                    loadThemeData(1);
+                }
+            }
+        });
         mListView.setOnItemClickListener(this);
         mListView.setOnScrollListener(this);
-        loadThemeData(1);
+        //加载数据
+        if("推荐".equals(mTheme)) {
+            loadHomeData(1);
+        }else{
+            loadThemeData(1);
+        }
 
     }
 
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        homePageList.clear();
+        ButterKnife.unbind(this);
+    }
 
     /**
      * listview的点击事件
@@ -167,12 +157,92 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
         if (startId > 1) {
-            if (firstVisibleItem == (startId - 1) * 5) {
+            if (firstVisibleItem == (startId - 1) * 10) {
                 startId++;
                 loadThemeData(2);
             }
         }
     }
+
+    private void loadHomeData(final int what) {
+        RequestParams params = new RequestParams();
+        params.add("markSearchType", "goal_title");
+        params.add("markTitle", mThemeCity); // pageSize
+        params.add("currentPage", String.valueOf(startId)); // 当前页数
+        params.add("pageSize", "5"); // pageSize
+        params.add("isOnline", ""); // 性别
+        params.add("userSex", ""); // 性别
+        params.add("userTourValidate", ""); // 用户的旅游证
+        params.add("userCarValidate", ""); // 用户的车
+        params.add("sort", ""); // 排序
+        params.add("city",mThemeCity);
+        params.add("markContent", mThemeCity); // 城市
+
+        APPRestClient.postGuide(getActivity(), ServiceCode.ROAD_LINE_SEARCH, params,
+                new APPResponseHandler<GuideEntity>(GuideEntity.class,
+                        getActivity()) {
+                    @Override
+                    public void onSuccess(GuideEntity result) {
+
+                        if(what == 1){
+                            homePageList.clear();
+                            if(result.getLIST().size() > 0){
+                                homePageList = result.getLIST();
+                            }
+                            adapter = new GuideShowAdapter(getActivity(), homePageList);
+                            SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(
+                                    adapter);
+                            swingBottomInAnimationAdapter.setAbsListView(mListView);
+                            assert swingBottomInAnimationAdapter.getViewAnimator() != null;
+                            swingBottomInAnimationAdapter.getViewAnimator().setInitialDelayMillis(
+                                    INITIAL_DELAY_MILLIS);
+
+                            mListView.setAdapter(swingBottomInAnimationAdapter);
+                        } else if(what == 2) {
+                            homePageList.addAll(result.getLIST());
+                            adapter.notifyDataSetChanged();
+                        }
+
+                        if (homePageList.isEmpty()) {
+                            multiplestatusview.showEmpty();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(int errorCode, String errorMsg) {
+                        if (errorCode == 3) {
+                            loadHomeData(what);
+                        } else {
+                            CustomToast.makeText(getActivity(), 0, errorMsg, 300).show();
+                            if (errorCode == -999) {
+                                new AlertDialog.Builder(getActivity())
+                                        .setTitle("提示")
+                                        .setMessage("服务器连接失败！")
+                                        .setPositiveButton(
+                                                "确定",
+                                                new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(
+                                                            DialogInterface dialog,
+                                                            int which) {
+                                                        dialog.dismiss();
+                                                    }
+                                                }).show();
+                            }
+                        }
+                        if (NetConnectedUtils.isConnected(getActivity())) {
+                            multiplestatusview.showError();
+                        } else {
+                            multiplestatusview.showNoNetwork();
+                        }
+                    }
+
+                    @Override
+                    public void onFinish() {
+                    }
+                });
+    }
+
 
     private void loadThemeData(final int what) {
         // 显示等待层
@@ -180,27 +250,32 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
         params.add("roadlineThemeId", mThemeId); // 当前页数
         params.add("roadlineThemeArea",mThemeCity);
         params.add("currentPage", String.valueOf(startId)); // 当前页数
-        params.add("pageSize", "5"); // pageSize
+        params.add("pageSize", "10"); // pageSize
 
         APPRestClient.postGuide(getActivity(), ServiceCode.GUIDE_THEME, params,
                 new APPResponseHandler<GuideEntity>(GuideEntity.class, getActivity()) {
                     @Override
                     public void onSuccess(GuideEntity result) {
-						/*
-						 * Message msg = handler.obtainMessage(); msg.what =
-						 * what; msg.obj = result.getLIST();
-						 * handler.sendMessage(msg);
-						 */
-                        if (null != result.getLIST()
-                                && result.getLIST().size() > 0) {
-//                            Message msg = Message.obtain();
-//                            msg.what = what;
-//                            Bundle b = new Bundle();
-//                            b.putSerializable("homePageEntity", result);
-//                            msg.setData(b);
-//                            handler.sendMessage(msg);
+                        if(what == 1){
+                            homePageList.clear();
+                            if(result.getLIST().size() > 0){
+                                homePageList = result.getLIST();
+                            }
+                            adapter = new GuideShowAdapter(getActivity(), homePageList);
+                            SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(
+                                    adapter);
+                            swingBottomInAnimationAdapter.setAbsListView(mListView);
+                            assert swingBottomInAnimationAdapter.getViewAnimator() != null;
+                            swingBottomInAnimationAdapter.getViewAnimator().setInitialDelayMillis(
+                                    INITIAL_DELAY_MILLIS);
+
+                            mListView.setAdapter(swingBottomInAnimationAdapter);
+                        } else if(what == 2) {
                             homePageList.addAll(result.getLIST());
                             adapter.notifyDataSetChanged();
+                        }
+                        if (homePageList.isEmpty()) {
+                            multiplestatusview.showEmpty();
                         }
 
                     }
@@ -226,7 +301,13 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
                                                     }
                                                 }).show();
                             }
-                        }}
+                        }
+                        if (NetConnectedUtils.isConnected(getActivity())) {
+                            multiplestatusview.showError();
+                        } else {
+                            multiplestatusview.showNoNetwork();
+                        }
+                    }
 
                     @Override
                     public void onFinish() {

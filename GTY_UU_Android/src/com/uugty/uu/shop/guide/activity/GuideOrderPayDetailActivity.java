@@ -18,7 +18,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
-import com.uugty.uu.com.find.FindTestViewPagerActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -294,7 +293,7 @@ public class GuideOrderPayDetailActivity extends BaseActivity implements
 								public void onClick(View v) {
 									Intent intent = new Intent();
 									intent.putExtra("roadId", mRoadLineId);
-									intent.setClass(GuideOrderPayDetailActivity.this, FindTestViewPagerActivity.class);
+									intent.setClass(GuideOrderPayDetailActivity.this, RoadDetailActivity.class);
 									startActivity(intent);
 								}
 							});

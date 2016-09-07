@@ -33,7 +33,6 @@ import com.uugty.uu.discount.c.MyDiscountActivity;
 import com.uugty.uu.discount.m.DiscountListItem;
 import com.uugty.uu.discount.m.DiscountListItem.DiscountEntity;
 import com.uugty.uu.main.OrderDateActivty;
-import com.uugty.uu.order.UUPaypriceActivity;
 import com.uugty.uu.person.TouristListActivity;
 import com.uugty.uu.shop.guide.Model.CateGoryEntity;
 
@@ -188,7 +187,7 @@ public class GuidePayActivity extends BaseActivity implements OnClickListener {
 										intent.putExtra("orderPrice", "" + allPrice);// 路线价钱
 										intent.putExtra("orderName", roadTitle); //路线标题
 										intent.putExtra("contactName", mContactName);//出行人名
-										intent.putExtra("pageFlag", "UUPayActivity");
+										intent.putExtra("pageFlag", "GuidePayActivity");
 										intent.putExtra("orderRoadlineId", route_id);// 路线id
 										intent.putExtra("orderTime", dateTextView.getText().toString());// 订单的时间
 										intent.putExtra("orderMark", msgEditText.getText().toString());// 订单留言
@@ -204,7 +203,7 @@ public class GuidePayActivity extends BaseActivity implements OnClickListener {
 										intent.putExtra("visitorName", mName);// 联系人名
 										intent.putExtra("visitorTel", mPhone);// 联系人手机号
 										intent.putExtra("visitorContent", mTrvalNote.getText().toString());// 联系人留言
-										intent.setClass(GuidePayActivity.this, UUPaypriceActivity.class);
+										intent.setClass(GuidePayActivity.this, GuidePaypriceActivity.class);
 										startActivity(intent);
 
 									} else {
