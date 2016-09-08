@@ -143,17 +143,6 @@ public class Fragment1 extends Fragment implements
 		};
 	};
 
-	private Handler handlerGuide = new Handler() {
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-				case 1:
-					mGuideAdapter = new ConsultAdapter(context,guidelist);
-					mGuideListView.setAdapter(mGuideAdapter);
-					break;
-
-			}
-		};
-	};
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -258,6 +247,8 @@ public class Fragment1 extends Fragment implements
 		horizontalLin = (LinearLayout) headerView
 				.findViewById(R.id.home_page_horizontal_lin);
 		mGuideListView = (ListViewForScrollView) headerView.findViewById(R.id.home_consult_listview);
+		mGuideAdapter = new ConsultAdapter(context,guidelist);
+		mGuideListView.setAdapter(mGuideAdapter);
 		mGuideMore = (TextView)headerView.findViewById(R.id.home_guide_more);
 		mGuideLinear = (LinearLayout) headerView.findViewById(R.id.home_guide_layout);
 
@@ -606,10 +597,8 @@ public class Fragment1 extends Fragment implements
 								if (null != result.getLIST()
 										&& result.getLIST().size() > 0) {
 									mGuideLinear.setVisibility(View.VISIBLE);
-									guidelist = result.getLIST();
-									Message msg = Message.obtain();
-									msg.what = 1;
-									handlerGuide.sendMessage(msg);
+									guidelist.addAll(result.getLIST());
+									mGuideAdapter.notifyDataSetChanged();
 								}else{
 									mGuideLinear.setVisibility(View.GONE);
 								}
