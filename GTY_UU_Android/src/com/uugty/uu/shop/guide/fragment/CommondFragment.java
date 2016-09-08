@@ -91,6 +91,15 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
         mThemeId = getArguments().getString("themeId");
         mListView.setDividerHeight(0);
         mListView.register2Outer(mOuterScroller, mIndex);
+        adapter = new GuideShowAdapter(getActivity(), homePageList);
+        SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(
+                adapter);
+        swingBottomInAnimationAdapter.setAbsListView(mListView);
+        assert swingBottomInAnimationAdapter.getViewAnimator() != null;
+        swingBottomInAnimationAdapter.getViewAnimator().setInitialDelayMillis(
+                INITIAL_DELAY_MILLIS);
+
+        mListView.setAdapter(swingBottomInAnimationAdapter);
         //点击重试
         multiplestatusview.setOnRetryClickListener(new View.OnClickListener() {
             @Override
@@ -143,7 +152,6 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
     ///////////////////////////listview滑动监听方法/////////////////////
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
-
     }
 
     /***
@@ -157,9 +165,13 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
         if (startId > 1) {
-            if (firstVisibleItem == (startId - 1) * 10) {
+            if (firstVisibleItem == (startId - 1) * 5) {
                 startId++;
-                loadThemeData(2);
+                if("推荐".equals(mTheme)) {
+                    loadHomeData(2);
+                }else{
+                    loadThemeData(2);
+                }
             }
         }
     }
@@ -169,7 +181,7 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
         params.add("markSearchType", "goal_title");
         params.add("markTitle", mThemeCity); // pageSize
         params.add("currentPage", String.valueOf(startId)); // 当前页数
-        params.add("pageSize", "5"); // pageSize
+        params.add("pageSize", "10"); // pageSize
         params.add("isOnline", ""); // 性别
         params.add("userSex", ""); // 性别
         params.add("userTourValidate", ""); // 用户的旅游证
@@ -185,24 +197,15 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
                     public void onSuccess(GuideEntity result) {
 
                         if(what == 1){
-                            homePageList.clear();
                             if(result.getLIST().size() > 0){
-                                homePageList = result.getLIST();
+                                homePageList.addAll(result.getLIST());
+                                startId++;
+                                loadHomeData(2);
                             }
-                            adapter = new GuideShowAdapter(getActivity(), homePageList);
-                            SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(
-                                    adapter);
-                            swingBottomInAnimationAdapter.setAbsListView(mListView);
-                            assert swingBottomInAnimationAdapter.getViewAnimator() != null;
-                            swingBottomInAnimationAdapter.getViewAnimator().setInitialDelayMillis(
-                                    INITIAL_DELAY_MILLIS);
-
-                            mListView.setAdapter(swingBottomInAnimationAdapter);
                         } else if(what == 2) {
                             homePageList.addAll(result.getLIST());
-                            adapter.notifyDataSetChanged();
                         }
-
+                        adapter.notifyDataSetChanged();
                         if (homePageList.isEmpty()) {
                             multiplestatusview.showEmpty();
                         }
@@ -257,23 +260,15 @@ public class CommondFragment extends AbsBaseFragment implements InnerListView.On
                     @Override
                     public void onSuccess(GuideEntity result) {
                         if(what == 1){
-                            homePageList.clear();
                             if(result.getLIST().size() > 0){
-                                homePageList = result.getLIST();
+                                homePageList.addAll(result.getLIST());
+                                startId++;
+                                loadThemeData(2);
                             }
-                            adapter = new GuideShowAdapter(getActivity(), homePageList);
-                            SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(
-                                    adapter);
-                            swingBottomInAnimationAdapter.setAbsListView(mListView);
-                            assert swingBottomInAnimationAdapter.getViewAnimator() != null;
-                            swingBottomInAnimationAdapter.getViewAnimator().setInitialDelayMillis(
-                                    INITIAL_DELAY_MILLIS);
-
-                            mListView.setAdapter(swingBottomInAnimationAdapter);
                         } else if(what == 2) {
                             homePageList.addAll(result.getLIST());
-                            adapter.notifyDataSetChanged();
                         }
+                        adapter.notifyDataSetChanged();
                         if (homePageList.isEmpty()) {
                             multiplestatusview.showEmpty();
                         }

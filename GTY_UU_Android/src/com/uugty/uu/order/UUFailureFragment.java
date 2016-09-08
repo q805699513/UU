@@ -35,6 +35,7 @@ import com.uugty.uu.entity.OrderListItem;
 import com.uugty.uu.entity.OrderListItem.ItemEntity;
 import com.uugty.uu.main.MainActivity;
 import com.uugty.uu.person.PersonCompileActivity;
+import com.uugty.uu.shop.guide.activity.GuideOrderPayDetailActivity;
 import com.uugty.uu.viewpage.adapter.ListViewAdapter;
 
 import java.util.ArrayList;
@@ -300,7 +301,11 @@ public class UUFailureFragment extends Fragment implements
 				intent.putExtra("orderId", orderId);
 				intent.putExtra("fragment", "fail");//失效
 				intent.putExtra("role", ((UUOrderActivity)getActivity()).getRole());
-				intent.setClass(getActivity(), UUOrderPayDetailActivity.class);
+				if("2".equals(list.get(position).getOrderType())) {
+					intent.setClass(getActivity(), GuideOrderPayDetailActivity.class);
+				}else{
+					intent.setClass(getActivity(), UUOrderPayDetailActivity.class);
+				}
 			}
 			startActivity(intent);
 		}

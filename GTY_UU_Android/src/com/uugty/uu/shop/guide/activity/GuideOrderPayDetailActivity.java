@@ -80,6 +80,7 @@ public class GuideOrderPayDetailActivity extends BaseActivity implements
 	private String mIsComment;//是否评价
 	private String mFragment;//跳转上一层
 	private String mRole;//1为购买，2为出售
+	private String mContactName = "";//联系人姓名
 	private String mRoadLineId;//路线ID
 	private TopBackView titleback;
 	private SpotsDialog loadingDialog;
@@ -241,7 +242,7 @@ public class GuideOrderPayDetailActivity extends BaseActivity implements
 		RequestParams params = new RequestParams();
 		params.add("orderId", orderId); // 订单的状态
 
-		APPRestClient.postGuide(this, ServiceCode.BATCH_ORDERDETAIL_MESSAGE, params,
+		APPRestClient.post(this, ServiceCode.BATCH_ORDERDETAIL_MESSAGE, params,
 				new APPResponseHandler<OrderDetailEntity>(
 						OrderDetailEntity.class, this) {
 					@Override
@@ -257,11 +258,23 @@ public class GuideOrderPayDetailActivity extends BaseActivity implements
 														+ detail.getRoadlineBackground(),
 												orderDetailImage);
 							}
+							if(result.getLIST().size()>0) {
+								for (int i = 0; i < result.getLIST().size(); i++) {
+									if (i == result.getLIST().size() - 1) {
+										mContactName+=result.getLIST().get(i).getContactName();
+									}else{
+										mContactName+=result.getLIST().get(i).getContactName()+" ";
+									}
+								}
+								mTourist.setText(mContactName);
+							}
+
 							if(detail.getContactNum().equals("0")){
 								mTourist.setText("未添加联系人");
-							}else{
-								mTourist.setText(detail.getContactName().replace(",", " "));
 							}
+//							else{
+//								mTourist.setText(detail.getContactName().replace(",", " "));
+//							}
 							if(detail.getOrderMark() != null && !"".equals(detail.getOrderMark())){
 								mOrderMark.setText(detail.getOrderMark());
 							}

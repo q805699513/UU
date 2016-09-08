@@ -34,6 +34,8 @@ import com.uugty.uu.entity.SellEntity;
 import com.uugty.uu.entity.Util;
 import com.uugty.uu.map.OpenShopActivity;
 import com.uugty.uu.map.PublishServicesActivity;
+import com.uugty.uu.person.PersonCenterActivity;
+import com.uugty.uu.person.PersonCompileActivity;
 import com.uugty.uu.shop.guide.activity.GuideHomeActivity;
 import com.uugty.uu.util.LogUtils;
 
@@ -61,6 +63,8 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 	private TextView mServiceReward;//服务奖励
 	private TextView mServiceSell;//服务销售额
 	private Button mPublishService;//发布服务
+	private LinearLayout mPersonDetail;//完善个人信息
+	private LinearLayout mPersonCenter;//完善个人信息
 
 	private int count = 0;//第几次进入
 	private String isPromoter;//是否为会员
@@ -83,6 +87,8 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 		}
 		titleView = (TopBackView) findViewById(R.id.open_shop_title);
 		titleView.setTitle("我的小店");
+		mPersonCenter = (LinearLayout) findViewById(R.id.shop_person_center);
+		mPersonDetail = (LinearLayout) findViewById(R.id.shop_person_detail);
 		mServiceControl = (LinearLayout) findViewById(R.id.my_shop_service_control);
 		mShare = (LinearLayout) findViewById(R.id.my_shop_share);
 		mIsU = (LinearLayout) findViewById(R.id.my_shop_isu);
@@ -105,6 +111,8 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 		mIsU.setOnClickListener(this);
 		mGuideShop.setOnClickListener(this);
 		mPublishService.setOnClickListener(this);
+		mPersonCenter.setOnClickListener(this);
+		mPersonDetail.setOnClickListener(this);
 		if(count == 0) {
 			SharedPreferenceUtil.getInstance(ctx).setInt("MyShop", 1);
 			Intent i = new Intent();
@@ -249,6 +257,14 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 				i.setClass(this,GuideHomeActivity.class);
 				startActivity(i);
 				break;
+			case R.id.shop_person_center:
+				i.putExtra("detailUserId", MyApplication.getInstance().getUserInfo().getOBJECT().getUserId());
+				i.setClass(this, PersonCenterActivity.class);
+				startActivity(i);
+				break;
+			case R.id.shop_person_detail:
+				i.setClass(this, PersonCompileActivity.class);
+				startActivity(i);
 			default:
 				break;
 		}

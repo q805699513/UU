@@ -103,6 +103,8 @@ public class ListViewAdapter extends BaseAdapter {
 					.findViewById(R.id.order_chat);
 			holder.activity_carrydetail_linearla = (LinearLayout) convertView
 					.findViewById(R.id.activity_carrydetail_linearla);
+			holder.bootom_linear = (LinearLayout) convertView
+					.findViewById(R.id.bootom_linear);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -198,20 +200,25 @@ public class ListViewAdapter extends BaseAdapter {
 				 * if (DateUtil.comperaBeforeTime(list.get(position)
 				 * .getOrderTime().substring(0, 10)))
 				 */
-				holder.evaluateTextView.setVisibility(View.VISIBLE);
-				holder.txt_pay.setVisibility(View.VISIBLE);
-				holder.txt_chat.setVisibility(View.VISIBLE);
+
 				if("2".equals(list.get(position).getOrderType())){
+					holder.bootom_linear.setVisibility(View.GONE);
 					holder.txt_cancle.setVisibility(View.INVISIBLE);
+					holder.evaluateTextView.setVisibility(View.INVISIBLE);
+					holder.txt_pay.setVisibility(View.INVISIBLE);
+					holder.txt_chat.setVisibility(View.INVISIBLE);
 				}else{
+					holder.evaluateTextView.setVisibility(View.VISIBLE);
+					holder.txt_pay.setVisibility(View.VISIBLE);
 					holder.txt_cancle.setVisibility(View.VISIBLE);
+					holder.txt_chat.setVisibility(View.VISIBLE);
 					holder.txt_cancle.setText("申请退款");
-				}
-				holder.txt_pay.setText("旅行完成");
-				if (list.get(position).getIsEval().equals("0")) {
-					holder.evaluateTextView.setText("评价");
-				} else {
-					holder.evaluateTextView.setText("修改评价");
+					holder.txt_pay.setText("旅行完成");
+					if (list.get(position).getIsEval().equals("0")) {
+						holder.evaluateTextView.setText("评价");
+					} else {
+						holder.evaluateTextView.setText("修改评价");
+					}
 				}
 
 			}
@@ -226,14 +233,20 @@ public class ListViewAdapter extends BaseAdapter {
 			// 订单完成
 			if (list.get(position).getOrderStatus().equals("order_success")) {
 				holder.evaluateTextView.setVisibility(View.INVISIBLE);
-				holder.txt_cancle.setVisibility(View.VISIBLE);
 				holder.txt_pay.setVisibility(View.VISIBLE);
 				holder.txt_pay.setText("删除订单");
 				holder.txt_chat.setVisibility(View.VISIBLE);
-				
-				if (list.get(position).getIsEval().equals("0")) {
-				  holder.txt_cancle.setText("评价订单"); } else {
-				 holder.txt_cancle.setText("修改评价"); }
+
+				if("2".equals(list.get(position).getOrderType())) {
+					holder.txt_cancle.setVisibility(View.INVISIBLE);
+				}else{
+					holder.txt_cancle.setVisibility(View.VISIBLE);
+					if (list.get(position).getIsEval().equals("0")) {
+						holder.txt_cancle.setText("评价订单");
+					} else {
+						holder.txt_cancle.setText("修改评价");
+					}
+				}
 				 /* 
 				 * holder.txt_pay.setText("申请退款");
 				 */
@@ -854,7 +867,7 @@ public class ListViewAdapter extends BaseAdapter {
 		SimpleDraweeView imageView;
 		TextView title,statusTextView,priceTextView, evaluateTextView,orderDate,orderYear;
 		TextView txt_pay, txt_chat, txt_cancle;
-		LinearLayout activity_carrydetail_linearla;
+		LinearLayout activity_carrydetail_linearla,bootom_linear;
 	}
 
 	private String transOrderStatus(String status) {

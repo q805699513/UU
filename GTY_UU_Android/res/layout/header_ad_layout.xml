@@ -6,11 +6,21 @@
     android:orientation="vertical">
 
     <!-- 主题图片 -->
-
-    <com.uugty.uu.common.myview.SlideShowView
-        android:id="@+id/home_page_slideview"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/lzh_homebackground">
+        </View>
+
+        <com.uugty.uu.common.myview.SlideShowView
+            android:id="@+id/home_page_slideview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/home_outchina_relative"
