@@ -596,6 +596,9 @@ public class Fragment1 extends Fragment implements
 							public void onSuccess(ConsultEntity result) {
 								if (null != result.getLIST()
 										&& result.getLIST().size() > 0) {
+									if(guidelist.size() > 0){
+										guidelist.clear();
+									}
 									mGuideLinear.setVisibility(View.VISIBLE);
 									guidelist.addAll(result.getLIST());
 									mGuideAdapter.notifyDataSetChanged();
