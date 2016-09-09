@@ -24,7 +24,6 @@ import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.common.myview.SearchPopuWindow;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.entity.HomePageRecommendEntity;
 import com.uugty.uu.mhvp.core.magic.viewpager.MagicHeaderUtils;
@@ -129,7 +128,7 @@ public class GuideHomeActivity extends BaseActivity implements
 
 				Intent intent = new Intent();
 				intent.putExtra("newCity",themeCity);
-				intent.setClass(ctx, SearchPopuWindow.class);
+				intent.setClass(ctx, GuideSearchPopuWindow.class);
 				startActivity(intent);
 			}
 		});

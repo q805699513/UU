@@ -32,7 +32,6 @@ import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.com.find.FindTestViewPagerActivity;
-import com.uugty.uu.com.find.MoreLineActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;

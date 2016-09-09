@@ -30,6 +30,15 @@ public class GuideEntity implements Serializable{
 		private String userCertificateValidate;// 学位证是否验证	2
 		private String userCarValidate; // 驾驶证是否验证 2
 		private String userIsPromoter;//是否支付199 1为支付
+		private String roadlineMarketPrice;//市场价格
+
+		public String getRoadlineMarketPrice() {
+			return roadlineMarketPrice;
+		}
+
+		public void setRoadlineMarketPrice(String roadlineMarketPrice) {
+			this.roadlineMarketPrice = roadlineMarketPrice;
+		}
 
 		public String getUserTourValidate() {
 			return userTourValidate;

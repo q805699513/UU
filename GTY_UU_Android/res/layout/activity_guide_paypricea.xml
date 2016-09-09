@@ -624,7 +624,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
                     android:lineSpacingExtra="4dp"
-                    android:text="支付订单后，导游圈会尽快响应您的订单，您会收到系统短信。因特殊情况需取消订单，请直接提交申请，或和工作人员联系，电话15874456600（老安）"
+                    android:text="支付订单后，我们会尽快响应您的订单，您会收到系统短信。因特殊情况需取消订单，请直接提交申请，或和工作人员联系，客服:400-600-8669"
                     android:textColor="#666666"
                     android:textSize="12sp" />
             </LinearLayout>

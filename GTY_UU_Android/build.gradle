@@ -4,7 +4,6 @@ repositories {
     flatDir {
         dirs 'libs'
     }
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     jcenter()
     mavenCentral()
 }
@@ -37,7 +36,6 @@ dependencies {
     //    compile 'com.google.android.gms:play-services:8.4.0'
     // ButterKnife
     compile 'com.jakewharton:butterknife:7.0.1+'
-    compile 'cn.finalteam.loadingviewfinal:ultra-pull-to-refresh:1.0.1'
 }
 
 
