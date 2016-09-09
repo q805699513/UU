@@ -107,6 +107,7 @@ public class GuidePaypriceActivity extends BaseActivity implements
 			Intent intent = new Intent();
 			switch (msg.what) {
 			case 2:
+				mPayButtonBtn.setClickable(true);
 				Bundle bundle = msg.getData();
 				String bundleText = bundle.getString("msg");
 				if (bundleText.equals("你账户的余额不足！")) {
@@ -127,6 +128,7 @@ public class GuidePaypriceActivity extends BaseActivity implements
 
 				break;
 			case 3:
+				mPayButtonBtn.setClickable(true);
 				ActivityCollector
 						.removeSpecifiedActivity("com.uugty.uu.shop.guide.activity.GuidePayActivity");
 				ActivityCollector
@@ -147,8 +149,10 @@ public class GuidePaypriceActivity extends BaseActivity implements
 				msgApi.registerApp(APP_ID);
 				msgApi.sendReq(request);
 				Util.paySuccessPage = "GuideChat";
+				mPayButtonBtn.setEnabled(true);
 				break;
 			case 5:
+				mPayButtonBtn.setClickable(true);
 				CustomToast.makeText(GuidePaypriceActivity.this, 0,
 						"获取支付ID失败", 200).show();
 
@@ -241,6 +245,7 @@ public class GuidePaypriceActivity extends BaseActivity implements
 		if (getIntent() != null) {
 			Util.pageFlag = getIntent().getStringExtra("pageFlag");
 			if (Util.pageFlag != null && Util.pageFlag.equals("GuidePayActivity")) {
+				mPayButtonBtn.setClickable(true);
 				dialogMsg = "若取消本次支付，可在我的订单里继续完成支付。";
 				intent_content = getIntent().getStringExtra("price");
 				intent_orderId = getIntent().getStringExtra("orderId");

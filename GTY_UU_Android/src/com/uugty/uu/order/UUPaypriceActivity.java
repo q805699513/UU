@@ -200,6 +200,7 @@ public class UUPaypriceActivity extends BaseActivity implements
 			case 7:
 				PayResult payResult = new PayResult((String) msg.obj);
 
+				mPayButtonBtn.setEnabled(true);
 				// 支付宝返回此次支付结果及加签，建议对支付宝签名信息拿签约时支付宝提供的公钥做验签
 				String resultInfo = payResult.getResult();
 
