@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="路线支持分享到uu好友,群组,uu圈,赶快下载体验吧"
+                android:text="修复若干Bug,优化交互体验"
                 android:textColor="#98999a"
                 android:textSize="12sp"/>
 
@@ -108,7 +108,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="路线提供保险服务,提现绑定支付宝,安全快捷"
+                android:text="开通会员的用户可在批发市场中购买全国低价服务"
                 android:textColor="#98999a"
                 android:textSize="12sp"/>
 

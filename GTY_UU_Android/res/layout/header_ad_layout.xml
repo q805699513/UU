@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <!-- 主题图片 -->
@@ -10,16 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/lzh_homebackground">
-        </View>
-
         <com.uugty.uu.common.myview.SlideShowView
             android:id="@+id/home_page_slideview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="@dimen/main_image_hight"/>
     </RelativeLayout>
 
     <RelativeLayout

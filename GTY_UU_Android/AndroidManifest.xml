@@ -809,8 +809,7 @@
         <activity
             android:name=".shop.MyShopActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" >
+            android:screenOrientation="portrait" >
         </activity>
         <!--notvip我的小店-->
         <activity

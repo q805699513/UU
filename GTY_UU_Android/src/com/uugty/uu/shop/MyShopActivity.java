@@ -254,8 +254,15 @@ public class MyShopActivity extends BaseActivity implements OnClickListener,
 				startActivity(i);
 				break;
 			case R.id.my_shop_guide:
-				i.setClass(this,GuideHomeActivity.class);
-				startActivity(i);
+				if ("1".equals(isPromoter)) {
+					i.setClass(this, GuideHomeActivity.class);
+					startActivity(i);
+				}else{
+					i.setClass(this,
+							OpenShopActivity.class);
+					Util.vipBack = "main";
+					startActivity(i);
+				}
 				break;
 			case R.id.shop_person_center:
 				i.putExtra("detailUserId", MyApplication.getInstance().getUserInfo().getOBJECT().getUserId());

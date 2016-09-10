@@ -22,6 +22,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowAnimationStyle">@style/Window.Activity.Translucent.Style</item>
     </style>
 

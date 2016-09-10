@@ -5,7 +5,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <!-- 主页图片高度 -->
-    <dimen name="main_image_hight">630px</dimen>
+    <dimen name="main_image_hight">840px</dimen>
     <!-- find_detail 页面 -->
     <dimen name="find_detail_circulheadImage_find_heart_img_width">54dp</dimen>
     <dimen name="find_detail_circulheadImage_find_heart_img_height">54dp</dimen>
