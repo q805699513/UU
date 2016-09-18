@@ -29,6 +29,14 @@ public class ConsultEntity implements Serializable {
 	    private String userCertificateValidate;// 学位证是否验证	2    
 	    private String userCarValidate; // 驾驶证是否验证 2
 	    private String userIsPromoter;//是否支付199 1为支付
+		private String markUserPrice;//导游价格
+		public String getMarkUserPrice() {
+			return markUserPrice;
+		}
+
+		public void setMarkUserPrice(String markUserPrice) {
+			this.markUserPrice = markUserPrice;
+		}
 		public String getMarkId() {
 			return markId;
 		}

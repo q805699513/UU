@@ -1,18 +1,27 @@
 package com.uugty.uu.main;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.uugty.uu.R;
+import com.uugty.uu.base.application.MyApplication;
+import com.uugty.uu.common.asynhttp.RequestParams;
+import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
+import com.uugty.uu.common.asynhttp.service.ServiceCode;
+import com.uugty.uu.common.myview.CustomToast;
+import com.uugty.uu.entity.BaseEntity;
 import com.uugty.uu.entity.ConsultEntity;
 import com.uugty.uu.person.PersonCenterActivity;
 
@@ -79,14 +88,19 @@ class ConsultAdapter extends BaseAdapter {
             holder.consult_person_guide = (TextView) view
                     .findViewById(R.id.consult_person_guide);
             holder.consult_line = (View) view.findViewById(R.id.consult_line);
-            holder.consult_up_num = (TextView) view
-                    .findViewById(R.id.consult_up_num);
-            holder.consult_upstate_img = (ImageView) view
-                    .findViewById(R.id.consult_upstate_img);
+//            holder.consult_up_num = (TextView) view
+//                    .findViewById(R.id.consult_up_num);
+//            holder.consult_upstate_img = (ImageView) view
+//                    .findViewById(R.id.consult_upstate_img);
             holder.consult_tag_lin = (TextView) view
                     .findViewById(R.id.consult_tag_lin);
             holder.simpleImage = (TextView) view.findViewById(R.id.framlayout_tv);
             holder.is_veru = (TextView) view.findViewById(R.id.consult_person_veru);
+            //导游价格设置
+            holder.ll_consult_price = (LinearLayout) view.findViewById(R.id.ll_consult_price);
+            holder.tv_consult_price = (TextView) view.findViewById(R.id.tv_consult_price);
+            holder.tv_consult_img = (TextView) view.findViewById(R.id.tv_consult_img);
+            holder.ed_consult_price = (EditText) view.findViewById(R.id.ed_consult_price);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -115,6 +129,34 @@ class ConsultAdapter extends BaseAdapter {
         }
         if(position == 0){
             holder.baseline.setVisibility(View.GONE);
+        }
+        if (ls.get(position).getUserId().equals(MyApplication.getInstance().getUserInfo().getOBJECT().getUserId())) {
+            holder.ll_consult_price.setVisibility(View.VISIBLE);
+            holder.tv_consult_price.setVisibility(View.GONE);
+            holder.ed_consult_price.setVisibility(View.VISIBLE);
+            holder.tv_consult_img.setVisibility(View.VISIBLE);
+            holder.ed_consult_price.setText(ls.get(position).getMarkUserPrice());
+            final ViewHolder finalHolder = holder;
+            holder.ed_consult_price.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if(!finalHolder.ed_consult_price.getText().toString().equals(ls.get(position).getMarkUserPrice())){
+                        sendModifyPriceRequest(finalHolder.ed_consult_price.getText().toString());
+                    }
+                }
+            });
+        }else{
+            if( null != ls.get(position).getMarkUserPrice()
+                    && !"".equals(ls.get(position).getMarkUserPrice())
+                    && !"0".equals(ls.get(position).getMarkUserPrice())) {
+                holder.ll_consult_price.setVisibility(View.VISIBLE);
+                holder.tv_consult_price.setVisibility(View.VISIBLE);
+                holder.tv_consult_img.setVisibility(View.INVISIBLE);
+                holder.ed_consult_price.setVisibility(View.GONE);
+                holder.tv_consult_price.setText(ls.get(position).getMarkUserPrice());
+            } else {
+                holder.ll_consult_price.setVisibility(View.INVISIBLE);
+            }
         }
         // 灰色阴影
         if (ls.get(position).getIsOnline().equals("1")) {
@@ -172,17 +214,17 @@ class ConsultAdapter extends BaseAdapter {
 //			drawable.setColorFilter(new ColorMatrixColorFilter(BT_SELECTED));
 //			holder.consult_person_avatar.setBackground(drawable);
         }
-        // 好评数
-        if (ls.get(position).getFavourableCommentNum().equals("0")) {
-            holder.consult_up_num.setText("暂无好评");
-            holder.consult_upstate_img
-                    .setImageResource(R.drawable.consult_no_upstate);
-        } else {
-            holder.consult_up_num.setText(ls.get(position)
-                    .getFavourableCommentNum() + "人好评");
-            holder.consult_upstate_img
-                    .setImageResource(R.drawable.consult_upstate);
-        }
+//        // 好评数
+//        if (ls.get(position).getFavourableCommentNum().equals("0")) {
+//            holder.consult_up_num.setText("暂无好评");
+//            holder.consult_upstate_img
+//                    .setImageResource(R.drawable.consult_no_upstate);
+//        } else {
+//            holder.consult_up_num.setText(ls.get(position)
+//                    .getFavourableCommentNum() + "人好评");
+//            holder.consult_upstate_img
+//                    .setImageResource(R.drawable.consult_upstate);
+//        }
         // 标签
         if (!ls.get(position).getMarkContent().equals("")) {
             String label = ls.get(position).getMarkContent().replace(",", "  ");
@@ -207,6 +249,49 @@ class ConsultAdapter extends BaseAdapter {
         return view;
     }
 
+    private void sendModifyPriceRequest(final String price) {
+        RequestParams params = new RequestParams();
+
+        params.add("price",price);
+        APPRestClient.post(context, ServiceCode.MODIFY_CONSULT_PRICE, params,
+                new APPResponseHandler<BaseEntity>(BaseEntity.class,
+                        context) {
+                    @Override
+                    public void onSuccess(BaseEntity result) {
+
+                    }
+
+                    @Override
+                    public void onFailure(int errorCode, String errorMsg) {
+                        if (errorCode == 3) {
+                            sendModifyPriceRequest(price);
+                        } else {
+                            CustomToast.makeText(context, 0, errorMsg, 300).show();
+                            if (errorCode == -999) {
+                                new AlertDialog.Builder(context)
+                                        .setTitle("提示")
+                                        .setMessage("网络拥堵,请稍后重试！")
+                                        .setPositiveButton(
+                                                "确定",
+                                                new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(
+                                                            DialogInterface dialog,
+                                                            int which) {
+                                                        dialog.dismiss();
+                                                    }
+                                                }).show();
+                            }
+                        }}
+
+                    @Override
+                    public void onFinish() {
+
+                    }
+                });
+
+    }
+
     public final static float[] BT_SELECTED =  new   float [] {
             0.308f,  0.609f,  0.082f,  0 ,  0 ,
             0.308f,  0.609f,  0.082f,  0 ,  0 ,
@@ -219,11 +304,13 @@ class ConsultAdapter extends BaseAdapter {
         private TextView consult_person_name, consult_person_distance,
                 consult_person_state, consult_person_truename,
                 consult_person_education, consult_person_drive,
-                consult_person_guide, consult_up_num,simpleImage,is_veru;
+                consult_person_guide,simpleImage,is_veru,tv_consult_price,tv_consult_img;
+        private EditText ed_consult_price;
         private View consult_line;
-        private ImageView consult_upstate_img;
+//        private ImageView consult_upstate_img,consult_up_num;
         private TextView consult_tag_lin;
         private View baseline;
+        private LinearLayout ll_consult_price;
     }
 
 }

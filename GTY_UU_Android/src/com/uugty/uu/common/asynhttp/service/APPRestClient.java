@@ -26,9 +26,9 @@ public class APPRestClient {
 	//导游圈
 	public static String GUIDE_URL ="http://youxiangxi.com:9090/guide/";
 	//线上测试环境
-//	public static String SERVER_IP = "http://www.uugty.com:100/";
-//	public static String BASE_URL ="http://www.uugty.com:7777/uuapplication/";
-//	public static String HTTPS_BASE_URL ="http://www.uugty.com:7777/uuapplication/security/";
+	public static String SERVER_IP = "http://www.uugty.com:100/";
+	public static String BASE_URL ="http://www.uugty.com:7777/uuapplication/";
+	public static String HTTPS_BASE_URL ="http://www.uugty.com:7777/uuapplication/security/";
 	//本地测试环境
 //	public static String SERVER_IP = "http://www.uugty.com:100/";
 //	public static String BASE_URL ="http://192.168.1.75:8080/uuapplication/";
@@ -39,9 +39,9 @@ public class APPRestClient {
 //	public static String HTTPS_BASE_URL ="http://192.168.1.123:8090/uuapplication/security/";
 	//https
 	//上线环境
-	public static String HTTPS_BASE_URL = "https://www.uugty.com:8443/uuapplication/security/";
-	public static String SERVER_IP = "http://www.uugty.com:100/";
-	public static String BASE_URL = "http://www.uugty.com:8090/uuapplication/";
+//	public static String HTTPS_BASE_URL = "https://www.uugty.com:8443/uuapplication/security/";
+//	public static String SERVER_IP = "http://www.uugty.com:100/";
+//	public static String BASE_URL = "http://www.uugty.com:8090/uuapplication/";
 
 
 	private static AsyncHttpClient client = new AsyncHttpClient(true, 8090,
