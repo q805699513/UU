@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.text.InputType;
 import android.view.View;
@@ -40,7 +41,6 @@ import com.uugty.uu.order.insure.OrderTouristAdapter;
 import com.uugty.uu.person.TouristListActivity;
 
 import java.io.Serializable;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -573,21 +573,21 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 
 				break;
 			case REQUEST_CHOOSE_DATE:
-//				String chooseDate = data.getStringExtra("choose_date");
-//				dateTextView.setText(chooseDate);
-//				dateTextView.setTextColor(Color.parseColor("#000000"));
-				simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
-				if(!"".equals(data.getStringExtra("dateIn")) && !"".equals(data.getStringExtra("dateOut"))){
-					inday = data.getStringExtra("dateIn");
-					outday = data.getStringExtra("dateOut");
-					long days = 0;
-					try {
-						days = ((simpleDateFormat.parse(outday).getTime()-simpleDateFormat.parse(inday).getTime())/86400000) + 1;
-					} catch (ParseException e) {
-						e.printStackTrace();
-					}
-					dateTextView.setText(inday + " - " + outday + " 共" + days+ "天");
-				}
+				String chooseDate = data.getStringExtra("choose_date");
+				dateTextView.setText(chooseDate);
+				dateTextView.setTextColor(Color.parseColor("#000000"));
+//				simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+//				if(!"".equals(data.getStringExtra("dateIn")) && !"".equals(data.getStringExtra("dateOut"))){
+//					inday = data.getStringExtra("dateIn");
+//					outday = data.getStringExtra("dateOut");
+//					long days = 0;
+//					try {
+//						days = ((simpleDateFormat.parse(outday).getTime()-simpleDateFormat.parse(inday).getTime())/86400000) + 1;
+//					} catch (ParseException e) {
+//						e.printStackTrace();
+//					}
+//					dateTextView.setText(inday + " - " + outday + " 共" + days+ "天");
+//				}
 
 				break;
 			case REQUEST_NUM:
