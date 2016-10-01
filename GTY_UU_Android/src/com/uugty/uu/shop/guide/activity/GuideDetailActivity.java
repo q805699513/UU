@@ -28,7 +28,6 @@ import android.widget.TextView;
 
 import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
-import com.uugty.uu.com.find.FindTestViewPagerActivity;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
@@ -322,7 +321,7 @@ public class GuideDetailActivity extends BaseActivity implements
 		Intent intent = new Intent();
 		intent.putExtra("roadId", guideDetailList.get(position).getRoadlineId());
 		intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-		intent.setClass(this, FindTestViewPagerActivity.class);
+		intent.setClass(this, RoadDetailActivity.class);
 		startActivity(intent);
 	}
 
@@ -360,7 +359,7 @@ public class GuideDetailActivity extends BaseActivity implements
 			break;
 		case R.id.guide_detail_no_data_release_btn:
 			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-			intent.setClass(this, SearchPopuWindow.class);
+			intent.setClass(this, GuideSearchPopuWindow.class);
 			startActivity(intent);
 			break;
 		case R.id.guide_screen_btn:

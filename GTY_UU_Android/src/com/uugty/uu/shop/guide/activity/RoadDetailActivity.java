@@ -241,7 +241,7 @@ public class RoadDetailActivity extends BaseActivity implements
 				builder.setMessage(userTel);
 				builder.setPositiveButton("呼叫", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
-						intent.setData(Uri.parse("tel:" + userTel));
+						intent.setData(Uri.parse("tel:" + "400-600-8669"));//导游圈产品替换成UU客客服
 						intent.setAction(Intent.ACTION_CALL);
 						startActivity(intent);
 						phone.setImageResource(R.drawable.route_detail_tel_image);

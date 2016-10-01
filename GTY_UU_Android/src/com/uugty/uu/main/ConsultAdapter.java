@@ -34,6 +34,7 @@ class ConsultAdapter extends BaseAdapter {
     private Context context;
     private List<ConsultEntity.Consult> ls;
     private LayoutInflater layoutInflater;
+    private String mUserId = "";
 
     public ConsultAdapter(Context context, List<ConsultEntity.Consult> ls) {
         super();
@@ -130,7 +131,10 @@ class ConsultAdapter extends BaseAdapter {
         if(position == 0){
             holder.baseline.setVisibility(View.GONE);
         }
-        if (ls.get(position).getUserId().equals(MyApplication.getInstance().getUserInfo().getOBJECT().getUserId())) {
+        if(MyApplication.getInstance().isLogin()){
+            mUserId = MyApplication.getInstance().getUserInfo().getOBJECT().getUserId();
+        }
+        if (ls.get(position).getUserId().equals(mUserId)) {
             holder.ll_consult_price.setVisibility(View.VISIBLE);
             holder.tv_consult_price.setVisibility(View.GONE);
             holder.ed_consult_price.setVisibility(View.VISIBLE);
@@ -140,8 +144,10 @@ class ConsultAdapter extends BaseAdapter {
             holder.ed_consult_price.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
                 public void onFocusChange(View v, boolean hasFocus) {
-                    if(!finalHolder.ed_consult_price.getText().toString().equals(ls.get(position).getMarkUserPrice())){
-                        sendModifyPriceRequest(finalHolder.ed_consult_price.getText().toString());
+                    if(!hasFocus) {
+                        if (!finalHolder.ed_consult_price.getText().toString().equals(ls.get(position).getMarkUserPrice()) && null != finalHolder.ed_consult_price.toString().trim()) {
+                            sendModifyPriceRequest(finalHolder.ed_consult_price.getText().toString());
+                        }
                     }
                 }
             });

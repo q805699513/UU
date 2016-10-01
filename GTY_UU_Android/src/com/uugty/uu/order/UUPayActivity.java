@@ -36,6 +36,7 @@ import com.uugty.uu.discount.c.MyDiscountActivity;
 import com.uugty.uu.discount.m.DiscountListItem;
 import com.uugty.uu.discount.m.DiscountListItem.DiscountEntity;
 import com.uugty.uu.entity.TouristEntity;
+import com.uugty.uu.main.OrderDateActivty;
 import com.uugty.uu.order.insure.InsureActivity;
 import com.uugty.uu.order.insure.OrderTouristAdapter;
 import com.uugty.uu.person.TouristListActivity;
@@ -497,9 +498,11 @@ public class UUPayActivity extends BaseActivity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.activity_paypricea_select_time:
 
-			toIntent.putExtra("dateIn",inday);
-			toIntent.putExtra("dateOut",outday);
-			toIntent.setClass(UUPayActivity.this, DatePickActivity.class);
+//			toIntent.putExtra("dateIn",inday);
+//			toIntent.putExtra("dateOut",outday);
+//			toIntent.setClass(UUPayActivity.this, DatePickActivity.class);
+//			startActivityForResult(toIntent, REQUEST_CHOOSE_DATE);
+			toIntent.setClass(this, OrderDateActivty.class);
 			startActivityForResult(toIntent, REQUEST_CHOOSE_DATE);
 			break;
 		default:
