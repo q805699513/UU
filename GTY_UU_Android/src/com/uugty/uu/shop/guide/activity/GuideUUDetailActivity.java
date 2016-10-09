@@ -33,7 +33,6 @@ import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
-import com.uugty.uu.common.myview.SearchPopuWindow;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.guide.LeadPageActivity;
@@ -44,7 +43,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class GuideDetailActivity extends BaseActivity implements
+public class GuideUUDetailActivity extends BaseActivity implements
 		SwipeRefreshLayout.OnRefreshListener, OnClickListener,
 		OnItemClickListener, OnScrollListener {
 
@@ -181,7 +180,7 @@ public class GuideDetailActivity extends BaseActivity implements
 			if (myservices == 0) {
 				Intent intent = new Intent();
 				intent.putExtra("type", type);
-				intent.setClass(GuideDetailActivity.this,
+				intent.setClass(GuideUUDetailActivity.this,
 						LeadPageActivity.class);
 				startActivity(intent);
 				SharedPreferenceUtil.getInstance(ctx).setInt("myexperience", 1);
@@ -193,7 +192,7 @@ public class GuideDetailActivity extends BaseActivity implements
 			if (myservices == 0) {
 				Intent intent = new Intent();
 				intent.putExtra("type", type);
-				intent.setClass(GuideDetailActivity.this,
+				intent.setClass(GuideUUDetailActivity.this,
 						LeadPageActivity.class);
 				startActivity(intent);
 				SharedPreferenceUtil.getInstance(ctx).setInt("mycharacteristic", 1);
@@ -230,7 +229,7 @@ public class GuideDetailActivity extends BaseActivity implements
 				// TODO Auto-generated method stub
 				// int radioButtonId = group.getCheckedRadioButtonId();
 				if (checkedId != -1) {
-					RadioButton rb = (RadioButton) GuideDetailActivity.this
+					RadioButton rb = (RadioButton) GuideUUDetailActivity.this
 							.findViewById(checkedId);
 					online = (String) rb.getTag();
 				}
@@ -246,7 +245,7 @@ public class GuideDetailActivity extends BaseActivity implements
 				// TODO Auto-generated method stub
 				// int radioButtonId = group.getCheckedRadioButtonId();
 				if (checkedId != -1) {
-					RadioButton rb = (RadioButton) GuideDetailActivity.this
+					RadioButton rb = (RadioButton) GuideUUDetailActivity.this
 							.findViewById(checkedId);
 					sex = (String) rb.getTag();
 				}
@@ -259,7 +258,7 @@ public class GuideDetailActivity extends BaseActivity implements
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				// TODO Auto-generated method stub
 				if (checkedId != -1) {
-					RadioButton rb = (RadioButton) GuideDetailActivity.this
+					RadioButton rb = (RadioButton) GuideUUDetailActivity.this
 							.findViewById(checkedId);
 					car = (String) rb.getTag();
 				}
@@ -270,7 +269,7 @@ public class GuideDetailActivity extends BaseActivity implements
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				if (checkedId != -1) {
-					RadioButton rb = (RadioButton) GuideDetailActivity.this
+					RadioButton rb = (RadioButton) GuideUUDetailActivity.this
 							.findViewById(checkedId);
 					uu = (String) rb.getTag();
 				}
@@ -283,7 +282,7 @@ public class GuideDetailActivity extends BaseActivity implements
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				// TODO Auto-generated method stub
 				if (checkedId != -1) {
-					RadioButton rb = (RadioButton) GuideDetailActivity.this
+					RadioButton rb = (RadioButton) GuideUUDetailActivity.this
 							.findViewById(checkedId);
 					sort = (String) rb.getTag();
 				}
@@ -358,9 +357,10 @@ public class GuideDetailActivity extends BaseActivity implements
 			}
 			break;
 		case R.id.guide_detail_no_data_release_btn:
-			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-			intent.setClass(this, GuideSearchPopuWindow.class);
-			startActivity(intent);
+			finish();
+//			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//			intent.setClass(this, GuideHomeActivity.class);
+//			startActivity(intent);
 			break;
 		case R.id.guide_screen_btn:
 			startId = 1;
@@ -469,7 +469,7 @@ public class GuideDetailActivity extends BaseActivity implements
 						mSwipeLayout.setRefreshing(false);
 						mSwipeLayout.setVisibility(View.GONE);
 						if (errorCode == -999) {
-							new AlertDialog.Builder(GuideDetailActivity.this)
+							new AlertDialog.Builder(GuideUUDetailActivity.this)
 									.setTitle("提示")
 									.setMessage("服务器连接失败！")
 									.setPositiveButton(

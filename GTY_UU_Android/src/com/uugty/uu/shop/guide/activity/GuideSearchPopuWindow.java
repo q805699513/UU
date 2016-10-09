@@ -150,7 +150,7 @@ public class GuideSearchPopuWindow extends Activity {
 					intent.putExtra("content", "mix");
 					intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 					intent.setClass(GuideSearchPopuWindow.this,
-							GuideDetailActivity.class);
+							GuideUUDetailActivity.class);
 					startActivity(intent);
 				} else {
 					setResult(RESULT_OK);

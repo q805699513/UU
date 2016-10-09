@@ -238,7 +238,7 @@ public class RoadDetailActivity extends BaseActivity implements
 			if (MyApplication.getInstance().isLogin()) {
 				// 弹出框，确认删除
 				CustomDialog.Builder builder = new CustomDialog.Builder(this);
-				builder.setMessage(userTel);
+				builder.setMessage("400-600-8669");
 				builder.setPositiveButton("呼叫", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						intent.setData(Uri.parse("tel:" + "400-600-8669"));//导游圈产品替换成UU客客服
@@ -564,7 +564,7 @@ public class RoadDetailActivity extends BaseActivity implements
 					intent.putExtra("roadId", moreLista.getLIST().get(position)
 							.getRoadlineId());
 					intent.setClass(RoadDetailActivity.this,
-							FindTestViewPagerActivity.class);
+							RoadDetailActivity.class);
 					startActivity(intent);
 					new Handler().postDelayed(new Runnable() {
 						public void run() {

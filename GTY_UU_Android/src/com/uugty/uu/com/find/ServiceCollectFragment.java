@@ -349,7 +349,7 @@ class ServiceAdapter extends BaseAdapter {
 //					}
 //				} else {
 //					intent.putExtra("topage",
-//							GuideDetailActivity.class.getName());
+//							GuideUUDetailActivity.class.getName());
 //					intent.setClass(context, LoginActivity.class);
 //					context.startActivity(intent);
 //				}

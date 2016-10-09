@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.uugty.uu"
-    android:versionCode="23"
-    android:versionName="2.0">
+    android:versionCode="24"
+    android:versionName="2.1">
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -91,7 +91,7 @@
         <!-- 设置环信应用的appkey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
-            android:value="uugty999#uutest"/>
+            android:value="uugty999#uu"/>
         <!-- 声明sdk所需的service SDK核心功能 -->
         <service android:name="com.easemob.chat.EMChatService" />
 
@@ -971,7 +971,7 @@
         </activity>
         <!-- 导游圈路线展示 -->
         <activity
-            android:name=".shop.guide.activity.GuideDetailActivity"
+            android:name=".shop.guide.activity.GuideUUDetailActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >

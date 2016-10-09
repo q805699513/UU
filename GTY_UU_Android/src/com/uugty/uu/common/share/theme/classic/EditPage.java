@@ -8,16 +8,6 @@
 
 package com.uugty.uu.common.share.theme.classic;
 
-import static com.mob.tools.utils.BitmapHelper.blur;
-import static com.mob.tools.utils.BitmapHelper.captureView;
-import static com.mob.tools.utils.R.dipToPx;
-import static com.mob.tools.utils.R.getScreenWidth;
-import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
-import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -51,15 +41,26 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import cn.sharesdk.framework.CustomPlatform;
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.framework.TitleLayout;
 
 import com.mob.tools.utils.UIHandler;
 import com.uugty.uu.common.share.onekeyshare.EditPageFakeActivity;
 import com.uugty.uu.common.share.onekeyshare.PicViewer;
 import com.uugty.uu.common.share.onekeyshare.ShareCore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import cn.sharesdk.framework.CustomPlatform;
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.framework.TitleLayout;
+
+import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
+import static cn.sharesdk.framework.utils.ShareSDKR.getStringRes;
+import static com.mob.tools.utils.BitmapHelper.blur;
+import static com.mob.tools.utils.BitmapHelper.captureView;
+import static com.mob.tools.utils.R.dipToPx;
+import static com.mob.tools.utils.R.getScreenWidth;
 
 /**
  * Photo-text Sharing will be handling in this page
@@ -183,7 +184,6 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 	// title bar
 	private TitleLayout getPageTitle() {
 		llTitle = new TitleLayout(getContext());
-		llTitle.setId(+ 22222);
 		int resId = getBitmapRes(activity, "title_back");
 		if (resId > 0) {
 			llTitle.setBackgroundResource(resId);
@@ -213,7 +213,6 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 	// page body
 	private LinearLayout getPageBody() {
 		llBody = new LinearLayout(getContext());
-		llBody.setId(+ 2);
 		int resId = getBitmapRes(activity, "ssdk_oks_edittext_back");
 		if (resId > 0) {
 			llBody.setBackgroundResource(resId);
@@ -275,7 +274,6 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 	// shared image container
 	private RelativeLayout getThumbView() {
 		rlThumb = new RelativeLayout(getContext());
-		rlThumb.setId(+ 1);
 		int dp_82 = dipToPx(getContext(), 82);
 		int dp_98 = dipToPx(getContext(), 98);
 		LayoutParams lpThumb

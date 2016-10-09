@@ -1,13 +1,14 @@
 package com.uugty.uu.common.myview;
 
-import com.uugty.uu.R;
-import com.uugty.uu.base.application.MyApplication;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.uugty.uu.R;
+import com.uugty.uu.base.application.MyApplication;
 
 public class CustomToast extends Toast{
 	 private static Toast mToast;
@@ -43,14 +44,14 @@ public class CustomToast extends Toast{
   
         result.setView(layout);  
         float itemHeight = MyApplication.getInstance().getResources().getDimension(R.dimen.toast_height);
-        result.setGravity(Gravity.BOTTOM, 0, (int) itemHeight);  
+        result.setGravity(Gravity.BOTTOM, 0, (int) itemHeight);
         result.setDuration(duration);  
   
         return result;  
     }  
   
     public static void showToast(Context context, String content) {  
-        mToast = Toast.makeText(context, content, 500); 
+        mToast = Toast.makeText(context, content, Toast.LENGTH_LONG);
         mToast.show();  
     }  
 }
