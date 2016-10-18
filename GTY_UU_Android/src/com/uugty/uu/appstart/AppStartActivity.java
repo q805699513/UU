@@ -1,5 +1,6 @@
 package com.uugty.uu.appstart;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -10,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -47,12 +49,15 @@ import com.uugty.uu.guide.ImageGuideActivity;
 import com.uugty.uu.main.MainActivity;
 import com.uugty.uu.modeal.UUlogin;
 import com.uugty.uu.util.LogUtils;
+import com.uugty.uu.util.SystemUtils;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.PermissionListener;
 
 import cn.jpush.android.api.JPushInterface;
 
 
 public class AppStartActivity extends BaseActivity implements
-		AMapLocationListener {
+		AMapLocationListener,PermissionListener{
 	private final String TAG = "AppStartActivity";//
 	private AppVersionCheckVo versionCheckVo;
 	// 定位
@@ -156,7 +161,7 @@ public class AppStartActivity extends BaseActivity implements
 		skipFramLayout = (FrameLayout) findViewById(R.id.app_start_skip_fram);
 		count = SharedPreferenceUtil.getInstance(ctx).getInt("count", 0);
 		appVersion = SharedPreferenceUtil.getInstance(ctx).getString(
-				"appversion", MyApplication.getInstance().getApp_version());
+				"appversion", Constant.appVersion);
 	}
 
 	public void setAnimation(final ImageView view){
@@ -171,15 +176,33 @@ public class AppStartActivity extends BaseActivity implements
 		view.startAnimation(set);
 	}
 
+	/**
+	 * 申请权限
+	 */
+	private void requestPermission() {
+		AndPermission.with(this)
+				.requestCode(100)
+				.permission(Manifest.permission.READ_EXTERNAL_STORAGE)
+				.send();
+		AndPermission.with(this)
+				.requestCode(102)
+				.permission(Manifest.permission.READ_PHONE_STATE)
+				.send();
+		AndPermission.with(this)
+				.requestCode(103)
+				.permission(Manifest.permission.CAMERA)
+				.send();
+		AndPermission.with(this)
+				.requestCode(104)
+				.permission(Manifest.permission.ACCESS_COARSE_LOCATION)
+				.send();
+
+	}
+
 	@Override
 	protected void initAction() {
 //		MobclickAgent.updateOnlineConfig(this);
-		String id = SharedPreferenceUtil.getInstance(ctx).getString("JPushRegistId","");
-		if(!id.equals(JPushInterface.getRegistrationID(ctx))) {
-			pushJpushId();
-		}
-		getBackgroudImageRequest();
-		sendRequest();
+		requestPermission();
 	}
 
 	@Override
@@ -198,8 +221,7 @@ public class AppStartActivity extends BaseActivity implements
 	private void pushJpushId() {
 		RequestParams params = new RequestParams();
 		params.add("registrationID", JPushInterface.getRegistrationID(ctx));
-		params.add("clientVersion", MyApplication.getInstance()
-				.getApp_version()); // 版本号
+		params.add("clientVersion", Constant.appVersion); // 版本号
 		params.add("type", "android");
 		APPRestClient.post(ctx, ServiceCode.PUSH_ID, params,
 				new APPResponseHandler<AddJpushId>(
@@ -301,10 +323,9 @@ public class AppStartActivity extends BaseActivity implements
 	private void apkVersionCheck() {
 		try {
 			RequestParams params = new RequestParams();
-			params.add("clientVersion", MyApplication.getInstance()
-					.getApp_version()); // 版本号
+			params.add("clientVersion", Constant.appVersion); // 版本号
 			params.add("osType", "android");
-			params.add("uuid", MyApplication.getInstance().getUuid()); // uuid
+			params.add("uuid", Constant.UUID); // uuid
 			params.add("channel", getAppMetaData(this));
 			APPRestClient.post(ctx, ServiceCode.VERSION_CHECK, params,
 					new APPResponseHandler<AppVersionCheckVo>(
@@ -465,19 +486,16 @@ public class AppStartActivity extends BaseActivity implements
 			startActivity(intent);
 			SharedPreferenceUtil.getInstance(ctx).setInt("count", 1);
 			SharedPreferenceUtil.getInstance(ctx).setString(
-					"appversion",
-					MyApplication.getInstance().getApp_version());
+					"appversion",Constant.appVersion);
 			SharedPreferenceUtil.getInstance(ctx).setInt("myservices",
 					0);
-		} else if (!appVersion.equals(MyApplication.getInstance()
-				.getApp_version())) {
+		} else if (!appVersion.equals(Constant.appVersion)) {
 			intent.setClass(AppStartActivity.this,
 					ImageGuideActivity.class);
 			startActivity(intent);
 			SharedPreferenceUtil.getInstance(ctx).setInt("count", 1);
 			SharedPreferenceUtil.getInstance(ctx).setString(
-					"appversion",
-					MyApplication.getInstance().getApp_version());
+					"appversion",Constant.appVersion);
 			SharedPreferenceUtil.getInstance(ctx).setInt("myservices",
 					0);
 		} else {// 判断用户名、密码
@@ -512,7 +530,7 @@ public class AppStartActivity extends BaseActivity implements
 			params.add("userLastLoginLng", "39.938897"); // 经度
 			params.add("userLastLoginLat", "116.464053"); // 纬度
 		}
-		params.add("uuid", MyApplication.getInstance().getUuid()); // uuid
+		params.add("uuid", Constant.UUID); // uuid
 
 		APPRestClient.post(ctx, APPRestClient.HTTPS_BASE_URL
 				+ ServiceCode.UULOGIN_INTERFACE, params, true,
@@ -624,5 +642,42 @@ public class AppStartActivity extends BaseActivity implements
 	protected void onPause() {
 		super.onPause();
 		stopLocation();
+	}
+
+	@Override
+	public void onSucceed(int requestCode) {
+		Constant.UUID = SystemUtils.getUUID(this);
+		Constant.appVersion = SystemUtils.getVersionName(this);
+		String id = SharedPreferenceUtil.getInstance(ctx).getString("JPushRegistId","");
+		if(!id.equals(JPushInterface.getRegistrationID(ctx))) {
+			pushJpushId();
+		}
+		getBackgroudImageRequest();
+		sendRequest();
+	}
+
+	@Override
+	public void onFailed(int requestCode) {
+		if (AndPermission.getShouldShowRationalePermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+				||AndPermission.getShouldShowRationalePermissions(this, Manifest.permission.READ_PHONE_STATE)
+				||AndPermission.getShouldShowRationalePermissions(this, Manifest.permission.CAMERA)
+				||AndPermission.getShouldShowRationalePermissions(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+			CustomToast.showToast(this, "相关权限获取失败");
+		} else {
+			new AlertDialog.Builder(this)
+					.setTitle("友好提醒")
+					.setMessage("您已拒绝了相关权限，并且下次不再提示，为了您更好的应用体验，请在设置中为我们授权相关权限。！")
+					.setPositiveButton("知道了", new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.cancel();
+						}
+					}).show();
+		}
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		AndPermission.onRequestPermissionsResult(this,requestCode,permissions,grantResults,this);
 	}
 }

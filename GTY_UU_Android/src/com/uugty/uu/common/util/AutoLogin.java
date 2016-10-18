@@ -10,6 +10,7 @@ import android.os.Message;
 
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMGroupManager;
+import com.uugty.uu.appstart.Constant;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.com.helper.DemoHXSDKHelper;
 import com.uugty.uu.common.asynhttp.RequestParams;
@@ -71,7 +72,7 @@ public class AutoLogin {
 			params.add("userLastLoginLng", "39.938897"); // 经度
 			params.add("userLastLoginLat", "116.464053"); // 纬度
 		}
-		params.add("uuid", MyApplication.getInstance().getUuid()); // uuid
+		params.add("uuid", Constant.UUID); // uuid
 
 		APPRestClient.post(context, APPRestClient.HTTPS_BASE_URL
 				+ ServiceCode.UULOGIN_INTERFACE, params, true,

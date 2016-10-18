@@ -34,6 +34,7 @@ import com.tencent.mm.sdk.modelmsg.SendAuth;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.uugty.uu.R;
+import com.uugty.uu.appstart.Constant;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.com.helper.DemoHXSDKHelper;
@@ -310,7 +311,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
 			params.add("userLastLoginLng", "39.938897"); // 经度
 			params.add("userLastLoginLat", "116.464053"); // 纬度
 		}
-		params.add("uuid", MyApplication.getInstance().getUuid()); // uuid
+		params.add("uuid", Constant.UUID); // uuid
 
 		APPRestClient.post(ctx, APPRestClient.HTTPS_BASE_URL
 				+ ServiceCode.UULOGIN_INTERFACE, params, true,
@@ -366,8 +367,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
 	private void pushJpushId() {
 		RequestParams params = new RequestParams();
 		params.add("registrationID", JPushInterface.getRegistrationID(ctx));
-		params.add("clientVersion", MyApplication.getInstance()
-				.getApp_version()); // 版本号
+		params.add("clientVersion", Constant.appVersion); // 版本号
 		params.add("type", "android");
 		APPRestClient.post(ctx, ServiceCode.PUSH_ID, params,
 				new APPResponseHandler<AddJpushId>(
@@ -610,7 +610,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,
 			params.add("userLastLoginLng", "39.938897"); // 经度
 			params.add("userLastLoginLat", "116.464053"); // 纬度
 		}
-		params.add("uuid", MyApplication.getInstance().getUuid()); // uuid
+		params.add("uuid", Constant.UUID); // uuid
 
 		APPRestClient.post(ctx, APPRestClient.HTTPS_BASE_URL
 				+ ServiceCode.USER_WECHAR_LOGIN, params, true,

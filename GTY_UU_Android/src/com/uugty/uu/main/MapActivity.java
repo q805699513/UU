@@ -42,6 +42,7 @@ import com.amap.api.maps2d.model.MarkerOptions;
 import com.amap.api.maps2d.model.MyLocationStyle;
 import com.google.gson.Gson;
 import com.uugty.uu.R;
+import com.uugty.uu.appstart.Constant;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
@@ -803,7 +804,7 @@ public class MapActivity extends Activity implements AMapLocationListener
 				@Override
 				public void onClick(View v) {
 					RequestParams params = new RequestParams();
-					params.add("tempUUID", MyApplication.getInstance().getUuid());
+					params.add("tempUUID", Constant.UUID);
 					params.add("tempShout", resultContent);
 					APPRestClient.post(MapActivity.this,
 							ServiceCode.MAP_USER_TEMP_LOGIN, params,

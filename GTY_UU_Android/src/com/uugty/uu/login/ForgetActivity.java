@@ -24,6 +24,7 @@ import com.easemob.chat.EMGroupManager;
 import com.easemob.chat.EMMessage;
 import com.easemob.chat.TextMessageBody;
 import com.uugty.uu.R;
+import com.uugty.uu.appstart.Constant;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.com.helper.DemoHXSDKHelper;
@@ -310,7 +311,7 @@ public class ForgetActivity extends BaseActivity implements OnClickListener {
 			params.add("userLastLoginLng", "39.938897");
 			params.add("userLastLoginLat", "116.464053");
 		}
-		params.add("uuid", MyApplication.getInstance().getUuid()); // uuid
+		params.add("uuid", Constant.UUID); // uuid
 		params.add("userChannel", getAppMetaData(this));
 
 		APPRestClient.post(this, APPRestClient.HTTPS_BASE_URL
@@ -491,7 +492,7 @@ public class ForgetActivity extends BaseActivity implements OnClickListener {
 			params.add("userLastLoginLng", "39.938897"); // 经度
 			params.add("userLastLoginLat", "116.464053"); // 纬度
 		}
-		params.add("uuid", MyApplication.getInstance().getUuid()); // uuid
+		params.add("uuid", Constant.UUID); // uuid
 
 		APPRestClient.post(ctx, APPRestClient.HTTPS_BASE_URL
 				+ ServiceCode.UULOGIN_INTERFACE, params, true,

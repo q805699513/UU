@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import com.uugty.uu.R;
+import com.uugty.uu.appstart.Constant;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.common.asynhttp.RequestParams;
@@ -243,7 +244,7 @@ public class RightForgetActivity extends BaseActivity implements
 		RequestParams params = new RequestParams();
 		params.put("userTel", mobile);
 		params.put("type", "2");
-		params.put("uuid", MyApplication.getInstance().getUuid());
+		params.put("uuid", Constant.UUID);
 		APPRestClient
 				.post(this, ServiceCode.UUCODEY_INTERFACE, params,
 						new APPResponseHandler<MessageModeal>(

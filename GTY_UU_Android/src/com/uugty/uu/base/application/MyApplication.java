@@ -3,12 +3,8 @@ package com.uugty.uu.base.application;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.support.multidex.MultiDex;
-import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -27,16 +23,12 @@ import com.uugty.uu.common.util.CacheFileUtil;
 import com.uugty.uu.common.util.img.ImageLoaderConfig;
 import com.uugty.uu.modeal.UUlogin;
 
-import java.util.UUID;
-
 import cn.jpush.android.api.JPushInterface;
 
 public class MyApplication extends BaseApplication {
 
 	private String TAG = "MyApplication";
 	private static MyApplication mApplication;
-	private String app_version;// app版本
-	private String uuid; // 设备的唯一标识
 	private boolean isLogin = false;
 	private UUlogin userInfo;// 客户信息
 	private String routeId = "";// 线路ID
@@ -72,9 +64,7 @@ public class MyApplication extends BaseApplication {
 		ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
 				.setDownsampleEnabled(true).build();
 		Fresco.initialize(this, config);// 图片缓存初始化配置
-		setUUid();
 		setAppName(getResources().getString(R.string.app_name));
-		setVersion();
 		// 加载sqlite加密so库
 		// SQLiteDatabase.loadLibs(this);
 		// 初始化图片加载配置
@@ -105,37 +95,6 @@ public class MyApplication extends BaseApplication {
 
 	}
 
-	/**
-	 * 取得应用的版本号，并保存到全局变量中
-	 */
-	public void setVersion() {
-		PackageManager packageManager = getPackageManager();
-		try {
-			PackageInfo packageInfo = packageManager.getPackageInfo(
-					getPackageName(), 0);
-			app_version = packageInfo.versionName;
-			/* SharedPreferenceUtil.getInstance(this).setString("appversion",
-			  app_version);*/
-			 
-		} catch (NameNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void setUUid() {
-		final TelephonyManager tm = (TelephonyManager) getBaseContext()
-				.getSystemService(Context.TELEPHONY_SERVICE);
-		final String tmDevice, tmSerial, androidId;
-		tmDevice = "" + tm.getDeviceId();
-		tmSerial = "" + tm.getSimSerialNumber();
-		androidId = ""
-				+ android.provider.Settings.Secure.getString(
-						getContentResolver(),
-						android.provider.Settings.Secure.ANDROID_ID);
-		UUID deviceUuid = new UUID(androidId.hashCode(),
-				((long) tmDevice.hashCode() << 32) | tmSerial.hashCode());
-		uuid = deviceUuid.toString();
-	}
 
 	/**
 	 * add by mcoy for bugID=427
@@ -208,22 +167,6 @@ public class MyApplication extends BaseApplication {
 	public void clearLoginData() {
 		this.isLogin = false;
 		this.userInfo = null;
-	}
-
-	public String getApp_version() {
-		return app_version;
-	}
-
-	public void setApp_version(String app_version) {
-		this.app_version = app_version;
-	}
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
 	}
 
 	public boolean isLogin() {

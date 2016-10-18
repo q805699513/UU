@@ -36,12 +36,16 @@ dependencies {
     //    compile 'com.google.android.gms:play-services:8.4.0'
     // ButterKnife
     compile 'com.jakewharton:butterknife:7.0.1+'
+    //6.0权限
+    compile ('com.yanzhenjie:permission:1.0.3'){
+        exclude module: 'support-v4'
+    }
 }
 
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '24.0.2'
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.uugty.uu"

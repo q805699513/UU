@@ -920,7 +920,7 @@ public class FriendsDynamicFragment extends Fragment implements
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return ls.length;
+			return ls.length > 6 ? 6:ls.length;
 		}
 
 		@Override
@@ -948,12 +948,14 @@ public class FriendsDynamicFragment extends Fragment implements
 			} else {
 				holder = (ViewHolder) view.getTag();
 			}
-			ImageLoader.getInstance().displayImage(
-					APPRestClient.SERVER_IP
-							+ ls[position].substring(0, ls[position].indexOf("."))
-							+ "_ya"
-							+ ls[position].substring(ls[position].indexOf(".")),
-					holder.img, options);
+			if(position < 6) {
+				ImageLoader.getInstance().displayImage(
+						APPRestClient.SERVER_IP
+								+ ls[position].substring(0, ls[position].indexOf("."))
+								+ "_ya"
+								+ ls[position].substring(ls[position].indexOf(".")),
+						holder.img, options);
+			}
 		/*
 		 * holder.img.setImageURI(Uri .parse(APPRestClient.SERVER_IP +
 		 * ls[position

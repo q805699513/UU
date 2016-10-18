@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.easemob.chat.EMChatManager;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.uugty.uu.R;
+import com.uugty.uu.appstart.Constant;
 import com.uugty.uu.appstart.UpgradeDialogActivity;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
@@ -92,7 +93,7 @@ public class PersonSetupActivity extends BaseActivity implements OnClickListener
 		cache_size=(TextView) findViewById(R.id.cache_size);
 		cache_size.setText(""+FileSizeUtil.getFileOrFilesSize(CacheFileUtil.rootPath, 3)+"M");
 		get_version=(TextView) findViewById(R.id.get_version);
-		get_version.setText("v "+MyApplication.getInstance().getApp_version());
+		get_version.setText("v "+Constant.appVersion);
 		back=(LinearLayout) findViewById(R.id.tabar_back);	
 	}
 
@@ -270,7 +271,7 @@ public class PersonSetupActivity extends BaseActivity implements OnClickListener
 
 		try {
 			RequestParams params = new RequestParams();
-			params.add("clientVersion", MyApplication.getInstance().getApp_version()); // 版本号
+			params.add("clientVersion", Constant.appVersion); // 版本号
 			params.add("osType", "android");
 			Log.i(TAG, "apkVersionCheck url:" + APPRestClient.BASE_URL
 					+ ServiceCode.VERSION_CHECK);

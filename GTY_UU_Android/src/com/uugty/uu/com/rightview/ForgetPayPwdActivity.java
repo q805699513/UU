@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.uugty.uu.R;
+import com.uugty.uu.appstart.Constant;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.common.asynhttp.RequestParams;
@@ -191,7 +192,7 @@ public class ForgetPayPwdActivity extends BaseActivity implements
 			params.put("mobileCountryCode",MyApplication.getInstance().getUserInfo()
 					.getOBJECT().getMobileCountryCode());
 			params.put("type", "3");
-			params.put("uuid", MyApplication.getInstance().getUuid());
+			params.put("uuid", Constant.UUID);
 			APPRestClient.post(this, ServiceCode.UUCODEY_INTERFACE, params,
 					new APPResponseHandler<MessageModeal>(MessageModeal.class,this) {
 						@Override

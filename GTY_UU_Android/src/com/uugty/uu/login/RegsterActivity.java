@@ -28,6 +28,7 @@ import com.easemob.chat.EMGroupManager;
 import com.easemob.chat.EMMessage;
 import com.easemob.chat.TextMessageBody;
 import com.uugty.uu.R;
+import com.uugty.uu.appstart.Constant;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.com.helper.DemoHXSDKHelper;
@@ -324,7 +325,7 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 		RequestParams params = new RequestParams();
 		params.put("userTel", user_phone);
 		params.put("mobileCountryCode",phoneCode);
-		params.put("uuid", MyApplication.getInstance().getUuid());
+		params.put("uuid", Constant.UUID);
 		if (!TextUtils.isEmpty(toPage)) {
 			if (toPage.equals("regist")) {
 				params.put("type", "0");
@@ -577,7 +578,7 @@ public class RegsterActivity extends BaseActivity implements OnClickListener {
 		params.add("userLastLoginLng", "39.938897"); // 经度
 		params.add("userLastLoginLat", "116.464053"); // 纬度
 
-		params.add("uuid", MyApplication.getInstance().getUuid()); // uuid
+		params.add("uuid", Constant.UUID); // uuid
 
 		APPRestClient.post(ctx, APPRestClient.HTTPS_BASE_URL
 				+ ServiceCode.UULOGIN_INTERFACE, params, true,
