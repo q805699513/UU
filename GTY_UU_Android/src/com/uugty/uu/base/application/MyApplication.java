@@ -17,7 +17,6 @@ import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.umeng.analytics.MobclickAgent;
 import com.uugty.uu.R;
 import com.uugty.uu.com.helper.DemoHXSDKHelper;
-import com.uugty.uu.common.Exception.CrashHandler;
 import com.uugty.uu.common.util.ActivityCollector;
 import com.uugty.uu.common.util.CacheFileUtil;
 import com.uugty.uu.common.util.img.ImageLoaderConfig;
@@ -67,8 +66,7 @@ public class MyApplication extends BaseApplication {
 		setAppName(getResources().getString(R.string.app_name));
 		// 加载sqlite加密so库
 		// SQLiteDatabase.loadLibs(this);
-		// 初始化图片加载配置
-		CacheFileUtil.initCreateFiles();
+
 		if (!ImageLoader.getInstance().isInited()) {
 			ImageLoaderConfig.initImageLoader(this, CacheFileUtil.rootPath);
 		}
@@ -76,10 +74,6 @@ public class MyApplication extends BaseApplication {
 		JPushInterface.setDebugMode(true);
 		JPushInterface.init(this.getApplicationContext());
 		JPushInterface.getRegistrationID(this.getApplicationContext());
-		// 崩溃异常监听
-
-		CrashHandler crashHandler = CrashHandler.getInstance();
-		crashHandler.init(getContext());
 
 		// 启动网络监听广播
 		/*

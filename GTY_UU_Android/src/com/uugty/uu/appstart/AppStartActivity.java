@@ -34,12 +34,14 @@ import com.uugty.uu.R;
 import com.uugty.uu.base.BaseActivity;
 import com.uugty.uu.base.application.MyApplication;
 import com.uugty.uu.com.helper.DemoHXSDKHelper;
+import com.uugty.uu.common.Exception.CrashHandler;
 import com.uugty.uu.common.asynhttp.RequestParams;
 import com.uugty.uu.common.asynhttp.service.APPResponseHandler;
 import com.uugty.uu.common.asynhttp.service.APPRestClient;
 import com.uugty.uu.common.asynhttp.service.ServiceCode;
 import com.uugty.uu.common.myview.CustomToast;
 import com.uugty.uu.common.util.ActivityCollector;
+import com.uugty.uu.common.util.CacheFileUtil;
 import com.uugty.uu.common.util.SharedPreferenceUtil;
 import com.uugty.uu.entity.AddJpushId;
 import com.uugty.uu.entity.AppStartImageEntity;
@@ -48,16 +50,16 @@ import com.uugty.uu.entity.TestEntity;
 import com.uugty.uu.guide.ImageGuideActivity;
 import com.uugty.uu.main.MainActivity;
 import com.uugty.uu.modeal.UUlogin;
+import com.uugty.uu.permission.AndPermission;
+import com.uugty.uu.permission.PermissionListener;
 import com.uugty.uu.util.LogUtils;
 import com.uugty.uu.util.SystemUtils;
-import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.PermissionListener;
 
 import cn.jpush.android.api.JPushInterface;
 
 
 public class AppStartActivity extends BaseActivity implements
-		AMapLocationListener,PermissionListener{
+		AMapLocationListener,PermissionListener {
 	private final String TAG = "AppStartActivity";//
 	private AppVersionCheckVo versionCheckVo;
 	// 定位
@@ -180,23 +182,8 @@ public class AppStartActivity extends BaseActivity implements
 	 * 申请权限
 	 */
 	private void requestPermission() {
-		AndPermission.with(this)
-				.requestCode(100)
-				.permission(Manifest.permission.READ_EXTERNAL_STORAGE)
-				.send();
-		AndPermission.with(this)
-				.requestCode(102)
-				.permission(Manifest.permission.READ_PHONE_STATE)
-				.send();
-		AndPermission.with(this)
-				.requestCode(103)
-				.permission(Manifest.permission.CAMERA)
-				.send();
-		AndPermission.with(this)
-				.requestCode(104)
-				.permission(Manifest.permission.ACCESS_COARSE_LOCATION)
-				.send();
-
+		AndPermission.send(this,100,Manifest.permission.WRITE_EXTERNAL_STORAGE
+				,Manifest.permission.READ_EXTERNAL_STORAGE);
 	}
 
 	@Override
@@ -648,6 +635,11 @@ public class AppStartActivity extends BaseActivity implements
 	public void onSucceed(int requestCode) {
 		Constant.UUID = SystemUtils.getUUID(this);
 		Constant.appVersion = SystemUtils.getVersionName(this);
+		// 初始化图片加载配置
+		CacheFileUtil.initCreateFiles();
+		// 崩溃异常监听
+		CrashHandler crashHandler = CrashHandler.getInstance();
+		crashHandler.init(ctx);
 		String id = SharedPreferenceUtil.getInstance(ctx).getString("JPushRegistId","");
 		if(!id.equals(JPushInterface.getRegistrationID(ctx))) {
 			pushJpushId();
@@ -661,7 +653,7 @@ public class AppStartActivity extends BaseActivity implements
 		if (AndPermission.getShouldShowRationalePermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)
 				||AndPermission.getShouldShowRationalePermissions(this, Manifest.permission.READ_PHONE_STATE)
 				||AndPermission.getShouldShowRationalePermissions(this, Manifest.permission.CAMERA)
-				||AndPermission.getShouldShowRationalePermissions(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+				||AndPermission.getShouldShowRationalePermissions(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
 			CustomToast.showToast(this, "相关权限获取失败");
 		} else {
 			new AlertDialog.Builder(this)
@@ -678,6 +670,7 @@ public class AppStartActivity extends BaseActivity implements
 
 	@Override
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode,permissions,grantResults);
 		AndPermission.onRequestPermissionsResult(this,requestCode,permissions,grantResults,this);
 	}
 }

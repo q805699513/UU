@@ -1,9 +1,9 @@
 package com.uugty.uu.base.application;
 
-import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDexApplication;
 
-public class BaseApplication extends Application{
+public class BaseApplication extends MultiDexApplication {
 
 	//全局上下文
 	private Context context;
