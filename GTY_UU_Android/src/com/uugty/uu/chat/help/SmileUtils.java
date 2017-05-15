@@ -177,7 +177,5 @@ public class SmileUtils {
 		
 		return b;
 	}
-	
-	
-	
+
 }

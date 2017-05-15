@@ -13,7 +13,6 @@
  */
 package com.uugty.uu.chat.help;
 
-import java.io.File;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
@@ -24,12 +23,15 @@ import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMMessage;
 import com.easemob.chat.EMMessage.ChatType;
 import com.easemob.chat.VoiceMessageBody;
 import com.uugty.uu.R;
 import com.uugty.uu.uuchat.ChatActivity;
+
+import java.io.File;
 
 public class VoicePlayClickListener implements View.OnClickListener {
 
@@ -166,7 +168,6 @@ public class VoicePlayClickListener implements View.OnClickListener {
 					playVoice(voiceBody.getLocalUrl());
 				else
 					System.err.println("file not exist");
-
 			} else if (message.status == EMMessage.Status.INPROGRESS) {
 				String s=new String();
 				

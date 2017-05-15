@@ -183,7 +183,8 @@ public class AppStartActivity extends BaseActivity implements
 	 */
 	private void requestPermission() {
 		AndPermission.send(this,100,Manifest.permission.WRITE_EXTERNAL_STORAGE
-				,Manifest.permission.READ_EXTERNAL_STORAGE);
+				,Manifest.permission.READ_EXTERNAL_STORAGE
+				,Manifest.permission.READ_PHONE_STATE);
 	}
 
 	@Override
